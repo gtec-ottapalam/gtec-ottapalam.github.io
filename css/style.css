@@ -391,17 +391,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-dark);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-    0 20px 40px -10px rgba(15, 23, 42, 0.18),
-    0 10px 15px -5px rgba(37, 99, 235, 0.15);
-  color: var(--color-dark);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
 .hero-glass-card:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-3px) scale(1.01);
   box-shadow: 
-    0 25px 45px -10px rgba(15, 23, 42, 0.22),
-    0 12px 20px -5px rgba(37, 99, 235, 0.2);
+    0 20px 38px -8px rgba(15, 23, 42, 0.2),
+    0 8px 16px -4px rgba(37, 99, 235, 0.18);
 }
 
 /* ==========================================================================
@@ -410,8 +405,8 @@ h1, h2, h3, h4, h5, h6 {
 .hero-search-pill {
   background: #FFFFFF;
   border-radius: var(--radius-full);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
-  padding: 6px 8px 6px 20px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  padding: 4px 6px 4px 16px;
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
@@ -420,7 +415,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-search-pill:focus-within {
   border-color: var(--color-pop-yellow);
-  box-shadow: 0 16px 36px rgba(251, 191, 36, 0.35);
+  box-shadow: 0 12px 28px rgba(251, 191, 36, 0.32);
 }
 
 .hero-search-input {
