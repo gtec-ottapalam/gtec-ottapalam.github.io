@@ -733,9 +733,9 @@ document.addEventListener('DOMContentLoaded', () => {
         dots.forEach((dot, idx) => {
           if (dot) {
             if (idx === index) {
-              dot.className = 'w-8 h-2.5 rounded-full bg-[#1746C8] shadow-sm transition-all duration-300 cursor-pointer';
+              dot.className = 'w-8 h-2.5 rounded-full bg-amber-300 shadow-md transition-all duration-300 cursor-pointer';
             } else {
-              dot.className = 'w-2.5 h-2.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300 cursor-pointer';
+              dot.className = 'w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer';
             }
           }
         });
