@@ -938,9 +938,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Ensure browser locks to top hero section and disables old scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
     // Freeze scroll during cinematic sequence
     document.body.classList.add('overflow-hidden');
     if (typeof lenis !== 'undefined' && lenis) {
+      lenis.scrollTo(0, { immediate: true });
       lenis.stop();
     }
 
@@ -973,6 +980,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let introTL = null;
 
     function buildAndPlayIntro() {
+      // Snap to top hero position
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (typeof lenis !== 'undefined' && lenis) {
+        lenis.scrollTo(0, { immediate: true });
+      }
+
       // Clean previous state
       if (introTL) introTL.kill();
 
@@ -1157,12 +1170,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function finishIntro() {
+      // Force viewport directly to top of hero section
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
       introStage.classList.add('intro-hidden');
       introStage.style.display = 'none';
       document.body.classList.remove('overflow-hidden');
+      
       if (typeof lenis !== 'undefined' && lenis) {
+        lenis.scrollTo(0, { immediate: true });
         lenis.start();
       }
+
       // Guarantee all hero elements are 100% active, visible, and responsive
       gsap.set([
         heroElements.announcement, 

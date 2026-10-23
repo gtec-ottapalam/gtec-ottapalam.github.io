@@ -59,6 +59,14 @@
   <link rel="stylesheet" href="css/style.css?v=light-2.0">
   <link rel="stylesheet" href="style.css?v=light-2.0">
 
+  <!-- Force browser to start at hero (disable previous scroll restoration) -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
+
   <!-- Universal Image & Asset Fallback (Auto-resolves assets whether in subfolders or flat root) -->
   <script>
     document.addEventListener('error', function(e) {
