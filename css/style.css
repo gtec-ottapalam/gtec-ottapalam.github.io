@@ -745,7 +745,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem 0 1.5rem 0;
   cursor: grab;
   scrollbar-width: thin;
-  scrollbar-color: #1746C8 #E5EAF1;
+  scrollbar-color: var(--hero-blue) var(--border);
 }
 
 .journey-carousel-track.grabbing {
@@ -759,19 +759,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .journey-carousel-track::-webkit-scrollbar-track {
-  background: #E5EAF1;
+  background: var(--border);
   border-radius: 9999px;
   margin: 0 4rem;
 }
 
 .journey-carousel-track::-webkit-scrollbar-thumb {
-  background: #1746C8;
+  background: var(--hero-blue);
   border-radius: 9999px;
-  box-shadow: 0 0 8px rgba(23, 70, 200, 0.3);
+  box-shadow: 0 0 8px rgba(29, 78, 216, 0.3);
 }
 
 .journey-carousel-track::-webkit-scrollbar-thumb:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
 }
 
 .journey-slide-card {
@@ -782,10 +782,10 @@ h1, h2, h3, h4, h5, h6 {
   scroll-snap-stop: always;
   border-radius: 28px;
   background: #FFFFFF;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-md);
   transition: transform 0.3s ease, border-color 0.3s ease;
-  color: #24334B;
+  color: var(--heading);
 }
 
 @media (min-width: 1024px) {
@@ -796,7 +796,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .journey-slide-card:hover {
-  border-color: rgba(23, 70, 200, 0.35);
+  border-color: var(--hero-blue);
 }
 
 .journey-photo-frame {
@@ -805,10 +805,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 360px;
   border-radius: 22px;
   overflow: hidden;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
   box-shadow: 
-    0 15px 35px -8px rgba(36, 51, 75, 0.15),
-    0 0 0 1px #E5EAF1;
+    0 15px 35px -8px rgba(20, 43, 77, 0.15),
+    0 0 0 1px var(--border);
 }
 
 @media (min-width: 640px) {
@@ -836,7 +836,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem 0 2.5rem 0;
   cursor: grab;
   scrollbar-width: thin;
-  scrollbar-color: #1746C8 #E5EAF1;
+  scrollbar-color: var(--hero-blue) var(--border);
 }
 
 .sideways-carousel-track.grabbing {
@@ -850,17 +850,17 @@ h1, h2, h3, h4, h5, h6 {
   height: 8px;
 }
 .sideways-carousel-track::-webkit-scrollbar-track {
-  background: #E5EAF1;
+  background: var(--border);
   border-radius: 9999px;
   margin: 0 2rem;
 }
 .sideways-carousel-track::-webkit-scrollbar-thumb {
-  background: #1746C8;
+  background: var(--hero-blue);
   border-radius: 9999px;
-  box-shadow: 0 0 8px rgba(23, 70, 200, 0.3);
+  box-shadow: 0 0 8px rgba(29, 78, 216, 0.3);
 }
 .sideways-carousel-track::-webkit-scrollbar-thumb:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
 }
 
 .sideways-stream-card {
@@ -868,8 +868,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 380px;
   scroll-snap-align: start;
   border-radius: 28px;
-  background: #F5F8FD;
-  border: 1px solid #E5EAF1;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -877,7 +877,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
   position: relative;
-  color: #24334B;
+  color: var(--heading);
 }
 
 @media (min-width: 768px) {
@@ -888,7 +888,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sideways-stream-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(23, 70, 200, 0.4);
+  border-color: var(--hero-blue);
   background: #FFFFFF;
   box-shadow: var(--shadow-lg);
 }
@@ -898,9 +898,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #EAF2FF;
-  color: #1746C8;
-  border: 1px solid #E5EAF1;
+  background: #FFFFFF;
+  color: var(--hero-blue);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -910,11 +910,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .carousel-nav-btn:hover {
-  background: #1746C8;
+  background: var(--hero-blue);
   color: #FFFFFF;
-  border-color: #1746C8;
+  border-color: var(--hero-blue);
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(23, 70, 200, 0.3);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.3);
 }
 
 .carousel-nav-btn:active {
@@ -924,23 +924,23 @@ h1, h2, h3, h4, h5, h6 {
 /* Light Card Utilities */
 .glass-dark-card {
   background: #FFFFFF;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
   border-radius: 24px;
-  color: #24334B;
+  color: var(--heading);
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
 }
 
 .glass-dark-card:hover {
-  border-color: rgba(23, 70, 200, 0.35);
+  border-color: var(--hero-blue);
   box-shadow: var(--shadow-md);
 }
 
 .form-glass-input {
-  background: #F5F8FD;
-  border: 1px solid #E5EAF1;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
   border-radius: 14px;
-  color: #24334B;
+  color: var(--heading);
   padding: 12px 16px;
   width: 100%;
   font-size: 0.95rem;
