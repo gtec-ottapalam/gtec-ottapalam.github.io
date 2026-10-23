@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     emptyState.classList.add('hidden');
 
     const html = toShow.map((c, index) => {
-      // Category badge color styling (clean light aesthetic)
-      let catBadgeClass = 'bg-[#EAF2FF] text-[#1746C8] border border-[#CBDCF8]';
+      // Category badge color styling (high-contrast token system)
+      let catBadgeClass = 'bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC]';
 
       let levelBadgeClass = 'badge-level-certificate';
       if (c.level === 'Diploma') levelBadgeClass = 'badge-level-diploma';
@@ -135,49 +135,49 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <!-- Course Title -->
-            <h3 class="text-xl font-black text-[#24334B] group-hover:text-[#1746C8] transition-colors line-clamp-2 mb-1.5 leading-snug">
+            <h3 class="text-xl font-black text-[#142B4D] group-hover:text-[#1D4ED8] transition-colors line-clamp-2 mb-1.5 leading-snug">
               ${c.title}
             </h3>
 
             <!-- Sub Category / Specialization -->
-            <p class="text-xs text-slate-500 mb-3.5 font-medium">
+            <p class="text-xs text-[#475569] mb-3.5 font-semibold">
               ${c.subCategory}
             </p>
 
-            <!-- Tools & Software Covered (Prominent Box) -->
-            <div class="mb-4 p-3.5 rounded-xl bg-[#F5F8FD] border border-[#E5EAF1] text-xs">
-              <div class="flex items-center gap-1.5 text-[#1746C8] font-bold mb-1">
-                <svg class="w-3.5 h-3.5 text-[#1746C8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <!-- Tools & Software Covered (High Contrast Defined Box) -->
+            <div class="mb-4 p-3.5 rounded-xl bg-[#EEF3FB] border border-[#D5DFEC] text-xs">
+              <div class="flex items-center gap-1.5 text-[#1D4ED8] font-bold mb-1">
+                <svg class="w-3.5 h-3.5 text-[#1D4ED8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 <span>Tools & Software Covered:</span>
               </div>
-              <p class="text-[#24334B] font-semibold leading-relaxed">${c.tools}</p>
+              <p class="text-[#142B4D] font-bold leading-relaxed">${c.tools}</p>
             </div>
 
             <!-- Duration & Mode -->
-            <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-4 pt-2 border-t border-[#E5EAF1]">
+            <div class="grid grid-cols-2 gap-2 text-xs text-[#475569] mb-4 pt-2 border-t border-[#D5DFEC]">
               <div class="flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-[#1746C8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span>Duration: <strong class="text-[#24334B] font-bold">${c.duration}</strong></span>
+                <svg class="w-3.5 h-3.5 text-[#1D4ED8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>Duration: <strong class="text-[#142B4D] font-bold">${c.duration}</strong></span>
               </div>
               <div class="flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span class="truncate">100% Practical Lab</span>
+                <svg class="w-3.5 h-3.5 text-emerald-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span class="truncate font-semibold text-[#065F46]">100% Practical Lab</span>
               </div>
             </div>
 
             <!-- Software Tags -->
             <div class="flex flex-wrap gap-1.5 mb-5">
               ${(c.toolsList || []).map(t => `
-                <span class="text-[11px] font-medium bg-[#EAF2FF] text-[#1746C8] px-2 py-0.5 rounded-md border border-[#CBDCF8]">#${t}</span>
+                <span class="text-[11px] font-semibold bg-[#EEF3FB] text-[#142B4D] px-2 py-0.5 rounded-md border border-[#D5DFEC]">#${t}</span>
               `).join('')}
             </div>
           </div>
 
           <!-- Bottom Actions -->
-          <div class="pt-4 border-t border-[#E5EAF1] flex items-center justify-between gap-2">
+          <div class="pt-4 border-t border-[#D5DFEC] flex items-center justify-between gap-2">
             <button 
               type="button" 
-              class="view-details-btn text-sm font-bold text-[#1746C8] hover:text-[#12379E] transition-colors flex items-center gap-1.5"
+              class="view-details-btn text-sm font-bold text-[#1D4ED8] hover:text-[#1E40AF] transition-colors flex items-center gap-1.5"
               data-id="${c.id}"
             >
               <span>View Syllabus</span>
@@ -247,77 +247,77 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     courseModalBody.innerHTML = `
-      <div class="p-6 md:p-8 text-[#24334B]">
+      <div class="p-6 md:p-8 text-[#142B4D]">
         <div class="flex items-start justify-between gap-4 mb-4">
           <div>
             <div class="flex items-center gap-2 mb-2 flex-wrap">
-              <span class="text-xs font-bold px-3 py-1 bg-[#EAF2FF] text-[#1746C8] border border-[#CBDCF8] rounded-full">
+              <span class="text-xs font-bold px-3 py-1 bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] rounded-full">
                 ${course.categoryName}
               </span>
-              <span class="text-xs font-bold px-3 py-1 bg-amber-50 text-amber-900 border border-amber-200 rounded-full">
+              <span class="text-xs font-bold px-3 py-1 bg-[#FEF3C7] text-[#78350F] border border-[#FDE68A] rounded-full">
                 ${course.levelDisplay || course.level}
               </span>
-              <span class="text-xs font-bold px-3 py-1 bg-blue-50 text-[#1746C8] border border-blue-200 rounded-full">
+              <span class="text-xs font-bold px-3 py-1 bg-[#EEF3FB] text-[#1D4ED8] border border-[#D5DFEC] rounded-full">
                 Duration: ${course.duration}
               </span>
             </div>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#24334B] leading-tight">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#142B4D] leading-tight">
               ${course.title}
             </h2>
-            <p class="text-sm text-slate-500 mt-1 font-medium">
+            <p class="text-sm text-[#475569] mt-1 font-semibold">
               ${course.subCategory}
             </p>
           </div>
         </div>
 
-        <!-- Tools & Software Covered (Prominent Box) -->
-        <div class="my-5 p-4 rounded-2xl bg-[#F5F8FD] border border-[#E5EAF1]">
-          <div class="flex items-center gap-2 text-[#1746C8] font-bold text-xs uppercase tracking-wider mb-2">
-            <svg class="w-4 h-4 text-[#1746C8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        <!-- Tools & Software Covered (High Contrast Defined Box) -->
+        <div class="my-5 p-4 rounded-2xl bg-[#EEF3FB] border border-[#D5DFEC]">
+          <div class="flex items-center gap-2 text-[#1D4ED8] font-bold text-xs uppercase tracking-wider mb-2">
+            <svg class="w-4 h-4 text-[#1D4ED8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             <span>Official Tools & Software Covered</span>
           </div>
-          <p class="text-[#24334B] font-bold text-base leading-snug">${course.tools}</p>
+          <p class="text-[#142B4D] font-bold text-base leading-snug">${course.tools}</p>
           <div class="flex flex-wrap gap-1.5 mt-2.5">
-            ${(course.toolsList || []).map(t => `<span class="text-xs bg-[#EAF2FF] text-[#1746C8] border border-[#CBDCF8] px-2.5 py-0.5 rounded-lg font-medium">${t}</span>`).join('')}
+            ${(course.toolsList || []).map(t => `<span class="text-xs bg-white text-[#142B4D] border border-[#D5DFEC] px-2.5 py-0.5 rounded-lg font-semibold shadow-xs">${t}</span>`).join('')}
           </div>
         </div>
 
         <!-- Course Quick Stats Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4 p-4 bg-[#F5F8FD] rounded-2xl border border-[#E5EAF1]">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4 p-4 bg-[#EEF3FB] rounded-2xl border border-[#D5DFEC]">
           <div>
-            <span class="text-xs text-slate-500 font-medium block">Duration</span>
-            <span class="text-sm font-bold text-[#24334B]">${course.duration}</span>
+            <span class="text-xs text-[#475569] font-medium block">Duration</span>
+            <span class="text-sm font-bold text-[#142B4D]">${course.duration}</span>
           </div>
           <div>
-            <span class="text-xs text-slate-500 font-medium block">Training Mode</span>
-            <span class="text-sm font-bold text-[#24334B]">${course.mode}</span>
+            <span class="text-xs text-[#475569] font-medium block">Training Mode</span>
+            <span class="text-sm font-bold text-[#142B4D]">${course.mode}</span>
           </div>
           <div>
-            <span class="text-xs text-slate-500 font-medium block">Certification</span>
-            <span class="text-sm font-bold text-[#24334B]">${course.certified}</span>
+            <span class="text-xs text-[#475569] font-medium block">Certification</span>
+            <span class="text-sm font-bold text-[#142B4D]">${course.certified}</span>
           </div>
         </div>
 
         <!-- Description -->
-        <p class="text-slate-600 text-sm leading-relaxed mb-5">
+        <p class="text-[#475569] text-sm leading-relaxed mb-5">
           ${course.description || ''}
         </p>
 
         <!-- Highlights & What You Will Learn -->
-        <div class="space-y-3 text-slate-600 text-sm leading-relaxed mb-6">
-          <h4 class="font-bold text-[#24334B] text-base">Key Program Highlights:</h4>
+        <div class="space-y-3 text-[#475569] text-sm leading-relaxed mb-6">
+          <h4 class="font-bold text-[#142B4D] text-base">Key Program Highlights:</h4>
           <ul class="space-y-2">
             ${highlightsList.map(h => `
               <li class="flex items-start gap-2.5">
-                <svg class="w-5 h-5 text-[#1746C8] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span>${h}</span>
+                <svg class="w-5 h-5 text-[#1D4ED8] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-[#24334B] font-medium">${h}</span>
               </li>
             `).join('')}
           </ul>
         </div>
 
         <!-- Action Buttons in Modal -->
-        <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#E5EAF1]">
+        <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#D5DFEC]">
           <button 
             type="button" 
             class="modal-enquire-btn flex-1 btn-primary-blue text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md text-center justify-center"
