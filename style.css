@@ -7,17 +7,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
-  /* Official User-Mandated Contrast & Readability Token System */
+  /* ==========================================================================
+     HERO BLUE DESIGN REFERENCE TOKENS
+     Extracted directly from the actual Homepage Hero Canvas gradient:
+     linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%)
+     ========================================================================== */
+  --hero-blue: #1D4ED8;
+  --hero-blue-hover: #1E40AF;
+  --hero-blue-mid: #2563EB;
+  --hero-blue-light: #3B82F6;
+  --hero-blue-gradient: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+  --hero-blue-subtle: #EEF3FB;
+  --hero-blue-tint: #EAF2FF;
+
+  /* Official High Contrast & Accessibility Token System */
   --page-bg: #F1F5FA;
   --surface: #FFFFFF;
   --heading: #142B4D;
   --body-text: #475569;
   --muted-text: #64748B;
-  --primary: #1D4ED8;
-  --primary-hover: #1E40AF;
+  --primary: var(--hero-blue);
+  --primary-hover: var(--hero-blue-hover);
   --border: #D5DFEC;
   --panel-bg: #EEF3FB;
-  --selected-bg: #1D4ED8;
+  --selected-bg: var(--hero-blue);
   --selected-text: #FFFFFF;
 
   /* Semantic Aliases */
@@ -81,11 +94,11 @@ h1, h2, h3, h4, h5, h6 {
   background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1746C8;
+  background: var(--hero-blue);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
 }
 
 /* ==========================================================================
@@ -358,22 +371,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Pop Buttons & Badges */
 .btn-primary-blue {
-  background: #1746C8;
+  background: var(--hero-blue);
   color: #FFFFFF;
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 10px 24px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(23, 70, 200, 0.25);
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.28);
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
 .btn-primary-blue:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(23, 70, 200, 0.35);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.38);
 }
 
 .btn-pop-yellow {
@@ -397,23 +410,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-white-pill {
   background: #FFFFFF;
-  color: #1746C8;
+  color: var(--hero-blue);
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 9px 22px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(36, 51, 75, 0.08);
+  box-shadow: 0 4px 12px rgba(20, 43, 77, 0.08);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
 }
 
 .btn-white-pill:hover {
-  background: #F5F8FD;
-  color: #12379E;
+  background: var(--panel-bg);
+  color: var(--hero-blue-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(36, 51, 75, 0.12);
+  box-shadow: 0 8px 18px rgba(29, 78, 216, 0.16);
 }
 
 /* ==========================================================================
@@ -732,7 +745,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem 0 1.5rem 0;
   cursor: grab;
   scrollbar-width: thin;
-  scrollbar-color: #1746C8 #E5EAF1;
+  scrollbar-color: var(--hero-blue) var(--border);
 }
 
 .journey-carousel-track.grabbing {
@@ -746,19 +759,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .journey-carousel-track::-webkit-scrollbar-track {
-  background: #E5EAF1;
+  background: var(--border);
   border-radius: 9999px;
   margin: 0 4rem;
 }
 
 .journey-carousel-track::-webkit-scrollbar-thumb {
-  background: #1746C8;
+  background: var(--hero-blue);
   border-radius: 9999px;
-  box-shadow: 0 0 8px rgba(23, 70, 200, 0.3);
+  box-shadow: 0 0 8px rgba(29, 78, 216, 0.3);
 }
 
 .journey-carousel-track::-webkit-scrollbar-thumb:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
 }
 
 .journey-slide-card {
@@ -769,10 +782,10 @@ h1, h2, h3, h4, h5, h6 {
   scroll-snap-stop: always;
   border-radius: 28px;
   background: #FFFFFF;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-md);
   transition: transform 0.3s ease, border-color 0.3s ease;
-  color: #24334B;
+  color: var(--heading);
 }
 
 @media (min-width: 1024px) {
@@ -783,7 +796,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .journey-slide-card:hover {
-  border-color: rgba(23, 70, 200, 0.35);
+  border-color: var(--hero-blue);
 }
 
 .journey-photo-frame {
@@ -792,10 +805,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 360px;
   border-radius: 22px;
   overflow: hidden;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
   box-shadow: 
-    0 15px 35px -8px rgba(36, 51, 75, 0.15),
-    0 0 0 1px #E5EAF1;
+    0 15px 35px -8px rgba(20, 43, 77, 0.15),
+    0 0 0 1px var(--border);
 }
 
 @media (min-width: 640px) {
@@ -823,7 +836,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem 0 2.5rem 0;
   cursor: grab;
   scrollbar-width: thin;
-  scrollbar-color: #1746C8 #E5EAF1;
+  scrollbar-color: var(--hero-blue) var(--border);
 }
 
 .sideways-carousel-track.grabbing {
@@ -837,17 +850,17 @@ h1, h2, h3, h4, h5, h6 {
   height: 8px;
 }
 .sideways-carousel-track::-webkit-scrollbar-track {
-  background: #E5EAF1;
+  background: var(--border);
   border-radius: 9999px;
   margin: 0 2rem;
 }
 .sideways-carousel-track::-webkit-scrollbar-thumb {
-  background: #1746C8;
+  background: var(--hero-blue);
   border-radius: 9999px;
-  box-shadow: 0 0 8px rgba(23, 70, 200, 0.3);
+  box-shadow: 0 0 8px rgba(29, 78, 216, 0.3);
 }
 .sideways-carousel-track::-webkit-scrollbar-thumb:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
 }
 
 .sideways-stream-card {
@@ -855,8 +868,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 380px;
   scroll-snap-align: start;
   border-radius: 28px;
-  background: #F5F8FD;
-  border: 1px solid #E5EAF1;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -864,7 +877,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
   position: relative;
-  color: #24334B;
+  color: var(--heading);
 }
 
 @media (min-width: 768px) {
@@ -875,7 +888,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sideways-stream-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(23, 70, 200, 0.4);
+  border-color: var(--hero-blue);
   background: #FFFFFF;
   box-shadow: var(--shadow-lg);
 }
@@ -885,9 +898,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #EAF2FF;
-  color: #1746C8;
-  border: 1px solid #E5EAF1;
+  background: #FFFFFF;
+  color: var(--hero-blue);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -897,11 +910,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .carousel-nav-btn:hover {
-  background: #1746C8;
+  background: var(--hero-blue);
   color: #FFFFFF;
-  border-color: #1746C8;
+  border-color: var(--hero-blue);
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(23, 70, 200, 0.3);
+  box-shadow: 0 6px 16px rgba(29, 78, 216, 0.3);
 }
 
 .carousel-nav-btn:active {
@@ -911,23 +924,23 @@ h1, h2, h3, h4, h5, h6 {
 /* Light Card Utilities */
 .glass-dark-card {
   background: #FFFFFF;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
   border-radius: 24px;
-  color: #24334B;
+  color: var(--heading);
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
 }
 
 .glass-dark-card:hover {
-  border-color: rgba(23, 70, 200, 0.35);
+  border-color: var(--hero-blue);
   box-shadow: var(--shadow-md);
 }
 
 .form-glass-input {
-  background: #F5F8FD;
-  border: 1px solid #E5EAF1;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
   border-radius: 14px;
-  color: #24334B;
+  color: var(--heading);
   padding: 12px 16px;
   width: 100%;
   font-size: 0.95rem;
@@ -936,9 +949,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-glass-input:focus {
-  border-color: #1746C8;
+  border-color: var(--hero-blue);
   background: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(23, 70, 200, 0.15);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
 }
 
 .form-glass-input option {
@@ -1312,7 +1325,7 @@ html.intro-skip #cinematic-intro-stage,
 .screen-hero-preview {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, #014085 0%, #1746C8 55%, #2563EB 100%);
+  background: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
