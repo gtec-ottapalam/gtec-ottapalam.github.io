@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- GTEC Emblem / Badge -->
+  <rect x="6" y="10" width="60" height="60" rx="16" fill="#FFFFFF" />
+  <circle cx="36" cy="40" r="22" stroke="#2563EB" stroke-width="4" stroke-dasharray="85 25" />
+  <path d="M36 26 C43.7 26 50 32.3 50 40 L36 40" stroke="#F59E0B" stroke-width="4.5" stroke-linecap="round" />
+  <text x="36" y="47" font-family="'Inter', system-ui, sans-serif" font-weight="900" font-size="20" fill="#1D4ED8" text-anchor="middle">G</text>
+  
+  <!-- G-TEC Brand Typography in White -->
+  <text x="80" y="42" font-family="'Outfit', 'Inter', system-ui, sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" letter-spacing="-0.5">
+    G-TEC<tspan fill="#FBBF24">.</tspan>
+  </text>
+  <!-- Ottapalam Centre Tag -->
+  <rect x="80" y="50" width="85" height="18" rx="4" fill="rgba(255,255,255,0.2)" />
+  <text x="86" y="63" font-family="'Inter', system-ui, sans-serif" font-weight="700" font-size="10.5" fill="#FEF08A" letter-spacing="1.2">OTTAPALAM</text>
+  <text x="175" y="63" font-family="'Inter', system-ui, sans-serif" font-weight="600" font-size="10" fill="#BFDBFE">CENTRE OF EXCELLENCE</text>
+</svg>
