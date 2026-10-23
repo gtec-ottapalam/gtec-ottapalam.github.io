@@ -7,17 +7,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
-  /* Official User-Mandated Contrast & Readability Token System */
+  /* ==========================================================================
+     HERO BLUE DESIGN REFERENCE TOKENS
+     Extracted directly from the actual Homepage Hero Canvas gradient:
+     linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%)
+     ========================================================================== */
+  --hero-blue: #1D4ED8;
+  --hero-blue-hover: #1E40AF;
+  --hero-blue-mid: #2563EB;
+  --hero-blue-light: #3B82F6;
+  --hero-blue-gradient: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+  --hero-blue-subtle: #EEF3FB;
+  --hero-blue-tint: #EAF2FF;
+
+  /* Official High Contrast & Accessibility Token System */
   --page-bg: #F1F5FA;
   --surface: #FFFFFF;
   --heading: #142B4D;
   --body-text: #475569;
   --muted-text: #64748B;
-  --primary: #1D4ED8;
-  --primary-hover: #1E40AF;
+  --primary: var(--hero-blue);
+  --primary-hover: var(--hero-blue-hover);
   --border: #D5DFEC;
   --panel-bg: #EEF3FB;
-  --selected-bg: #1D4ED8;
+  --selected-bg: var(--hero-blue);
   --selected-text: #FFFFFF;
 
   /* Semantic Aliases */
@@ -81,11 +94,11 @@ h1, h2, h3, h4, h5, h6 {
   background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1746C8;
+  background: var(--hero-blue);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
 }
 
 /* ==========================================================================
