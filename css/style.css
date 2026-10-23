@@ -1325,7 +1325,7 @@ html.intro-skip #cinematic-intro-stage,
 .screen-hero-preview {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, #014085 0%, #1746C8 55%, #2563EB 100%);
+  background: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
