@@ -956,7 +956,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-glass-input option {
   background: #FFFFFF;
-  color: #24334B;
+  color: var(--heading, #142B4D);
 }
 
 /* Expand-on-scroll hero styling */

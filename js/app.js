@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ${highlightsList.map(h => `
               <li class="flex items-start gap-2.5">
                 <svg class="w-5 h-5 text-[#1D4ED8] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span class="text-[#24334B] font-medium">${h}</span>
+                <span class="text-[#142B4D] font-medium">${h}</span>
               </li>
             `).join('')}
           </ul>
