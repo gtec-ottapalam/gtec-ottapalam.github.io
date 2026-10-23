@@ -949,9 +949,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-glass-input:focus {
-  border-color: #1746C8;
+  border-color: var(--hero-blue);
   background: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(23, 70, 200, 0.15);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
 }
 
 .form-glass-input option {
