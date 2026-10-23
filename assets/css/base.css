@@ -1,0 +1,196 @@
+/* ==========================================================================
+   G-TEC NEW-SITE DESIGN SYSTEM — BASE & TYPOGRAPHY
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, .scroll-smooth {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-page);
+  color: var(--color-slate-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--color-slate-body);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-normal);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Headings with Plus Jakarta Sans Display Font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-slate-dark);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); letter-spacing: var(--tracking-tighter); font-weight: 800; }
+h2 { font-size: var(--fs-h2); letter-spacing: var(--tracking-tight); font-weight: 700; }
+h3 { font-size: var(--fs-h3); letter-spacing: -0.015em; font-weight: 700; }
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-slate-body);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Accessible Keyboard Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--color-gtec-blue);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Outer Inset Chassis Layout (Armor-BD Framing) */
+.page-chassis {
+  padding: 12px;
+}
+
+@media (min-width: 640px) {
+  .page-chassis { padding: 16px; }
+}
+
+@media (min-width: 1024px) {
+  .page-chassis { padding: 20px; }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* Section Rhythm */
+.section {
+  padding-top: 84px;
+  padding-bottom: 84px;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+}
+
+.section-subtle {
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-pale-blue {
+  background-color: var(--bg-pale-blue);
+  border-top: 1px solid var(--color-gtec-blue-border);
+  border-bottom: 1px solid var(--color-gtec-blue-border);
+}
+
+/* Editorial Section Headers */
+.section-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 56px;
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.eyebrow-tag {
+  font-family: var(--font-display);
+  font-size: var(--fs-caption);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-gtec-blue);
+  background-color: var(--color-gtec-blue-light);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  border: 1px solid var(--color-gtec-blue-border);
+  width: fit-content;
+}
+
+.eyebrow-tag.light {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  letter-spacing: var(--tracking-tighter);
+  color: var(--color-gtec-blue);
+  line-height: var(--lh-tight);
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+
+.section-title.light {
+  color: #FFFFFF;
+}
+
+.section-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  color: var(--color-slate-body);
+  line-height: var(--lh-relaxed);
+}
+
+.section-desc.light {
+  color: rgba(255, 255, 255, 0.78);
+}

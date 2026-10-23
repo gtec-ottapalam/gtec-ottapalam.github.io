@@ -1,0 +1,347 @@
+/* ==========================================================================
+   G-TEC NEW-SITE DESIGN SYSTEM — ANIMATIONS & 3D MOTION ENGINE
+   ========================================================================== */
+
+/* ==========================================================================
+   1. 3D GYROSCOPIC TECH RING (ARMOR-BD INSPIRED PERSPECTIVE COMPONENT)
+   ========================================================================== */
+.tech-gyroscope-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  perspective: 1200px;
+  display: none;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+
+@media (min-width: 900px) {
+  .tech-gyroscope-wrapper {
+    display: block;
+  }
+}
+
+.tech-gyroscope-wrapper.is-visible {
+  opacity: 0.42;
+}
+
+.tech-gyroscope {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  transform: rotateX(38deg);
+  transform-style: preserve-3d;
+  animation: gyro-rotate 40s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 1200px) {
+  .tech-gyroscope {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+.gyro-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: var(--radius-full);
+  width: 17%;
+  height: 100%;
+  box-shadow: inset 0 6px 16px rgba(255, 255, 255, 0.35), 
+              inset 0 -8px 20px rgba(0, 0, 0, 0.55),
+              0 0 30px rgba(1, 64, 133, 0.4);
+  opacity: 0.32;
+  will-change: transform;
+}
+
+.gyro-ring:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: linear-gradient(180deg, #60A5FA 0%, #014085 45%, #061833 80%, #030D1C 100%);
+}
+
+.gyro-ring:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(60deg);
+  background: linear-gradient(180deg, #93C5FD 0%, #014085 45%, #061833 80%, #030D1C 100%);
+}
+
+.gyro-ring:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(120deg);
+  background: linear-gradient(180deg, #3B82F6 0%, #014085 45%, #061833 80%, #030D1C 100%);
+}
+
+@keyframes gyro-rotate {
+  from {
+    transform: rotateX(38deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(38deg) rotateZ(360deg);
+  }
+}
+
+/* ==========================================================================
+   2. KEYFRAME PULSES & TELEMETRY
+   ========================================================================== */
+.pulse-dot-red {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-logo-red);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-red 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 1, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(253, 1, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 1, 0, 0); }
+}
+
+.pulse-dot-green {
+  width: 8px;
+  height: 8px;
+  background-color: #10B981;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-green 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.75); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.pulse-dot-blue {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-gtec-blue);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-blue 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-blue {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(1, 64, 133, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(1, 64, 133, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(1, 64, 133, 0); }
+}
+
+/* ==========================================================================
+   3. COORDINATED HERO INTRODUCTORY ENTRANCE TIMELINE
+   ========================================================================== */
+
+/* Step 2: Nav drop-in */
+.site-nav {
+  transform: translate3d(0, -100%, 0);
+  opacity: 0;
+  transition: transform 0.65s var(--ease-out-expo), opacity 0.65s var(--ease-out-expo), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-nav.is-visible {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+/* Step 3: Eyebrow badge entrance */
+.hero-eyebrow {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.hero-eyebrow.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Step 3: Headline masked reveal */
+.hero-title-inner {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 110%, 0);
+  transition: transform 0.85s var(--ease-out-expo), opacity 0.85s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+
+.hero-title-inner.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Step 4: Dominant Visual Showcase frame */
+.hero-showcase-frame {
+  opacity: 0;
+  transform: perspective(1000px) rotateY(-4deg) rotateX(3deg) scale(0.93);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+
+.hero-showcase-frame.is-visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1);
+}
+
+/* Telemetry HUD badges */
+.hero-hud-badge {
+  opacity: 0;
+  transition: opacity 0.65s var(--ease-out-expo), transform 0.65s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.hero-hud-badge.badge-top {
+  transform: translate3d(-24px, 0, 0);
+}
+
+.hero-hud-badge.badge-bottom {
+  transform: translate3d(24px, 0, 0);
+}
+
+.hero-hud-badge.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Step 5: Copy, CTAs, and Proof Metrics */
+.hero-description {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.hero-description.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-cta-group {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.hero-cta-group.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-metric-item {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.hero-metric-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Step 6: Scroll Cue */
+.hero-scroll-cue {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.hero-scroll-cue.is-visible {
+  opacity: 0.85;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-scroll-cue:hover {
+  opacity: 1;
+  transform: translate3d(0, 2px, 0);
+}
+
+@keyframes scroll-glide {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(12px); opacity: 0; }
+  61% { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   4. SCROLL REVEAL MOTION UTILITIES (REST OF PAGE)
+   ========================================================================== */
+.motion-reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.motion-reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.motion-slide-left {
+  opacity: 0;
+  transform: translate3d(-32px, 0, 0);
+  transition: opacity 0.65s var(--ease-out-expo), transform 0.65s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.motion-slide-left.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.motion-slide-right {
+  opacity: 0;
+  transform: translate3d(32px, 0, 0);
+  transition: opacity 0.65s var(--ease-out-expo), transform 0.65s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.motion-slide-right.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Stagger delay classes */
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+
+/* ==========================================================================
+   5. REDUCED MOTION PREFERENCES (ACCESSIBILITY FIRST)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .tech-gyroscope {
+    animation: none !important;
+  }
+  .pulse-dot-red, .pulse-dot-green, .pulse-dot-blue, .scroll-cue-dot {
+    animation: none !important;
+  }
+  .site-nav,
+  .hero-eyebrow,
+  .hero-title-inner,
+  .hero-showcase-frame,
+  .tech-gyroscope-wrapper,
+  .hero-hud-badge,
+  .hero-description,
+  .hero-cta-group,
+  .hero-metric-item,
+  .hero-scroll-cue,
+  .motion-reveal,
+  .motion-slide-left,
+  .motion-slide-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

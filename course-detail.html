@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Course Syllabus & Curriculum | G-TEC Education Ottappalam</title>
+  <meta name="description" content="View the certified syllabus, modular topics, duration, eligibility, and career prospects for courses at G-TEC Computer Education, Ottappalam." />
+  
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="./assets/images/favicon.png" />
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Design System Stylesheets -->
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/base.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/animations.css" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       NAVIGATION BAR
+       ======================================================================== -->
+  <header class="site-nav">
+    <div class="container nav-container">
+      <a href="./index.html" class="nav-brand" aria-label="G-TEC Education Ottappalam Home">
+        <div class="nav-brand-capsule">
+          <img src="./assets/images/gtec-logo.png" alt="G-TEC Education Official Logo" class="nav-logo-img" width="144" height="34" />
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./courses.html" class="nav-link active">Courses</a>
+        <a href="./facilities.html" class="nav-link">Facilities</a>
+        <a href="./admissions.html" class="nav-link">Admissions</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="tel:+919995955501" class="btn btn-nav-call btn-sm hide-on-mobile" aria-label="Call Admissions">
+          <span>📞 9995955501</span>
+        </a>
+        <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm hide-on-mobile" aria-label="WhatsApp Enquiry">
+          <span>WhatsApp</span>
+        </a>
+        <button type="button" class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Open mobile menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-panel" onclick="event.stopPropagation()">
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+          <img src="./assets/images/gtec-logo.png" alt="G-TEC Logo" style="height: 38px; width: auto;" />
+          <button type="button" id="drawer-close-btn" style="font-size: 28px; color: var(--color-slate-dark); cursor: pointer;" aria-label="Close menu">&times;</button>
+        </div>
+        <nav style="display: flex; flex-direction: column; gap: 16px;">
+          <a href="./index.html" class="nav-link drawer-link">Home</a>
+          <a href="./about.html" class="nav-link drawer-link">About G-TEC</a>
+          <a href="./courses.html" class="nav-link drawer-link active">Course Catalogue (24)</a>
+          <a href="./facilities.html" class="nav-link drawer-link">Campus Facilities</a>
+          <a href="./admissions.html" class="nav-link drawer-link">Admissions & Batches</a>
+          <a href="./contact.html" class="nav-link drawer-link">Contact & Directions</a>
+        </nav>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 24px;">
+        <a href="tel:+919995955501" class="btn btn-outline" style="width: 100%;">Call: +91 99959 55501</a>
+        <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========================================================================
+         COURSE NOT FOUND STATE (Fallback)
+         ======================================================================== -->
+    <div id="course-not-found" class="not-found-card" style="display: none;">
+      <div class="not-found-code">404</div>
+      <h2 style="font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--color-navy-dark); margin-bottom: 12px;">
+        Course Program Not Found
+      </h2>
+      <p style="font-size: 14.5px; color: var(--color-slate-body); line-height: 1.6; margin-bottom: 24px;">
+        The requested course identifier does not match our catalog or has been updated. Please explore our 24 verified programs.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="./courses.html" class="btn btn-primary">
+          <span>Browse All 24 Courses &rarr;</span>
+        </a>
+        <a href="./index.html" class="btn btn-outline">
+          <span>Return Home</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         DYNAMIC COURSE CONTENT CONTAINER
+         ======================================================================== -->
+    <div id="course-detail-content">
+      
+      <!-- Course Hero -->
+      <section class="subpage-hero">
+        <div class="container">
+          <div class="subpage-hero-content">
+            <nav class="page-breadcrumb" aria-label="Breadcrumb">
+              <a href="./index.html">Home</a>
+              <span class="page-breadcrumb-separator">/</span>
+              <a href="./courses.html">Courses</a>
+              <span class="page-breadcrumb-separator">/</span>
+              <span class="page-breadcrumb-current" id="breadcrumb-course">Course Title</span>
+            </nav>
+
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap;">
+              <span id="course-cat-tag" class="eyebrow-tag light" style="margin-bottom: 0;">Faculty</span>
+              <span id="course-level-badge" style="font-size: 11px; font-weight: 700; background: rgba(255, 255, 255, 0.15); color: #BAE6FD; padding: 5px 12px; border-radius: var(--radius-full); text-transform: uppercase;">Certificate</span>
+            </div>
+
+            <h1 class="subpage-title" id="course-title">
+              Loading Certified Program...
+            </h1>
+
+            <p class="subpage-desc" id="course-description">
+              Please wait while the verified syllabus is loaded.
+            </p>
+
+            <!-- Quick Facts Bar -->
+            <div class="subpage-facts-strip">
+              <div class="subpage-fact-box">
+                <span class="subpage-fact-lbl">Standard Duration</span>
+                <span class="subpage-fact-val" id="fact-duration" style="font-size: 16px;">—</span>
+              </div>
+              <div class="subpage-fact-box">
+                <span class="subpage-fact-lbl">Eligibility Prerequisite</span>
+                <span class="subpage-fact-val" id="fact-eligibility" style="font-size: 14px; font-weight: 600;">—</span>
+              </div>
+              <div class="subpage-fact-box">
+                <span class="subpage-fact-lbl">Workstation Ratio</span>
+                <span class="subpage-fact-val" style="font-size: 16px; color: #4ADE80;">1:1 Dedicated PC</span>
+              </div>
+              <div class="subpage-fact-box">
+                <span class="subpage-fact-lbl">Certification Authority</span>
+                <span class="subpage-fact-val" id="fact-certification" style="font-size: 14px; font-weight: 600;">—</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Syllabus Breakdown & Admissions Sidebar -->
+      <section class="section">
+        <div class="container">
+          <div class="course-detail-layout">
+            
+            <!-- Left Column: Modular Curriculum Breakdown -->
+            <div>
+              <div class="syllabus-card">
+                <div class="syllabus-card-header">
+                  <h3>Comprehensive Modular Syllabus</h3>
+                  <p style="font-size: 14px; color: var(--color-slate-body);">
+                    Audited under ISO 9001:2015 standards. Every module includes practical laboratory exercises and direct mentor code review.
+                  </p>
+                </div>
+
+                <div id="modules-deck" class="syllabus-modules-deck">
+                  <!-- Populated by subpages.js -->
+                </div>
+              </div>
+
+              <!-- Career Pathways Card -->
+              <div class="syllabus-card">
+                <div class="syllabus-card-header">
+                  <h3>Target Career Roles & Opportunities</h3>
+                  <p style="font-size: 14px; color: var(--color-slate-body);">
+                    Graduates of this program are qualified for production and entry-to-mid engineering roles:
+                  </p>
+                </div>
+
+                <div id="careers-deck" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                  <!-- Populated by subpages.js -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Sticky Admissions Action Card -->
+            <div>
+              <div class="course-sidebar-card">
+                <div style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: var(--radius-full); font-size: 11px; font-weight: 800; color: var(--color-gtec-blue); text-transform: uppercase; margin-bottom: 14px;">
+                  <span>⚡ Batch Enquiries Active</span>
+                </div>
+
+                <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--color-navy-dark); margin-bottom: 8px;">
+                  Enroll at Ottappalam
+                </h3>
+                <p style="font-size: 13.5px; color: var(--color-slate-body); line-height: 1.55; margin-bottom: 22px;">
+                  Connect with our admissions desk to check upcoming batch start dates, flexible morning/evening slots, and fee structures.
+                </p>
+
+                <div class="sidebar-key-values">
+                  <div class="key-val-item">
+                    <span class="key-lbl">Campus Location</span>
+                    <span class="key-val">JRJ Complex, 2nd Floor, Ottappalam</span>
+                  </div>
+                  <div class="key-val-item">
+                    <span class="key-lbl">Lab Machine Allocation</span>
+                    <span class="key-val">Exclusive 1:1 Terminal</span>
+                  </div>
+                  <div class="key-val-item">
+                    <span class="key-lbl">Mentorship Mode</span>
+                    <span class="key-val">In-Person Direct Faculty Mentoring</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <a id="course-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%; justify-content: center;">
+                    <span>Enquire on WhatsApp &rarr;</span>
+                  </a>
+                  <a href="tel:+919995955501" class="btn btn-outline" style="width: 100%; justify-content: center;">
+                    <span>Call Centre: +91 99959 55501</span>
+                  </a>
+                </div>
+
+                <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border-subtle); text-align: center;">
+                  <p style="font-size: 12px; color: var(--color-slate-muted);">
+                    Walk-in demo sessions available Mon–Sat from 8:30 AM to 6:30 PM IST.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Related Courses in Same Discipline -->
+          <div style="margin-top: 60px;">
+            <div style="margin-bottom: 24px;">
+              <span class="eyebrow-tag">Related Pathways</span>
+              <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--color-navy-dark);">
+                More Courses in This Technical Stream
+              </h3>
+            </div>
+
+            <div id="related-courses-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+              <!-- Populated by subpages.js -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand-wrap">
+            <a href="./index.html">
+              <img src="./assets/images/gtec-logo-white.png" alt="G-TEC Education Ottappalam" class="footer-brand-logo" width="160" height="42" />
+            </a>
+            <p class="footer-tagline">
+              Official centre of technical excellence for computer software engineering, architectural CAD design, creative multimedia, and corporate finance accounting in Ottappalam, Kerala.
+            </p>
+            <div class="footer-social-deck">
+              <a href="https://www.instagram.com/gtecottapalam/?hl=en" target="_blank" rel="noopener noreferrer" class="footer-social-pill">📸 Instagram</a>
+              <a href="https://www.facebook.com/gtecotp/" target="_blank" rel="noopener noreferrer" class="footer-social-pill">📘 Facebook</a>
+              <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="footer-social-pill">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Technical Streams</h5>
+          <ul class="footer-links">
+            <li><a href="./courses.html?cat=cad">CAD & BIM Architecture</a></li>
+            <li><a href="./courses.html?cat=software">Software Engineering & IT</a></li>
+            <li><a href="./courses.html?cat=multimedia">Multimedia, Design & VFX</a></li>
+            <li><a href="./courses.html?cat=accounting">Corporate Finance & SAP</a></li>
+            <li><a href="https://www.gteceducation.com" target="_blank" rel="noopener noreferrer">Central Global Portal ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation Index</h5>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About G-TEC</a></li>
+            <li><a href="./courses.html">Courses Catalogue</a></li>
+            <li><a href="./facilities.html">Campus Facilities</a></li>
+            <li><a href="./admissions.html">Admissions & Batches</a></li>
+            <li><a href="./contact.html">Contact & Location</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Ottappalam Campus</h5>
+          <address class="footer-contact-dossier">
+            <div>
+              Second Floor, JRJ Complex,<br />
+              Thozhupadam–Ottappalam Road,<br />
+              Ottappalam, Kerala 679101, India.
+            </div>
+            <div>Phone: <a href="tel:+919995955501">+91 99959 55501</a></div>
+            <div>WhatsApp: <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer">+91 62388 43939</a></div>
+            <div>Email: <a href="mailto:ottappalam.pkd@gteceducation.com">ottappalam.pkd@gteceducation.com</a></div>
+            <div style="font-size: 12.5px; color: #64748B;">Hours: Mon–Sat 8:30 AM – 6:30 PM IST</div>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 G-TEC Computer Education, Ottappalam. All rights reserved.</div>
+        <div>Official curriculum audited against international industry standards & ISO 9001:2015 quality frameworks.</div>
+        <div>
+          <button type="button" class="back-to-top-btn" id="back-to-top-btn" aria-label="Scroll back to top of page">
+            <span>Back to Top ↑</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./assets/js/subpages.js"></script>
+</body>
+</html>
