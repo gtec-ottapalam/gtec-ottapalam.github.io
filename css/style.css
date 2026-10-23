@@ -970,10 +970,12 @@ h1, h2, h3, h4, h5, h6 {
   transition: opacity 0.5s ease-out;
 }
 
+html.intro-skip #cinematic-intro-stage,
 #cinematic-intro-stage.intro-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 /* Studio Ambient Elements */

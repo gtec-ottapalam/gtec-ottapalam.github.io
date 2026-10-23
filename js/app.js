@@ -939,19 +939,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Ensure browser locks to top hero section and disables old scroll restoration
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-
-    // Freeze scroll during cinematic sequence
-    document.body.classList.add('overflow-hidden');
-    if (typeof lenis !== 'undefined' && lenis) {
-      lenis.scrollTo(0, { immediate: true });
-      lenis.stop();
-    }
-
     // Reference real hero elements to coordinate the Scene 4 reveal
     const heroElements = {
       announcement: document.getElementById('announcement-bar'),
@@ -964,6 +951,51 @@ document.addEventListener('DOMContentLoaded', () => {
       cardRight: document.querySelector('#hero .floating-card-right'),
       backdropText: document.querySelector('.hero-backdrop-typography')
     };
+
+    function ensureHeroVisible() {
+      gsap.set([
+        heroElements.announcement, 
+        heroElements.header, 
+        heroElements.headline, 
+        heroElements.subtitle, 
+        heroElements.searchPill, 
+        heroElements.studentPhoto, 
+        heroElements.cardLeft, 
+        heroElements.cardRight
+      ].filter(Boolean), { 
+        clearProps: 'all' 
+      });
+    }
+
+    // Check if intro was already played in this browser session
+    let introAlreadyPlayed = false;
+    try {
+      introAlreadyPlayed = sessionStorage.getItem('gtec_intro_played') === 'true';
+    } catch (e) {}
+
+    // IF ALREADY PLAYED: Skip loading animation on refresh, show hero immediately
+    if (introAlreadyPlayed) {
+      introStage.classList.add('intro-hidden');
+      introStage.style.display = 'none';
+      document.body.classList.remove('overflow-hidden');
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+      ensureHeroVisible();
+
+      // Setup Replay button handler so user can still manually watch whenever they want
+      if (replayBtn) {
+        replayBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          document.documentElement.scrollTop = 0;
+          if (document.body) document.body.scrollTop = 0;
+          document.documentElement.classList.remove('intro-skip');
+          buildAndPlayIntro();
+        });
+      }
+      return;
+    }
 
     // DOM Elements inside the 3D Laptop Rig
     const laptopRig = document.getElementById('laptop-3d-rig');
@@ -979,12 +1011,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const screenBezel = document.getElementById('laptop-screen-bezel');
 
     let introTL = null;
+    let isIntroPlaying = false;
+
+    // Strict scroll enforcement so viewport can never drift or jump during intro
+    const enforceHeroLock = () => {
+      if (isIntroPlaying && (window.scrollY !== 0 || document.documentElement.scrollTop !== 0)) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+      }
+    };
 
     function buildAndPlayIntro() {
-      // Snap to top hero position
+      isIntroPlaying = true;
+      window.addEventListener('scroll', enforceHeroLock, { passive: true });
+
+      // Ensure browser locks to top hero section and disables old scroll restoration
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      if (typeof lenis !== 'undefined' && lenis) {
-        lenis.scrollTo(0, { immediate: true });
+      document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+
+      // Freeze scroll during cinematic sequence
+      document.body.classList.add('overflow-hidden');
+      if (window.lenis) {
+        window.lenis.scrollTo(0, { immediate: true });
+        window.lenis.stop();
       }
 
       // Clean previous state
@@ -1125,11 +1179,25 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power2.in'
       }, '<+=0.25');
 
+      // CRITICAL: Guarantee viewport is locked to top (0, 0) before overlay fades
+      introTL.add(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+        if (window.lenis) {
+          window.lenis.scrollTo(0, { immediate: true });
+        }
+      }, '-=0.4');
+
       // 4. Intro stage dissolves seamlessly, revealing the real hero
       introTL.to(introStage, {
         opacity: 0,
         duration: 0.45,
-        ease: 'power2.inOut'
+        ease: 'power2.inOut',
+        onComplete: () => {
+          introStage.style.display = 'none';
+          introStage.classList.add('intro-hidden');
+        }
       }, '-=0.35');
 
       // 5. Full hero section UI elements blossom in
@@ -1171,37 +1239,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function finishIntro() {
+      isIntroPlaying = false;
+      window.removeEventListener('scroll', enforceHeroLock);
+
+      // Save to sessionStorage so refresh will not replay
+      try {
+        sessionStorage.setItem('gtec_intro_played', 'true');
+      } catch (e) {}
+
       // Force viewport directly to top of hero section
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
 
       introStage.classList.add('intro-hidden');
       introStage.style.display = 'none';
       document.body.classList.remove('overflow-hidden');
       
-      if (typeof lenis !== 'undefined' && lenis) {
-        lenis.scrollTo(0, { immediate: true });
-        lenis.start();
+      if (window.lenis) {
+        window.lenis.scrollTo(0, { immediate: true });
+        window.lenis.start();
       }
 
       // Guarantee all hero elements are 100% active, visible, and responsive
-      gsap.set([
-        heroElements.announcement, 
-        heroElements.header, 
-        heroElements.headline, 
-        heroElements.subtitle, 
-        heroElements.searchPill, 
-        heroElements.studentPhoto, 
-        heroElements.cardLeft, 
-        heroElements.cardRight
-      ].filter(Boolean), { 
-        clearProps: 'all' 
-      });
+      ensureHeroVisible();
     }
 
     // Skip handler
     if (skipBtn) {
       skipBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        try {
+          sessionStorage.setItem('gtec_intro_played', 'true');
+        } catch (err) {}
         if (introTL) {
           introTL.progress(1);
         } else {
@@ -1213,6 +1283,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Keyboard ESC key handler
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !introStage.classList.contains('intro-hidden')) {
+        try {
+          sessionStorage.setItem('gtec_intro_played', 'true');
+        } catch (err) {}
         if (introTL) {
           introTL.progress(1);
         } else {
@@ -1225,7 +1298,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (replayBtn) {
       replayBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+        document.documentElement.classList.remove('intro-skip');
         buildAndPlayIntro();
       });
     }
