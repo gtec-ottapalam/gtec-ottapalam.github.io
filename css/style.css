@@ -391,7 +391,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-pop-yellow {
   background: var(--color-pop-yellow);
-  color: #24334B;
+  color: var(--heading, #142B4D);
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 10px 24px;
@@ -732,7 +732,7 @@ h1, h2, h3, h4, h5, h6 {
 .journey-section-wrapper {
   position: relative;
   background: #EAF2FF;
-  color: #24334B;
+  color: var(--heading, #142B4D);
 }
 
 .journey-carousel-track {
