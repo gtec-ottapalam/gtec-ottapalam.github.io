@@ -2,18 +2,20 @@
 
 Official digital presence and course repository for **G-TEC Computer Education, Ottappalam centre**, located at JRJ Complex, Ottappalam, Kerala.
 
-## Technical Structure
+- **Live Website:** [https://gtec-ottapalam.github.io/gtec/](https://gtec-ottapalam.github.io/gtec/)
+- **Repository:** [https://github.com/gtec-ottapalam/gtec](https://github.com/gtec-ottapalam/gtec)
 
-- **`new-site/`**: Next-generation, animation-driven responsive website engineered with custom typography, 3D CSS gyroscope, interactive course repository, and multi-discipline career trajectory matrix.
-  - `index.html`: Main editorial document featuring all 10 storytelling sections.
-  - `assets/css/`: Modular design system (`tokens.css`, `base.css`, `components.css`, `animations.css`).
-  - `assets/js/`: ES Module application architecture (`app.js`, `courses-data.js`, `config.js`, `motion-engine.js`).
-- **`scripts/`**: Automation tooling and background synchronization services.
-  - `auto-git-sync.py`: Autonomous daemon that detects edits and pushes them to GitHub.
-  - `start-sync.sh`: Starts the background auto-sync service.
-  - `stop-sync.sh`: Stops the background auto-sync service.
-  - `status-sync.sh`: Displays live daemon status, recent logs, and git status.
-  - `sync-now.sh`: Forces an immediate manual stage, commit, and push.
+## Website Pages & Structure
+
+- `index.html`: Interactive editorial homepage with ARMOR-inspired hero, pinned disciplines, and course discovery.
+- `about.html`: Institutional legacy (30+ years, 700+ centres), accreditation, and Ottappalam campus history.
+- `courses.html`: 24 verified programs directory with live filters (`?cat=...`) and instant search.
+- `course-detail.html`: Dynamic syllabus engine (`?id=...`) with modular curriculum and admissions CTA.
+- `facilities.html`: 6 campus facilities showcases with genuine high-resolution lab photography.
+- `admissions.html`: 4-step admission roadmap, batch schedules, and smart enquiry form.
+- `contact.html`: Communication channels, interactive Google Maps HUD, and transit directions.
+- `404.html`: Fallback error page with direct navigation pathways.
+- `assets/`: Modular CSS tokens, JavaScript application engines, and genuine image assets.
 
 ## Automatic GitHub Synchronization
 
