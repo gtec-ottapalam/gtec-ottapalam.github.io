@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
           particleCount: 85,
           spread: 75,
           origin: { y: 0.6 },
-          colors: ['#2563EB', '#FBBF24', '#F59E0B', '#3B82F6', '#10B981']
+          colors: ['#1D4ED8', '#2563EB', '#3B82F6', '#F59E0B', '#FBBF24']
         });
       }
 
