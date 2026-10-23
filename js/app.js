@@ -627,6 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
           smoothWheel: true,
           wheelMultiplier: 1.0
         });
+        window.lenis = lenis;
 
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
           gsap.registerPlugin(ScrollTrigger);
