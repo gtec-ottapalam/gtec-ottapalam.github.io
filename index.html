@@ -1068,19 +1068,19 @@
   <!-- ==========================================================================
        SECTION 5: INTERACTIVE COURSE EXPLORER & CATALOG (24 VERIFIED G-TEC COURSES)
        ========================================================================== -->
-  <section id="courses-section" class="py-20 md:py-28 bg-[#F8FAFC] text-[#24334B] relative overflow-hidden border-t border-[#E5EAF1]">
+  <section id="courses-section" class="py-20 md:py-28 bg-[#F8FAFC] text-[#142B4D] relative overflow-hidden border-t border-[#D5DFEC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
-          <span class="inline-block text-xs font-black uppercase tracking-widest text-[#1746C8] bg-white border border-[#CBDCF8] px-3.5 py-1.5 rounded-full mb-3 shadow-sm">
+          <span class="inline-block text-xs font-black uppercase tracking-widest text-[#1D4ED8] bg-white border border-[#D5DFEC] px-3.5 py-1.5 rounded-full mb-3 shadow-sm">
             Official G-TEC Ottapalam Course Catalog
           </span>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-[#24334B] tracking-tight">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-[#142B4D] tracking-tight">
             Explore All 24 Certified Courses
           </h2>
-          <p class="text-slate-600 mt-2 text-sm sm:text-base">
+          <p class="text-[#475569] mt-2 text-sm sm:text-base font-medium">
             Filter by industry domain, certification level, or search directly for your desired course and software suite.
           </p>
         </div>
@@ -1091,9 +1091,9 @@
             type="text" 
             id="course-search-input" 
             placeholder="Search course or software (e.g. Flutter, SAP, Revit)..." 
-            class="w-full bg-white border border-[#CBDCF8] rounded-full py-2.5 pl-10 pr-10 text-sm text-[#24334B] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1746C8] focus:border-transparent shadow-sm"
+            class="w-full bg-white border border-[#D5DFEC] rounded-full py-2.5 pl-10 pr-10 text-sm text-[#142B4D] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] focus:border-transparent shadow-sm"
           >
-          <svg class="w-4 h-4 text-[#1746C8] absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0118 0z"></path></svg>
+          <svg class="w-4 h-4 text-[#1D4ED8] absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0118 0z"></path></svg>
           <button id="clear-search-btn" class="hidden absolute right-3 top-2.5 text-slate-400 hover:text-slate-700 text-xs bg-slate-100 hover:bg-slate-200 rounded-full w-5 h-5 flex items-center justify-center">✕</button>
         </div>
       </div>
@@ -1123,9 +1123,9 @@
       </div>
 
       <!-- Level Chip Filters & Result Count -->
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-8 pt-2 border-t border-[#CBDCF8]">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-8 pt-2 border-t border-[#D5DFEC]">
         <div class="flex flex-wrap items-center gap-2">
-          <span class="text-xs font-bold text-slate-600 mr-1">Certification Level:</span>
+          <span class="text-xs font-bold text-[#475569] mr-1">Certification Level:</span>
           <button type="button" class="level-chip-btn active" data-level="all">All Levels</button>
           <button type="button" class="level-chip-btn" data-level="Certificate">Certificates (10)</button>
           <button type="button" class="level-chip-btn" data-level="Diploma">Diplomas (9)</button>
@@ -1133,7 +1133,7 @@
           <button type="button" class="level-chip-btn" data-level="SAP Global">SAP Global (4)</button>
         </div>
 
-        <span id="course-count-badge" class="text-xs font-bold text-[#1746C8] bg-white border border-[#CBDCF8] px-3.5 py-1 rounded-full shadow-sm">
+        <span id="course-count-badge" class="text-xs font-bold text-[#1D4ED8] bg-white border border-[#D5DFEC] px-3.5 py-1 rounded-full shadow-sm">
           Showing 24 Courses
         </span>
       </div>
@@ -1144,12 +1144,12 @@
       </div>
 
       <!-- Empty State -->
-      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-3xl border border-[#E5EAF1] shadow-sm">
-        <div class="w-16 h-16 mx-auto mb-4 bg-[#EAF2FF] rounded-full flex items-center justify-center text-[#1746C8] border border-[#CBDCF8]">
+      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-3xl border border-[#D5DFEC] shadow-sm">
+        <div class="w-16 h-16 mx-auto mb-4 bg-[#EEF3FB] rounded-full flex items-center justify-center text-[#1D4ED8] border border-[#D5DFEC]">
           <i data-lucide="search-x" class="w-8 h-8"></i>
         </div>
-        <h3 class="text-xl font-bold text-[#24334B]">No courses matching your filter</h3>
-        <p class="text-slate-500 text-sm mt-1 max-w-md mx-auto">
+        <h3 class="text-xl font-bold text-[#142B4D]">No courses matching your filter</h3>
+        <p class="text-[#475569] text-sm mt-1 max-w-md mx-auto">
           Try clearing your search query or selecting "All Disciplines" to browse our full list of 24 courses.
         </p>
       </div>
