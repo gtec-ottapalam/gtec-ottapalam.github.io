@@ -1,0 +1,924 @@
+/* ==========================================================================
+   G-TEC Ottapalam - Custom Stylesheet
+   Design Philosophy: Vibrant Royal Blue Primary + Radiant Pop Yellow/Amber Contrasting
+   Inspired by Behance Education Reference & Image 1 Laptop Screen Layout
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  
+  --color-pop-yellow: #FBBF24;
+  --color-pop-amber: #F59E0B;
+  --color-pop-glow: rgba(251, 191, 36, 0.35);
+  --color-pop-coral: #FF6B4A;
+
+  --color-dark: #0F172A;
+  --color-dark-surface: #1E293B;
+  --color-text-main: #1E293B;
+  --color-text-muted: #64748B;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.12), 0 10px 15px -8px rgba(15, 23, 42, 0.06);
+  --shadow-blue-glow: 0 20px 45px -10px rgba(37, 99, 235, 0.45);
+  --shadow-amber-glow: 0 12px 30px -5px rgba(245, 158, 11, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #F8FAFC;
+  background-color: #0B1120;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #0B1120;
+  color: #F8FAFC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FBBF24;
+}
+
+/* ==========================================================================
+   Background Giant Typography (Matches Reference Hero Backdrop)
+   ========================================================================== */
+.hero-backdrop-typography {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(4rem, 16vw, 15rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2.5px rgba(37, 99, 235, 0.16);
+  letter-spacing: 0.12em;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Laptop / Device Screen Mockup Wrapper (Directly from Reference Image 1)
+   ========================================================================== */
+.laptop-stage-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+.laptop-frame {
+  position: relative;
+  background: #111827;
+  border: 10px solid #1F2937;
+  border-top-width: 12px;
+  border-radius: 28px 28px 12px 12px;
+  box-shadow: 
+    0 35px 80px -20px rgba(15, 23, 42, 0.35),
+    0 15px 35px -10px rgba(37, 99, 235, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.laptop-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 18px;
+  background: #1F2937;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.camera-lens {
+  width: 6px;
+  height: 6px;
+  background: #030712;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(59, 130, 246, 0.8);
+}
+
+.camera-indicator {
+  width: 3.5px;
+  height: 3.5px;
+  background: #10B981;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.laptop-base {
+  height: 16px;
+  background: linear-gradient(180deg, #374151 0%, #1F2937 100%);
+  border-radius: 0 0 32px 32px;
+  margin: 0 auto;
+  width: 104%;
+  position: relative;
+  left: -2%;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.laptop-lip {
+  width: 140px;
+  height: 5px;
+  background: #111827;
+  border-radius: 0 0 6px 6px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Vibrant Blue Hero Canvas
+   ========================================================================== */
+.hero-vibrant-canvas {
+  background: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+  position: relative;
+  min-height: 680px;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+/* Concentric Glow Ripples behind the Student */
+.concentric-waves {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 620px;
+  height: 620px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wave-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+}
+
+.wave-ring-1 { width: 340px; height: 340px; }
+.wave-ring-2 { width: 480px; height: 480px; border-color: rgba(255, 255, 255, 0.08); }
+.wave-ring-3 { width: 620px; height: 620px; border-color: rgba(255, 255, 255, 0.05); }
+
+/* Ambient Blue Glow Orbs */
+.glow-orb-top-left {
+  position: absolute;
+  top: -120px;
+  left: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.glow-orb-bottom-right {
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Hand-Drawn Contrasting Doodles (Yellow / Amber)
+   ========================================================================== */
+.doodle-sun {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  animation: rotate-doodle 24s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.6));
+}
+
+.doodle-star {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  animation: pulse-star 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.7));
+}
+
+.doodle-squiggle {
+  position: absolute;
+  width: 110px;
+  height: 45px;
+  pointer-events: none;
+}
+
+@keyframes rotate-doodle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-star {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+  50% { transform: scale(1.18) rotate(12deg); opacity: 1; }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-alt {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
+}
+
+.floating-card-left {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+.floating-card-right {
+  animation: float-alt 6s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Floating Glassmorphic Hero Cards (Matches Reference Image 1)
+   ========================================================================== */
+.hero-glass-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px -10px rgba(15, 23, 42, 0.18),
+    0 10px 15px -5px rgba(37, 99, 235, 0.15);
+  color: var(--color-dark);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-glass-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 25px 45px -10px rgba(15, 23, 42, 0.22),
+    0 12px 20px -5px rgba(37, 99, 235, 0.2);
+}
+
+/* ==========================================================================
+   Hero Interactive Course Search Pill
+   ========================================================================== */
+.hero-search-pill {
+  background: #FFFFFF;
+  border-radius: var(--radius-full);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+  padding: 6px 8px 6px 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.hero-search-pill:focus-within {
+  border-color: var(--color-pop-yellow);
+  box-shadow: 0 16px 36px rgba(251, 191, 36, 0.35);
+}
+
+.hero-search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  width: 100%;
+  font-family: inherit;
+}
+
+.hero-search-input::placeholder {
+  color: #94A3B8;
+}
+
+/* Pop Buttons & Badges */
+.btn-pop-yellow {
+  background: var(--color-pop-yellow);
+  color: #0F172A;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px -3px var(--color-pop-glow);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-pop-yellow:hover {
+  background: #F59E0B;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px -2px rgba(245, 158, 11, 0.45);
+}
+
+.btn-white-pill {
+  background: #FFFFFF;
+  color: var(--color-primary-700);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  padding: 9px 22px;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-white-pill:hover {
+  background: #F8FAFC;
+  color: var(--color-primary-800);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   Accreditation Marquee
+   ========================================================================== */
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: marquee-slide 32s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   Course Catalog Cards & Filters
+   ========================================================================== */
+.category-tab-btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.category-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  border-color: rgba(251, 191, 36, 0.5);
+  transform: translateY(-1px);
+}
+
+.category-tab-btn.active {
+  background: #2563EB;
+  color: #FFFFFF;
+  border-color: #3B82F6;
+  box-shadow: 0 8px 22px -3px rgba(37, 99, 235, 0.55), 0 0 14px rgba(59, 130, 246, 0.35);
+  font-weight: 700;
+}
+
+.level-chip-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.level-chip-btn:hover {
+  border-color: var(--color-pop-amber);
+  color: #F8FAFC;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.level-chip-btn.active {
+  background: #FBBF24;
+  color: #0F172A;
+  border-color: #F59E0B;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.4);
+}
+
+/* Course Card - Glassmorphism on Royal / Dark Navy Canvas */
+.course-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  position: relative;
+  color: #FFFFFF;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  border-color: #FBBF24;
+  background: rgba(30, 41, 59, 0.88);
+  box-shadow: 
+    0 25px 50px -12px rgba(37, 99, 235, 0.35),
+    0 0 25px rgba(251, 191, 36, 0.22);
+}
+
+.course-card .badge-level {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-level-certificate { background: rgba(56, 189, 248, 0.2); color: #7DD3FC; border: 1px solid rgba(56, 189, 248, 0.3); }
+.badge-level-diploma { background: rgba(251, 191, 36, 0.2); color: #FCD34D; border: 1px solid rgba(251, 191, 36, 0.3); }
+.badge-level-master { background: rgba(168, 85, 247, 0.2); color: #D8B4FE; border: 1px solid rgba(168, 85, 247, 0.3); }
+.badge-level-sap { background: rgba(52, 211, 153, 0.2); color: #6EE7B7; border: 1px solid rgba(52, 211, 153, 0.3); }
+
+/* ==========================================================================
+   Stats Highlights Section - Dark Glass
+   ========================================================================== */
+.stat-box {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 28px 24px;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.stat-box:hover {
+  transform: translateY(-6px);
+  border-color: rgba(251, 191, 36, 0.6);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 20px 45px -10px rgba(37, 99, 235, 0.3), 0 0 25px rgba(251, 191, 36, 0.2);
+}
+
+.stat-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5px;
+  background: linear-gradient(90deg, #2563EB, #FBBF24);
+}
+
+/* ==========================================================================
+   Modals & Drawers - Dark Glass
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 17, 32, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content-box {
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  max-width: 650px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 35px 80px -15px rgba(0, 0, 0, 0.8),
+    0 0 45px rgba(37, 99, 235, 0.25);
+  transform: scale(0.92) translateY(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-content-box {
+  transform: scale(1) translateY(0);
+}
+
+/* Floating Action Buttons */
+.floating-actions-bar {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.floating-whatsapp-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55);
+}
+
+.pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .hero-vibrant-canvas {
+    min-height: auto;
+    padding-bottom: 3rem;
+  }
+  .laptop-frame {
+    border-width: 6px;
+    border-radius: 18px;
+  }
+  .laptop-base {
+    display: none;
+  }
+  .floating-card-left, .floating-card-right {
+    position: static !important;
+    margin: 1rem auto;
+    width: 100% !important;
+  }
+}
+
+
+/* ==========================================================================
+   SCROLLYTELLING ANIMATION ENGINE (Inspired by armor-bd.com)
+   Lenis Smooth Scrolling + GSAP ScrollTrigger Pinned Scrubbing
+   ========================================================================== */
+
+/* Top Interactive Scroll Progress Indicator */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3.5px;
+  background: linear-gradient(90deg, #2563EB, #FBBF24, #FF6B4A);
+  z-index: 9999;
+  transition: width 0.08s ease-out;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+  pointer-events: none;
+}
+
+/* Ambient Cursor Glow Follower (Desktop only) */
+.ambient-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, rgba(251, 191, 36, 0.08) 35%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9990;
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s ease, transform 0.12s ease-out;
+  opacity: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ambient-cursor-glow {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   ACT 2: SIDEWAYS SCROLL STUDENT JOURNEY SLIDER
+   Scroll sideways to explore Phase 01, Phase 02, and Phase 03
+   ========================================================================== */
+.journey-section-wrapper {
+  position: relative;
+  background: #0B1120;
+  color: #FFFFFF;
+}
+
+.journey-carousel-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0 1.5rem 0;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: #FBBF24 rgba(255, 255, 255, 0.1);
+}
+
+.journey-carousel-track.grabbing {
+  cursor: grabbing;
+  user-select: none;
+  scroll-behavior: auto;
+}
+
+.journey-carousel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.journey-carousel-track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  margin: 0 4rem;
+}
+
+.journey-carousel-track::-webkit-scrollbar-thumb {
+  background: #FBBF24;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.journey-carousel-track::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+.journey-slide-card {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  border-radius: 28px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.journey-slide-card:hover {
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.journey-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 640px) {
+  .journey-photo-frame {
+    height: 420px;
+  }
+}
+
+/* ==========================================================================
+   ACT 3: DIRECT SIDEWAYS SCROLL STREAM CAROUSEL
+   Scroll sideways via mouse drag, trackpad, touch swipe, or left/right arrow buttons
+   ========================================================================== */
+.sideways-carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.sideways-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.5rem 0 2.5rem 0;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: #FBBF24 rgba(255, 255, 255, 0.1);
+}
+
+.sideways-carousel-track.grabbing {
+  cursor: grabbing;
+  user-select: none;
+  scroll-behavior: auto;
+}
+
+/* Custom styled horizontal scrollbar */
+.sideways-carousel-track::-webkit-scrollbar {
+  height: 8px;
+}
+.sideways-carousel-track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  margin: 0 2rem;
+}
+.sideways-carousel-track::-webkit-scrollbar-thumb {
+  background: #FBBF24;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+}
+.sideways-carousel-track::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+.sideways-stream-card {
+  flex: 0 0 340px;
+  max-width: 380px;
+  scroll-snap-align: start;
+  border-radius: 28px;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .sideways-stream-card {
+    flex: 0 0 370px;
+  }
+}
+
+.sideways-stream-card:hover {
+  transform: translateY(-8px);
+  border-color: #FBBF24;
+  background: rgba(30, 41, 59, 0.9);
+  box-shadow: 
+    0 30px 60px -15px rgba(37, 99, 235, 0.4),
+    0 0 25px rgba(251, 191, 36, 0.25);
+}
+
+/* Sideways Navigation Controls (Left & Right Arrow Buttons) */
+.carousel-nav-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #FBBF24;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.carousel-nav-btn:hover {
+  background: #F59E0B;
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(245, 158, 11, 0.5);
+}
+
+.carousel-nav-btn:active {
+  transform: scale(0.96);
+}
+
+/* Dark Glassmorphic Card Utilities */
+.glass-dark-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.glass-dark-card:hover {
+  border-color: rgba(251, 191, 36, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.25);
+}
+
+.form-glass-input {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  color: #FFFFFF;
+  padding: 12px 16px;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.form-glass-input:focus {
+  border-color: #FBBF24;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.3);
+}
+
+.form-glass-input option {
+  background: #0F172A;
+  color: #FFFFFF;
+}
+
+/* Expand-on-scroll hero styling */
+.hero-stage-expanded {
+  transform: scale(1.04);
+  transition: transform 0.4s ease-out;
+}
