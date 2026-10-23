@@ -84,9 +84,150 @@
   <div class="ambient-cursor-glow" id="cursor-glow"></div>
 
   <!-- ==========================================================================
+       CINEMATIC 3D LAPTOP INTRO & HERO REVEAL STAGE
+       (Award-Winning Motion Experience - Inspired by armor-bd.com)
+       ========================================================================== -->
+  <div id="cinematic-intro-stage" aria-label="G-TEC Cinematic Experience">
+    
+    <!-- Studio Ambient Lighting & Vignette Backdrop -->
+    <div class="studio-backdrop">
+      <div class="studio-radial-glow"></div>
+      <div class="studio-floor-reflection"></div>
+      <!-- Faint Giant Brand Watermark "LEARNING" (Matches Hero Foreshadowing) -->
+      <div class="studio-watermark" aria-hidden="true">LEARNING</div>
+    </div>
+
+    <!-- Top Floating Controls: Skip Button with Progress Key -->
+    <div class="absolute top-6 right-6 z-50 flex items-center gap-3">
+      <button 
+        type="button" 
+        id="skip-intro-btn" 
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 hover:bg-white text-[#24334B] text-xs font-semibold tracking-wide transition-all duration-200 group shadow-md border border-[#E5EAF1] hover:scale-105 cursor-pointer backdrop-blur-sm"
+        title="Skip intro animation (Esc)"
+      >
+        <span>Skip</span>
+        <span class="text-[10px] text-slate-400 font-mono tracking-tighter bg-slate-100 px-1.5 py-0.5 rounded">ESC</span>
+        <svg class="w-3.5 h-3.5 text-[#1746C8] transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- 3D Camera / Stage Viewport -->
+    <div class="cinematic-camera-stage">
+      
+      <!-- The Precision 3D Laptop Rig -->
+      <div class="laptop-3d-rig" id="laptop-3d-rig">
+        
+        <!-- Floor Contact Shadow & Dynamic Blue Backlight Casting -->
+        <div class="laptop-floor-shadow" id="laptop-floor-shadow"></div>
+        <div class="laptop-screen-floor-glow" id="laptop-floor-glow"></div>
+
+        <!-- ================= LAPTOP BASE (KEYBOARD CHASSIS) ================= -->
+        <div class="laptop-chassis-base" id="laptop-base">
+          <!-- Keyboard Recessed Tray -->
+          <div class="laptop-deck-well">
+            <!-- Sleek Minimalist Key Rows (Simulated CNC layout) -->
+            <div class="keyboard-grid">
+              <div class="key-row key-function-row"></div>
+              <div class="key-row key-row-1"></div>
+              <div class="key-row key-row-2"></div>
+              <div class="key-row key-row-3"></div>
+              <div class="key-row key-row-space">
+                <div class="spacebar"></div>
+              </div>
+            </div>
+            <!-- Glass Trackpad -->
+            <div class="laptop-trackpad"></div>
+          </div>
+
+          <!-- Front Edge Chamfer & Ergonomic Thumb Opening Notch -->
+          <div class="laptop-front-lip">
+            <div class="laptop-thumb-notch"></div>
+          </div>
+          <!-- Precision Hinge Axle (Cylindrical hinge joinery) -->
+          <div class="laptop-hinge-axle"></div>
+        </div>
+
+        <!-- ================= LAPTOP LID (SCREEN ASSEMBLY) ================= -->
+        <!-- Pivots naturally from bottom hinge: rotateX(-90deg) -> 0deg -->
+        <div class="laptop-lid-assembly" id="laptop-lid">
+          
+          <!-- Outer Metal Shell (Visible when laptop is closed) -->
+          <div class="laptop-lid-exterior">
+            <div class="lid-specular-sheen"></div>
+            <!-- Laser-Etched G-TEC Emblem on Outer Shell -->
+            <div class="lid-outer-emblem">
+              <img src="assets/official-logo/gtec-logo-white.png" alt="G-TEC Emblem" class="w-14 h-auto opacity-80 drop-shadow-sm filter brightness-110">
+            </div>
+          </div>
+
+          <!-- Inner Display Frame (Bezel + Screen Glass) -->
+          <div class="laptop-lid-interior" id="laptop-screen-bezel">
+            
+            <!-- Webcam Notch with Camera Lens & Green LED Indicator -->
+            <div class="screen-notch">
+              <div class="notch-lens"></div>
+              <div class="notch-led" id="notch-led"></div>
+            </div>
+
+            <!-- The High-End Display Canvas (16:10 Aspect Ratio) -->
+            <div class="laptop-screen-canvas" id="laptop-screen-canvas">
+              
+              <!-- Subtle Screen Glare Film -->
+              <div class="screen-specular-glare"></div>
+
+              <!-- Inside Screen: Scene 3 Content (Pristine G-TEC Logo Presentation) -->
+              <div class="screen-hero-preview" id="screen-hero-preview">
+                
+                <!-- Radiant Backdrop Ripple Waves (Matches Hero Foreshadowing) -->
+                <div class="preview-waves">
+                  <div class="p-wave p-wave-1"></div>
+                  <div class="p-wave p-wave-2"></div>
+                  <div class="p-wave p-wave-3"></div>
+                </div>
+
+                <!-- Ambient Blue Glow Flares -->
+                <div class="preview-glow-tl"></div>
+                <div class="preview-glow-br"></div>
+
+                <!-- Center Logo Stage (Reveals upon lid opening) -->
+                <div class="screen-center-brand" id="screen-center-brand">
+                  <div class="brand-logo-halo" id="brand-logo-halo"></div>
+                  <img 
+                    src="assets/official-logo/gtec-logo-white.png" 
+                    alt="G-TEC Official Logo" 
+                    class="screen-logo-img" 
+                    id="screen-logo-img"
+                  >
+                  <!-- Tagline that lights up under the logo -->
+                  <div class="screen-brand-tagline" id="screen-brand-tagline">
+                    <span class="block text-amber-300 font-black text-xs md:text-sm tracking-[0.25em] uppercase">Ottapalam</span>
+                    <span class="block text-blue-100 font-semibold text-[10px] md:text-xs tracking-wider uppercase opacity-90">Centre of Excellence</span>
+                  </div>
+                  <!-- Elegant System Initialization Status Bar -->
+                  <div class="screen-system-status" id="screen-system-status">
+                    <div class="system-power-line" id="system-power-line"></div>
+                    <span class="text-[9px] tracking-widest uppercase text-blue-200 font-mono">Initializing Curriculum & Labs</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
        TOP ANNOUNCEMENT BAR (Rating & Contact Details)
        ========================================================================== -->
-  <aside class="bg-[#F5F8FD] text-[#24334B] text-xs py-2 px-4 border-b border-[#E5EAF1]" aria-label="Announcement & Quick Contact">
+  <aside id="announcement-bar" class="bg-[#F5F8FD] text-[#24334B] text-xs py-2 px-4 border-b border-[#E5EAF1]" aria-label="Announcement & Quick Contact">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <!-- Left: Google Reviews Highlight -->
       <div class="flex items-center gap-2">
@@ -99,7 +240,7 @@
         <span class="hidden sm:inline text-slate-500 font-medium">Admissions Open for 2026 Academic Batches</span>
       </div>
 
-      <!-- Right: Phone & Location -->
+      <!-- Right: Phone, Location & Replay -->
       <div class="flex items-center gap-4 text-slate-700">
         <a href="tel:09995955501" class="hover:text-[#1746C8] transition-colors flex items-center gap-1.5 font-semibold text-[#24334B]">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-[#1746C8]"></i>
@@ -112,6 +253,17 @@
         <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="text-[#1746C8] hover:text-[#12379E] font-semibold underline underline-offset-2">
           Verify Certificate
         </a>
+        <span class="hidden sm:inline text-slate-300">|</span>
+        <!-- Replay Cinematic Animation Trigger Button -->
+        <button 
+          type="button" 
+          id="replay-intro-btn" 
+          class="inline-flex items-center gap-1.5 text-slate-500 hover:text-[#1746C8] font-semibold transition-colors text-xs cursor-pointer group"
+          title="Replay cinematic laptop opening animation"
+        >
+          <svg class="w-3.5 h-3.5 text-[#1746C8] transition-transform group-hover:rotate-180 duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+          <span>Replay Intro</span>
+        </button>
       </div>
     </div>
   </aside>
@@ -119,7 +271,7 @@
   <!-- ==========================================================================
        MAIN NAVIGATION HEADER
        ========================================================================== -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E5EAF1] shadow-sm text-[#24334B] transition-all duration-300">
+  <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E5EAF1] shadow-sm text-[#24334B] transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Logo -->
       <a href="#hero" class="flex items-center gap-3 group">

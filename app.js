@@ -923,8 +923,301 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ==========================================================================
+  // CINEMATIC 3D LAPTOP INTRO & HERO REVEAL CONTROLLER (ARMOR-BD INSPIRATION)
+  // ==========================================================================
+  function initCinematicLaptopIntro() {
+    const introStage = document.getElementById('cinematic-intro-stage');
+    const skipBtn = document.getElementById('skip-intro-btn');
+    const replayBtn = document.getElementById('replay-intro-btn');
+    
+    if (!introStage) return;
+
+    if (typeof gsap === 'undefined') {
+      introStage.style.display = 'none';
+      return;
+    }
+
+    // Freeze scroll during cinematic sequence
+    document.body.classList.add('overflow-hidden');
+    if (typeof lenis !== 'undefined' && lenis) {
+      lenis.stop();
+    }
+
+    // Reference real hero elements to coordinate the Scene 4 reveal
+    const heroElements = {
+      announcement: document.getElementById('announcement-bar'),
+      header: document.getElementById('main-header'),
+      headline: document.querySelector('#hero h1'),
+      subtitle: document.querySelector('#hero p.text-blue-100'),
+      searchPill: document.querySelector('#hero .hero-search-pill'),
+      studentPhoto: document.querySelector('#hero .relative.z-10.w-64'),
+      cardLeft: document.querySelector('#hero .floating-card-left'),
+      cardRight: document.querySelector('#hero .floating-card-right'),
+      backdropText: document.querySelector('.hero-backdrop-typography')
+    };
+
+    // DOM Elements inside the 3D Laptop Rig
+    const laptopRig = document.getElementById('laptop-3d-rig');
+    const laptopLid = document.getElementById('laptop-lid');
+    const floorGlow = document.getElementById('laptop-floor-glow');
+    const notchLed = document.getElementById('notch-led');
+    const screenLogo = document.getElementById('screen-logo-img');
+    const brandHalo = document.getElementById('brand-logo-halo');
+    const screenTagline = document.getElementById('screen-brand-tagline');
+    const powerLine = document.getElementById('system-power-line');
+    const screenCenterBrand = document.getElementById('screen-center-brand');
+    const chassisBase = document.getElementById('laptop-base');
+    const screenBezel = document.getElementById('laptop-screen-bezel');
+
+    let introTL = null;
+
+    function buildAndPlayIntro() {
+      // Clean previous state
+      if (introTL) introTL.kill();
+
+      // Reset intro stage
+      introStage.classList.remove('intro-hidden');
+      introStage.style.display = 'flex';
+      introStage.style.opacity = '1';
+
+      // Set initial hidden positions for real hero elements
+      gsap.set([heroElements.announcement, heroElements.header].filter(Boolean), { y: -45, opacity: 0 });
+      gsap.set([heroElements.headline, heroElements.subtitle, heroElements.searchPill].filter(Boolean), { y: 35, opacity: 0 });
+      if (heroElements.studentPhoto) gsap.set(heroElements.studentPhoto, { scale: 0.82, opacity: 0 });
+      if (heroElements.cardLeft) gsap.set(heroElements.cardLeft, { x: -45, scale: 0.9, opacity: 0 });
+      if (heroElements.cardRight) gsap.set(heroElements.cardRight, { x: 45, scale: 0.9, opacity: 0 });
+
+      // SCENE 1: Closed Laptop in Studio
+      gsap.set(laptopRig, { 
+        rotateX: 18, 
+        rotateY: -3, 
+        rotateZ: 0, 
+        scale: 0.92,
+        y: 15,
+        z: 0,
+        opacity: 1
+      });
+      gsap.set(laptopLid, { rotateX: -90 }); // Completely closed on base
+      gsap.set([chassisBase, screenBezel], { opacity: 1 });
+      gsap.set(floorGlow, { opacity: 0 });
+      gsap.set(notchLed, { opacity: 0 });
+      gsap.set(screenLogo, { opacity: 0, scale: 0.82, filter: 'brightness(2.2) blur(8px)' });
+      gsap.set(brandHalo, { opacity: 0, scale: 0.8 });
+      gsap.set(screenTagline, { opacity: 0, y: 10 });
+      gsap.set(powerLine, { width: '0%' });
+      gsap.set(screenCenterBrand, { y: 0, scale: 1, opacity: 1 });
+
+      // Create Master Intro Timeline
+      introTL = gsap.timeline({
+        defaults: { ease: 'power2.inOut' },
+        onComplete: finishIntro
+      });
+
+      // SCENE 1 — CAMERA APPROACH (0.0s - 0.7s)
+      introTL.to(laptopRig, {
+        scale: 1.0,
+        y: 10,
+        duration: 0.7,
+        ease: 'power1.out'
+      });
+
+      // SCENE 2 — LAPTOP OPENS NATURAL HINGE ROTATION (0.7s - 1.95s)
+      // Base stays firmly anchored! Lid rotates around hinge.
+      introTL.to(laptopLid, {
+        rotateX: 0, // Opens to vertical display angle
+        duration: 1.25,
+        ease: 'power3.inOut'
+      }, '+=0.05');
+
+      // Camera gently levels out to frame the opening screen
+      introTL.to(laptopRig, {
+        rotateX: 10,
+        rotateY: 0,
+        y: 5,
+        duration: 1.25,
+        ease: 'power2.out'
+      }, '<');
+
+      // As lid passes 25 degrees, screen backlight glow ignites
+      introTL.to(notchLed, {
+        opacity: 1,
+        duration: 0.35
+      }, '<+=0.45');
+
+      introTL.to(floorGlow, {
+        opacity: 0.8,
+        duration: 0.8,
+        ease: 'power2.out'
+      }, '<');
+
+      // SCENE 3 — G-TEC LOGO REVEAL (1.95s - 2.85s)
+      introTL.to(screenLogo, {
+        opacity: 1,
+        scale: 1,
+        filter: 'brightness(1) blur(0px)',
+        duration: 0.75,
+        ease: 'power2.out'
+      }, '-=0.25');
+
+      introTL.to(brandHalo, {
+        opacity: 0.85,
+        scale: 1.2,
+        duration: 0.7,
+        ease: 'power2.out'
+      }, '<');
+
+      introTL.to(screenTagline, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, '-=0.35');
+
+      introTL.to(powerLine, {
+        width: '100%',
+        duration: 0.65,
+        ease: 'power1.inOut'
+      }, '-=0.4');
+
+      // Restrained pause to admire brand presentation
+      introTL.to({}, { duration: 0.4 });
+
+      // SCENE 4 — TRANSFORM INTO THE REAL HERO (2.85s - 4.0s)
+      // 1. Camera moves into display: scale expands screen to fill viewport
+      introTL.to(laptopRig, {
+        scale: 5.4,
+        rotateX: 0,
+        rotateY: 0,
+        y: 70,
+        z: 400,
+        duration: 1.15,
+        ease: 'expo.inOut'
+      });
+
+      // 2. Bezels and base expand beyond viewport edges
+      introTL.to([chassisBase, screenBezel, floorGlow], {
+        opacity: 0,
+        duration: 0.65,
+        ease: 'power2.in'
+      }, '<+=0.2');
+
+      // 3. Logo transitions naturally into hero composition
+      introTL.to(screenCenterBrand, {
+        y: -140,
+        scale: 0.65,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power2.in'
+      }, '<+=0.25');
+
+      // 4. Intro stage dissolves seamlessly, revealing the real hero
+      introTL.to(introStage, {
+        opacity: 0,
+        duration: 0.45,
+        ease: 'power2.inOut'
+      }, '-=0.35');
+
+      // 5. Full hero section UI elements blossom in
+      introTL.to([heroElements.announcement, heroElements.header].filter(Boolean), {
+        y: 0,
+        opacity: 1,
+        duration: 0.75,
+        stagger: 0.08,
+        ease: 'power3.out'
+      }, '-=0.3');
+
+      introTL.to([heroElements.headline, heroElements.subtitle, heroElements.searchPill].filter(Boolean), {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out'
+      }, '-=0.6');
+
+      if (heroElements.studentPhoto) {
+        introTL.to(heroElements.studentPhoto, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.85,
+          ease: 'back.out(1.3)'
+        }, '-=0.65');
+      }
+
+      if (heroElements.cardLeft && heroElements.cardRight) {
+        introTL.to([heroElements.cardLeft, heroElements.cardRight], {
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'back.out(1.2)'
+        }, '-=0.55');
+      }
+    }
+
+    function finishIntro() {
+      introStage.classList.add('intro-hidden');
+      introStage.style.display = 'none';
+      document.body.classList.remove('overflow-hidden');
+      if (typeof lenis !== 'undefined' && lenis) {
+        lenis.start();
+      }
+      // Guarantee all hero elements are 100% active, visible, and responsive
+      gsap.set([
+        heroElements.announcement, 
+        heroElements.header, 
+        heroElements.headline, 
+        heroElements.subtitle, 
+        heroElements.searchPill, 
+        heroElements.studentPhoto, 
+        heroElements.cardLeft, 
+        heroElements.cardRight
+      ].filter(Boolean), { 
+        clearProps: 'all' 
+      });
+    }
+
+    // Skip handler
+    if (skipBtn) {
+      skipBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (introTL) {
+          introTL.progress(1);
+        } else {
+          finishIntro();
+        }
+      });
+    }
+
+    // Keyboard ESC key handler
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !introStage.classList.contains('intro-hidden')) {
+        if (introTL) {
+          introTL.progress(1);
+        } else {
+          finishIntro();
+        }
+      }
+    });
+
+    // Replay handler
+    if (replayBtn) {
+      replayBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        buildAndPlayIntro();
+      });
+    }
+
+    // Start Intro on Load
+    buildAndPlayIntro();
+  }
+
   // Initialize all controllers
   populateEnquiryOptions();
   renderCourses();
   initScrollytelling();
+  initCinematicLaptopIntro();
 });
+

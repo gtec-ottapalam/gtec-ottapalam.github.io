@@ -950,3 +950,468 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.04);
   transition: transform 0.4s ease-out;
 }
+
+/* ==========================================================================
+   CINEMATIC 3D LAPTOP INTRO & HERO REVEAL (ARMOR-BD INSPIRATION)
+   ========================================================================== */
+#cinematic-intro-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(circle at 50% 45%, #F4F8FD 0%, #E5EFFC 60%, #D4E3F7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1400px;
+  perspective-origin: 50% 48%;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+#cinematic-intro-stage.intro-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Studio Ambient Elements */
+.studio-backdrop {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.studio-radial-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(23, 70, 200, 0.08) 0%, rgba(37, 99, 235, 0.03) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.studio-floor-reflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(229, 239, 252, 0.45) 50%, rgba(212, 227, 247, 0.75) 100%);
+  border-top: 1px solid rgba(23, 70, 200, 0.06);
+}
+
+.studio-watermark {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(80px, 16vw, 220px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: rgba(23, 70, 200, 0.04);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* 3D Camera Stage */
+.cinematic-camera-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* 3D Laptop Rig */
+.laptop-3d-rig {
+  position: relative;
+  width: min(580px, 88vw);
+  aspect-ratio: 16 / 10;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 15px, 0) rotateX(18deg) rotateY(-3deg);
+  will-change: transform;
+}
+
+/* Floor Contact Shadow */
+.laptop-floor-shadow {
+  position: absolute;
+  bottom: -28px;
+  left: -5%;
+  width: 110%;
+  height: 50px;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.12) 55%, transparent 75%);
+  filter: blur(14px);
+  transform: rotateX(90deg) translateZ(-10px);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Floor Screen Backlight Glow */
+.laptop-screen-floor-glow {
+  position: absolute;
+  bottom: -45px;
+  left: -10%;
+  width: 120%;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(23, 70, 200, 0.4) 0%, rgba(37, 99, 235, 0.15) 50%, transparent 75%);
+  filter: blur(24px);
+  transform: rotateX(90deg) translateZ(-5px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* Laptop Base (Keyboard Chassis) */
+.laptop-chassis-base {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #2D3748 0%, #1A202C 50%, #111827 100%);
+  border-radius: 16px;
+  box-shadow: 
+    0 25px 50px -12px rgba(15, 23, 42, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.22),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.7);
+  transform-style: preserve-3d;
+  transform: rotateX(82deg);
+  transform-origin: bottom center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.laptop-deck-well {
+  position: absolute;
+  inset: 16px 20px 22px 20px;
+  background: #11151C;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.75);
+}
+
+.keyboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  height: 60%;
+  opacity: 0.85;
+}
+
+.key-row {
+  height: 14%;
+  background: linear-gradient(90deg, 
+    #1F2937 0%, #1F2937 8%, 
+    transparent 8%, transparent 10%,
+    #1F2937 10%, #1F2937 90%,
+    transparent 90%, transparent 92%,
+    #1F2937 92%, #1F2937 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.key-row-space {
+  display: flex;
+  justify-content: center;
+}
+
+.spacebar {
+  width: 45%;
+  height: 100%;
+  background: #1F2937;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.laptop-trackpad {
+  width: 32%;
+  height: 32%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.laptop-front-lip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: linear-gradient(180deg, #1A202C 0%, #0F172A 100%);
+  border-radius: 0 0 16px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.laptop-thumb-notch {
+  width: 70px;
+  height: 4px;
+  background: #090D16;
+  border-radius: 0 0 4px 4px;
+}
+
+.laptop-hinge-axle {
+  position: absolute;
+  top: -6px;
+  left: 10%;
+  width: 80%;
+  height: 8px;
+  background: linear-gradient(180deg, #0F172A 0%, #1F2937 50%, #0F172A 100%);
+  border-radius: 4px;
+}
+
+/* ================= LAPTOP LID (SCREEN ASSEMBLY) ================= */
+.laptop-lid-assembly {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg); /* Starts fully closed */
+  will-change: transform;
+}
+
+/* Outer Shell (Visible when closed) */
+.laptop-lid-exterior {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2D3748 0%, #1F2937 50%, #111827 100%);
+  border-radius: 16px 16px 4px 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 25px 45px -10px rgba(15, 23, 42, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.lid-outer-emblem {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+.lid-specular-sheen {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg, 
+    transparent 42%, 
+    rgba(255, 255, 255, 0.08) 48%, 
+    rgba(255, 255, 255, 0.18) 50%, 
+    rgba(255, 255, 255, 0.08) 52%, 
+    transparent 58%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+}
+
+/* Inner Display Face */
+.laptop-lid-interior {
+  position: absolute;
+  inset: 0;
+  background: #0B0F19;
+  border: 10px solid #111827;
+  border-top-width: 12px;
+  border-radius: 16px 16px 4px 4px;
+  box-shadow: 
+    0 30px 60px -15px rgba(15, 23, 42, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Top Notch with Webcam */
+.screen-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75px;
+  height: 12px;
+  background: #111827;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.notch-lens {
+  width: 5px;
+  height: 5px;
+  background: #030712;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(37, 99, 235, 0.8);
+}
+
+.notch-led {
+  width: 3px;
+  height: 3px;
+  background: #10B981;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 4px #10B981;
+  transition: opacity 0.3s ease;
+}
+
+/* High-End Display Canvas */
+.laptop-screen-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000B1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.screen-specular-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Screen Hero Preview (Scene 3 & 4) */
+.screen-hero-preview {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #014085 0%, #1746C8 55%, #2563EB 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+/* Radiant Backdrop Waves inside screen */
+.preview-waves {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.p-wave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+}
+
+.p-wave-1 { width: 180px; height: 180px; }
+.p-wave-2 { width: 300px; height: 300px; border-color: rgba(255, 255, 255, 0.08); }
+.p-wave-3 { width: 440px; height: 440px; border-color: rgba(255, 255, 255, 0.04); }
+
+.preview-glow-tl {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255, 200, 61, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.preview-glow-br {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Center Logo Presentation */
+.screen-center-brand {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.brand-logo-halo {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(23, 70, 200, 0.2) 50%, transparent 75%);
+  border-radius: 50%;
+  filter: blur(12px);
+  z-index: -1;
+  opacity: 0;
+}
+
+.screen-logo-img {
+  width: clamp(140px, 24vw, 210px);
+  height: auto;
+  object-contain: fit;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+  margin-bottom: 10px;
+}
+
+.screen-brand-tagline {
+  margin-top: 4px;
+}
+
+.screen-system-status {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.9;
+}
+
+.system-power-line {
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #FFC83D 0%, #FFFFFF 50%, #60A5FA 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(255, 200, 61, 0.8);
+}
+
