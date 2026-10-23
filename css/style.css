@@ -371,22 +371,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Pop Buttons & Badges */
 .btn-primary-blue {
-  background: #1746C8;
+  background: var(--hero-blue);
   color: #FFFFFF;
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 10px 24px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(23, 70, 200, 0.25);
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.28);
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
 .btn-primary-blue:hover {
-  background: #12379E;
+  background: var(--hero-blue-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(23, 70, 200, 0.35);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.38);
 }
 
 .btn-pop-yellow {
@@ -410,23 +410,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-white-pill {
   background: #FFFFFF;
-  color: #1746C8;
+  color: var(--hero-blue);
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 9px 22px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(36, 51, 75, 0.08);
+  box-shadow: 0 4px 12px rgba(20, 43, 77, 0.08);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid #E5EAF1;
+  border: 1px solid var(--border);
 }
 
 .btn-white-pill:hover {
-  background: #F5F8FD;
-  color: #12379E;
+  background: var(--panel-bg);
+  color: var(--hero-blue-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(36, 51, 75, 0.12);
+  box-shadow: 0 8px 18px rgba(29, 78, 216, 0.16);
 }
 
 /* ==========================================================================
