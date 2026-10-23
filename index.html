@@ -59,12 +59,24 @@
   <link rel="stylesheet" href="css/style.css?v=light-2.0">
   <link rel="stylesheet" href="style.css?v=light-2.0">
 
-  <!-- Force browser to start at hero (disable previous scroll restoration) -->
+  <!-- Force browser to start at hero (disable scroll restoration & skip replay on refresh) -->
   <script>
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+    if (window.location.hash && window.location.hash !== '#hero') {
+      try {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      } catch (e) {}
+    }
     window.scrollTo(0, 0);
+
+    // If cinematic intro was already played in this browser session, skip immediately on refresh
+    try {
+      if (sessionStorage.getItem('gtec_intro_played') === 'true') {
+        document.documentElement.classList.add('intro-skip');
+      }
+    } catch (e) {}
   </script>
 
   <!-- Universal Image & Asset Fallback (Auto-resolves assets whether in subfolders or flat root) -->
