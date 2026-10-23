@@ -104,17 +104,20 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    Background Giant Typography (Matches Reference Hero Backdrop)
    ========================================================================== */
+/* ==========================================================================
+   Background Giant Typography (Matches Reference Hero Backdrop)
+   ========================================================================== */
 .hero-backdrop-typography {
   position: absolute;
-  top: 1%;
+  top: 1.5%;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(4rem, 16vw, 15rem);
+  font-size: clamp(3rem, 11vw, 8.5rem);
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 2.5px rgba(37, 99, 235, 0.16);
-  letter-spacing: 0.12em;
+  -webkit-text-stroke: 2px rgba(37, 99, 235, 0.14);
+  letter-spacing: 0.14em;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
@@ -123,25 +126,53 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   HERO SECTION - SCREEN-FIT VIEWPORT CONTAINER
+   ========================================================================== */
+#hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 25%, #FFFFFF 0%, #F1F6FD 55%, #E2EDFC 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 16px 12px 16px;
+}
+
+@media (min-width: 1024px) {
+  #hero {
+    height: calc(100vh - 96px);
+    max-height: calc(100vh - 96px);
+    min-height: 520px;
+  }
+}
+
+/* ==========================================================================
    Laptop / Device Screen Mockup Wrapper (Directly from Reference Image 1)
    ========================================================================== */
 .laptop-stage-wrapper {
   position: relative;
   z-index: 10;
-  max-width: 1280px;
+  width: 100%;
+  max-width: min(1040px, 94vw);
   margin: 0 auto;
-  perspective: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .laptop-frame {
   position: relative;
-  background: #111827;
-  border: 10px solid #1F2937;
-  border-top-width: 12px;
-  border-radius: 28px 28px 12px 12px;
+  width: 100%;
+  background: #0F172A;
+  border: 7px solid #1E293B;
+  border-top-width: 9px;
+  border-radius: 18px 18px 6px 6px;
   box-shadow: 
-    0 35px 80px -20px rgba(15, 23, 42, 0.35),
-    0 15px 35px -10px rgba(37, 99, 235, 0.25),
+    0 24px 55px -12px rgba(15, 23, 42, 0.35),
+    0 10px 24px -6px rgba(29, 78, 216, 0.22),
     inset 0 1px 1px rgba(255, 255, 255, 0.2);
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -152,50 +183,50 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 110px;
-  height: 18px;
-  background: #1F2937;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  width: 84px;
+  height: 13px;
+  background: #1E293B;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .camera-lens {
-  width: 6px;
-  height: 6px;
+  width: 4.5px;
+  height: 4.5px;
   background: #030712;
   border-radius: 50%;
   box-shadow: 0 0 2px rgba(59, 130, 246, 0.8);
 }
 
 .camera-indicator {
-  width: 3.5px;
-  height: 3.5px;
+  width: 3px;
+  height: 3px;
   background: #10B981;
   border-radius: 50%;
   opacity: 0.6;
 }
 
 .laptop-base {
-  height: 16px;
-  background: linear-gradient(180deg, #374151 0%, #1F2937 100%);
-  border-radius: 0 0 32px 32px;
+  height: 13px;
+  background: linear-gradient(180deg, #334155 0%, #1E293B 100%);
+  border-radius: 0 0 22px 22px;
   margin: 0 auto;
-  width: 104%;
+  width: 103%;
   position: relative;
-  left: -2%;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  left: -1.5%;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
 }
 
 .laptop-lip {
-  width: 140px;
-  height: 5px;
-  background: #111827;
-  border-radius: 0 0 6px 6px;
+  width: 110px;
+  height: 3.5px;
+  background: #0F172A;
+  border-radius: 0 0 5px 5px;
   margin: 0 auto;
 }
 
@@ -205,19 +236,43 @@ h1, h2, h3, h4, h5, h6 {
 .hero-vibrant-canvas {
   background: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
   position: relative;
-  min-height: 680px;
   overflow: hidden;
   color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .hero-vibrant-canvas {
+    height: clamp(470px, calc(100vh - 195px), 560px);
+    padding: 12px 20px 8px 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-vibrant-canvas {
+    height: clamp(460px, calc(100vh - 180px), 530px);
+    padding: 12px 16px 8px 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-vibrant-canvas {
+    min-height: 500px;
+    padding: 12px 12px 14px 12px;
+  }
 }
 
 /* Concentric Glow Ripples behind the Student */
 .concentric-waves {
   position: absolute;
-  bottom: -60px;
+  bottom: -35px;
   left: 50%;
   transform: translateX(-50%);
-  width: 620px;
-  height: 620px;
+  width: 380px;
+  height: 380px;
   pointer-events: none;
   z-index: 1;
 }
@@ -232,29 +287,29 @@ h1, h2, h3, h4, h5, h6 {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
 }
 
-.wave-ring-1 { width: 340px; height: 340px; }
-.wave-ring-2 { width: 480px; height: 480px; border-color: rgba(255, 255, 255, 0.08); }
-.wave-ring-3 { width: 620px; height: 620px; border-color: rgba(255, 255, 255, 0.05); }
+.wave-ring-1 { width: 200px; height: 200px; }
+.wave-ring-2 { width: 290px; height: 290px; border-color: rgba(255, 255, 255, 0.08); }
+.wave-ring-3 { width: 380px; height: 380px; border-color: rgba(255, 255, 255, 0.05); }
 
 /* Ambient Blue Glow Orbs */
 .glow-orb-top-left {
   position: absolute;
-  top: -120px;
-  left: -100px;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.3) 0%, transparent 70%);
+  top: -100px;
+  left: -80px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.28) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .glow-orb-bottom-right {
   position: absolute;
-  bottom: -100px;
-  right: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(147, 197, 253, 0.25) 0%, transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(147, 197, 253, 0.22) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -264,24 +319,32 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .doodle-sun {
   position: absolute;
-  width: 64px;
-  height: 64px;
+  width: 42px;
+  height: 42px;
+  top: 40px;
+  left: 20px;
   animation: rotate-doodle 24s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.6));
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.55));
+  z-index: 10;
+  pointer-events: none;
 }
 
 .doodle-star {
   position: absolute;
-  width: 46px;
-  height: 46px;
+  width: 32px;
+  height: 32px;
+  top: 44px;
+  right: 24px;
   animation: pulse-star 3.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.7));
+  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.65));
+  z-index: 10;
+  pointer-events: none;
 }
 
 .doodle-squiggle {
   position: absolute;
-  width: 110px;
-  height: 45px;
+  width: 80px;
+  height: 32px;
   pointer-events: none;
 }
 
@@ -292,17 +355,17 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes pulse-star {
   0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
-  50% { transform: scale(1.18) rotate(12deg); opacity: 1; }
+  50% { transform: scale(1.15) rotate(12deg); opacity: 1; }
 }
 
 @keyframes float-gentle {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-6px); }
 }
 
 @keyframes float-alt {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(8px); }
+  50% { transform: translateY(6px); }
 }
 
 .floating-card-left {
@@ -318,11 +381,16 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .hero-glass-card {
   background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 
+    0 16px 32px -8px rgba(15, 23, 42, 0.16),
+    0 6px 12px -4px rgba(37, 99, 235, 0.12);
+  color: var(--color-dark);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
     0 20px 40px -10px rgba(15, 23, 42, 0.18),
     0 10px 15px -5px rgba(37, 99, 235, 0.15);
   color: var(--color-dark);
