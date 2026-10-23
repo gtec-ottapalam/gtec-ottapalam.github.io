@@ -7,36 +7,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
-  /* Official User-Mandated Light Colour System */
-  --bg-primary: #FFFFFF;
-  --bg-alt: #EAF2FF;
-  --bg-card: #F5F8FD;
-  --color-accent: #1746C8;
-  --color-accent-hover: #12379E;
-  --color-text: #24334B;
-  --color-text-muted: #64748B;
-  --color-border: #E5EAF1;
+  /* Official User-Mandated Contrast & Readability Token System */
+  --page-bg: #F1F5FA;
+  --surface: #FFFFFF;
+  --heading: #142B4D;
+  --body-text: #475569;
+  --muted-text: #64748B;
+  --primary: #1D4ED8;
+  --primary-hover: #1E40AF;
+  --border: #D5DFEC;
+  --panel-bg: #EEF3FB;
+  --selected-bg: #1D4ED8;
+  --selected-text: #FFFFFF;
+
+  /* Semantic Aliases */
+  --bg-primary: var(--surface);
+  --bg-alt: var(--page-bg);
+  --bg-card: var(--surface);
+  --color-accent: var(--primary);
+  --color-accent-hover: var(--primary-hover);
+  --color-text: var(--heading);
+  --color-text-muted: var(--muted-text);
+  --color-border: var(--border);
   --color-highlight: #FFC83D;
   --color-highlight-hover: #F59E0B;
 
-  /* Legacy primary aliases mapped to royal blue & light palette */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1746C8;
-  --color-primary-800: #12379E;
-  --color-primary-900: #0f2c84;
-  
-  --color-pop-yellow: #FFC83D;
-  --color-pop-amber: #F59E0B;
-  --color-pop-glow: rgba(255, 200, 61, 0.35);
-  --color-pop-coral: #FF6B4A;
-
-  --color-dark: #24334B;
-  --color-dark-surface: #F5F8FD;
-  --color-text-main: #24334B;
+  --color-dark: var(--heading);
+  --color-dark-surface: var(--panel-bg);
+  --color-text-main: var(--heading);
   
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -44,32 +42,35 @@
   --radius-xl: 32px;
   --radius-full: 9999px;
   
-  --shadow-sm: 0 2px 8px rgba(36, 51, 75, 0.05);
-  --shadow-md: 0 10px 25px -5px rgba(36, 51, 75, 0.08), 0 8px 10px -6px rgba(36, 51, 75, 0.04);
-  --shadow-lg: 0 20px 35px -10px rgba(36, 51, 75, 0.12), 0 10px 15px -8px rgba(36, 51, 75, 0.06);
-  --shadow-blue-glow: 0 15px 35px -8px rgba(23, 70, 200, 0.35);
-  --shadow-amber-glow: 0 12px 30px -5px rgba(245, 158, 11, 0.35);
+  /* Crisp Edge-Defining Shadows */
+  --shadow-sm: 0 1px 3px rgba(20, 43, 77, 0.05), 0 1px 2px rgba(20, 43, 77, 0.03);
+  --shadow-md: 0 4px 14px -2px rgba(20, 43, 77, 0.08), 0 2px 4px -1px rgba(20, 43, 77, 0.04);
+  --shadow-lg: 0 12px 28px -6px rgba(20, 43, 77, 0.12), 0 4px 8px -2px rgba(20, 43, 77, 0.05);
+  --shadow-card-hover: 0 14px 32px -6px rgba(29, 78, 216, 0.16), 0 2px 6px rgba(20, 43, 77, 0.04);
+  --shadow-blue-glow: 0 10px 25px -4px rgba(29, 78, 216, 0.35);
+  --shadow-amber-glow: 0 8px 24px -4px rgba(245, 158, 11, 0.3);
 }
 
 html {
   scroll-behavior: smooth;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  color: #24334B;
-  background-color: #FFFFFF;
+  color: var(--body-text);
+  background-color: var(--page-bg);
 }
 
 body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background-color: #FFFFFF;
-  color: #24334B;
+  background-color: var(--page-bg);
+  color: var(--body-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   letter-spacing: -0.02em;
-  color: #24334B;
+  color: var(--heading);
+  font-weight: 800;
 }
 
 /* Custom Scrollbar */
@@ -435,18 +436,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Course Catalog Cards & Filters (Clean Light System)
+   Course Catalog Cards & Filters (Clean High-Contrast System)
    ========================================================================== */
 .category-tab-btn {
   padding: 10px 20px;
   border-radius: var(--radius-full);
   font-size: 0.88rem;
-  font-weight: 600;
-  color: #24334B;
-  background: #FFFFFF;
-  border: 1px solid #E5EAF1;
+  font-weight: 700;
+  color: var(--heading);
+  background: var(--surface);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -455,63 +456,63 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .category-tab-btn:hover {
-  background: #EAF2FF;
-  color: #1746C8;
-  border-color: rgba(23, 70, 200, 0.3);
+  background: var(--panel-bg);
+  color: var(--primary);
+  border-color: var(--primary);
   transform: translateY(-1px);
 }
 
 .category-tab-btn.active {
-  background: #1746C8;
-  color: #FFFFFF;
-  border-color: #1746C8;
-  box-shadow: 0 6px 18px rgba(23, 70, 200, 0.3);
-  font-weight: 700;
+  background: var(--selected-bg);
+  color: var(--selected-text);
+  border-color: var(--selected-bg);
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.32);
+  font-weight: 800;
 }
 
 .level-chip-btn {
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 0.8rem;
-  font-weight: 600;
-  color: #64748B;
-  background: #FFFFFF;
-  border: 1px solid #E5EAF1;
+  font-weight: 700;
+  color: var(--body-text);
+  background: var(--surface);
+  border: 1px solid var(--border);
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .level-chip-btn:hover {
-  border-color: #1746C8;
-  color: #1746C8;
-  background: #EAF2FF;
+  border-color: var(--primary);
+  color: var(--heading);
+  background: var(--panel-bg);
 }
 
 .level-chip-btn.active {
-  background: #1746C8;
-  color: #FFFFFF;
-  border-color: #1746C8;
-  font-weight: 700;
+  background: var(--selected-bg);
+  color: var(--selected-text);
+  border-color: var(--selected-bg);
+  font-weight: 800;
 }
 
-/* Course Card - Clean Crisp White on Light Blue Canvas */
+/* Course Card - High Contrast White Surface with Clear Separation */
 .course-card {
-  background: #FFFFFF;
-  border: 1px solid #E5EAF1;
-  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-md);
   position: relative;
-  color: #24334B;
+  color: var(--heading);
 }
 
 .course-card:hover {
-  transform: translateY(-6px);
-  border-color: #1746C8;
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .course-card .badge-level {
@@ -523,31 +524,31 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.05em;
 }
 
-.badge-level-certificate { background: #EAF2FF; color: #1746C8; border: 1px solid rgba(23, 70, 200, 0.2); }
-.badge-level-diploma { background: #FEF3C7; color: #92400E; border: 1px solid rgba(245, 158, 11, 0.25); }
-.badge-level-master { background: #EFF6FF; color: #1E40AF; border: 1px solid rgba(30, 64, 175, 0.25); }
-.badge-level-sap { background: #ECFDF5; color: #065F46; border: 1px solid rgba(5, 150, 105, 0.25); }
+.badge-level-certificate { background: var(--panel-bg); color: var(--primary); border: 1px solid var(--border); }
+.badge-level-diploma { background: #FEF3C7; color: #78350F; border: 1px solid #FDE68A; }
+.badge-level-master { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
+.badge-level-sap { background: #ECFDF5; color: #064E3B; border: 1px solid #A7F3D0; }
 
 /* ==========================================================================
    Stats Highlights Section - Clean Light Card
    ========================================================================== */
 .stat-box {
-  background: #F5F8FD;
-  border-radius: 24px;
-  border: 1px solid #E5EAF1;
+  background: var(--surface);
+  border-radius: 22px;
+  border: 1px solid var(--border);
   padding: 28px 24px;
   box-shadow: var(--shadow-sm);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  color: #24334B;
+  color: var(--heading);
 }
 
 .stat-box:hover {
   transform: translateY(-4px);
-  border-color: rgba(23, 70, 200, 0.4);
+  border-color: var(--primary);
   box-shadow: var(--shadow-md);
-  background: #FFFFFF;
+  background: var(--surface);
 }
 
 .stat-box::before {
@@ -557,7 +558,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 3.5px;
-  background: linear-gradient(90deg, #1746C8, #FFC83D);
+  background: linear-gradient(90deg, var(--primary), var(--color-highlight));
 }
 
 /* ==========================================================================
@@ -566,7 +567,7 @@ h1, h2, h3, h4, h5, h6 {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(36, 51, 75, 0.6);
+  background: rgba(20, 43, 77, 0.65);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
@@ -585,17 +586,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-content-box {
-  background: #FFFFFF;
-  color: #24334B;
-  border: 1px solid #E5EAF1;
+  background: var(--surface);
+  color: var(--heading);
+  border: 1px solid var(--border);
   border-radius: 28px;
   max-width: 650px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 
-    0 25px 60px -15px rgba(36, 51, 75, 0.25),
-    0 0 30px rgba(23, 70, 200, 0.08);
+    0 25px 60px -15px rgba(20, 43, 77, 0.3),
+    0 0 30px rgba(29, 78, 216, 0.08);
   transform: scale(0.92) translateY(20px);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
