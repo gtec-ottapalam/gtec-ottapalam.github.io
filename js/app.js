@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoriesMap[c.categoryName].push(c);
     });
 
-    let html = '<option value="">-- Choose a Course / Domain --</option>';
+    let html = '<option value="">-- Choose a Course / Program --</option>';
     for (const [catName, list] of Object.entries(categoriesMap)) {
       html += `<optgroup label="${catName}">`;
       list.forEach(c => {
