@@ -28,9 +28,8 @@
               900: '#1e3a8a',
             },
             pop: {
-              yellow: '#FBBF24',
-              amber: '#F59E0B',
-              coral: '#FF6B4A',
+              yellow: '#FACC15',
+              yellowHover: '#EAB308',
             }
           },
           fontFamily: {
@@ -95,7 +94,7 @@
     }, true);
   </script>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-400 selection:text-slate-900">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-[#FACC15] selection:text-[#0F172A]">
 
   <!-- Interactive Top Scroll Progress Bar -->
   <div id="scroll-progress-bar"></div>
@@ -183,7 +182,7 @@
           <!-- Inner Display Frame (Bezel + Screen Glass) -->
           <div class="laptop-lid-interior" id="laptop-screen-bezel">
             
-            <!-- Webcam Notch with Camera Lens & Green LED Indicator -->
+            <!-- Webcam Notch with Camera Lens & Status LED Indicator -->
             <div class="screen-notch">
               <div class="notch-lens"></div>
               <div class="notch-led" id="notch-led"></div>
@@ -220,7 +219,7 @@
                   >
                   <!-- Tagline that lights up under the logo -->
                   <div class="screen-brand-tagline" id="screen-brand-tagline">
-                    <span class="block text-amber-300 font-black text-xs md:text-sm tracking-[0.25em] uppercase">Ottapalam</span>
+                    <span class="block text-[#FACC15] font-black text-xs md:text-sm tracking-[0.25em] uppercase">Ottapalam</span>
                     <span class="block text-blue-100 font-semibold text-[10px] md:text-xs tracking-wider uppercase opacity-90">Centre of Excellence</span>
                   </div>
                   <!-- Elegant System Initialization Status Bar -->
@@ -247,21 +246,21 @@
   <!-- ==========================================================================
        TOP ANNOUNCEMENT BAR (Rating & Contact Details)
        ========================================================================== -->
-  <aside id="announcement-bar" class="bg-[#EEF3FB] text-[#142B4D] text-xs py-1.5 px-4 border-b border-[#D5DFEC]" aria-label="Announcement & Quick Contact">
+  <aside id="announcement-bar" class="bg-[#EFF6FF] text-[#0F172A] text-xs py-1.5 px-4 border-b border-[#BFDBFE]" aria-label="Announcement & Quick Contact">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
       <!-- Left: Google Reviews Highlight -->
       <div class="flex items-center gap-2">
-        <span class="inline-flex items-center gap-1 bg-amber-50 text-amber-900 font-black px-2 py-0.5 rounded-full border border-amber-300 shadow-xs text-[11px]">
-          <svg class="w-3.5 h-3.5 fill-current text-amber-500" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <span class="inline-flex items-center gap-1 bg-[#FEF9C3] text-[#0F172A] font-black px-2 py-0.5 rounded-full border border-[#FDE047] shadow-xs text-[11px]">
+          <svg class="w-3.5 h-3.5 fill-current text-[#FACC15]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
           4.9 / 5
         </span>
-        <span class="text-[#142B4D] font-bold text-xs">Rated by <strong class="text-[#0F172A] font-black">662+ Students</strong> on Google</span>
+        <span class="text-[#0F172A] font-bold text-xs">Rated by <strong class="text-[#0F172A] font-black">662+ Students</strong> on Google</span>
         <span class="hidden md:inline text-slate-300">|</span>
         <span class="hidden md:inline text-[#475569] font-medium">Admissions Open for 2026 Academic Batches</span>
       </div>
 
       <!-- Right: Phone, Location & Replay -->
-      <div class="flex items-center gap-4 text-xs font-semibold text-[#142B4D]">
+      <div class="flex items-center gap-4 text-xs font-semibold text-[#0F172A]">
         <a href="tel:09995955501" class="hover:text-[#1D4ED8] transition-colors flex items-center gap-1.5 font-bold text-[#142B4D]">
           <i data-lucide="phone" class="w-3.5 h-3.5 text-[#1D4ED8]"></i>
           <span>099959 55501</span>
@@ -316,10 +315,10 @@
       <div class="flex items-center gap-3">
         <button 
           type="button" 
-          class="trigger-enquiry-modal hidden sm:inline-flex items-center gap-2 btn-primary-blue text-xs font-bold px-5 py-2.5 shadow-sm"
+          class="trigger-enquiry-modal hidden sm:inline-flex items-center gap-2 btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs"
         >
           <span>Enquire Now</span>
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          <svg class="w-4 h-4 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </button>
 
         <!-- Mobile Menu Toggle Button -->
@@ -349,16 +348,16 @@
         <a href="#hero" class="text-[#1D4ED8] font-bold py-1">Home</a>
         <a href="#courses-section" class="hover:text-[#1D4ED8] py-1">Courses Catalog (24)</a>
         <a href="#categories-section" class="hover:text-[#1D4ED8] py-1">Course Categories</a>
-        <a href="#campus-gallery" class="hover:text-[#1D4ED8] py-1">Campus & Labs</a>
+        <a href="#campus-gallery" class="hover:text-[#1D4ED8] py-1">Campus &amp; Labs</a>
         <a href="#why-gtec" class="hover:text-[#1D4ED8] py-1">Why G-TEC Ottapalam</a>
         <a href="#reviews-section" class="hover:text-[#1D4ED8] py-1">Google Reviews (4.9 ★)</a>
-        <a href="#contact-section" class="hover:text-[#1D4ED8] py-1">Contact & Map</a>
+        <a href="#contact-section" class="hover:text-[#1D4ED8] py-1">Contact &amp; Map</a>
         <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" class="text-[#1D4ED8] font-bold py-1">Verify Certificate ↗</a>
       </nav>
     </div>
 
     <div class="pt-6 border-t border-[#D5DFEC] space-y-3">
-      <button class="trigger-enquiry-modal w-full btn-primary-blue text-sm font-bold py-3.5 rounded-xl shadow-sm justify-center">
+      <button class="trigger-enquiry-modal w-full btn-accent-yellow text-sm font-black py-3.5 rounded-xl shadow-xs justify-center">
         Enquire for Admission
       </button>
       <a href="tel:09995955501" class="w-full flex items-center justify-center gap-2 bg-[#EEF3FB] hover:bg-[#EAF2FF] text-[#142B4D] font-bold py-3 rounded-xl border border-[#D5DFEC]">
@@ -419,7 +418,7 @@
               <div class="flex items-center gap-2">
                 <img src="assets/official-logo/gtec-logo-white.png" alt="G-TEC Logo" class="h-6 sm:h-7 w-auto object-contain">
                 <div class="hidden sm:block border-l border-white/30 pl-2 text-left">
-                  <span class="block text-[10px] font-black tracking-widest text-amber-300 uppercase leading-tight">Ottapalam</span>
+                  <span class="block text-[10px] font-black tracking-widest text-[#FACC15] uppercase leading-tight">Ottapalam</span>
                   <span class="block text-[8px] font-semibold text-blue-200 uppercase tracking-tight leading-tight">Centre of Excellence</span>
                 </div>
               </div>
@@ -448,7 +447,7 @@
               
               <!-- Badge: Industry-Recognized Training in Ottapalam -->
               <div id="hero-eyebrow" class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[11px] sm:text-xs font-bold mb-2 shadow-sm">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse"></span>
                 <span>Industry-Recognized Training in Ottapalam</span>
               </div>
 
@@ -478,16 +477,16 @@
                   <button 
                     type="button" 
                     id="hero-search-btn" 
-                    class="bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-xs font-bold py-1.5 px-3.5 rounded-full shrink-0 transition-all shadow-sm flex items-center gap-1.5"
+                    class="bg-[#FACC15] hover:bg-[#EAB308] text-[#0F172A] text-xs font-black py-1.5 px-3.5 rounded-full shrink-0 transition-all shadow-xs flex items-center gap-1.5 border border-[#FDE047] cursor-pointer"
                   >
                     <span>Explore Courses</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <svg class="w-3.5 h-3.5 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                   </button>
                 </div>
 
                 <!-- Popular Quick Filters under Search -->
                 <div class="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 mt-1.5 text-[10px] sm:text-[11px] text-blue-200">
-                  <span class="font-bold text-amber-300">Popular:</span>
+                  <span class="font-black text-[#FACC15]">Popular:</span>
                   <button type="button" class="hero-quick-tag hover:text-white bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full transition-colors border border-white/15" data-query="Python">Python</button>
                   <button type="button" class="hero-quick-tag hover:text-white bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full transition-colors border border-white/15" data-query="Tally">Tally Prime</button>
                   <button type="button" class="hero-quick-tag hover:text-white bg-white/10 hover:bg-white/20 px-2.5 py-0.5 rounded-full transition-colors border border-white/15" data-query="SAP">SAP S/4 HANA</button>
@@ -507,7 +506,7 @@
                 <div class="flex items-center justify-between gap-1.5 mb-1">
                   <div class="flex items-center gap-1.5">
                     <span class="text-lg sm:text-xl md:text-2xl font-black text-[#0F172A] leading-none">4.9</span>
-                    <div class="flex text-amber-400">
+                    <div class="flex text-[#FACC15]">
                       <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                       <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
                       <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
@@ -545,7 +544,7 @@
                     <div class="w-6 h-6 rounded-full border border-white bg-blue-500 overflow-hidden shadow-xs">
                       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Student Avatar" class="w-full h-full object-cover">
                     </div>
-                    <div class="w-6 h-6 rounded-full border border-white bg-amber-500 overflow-hidden shadow-xs">
+                    <div class="w-6 h-6 rounded-full border border-white bg-[#1D4ED8] overflow-hidden shadow-xs">
                       <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Student Avatar" class="w-full h-full object-cover">
                     </div>
                     <div class="w-6 h-6 rounded-full border border-white bg-blue-600 overflow-hidden shadow-xs">
@@ -576,7 +575,7 @@
               <div class="bg-white rounded-xl p-2.5 border border-white/80 shadow-md text-left">
                 <div class="flex items-center gap-1 mb-0.5">
                   <span class="text-sm font-black text-[#0F172A]">4.9</span>
-                  <span class="text-amber-400 text-xs">★★★★★</span>
+                  <span class="text-[#FACC15] text-xs">★★★★★</span>
                 </div>
                 <div class="text-[10px] font-bold text-[#0F172A] leading-tight">662+ Google Reviews</div>
                 <div class="text-[9px] text-[#475569] leading-tight">Verified Students</div>
@@ -605,35 +604,35 @@
   <!-- ==========================================================================
        SECTION 2: ACCREDITATIONS & CERTIFICATION PARTNERS (MARQUEE)
        ========================================================================== -->
-  <section class="py-6 bg-gradient-to-r from-[#1D4ED8] via-[#2563EB] to-[#1D4ED8] text-white border-y border-[#1E40AF] overflow-hidden relative shadow-inner">
-    <div class="max-w-7xl mx-auto px-4 mb-3 text-center">
-      <p class="text-xs font-bold uppercase tracking-widest text-blue-100 flex items-center justify-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-300"></span>
-        <span>Globally Recognized Certifications & Official Technology Partners</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-300"></span>
+  <section class="py-5 bg-[#0F172A] text-white border-y border-slate-800 overflow-hidden relative shadow-inner">
+    <div class="max-w-7xl mx-auto px-4 mb-2.5 text-center">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-300 flex items-center justify-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse"></span>
+        <span>Globally Recognized Certifications &amp; Official Technology Partners</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse"></span>
       </p>
     </div>
 
     <div class="relative w-full overflow-hidden">
       <div class="marquee-track flex items-center py-2 text-white font-bold text-sm">
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> ISO 9001:2015 Certified Quality Management</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-white"></span> NSDC Training Partner (Govt. of India)</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> SAP Authorized Academy & S/4 HANA</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-blue-200"></span> Microsoft Authorized Education Partner</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> Tally Certified Training Academy</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-white"></span> Adobe Certified Professional Center</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-blue-200"></span> Certiport Authorized Testing Center</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> IADL International Accreditation</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> ISO 9001:2015 Certified Quality Management</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-white"></span> NSDC Training Partner (Govt. of India)</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> SAP Authorized Academy &amp; S/4 HANA</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#93C5FD]"></span> Microsoft Authorized Education Partner</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> Tally Certified Training Academy</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-white"></span> Adobe Certified Professional Center</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#93C5FD]"></span> Certiport Authorized Testing Center</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> IADL International Accreditation</div>
 
         <!-- Repeated for seamless loop -->
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> ISO 9001:2015 Certified Quality Management</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-white"></span> NSDC Training Partner (Govt. of India)</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> SAP Authorized Academy & S/4 HANA</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-blue-200"></span> Microsoft Authorized Education Partner</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> Tally Certified Training Academy</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-white"></span> Adobe Certified Professional Center</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-blue-200"></span> Certiport Authorized Testing Center</div>
-        <div class="flex items-center gap-2 px-5"><span class="w-2.5 h-2.5 rounded-full bg-amber-300"></span> IADL International Accreditation</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> ISO 9001:2015 Certified Quality Management</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-white"></span> NSDC Training Partner (Govt. of India)</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> SAP Authorized Academy &amp; S/4 HANA</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#93C5FD]"></span> Microsoft Authorized Education Partner</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> Tally Certified Training Academy</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-white"></span> Adobe Certified Professional Center</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#93C5FD]"></span> Certiport Authorized Testing Center</div>
+        <div class="flex items-center gap-2 px-5"><span class="w-2 h-2 rounded-full bg-[#FACC15]"></span> IADL International Accreditation</div>
       </div>
     </div>
   </section>
@@ -647,50 +646,54 @@
         
         <!-- Stat 1 -->
         <div class="stat-box group">
-          <div class="w-10 h-10 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#D5DFEC] flex items-center justify-center mb-3.5 transition-colors group-hover:bg-[#1D4ED8] group-hover:text-white">
+          <div class="w-10 h-10 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-[#FACC15] group-hover:text-[#0F172A] group-hover:border-[#FDE047]">
             <i data-lucide="award" class="w-5 h-5"></i>
           </div>
           <div class="text-3xl sm:text-4xl md:text-5xl font-black text-[#1D4ED8] tracking-tight mb-1">
             <span class="counter-number" data-target="25">0</span><span class="text-[#1D4ED8] font-bold">+</span>
           </div>
-          <h4 class="font-bold text-[#142B4D] text-sm md:text-base tracking-tight">Years of Excellence</h4>
-          <p class="text-xs text-[#64748B] mt-1 font-normal leading-relaxed">Leading computer education since 1999</p>
+          <div class="w-7 h-1 bg-[#FACC15] rounded-full my-1.5"></div>
+          <h4 class="font-bold text-[#0F172A] text-sm md:text-base tracking-tight">Years of Excellence</h4>
+          <p class="text-xs text-[#64748B] mt-0.5 font-normal leading-relaxed">Leading computer education since 1999</p>
         </div>
 
         <!-- Stat 2 -->
         <div class="stat-box group">
-          <div class="w-10 h-10 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#D5DFEC] flex items-center justify-center mb-3.5 transition-colors group-hover:bg-[#1D4ED8] group-hover:text-white">
+          <div class="w-10 h-10 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-[#FACC15] group-hover:text-[#0F172A] group-hover:border-[#FDE047]">
             <i data-lucide="star" class="w-5 h-5"></i>
           </div>
           <div class="text-3xl sm:text-4xl md:text-5xl font-black text-[#1D4ED8] tracking-tight mb-1">
-            <span class="counter-number" data-target="4.9">0</span><span class="text-amber-400 font-bold ml-0.5">★</span>
+            <span class="counter-number" data-target="4.9">0</span><span class="text-[#FACC15] font-black ml-0.5">★</span>
           </div>
-          <h4 class="font-bold text-[#142B4D] text-sm md:text-base tracking-tight">Google Rating</h4>
-          <p class="text-xs text-[#64748B] mt-1 font-normal leading-relaxed">Based on 662+ genuine student reviews</p>
+          <div class="w-7 h-1 bg-[#FACC15] rounded-full my-1.5"></div>
+          <h4 class="font-bold text-[#0F172A] text-sm md:text-base tracking-tight">Google Rating</h4>
+          <p class="text-xs text-[#64748B] mt-0.5 font-normal leading-relaxed">Based on 662+ genuine student reviews</p>
         </div>
 
         <!-- Stat 3 -->
         <div class="stat-box group">
-          <div class="w-10 h-10 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#D5DFEC] flex items-center justify-center mb-3.5 transition-colors group-hover:bg-[#1D4ED8] group-hover:text-white">
+          <div class="w-10 h-10 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-[#FACC15] group-hover:text-[#0F172A] group-hover:border-[#FDE047]">
             <i data-lucide="book-open" class="w-5 h-5"></i>
           </div>
           <div class="text-3xl sm:text-4xl md:text-5xl font-black text-[#1D4ED8] tracking-tight mb-1">
             <span class="counter-number" data-target="24">0</span><span class="text-[#1D4ED8] font-bold">+</span>
           </div>
-          <h4 class="font-bold text-[#142B4D] text-sm md:text-base tracking-tight">Specialized Courses</h4>
-          <p class="text-xs text-[#64748B] mt-1 font-normal leading-relaxed">Across 4 premier career tracks</p>
+          <div class="w-7 h-1 bg-[#FACC15] rounded-full my-1.5"></div>
+          <h4 class="font-bold text-[#0F172A] text-sm md:text-base tracking-tight">Specialized Courses</h4>
+          <p class="text-xs text-[#64748B] mt-0.5 font-normal leading-relaxed">Across 4 premier career tracks</p>
         </div>
 
         <!-- Stat 4 -->
         <div class="stat-box group">
-          <div class="w-10 h-10 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#D5DFEC] flex items-center justify-center mb-3.5 transition-colors group-hover:bg-[#1D4ED8] group-hover:text-white">
+          <div class="w-10 h-10 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-[#FACC15] group-hover:text-[#0F172A] group-hover:border-[#FDE047]">
             <i data-lucide="briefcase" class="w-5 h-5"></i>
           </div>
           <div class="text-3xl sm:text-4xl md:text-5xl font-black text-[#1D4ED8] tracking-tight mb-1">
             <span class="counter-number" data-target="100">0</span><span class="text-[#1D4ED8] font-bold">%</span>
           </div>
-          <h4 class="font-bold text-[#142B4D] text-sm md:text-base tracking-tight">Placement Support</h4>
-          <p class="text-xs text-[#64748B] mt-1 font-normal leading-relaxed">Dedicated career cell & interview mockups</p>
+          <div class="w-7 h-1 bg-[#FACC15] rounded-full my-1.5"></div>
+          <h4 class="font-bold text-[#0F172A] text-sm md:text-base tracking-tight">Placement Support</h4>
+          <p class="text-xs text-[#64748B] mt-0.5 font-normal leading-relaxed">Dedicated career cell &amp; interview mockups</p>
         </div>
 
       </div>
@@ -711,7 +714,7 @@
       <!-- Section Header with Sideways Navigation Controls & Step Counter -->
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b border-white/15">
         <div>
-          <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-amber-300 bg-white/10 border border-white/20 px-3.5 py-1 rounded-full shadow-sm">
+          <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#FACC15] bg-white/10 border border-white/20 px-3.5 py-1 rounded-full shadow-sm">
             <span>Interactive Career Journey</span>
           </span>
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mt-2 tracking-tight">
@@ -726,7 +729,7 @@
         <div class="flex items-center gap-3">
           <!-- Step Counter -->
           <div class="flex items-center gap-1.5 text-xs font-mono font-bold text-white bg-white/10 border border-white/20 px-3.5 py-1.5 rounded-full shadow-sm">
-            <span id="story-step-indicator" class="text-amber-300 text-lg font-black">01</span>
+            <span id="story-step-indicator" class="text-[#FACC15] text-lg font-black">01</span>
             <span class="text-white/40">/</span>
             <span>03</span>
           </div>
@@ -735,7 +738,7 @@
           <button 
             type="button" 
             id="journey-prev-btn" 
-            class="w-10 h-10 rounded-full bg-white hover:bg-amber-300 hover:text-slate-900 text-[#1D4ED8] border border-white/30 flex items-center justify-center transition-all shadow-md active:scale-95 disabled:opacity-40 disabled:pointer-events-none cursor-pointer" 
+            class="w-10 h-10 rounded-full bg-white hover:bg-[#FACC15] hover:text-[#0F172A] text-[#1D4ED8] border border-white/30 flex items-center justify-center transition-all shadow-md active:scale-95 disabled:opacity-40 disabled:pointer-events-none cursor-pointer" 
             aria-label="Previous Phase Slide"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
@@ -745,7 +748,7 @@
           <button 
             type="button" 
             id="journey-next-btn" 
-            class="w-10 h-10 rounded-full bg-white hover:bg-amber-300 hover:text-slate-900 text-[#1D4ED8] border border-white/30 flex items-center justify-center transition-all shadow-md active:scale-95 disabled:opacity-40 disabled:pointer-events-none cursor-pointer" 
+            class="w-10 h-10 rounded-full bg-white hover:bg-[#FACC15] hover:text-[#0F172A] text-[#1D4ED8] border border-white/30 flex items-center justify-center transition-all shadow-md active:scale-95 disabled:opacity-40 disabled:pointer-events-none cursor-pointer" 
             aria-label="Next Phase Slide"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
@@ -764,23 +767,23 @@
               <div class="lg:col-span-6 flex flex-col justify-center">
                 <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
-                  Phase 01 &bull; Personal Roadmap & Orientation
+                  Phase 01 &bull; Personal Roadmap &amp; Orientation
                 </span>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#142B4D] leading-tight mb-4">
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
                   Zero Tech Experience? We Build You From the Ground Up.
                 </h3>
                 <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
-                  Walk into our JRJ Complex Ottapalam centre for free 1:1 career guidance. Our senior mentors map out the exact curriculum, whether you want an accounting career with SAP & Tally or modern full-stack software development.
+                  Walk into our JRJ Complex Ottapalam centre for free 1:1 career guidance. Our senior mentors map out the exact curriculum, whether you want an accounting career with SAP &amp; Tally or modern full-stack software development.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">Individual Assessment</span>
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">Flexible Timings</span>
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">Zero-Prerequisite Friendly</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Individual Assessment</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Flexible Timings</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Zero-Prerequisite Friendly</span>
                 </div>
                 <div>
-                  <button type="button" class="trigger-enquiry-modal inline-flex items-center gap-2 text-xs font-bold text-white bg-[#1D4ED8] hover:bg-[#1E40AF] px-5 py-2.5 rounded-xl transition-all shadow-sm">
+                  <button type="button" class="trigger-enquiry-modal btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs">
                     <span>Book Free Counselling Session</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <svg class="w-4 h-4 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                   </button>
                 </div>
               </div>
@@ -789,9 +792,9 @@
               <div class="lg:col-span-6">
                 <div class="journey-photo-frame">
                   <img src="assets/real-photos/reception-lounge.jpg" alt="Reception and Counselling Lounge at G-TEC Ottapalam" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#142B4D]/80 via-[#142B4D]/20 to-transparent flex items-end p-6">
-                    <span class="text-xs font-bold text-white bg-[#142B4D]/80 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
-                      📍 Reception & Career Counselling Lounge, JRJ Complex
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-[#0F172A]/20 to-transparent flex items-end p-6">
+                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                      📍 Reception &amp; Career Counselling Lounge, JRJ Complex
                     </span>
                   </div>
                 </div>
@@ -808,21 +811,21 @@
                   <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
                   Phase 02 &bull; 100% Practical Lab Mastery
                 </span>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#142B4D] leading-tight mb-4">
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
                   No Boring Theory. You Learn By Actually Building.
                 </h3>
                 <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
                   Work on dedicated, high-speed workstations with real-world scenarios: file live GST returns, manage real SAP ERP ledgers, code interactive web applications, and model 3D CAD blueprints with certified faculty assisting you at every desk.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">1:1 Workstation Ratio</span>
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">Live Client Assignments</span>
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">Daily Doubt Clearing</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">1:1 Workstation Ratio</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Live Client Assignments</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Daily Doubt Clearing</span>
                 </div>
                 <div>
-                  <a href="#courses-section" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#1D4ED8] hover:bg-[#1E40AF] px-5 py-2.5 rounded-xl transition-all shadow-sm">
+                  <a href="#courses-section" class="btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs">
                     <span>Explore 24 Specialized Courses</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <svg class="w-4 h-4 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                   </a>
                 </div>
               </div>
@@ -831,9 +834,9 @@
               <div class="lg:col-span-6">
                 <div class="journey-photo-frame">
                   <img src="assets/real-photos/students-coding-lab.jpg" alt="Active Software Lab at G-TEC Ottapalam" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#142B4D]/80 via-[#142B4D]/20 to-transparent flex items-end p-6">
-                    <span class="text-xs font-bold text-white bg-[#142B4D]/80 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
-                      💻 1:1 Hands-On Software & Coding Lab in Action
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-[#0F172A]/20 to-transparent flex items-end p-6">
+                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                      💻 1:1 Hands-On Software &amp; Coding Lab in Action
                     </span>
                   </div>
                 </div>
@@ -848,21 +851,21 @@
               <div class="lg:col-span-6 flex flex-col justify-center">
                 <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
-                  Phase 03 &bull; Global Certification & Placement
+                  Phase 03 &bull; Global Certification &amp; Placement
                 </span>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#142B4D] leading-tight mb-4">
-                  Graduate with Worldwide Validated Credentials & Job Interviews.
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
+                  Graduate with Worldwide Validated Credentials &amp; Job Interviews.
                 </h3>
                 <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
                   Receive government and internationally recognized certificates verifiable online via QR codes and GEMs portal. Our dedicated placement wing conducts resume reviews, mock interviews, and connects you to top firms across Kerala, Bangalore, and Gulf countries.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">NSDC / ISO 9001:2015</span>
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">Mock Technical Rounds</span>
-                  <span class="text-xs bg-[#EEF3FB] text-[#142B4D] font-semibold px-3 py-1.5 rounded-lg border border-[#D5DFEC]">Kerala & Gulf Hiring Network</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">NSDC / ISO 9001:2015</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Mock Technical Rounds</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Kerala &amp; Gulf Hiring Network</span>
                 </div>
                 <div>
-                  <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-[#1D4ED8] hover:bg-[#1E40AF] px-5 py-2.5 rounded-xl transition-all shadow-sm">
+                  <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs">
                     <span>Verify G-TEC Certificate Online ↗</span>
                   </a>
                 </div>
@@ -872,9 +875,9 @@
               <div class="lg:col-span-6">
                 <div class="journey-photo-frame">
                   <img src="assets/real-photos/training-lab-wide.jpg" alt="Training Lab and Placement at G-TEC Ottapalam" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#142B4D]/80 via-[#142B4D]/20 to-transparent flex items-end p-6">
-                    <span class="text-xs font-bold text-white bg-[#142B4D]/80 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
-                      🏆 Air-Conditioned Training Lab & Placement Wing
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-[#0F172A]/20 to-transparent flex items-end p-6">
+                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                      🏆 Air-Conditioned Training Lab &amp; Placement Wing
                     </span>
                   </div>
                 </div>
@@ -888,14 +891,14 @@
       <!-- Progress dots / Clickable phase switcher pills -->
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
         <div class="flex items-center gap-2.5">
-          <button type="button" id="dot-1" class="w-8 h-2.5 rounded-full bg-amber-300 shadow-md transition-all duration-300 cursor-pointer" aria-label="Go to Phase 1"></button>
+          <button type="button" id="dot-1" class="w-8 h-2.5 rounded-full bg-[#FACC15] shadow-xs transition-all duration-300 cursor-pointer" aria-label="Go to Phase 1"></button>
           <button type="button" id="dot-2" class="w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer" aria-label="Go to Phase 2"></button>
           <button type="button" id="dot-3" class="w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer" aria-label="Go to Phase 3"></button>
         </div>
 
         <!-- Sideways scroll hint badge -->
         <div class="text-xs font-medium text-blue-100 flex items-center gap-2">
-          <svg class="w-4 h-4 text-amber-300 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          <svg class="w-4 h-4 text-[#FACC15] animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
           <span>Scroll, swipe, or drag sideways to navigate each phase</span>
         </div>
       </div>
@@ -906,17 +909,17 @@
   <!-- ==========================================================================
        ACT 3: 4 HIGH-IMPACT CAREER DISCIPLINES (DIRECT SIDEWAYS SCROLL TRACK)
        ========================================================================== -->
-  <section id="categories-section" class="py-20 md:py-28 bg-white text-[#142B4D] border-b border-[#D5DFEC] relative overflow-hidden">
+  <section id="categories-section" class="py-20 md:py-28 bg-white text-[#0F172A] border-b border-[#E2E8F0] relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
       
       <!-- Top Section Header with Left / Right Navigation Arrow Controls -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
-          <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#1D4ED8] bg-[#EEF3FB] border border-[#D5DFEC] px-3.5 py-1.5 rounded-full mb-3 shadow-xs">
+          <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-3.5 py-1.5 rounded-full mb-3 shadow-xs">
             <span class="w-2 h-2 rounded-full bg-[#1D4ED8] animate-pulse"></span>
             <span>4 High-Impact Career Disciplines</span>
           </span>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-[#142B4D] tracking-tight">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight">
             Explore Specialized Career Tracks
           </h2>
           <p class="text-[#475569] mt-2 text-sm sm:text-base max-w-2xl font-medium">
@@ -926,7 +929,7 @@
 
         <!-- Sideways Controls (Arrows + swipe cue) -->
         <div class="flex items-center gap-3">
-          <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-[#1D4ED8] bg-[#EEF3FB] border border-[#D5DFEC] px-3.5 py-1.5 rounded-full">
+          <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-3.5 py-1.5 rounded-full">
             <span>Scroll Sideways ⇆</span>
           </span>
           <button 
@@ -956,26 +959,26 @@
           <div class="sideways-stream-card group">
             <div class="relative h-56 overflow-hidden">
               <img src="assets/cat-software.webp" alt="Software Development & IT" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#142B4D]/85 via-[#142B4D]/25 to-transparent"></div>
-              <span class="absolute top-4 left-4 text-xs font-black bg-[#1D4ED8] text-white px-3 py-1 rounded-full shadow-md">Track 01</span>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/25 to-transparent"></div>
+              <span class="absolute top-4 left-4 text-xs font-black bg-[#FACC15] text-[#0F172A] border border-[#FDE047] px-3 py-1 rounded-full shadow-md">Track 01</span>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-2xl font-black text-[#142B4D] group-hover:text-[#1D4ED8] transition-colors">Software Development & IT</h3>
+                <h3 class="text-2xl font-black text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors">Software Development & IT</h3>
                 <p class="text-xs text-[#475569] mt-2 leading-relaxed font-medium">
                   Full-Stack Web (Python, Flutter, MERN), Master Diploma in AI & Data Science, UI/UX Designing, Generative AI, and Office Automation.
                 </p>
                 <div class="mt-3 flex flex-wrap gap-1">
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Python</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Flutter</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">MERN</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">AI & Data</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Figma</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Python</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Flutter</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">MERN</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">AI & Data</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Figma</span>
                 </div>
               </div>
-              <div class="pt-5 mt-4 border-t border-[#D5DFEC] flex items-center justify-between">
+              <div class="pt-5 mt-4 border-t border-[#E2E8F0] flex items-center justify-between">
                 <span class="text-xs font-bold text-[#1D4ED8]">7 Specialized Courses</span>
-                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EEF3FB] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#D5DFEC] px-4 py-2 rounded-full transition-all" data-category="software">
+                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EFF6FF] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#BFDBFE] px-4 py-2 rounded-full transition-all" data-category="software">
                   Explore Track ↗
                 </button>
               </div>
@@ -986,26 +989,26 @@
           <div class="sideways-stream-card group">
             <div class="relative h-56 overflow-hidden">
               <img src="assets/cat-finance.webp" alt="Corporate Accounting & SAP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#142B4D]/85 via-[#142B4D]/25 to-transparent"></div>
-              <span class="absolute top-4 left-4 text-xs font-black bg-[#1D4ED8] text-white px-3 py-1 rounded-full shadow-md">Track 02</span>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/25 to-transparent"></div>
+              <span class="absolute top-4 left-4 text-xs font-black bg-[#FACC15] text-[#0F172A] border border-[#FDE047] px-3 py-1 rounded-full shadow-md">Track 02</span>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-2xl font-black text-[#142B4D] group-hover:text-[#1D4ED8] transition-colors">Corporate Accounting & SAP</h3>
+                <h3 class="text-2xl font-black text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors">Corporate Accounting & SAP</h3>
                 <p class="text-xs text-[#475569] mt-2 leading-relaxed font-medium">
                   G-Accountant (TallyPrime with GST & TDS), SAP S/4 HANA FICO, SAP Material Management (MM), SAP HCM, and SAP ABAP development.
                 </p>
                 <div class="mt-3 flex flex-wrap gap-1">
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">TallyPrime</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">GST Simulator</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">SAP FICO</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">SAP MM</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">SAP ABAP</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">TallyPrime</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">GST Simulator</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">SAP FICO</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">SAP MM</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">SAP ABAP</span>
                 </div>
               </div>
-              <div class="pt-5 mt-4 border-t border-[#D5DFEC] flex items-center justify-between">
+              <div class="pt-5 mt-4 border-t border-[#E2E8F0] flex items-center justify-between">
                 <span class="text-xs font-bold text-[#1D4ED8]">5 Specialized Courses</span>
-                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EEF3FB] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#D5DFEC] px-4 py-2 rounded-full transition-all" data-category="accounting">
+                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EFF6FF] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#BFDBFE] px-4 py-2 rounded-full transition-all" data-category="accounting">
                   Explore Track ↗
                 </button>
               </div>
@@ -1016,26 +1019,26 @@
           <div class="sideways-stream-card group">
             <div class="relative h-56 overflow-hidden">
               <img src="assets/cat-multimedia.webp" alt="Multimedia & Visual Arts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#142B4D]/85 via-[#142B4D]/25 to-transparent"></div>
-              <span class="absolute top-4 left-4 text-xs font-black bg-[#1D4ED8] text-white px-3 py-1 rounded-full shadow-md">Track 03</span>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/25 to-transparent"></div>
+              <span class="absolute top-4 left-4 text-xs font-black bg-[#FACC15] text-[#0F172A] border border-[#FDE047] px-3 py-1 rounded-full shadow-md">Track 03</span>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-2xl font-black text-[#142B4D] group-hover:text-[#1D4ED8] transition-colors">Multimedia & Visual Arts</h3>
+                <h3 class="text-2xl font-black text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors">Multimedia & Visual Arts</h3>
                 <p class="text-xs text-[#475569] mt-2 leading-relaxed font-medium">
                   Diploma in Graphic Designing, Video Editing, Professional Motion Graphics, Digital Marketing, 3DS MAX V-Ray ArchViz, and Blender 3D.
                 </p>
                 <div class="mt-3 flex flex-wrap gap-1">
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Photoshop</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Premiere Pro</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">After Effects</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Blender 3D</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">3ds Max</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Photoshop</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Premiere Pro</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">After Effects</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Blender 3D</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">3ds Max</span>
                 </div>
               </div>
-              <div class="pt-5 mt-4 border-t border-[#D5DFEC] flex items-center justify-between">
+              <div class="pt-5 mt-4 border-t border-[#E2E8F0] flex items-center justify-between">
                 <span class="text-xs font-bold text-[#1D4ED8]">6 Specialized Courses</span>
-                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EEF3FB] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#D5DFEC] px-4 py-2 rounded-full transition-all" data-category="multimedia">
+                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EFF6FF] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#BFDBFE] px-4 py-2 rounded-full transition-all" data-category="multimedia">
                   Explore Track ↗
                 </button>
               </div>
@@ -1046,26 +1049,26 @@
           <div class="sideways-stream-card group">
             <div class="relative h-56 overflow-hidden">
               <img src="assets/cat-cad.webp" alt="CAD & Engineering Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#142B4D]/85 via-[#142B4D]/25 to-transparent"></div>
-              <span class="absolute top-4 left-4 text-xs font-black bg-[#1D4ED8] text-white px-3 py-1 rounded-full shadow-md">Track 04</span>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/25 to-transparent"></div>
+              <span class="absolute top-4 left-4 text-xs font-black bg-[#FACC15] text-[#0F172A] border border-[#FDE047] px-3 py-1 rounded-full shadow-md">Track 04</span>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="text-2xl font-black text-[#142B4D] group-hover:text-[#1D4ED8] transition-colors">CAD & Engineering Design</h3>
+                <h3 class="text-2xl font-black text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors">CAD & Engineering Design</h3>
                 <p class="text-xs text-[#475569] mt-2 leading-relaxed font-medium">
                   Revit Architecture & BIM 360, SolidWorks 3D CAD & Simulation, AutoCAD Electrical, CATIA V5/V6, Staad-Pro structural analysis, and G-Draughtsman.
                 </p>
                 <div class="mt-3 flex flex-wrap gap-1">
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Revit BIM</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">SolidWorks</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">AutoCAD</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">CATIA</span>
-                  <span class="text-[10px] font-bold bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] px-2 py-0.5 rounded">Staad-Pro</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Revit BIM</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">SolidWorks</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">AutoCAD</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">CATIA</span>
+                  <span class="text-[10px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded">Staad-Pro</span>
                 </div>
               </div>
-              <div class="pt-5 mt-4 border-t border-[#D5DFEC] flex items-center justify-between">
+              <div class="pt-5 mt-4 border-t border-[#E2E8F0] flex items-center justify-between">
                 <span class="text-xs font-bold text-[#1D4ED8]">6 Specialized Courses</span>
-                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EEF3FB] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#D5DFEC] px-4 py-2 rounded-full transition-all" data-category="cad">
+                <button type="button" class="explore-stream-trigger text-xs font-bold bg-[#EFF6FF] hover:bg-[#1D4ED8] hover:text-white text-[#1D4ED8] border border-[#BFDBFE] px-4 py-2 rounded-full transition-all" data-category="cad">
                   Explore Track ↗
                 </button>
               </div>
@@ -1216,54 +1219,55 @@
   <!-- ==========================================================================
        SECTION 6: WHY G-TEC OTTAPALAM? (VALUE PROPOSITION)
        ========================================================================== -->
-  <section id="why-gtec" class="py-20 md:py-28 bg-gradient-to-br from-[#1D4ED8] via-[#1E40AF] to-[#1D4ED8] text-white relative overflow-hidden border-t border-blue-400/30">
-    <!-- Ambient blue glow orbs for depth -->
-    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-blue-400/20 blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-blue-300/15 blur-3xl pointer-events-none"></div>
+  <section id="why-gtec" class="py-20 md:py-28 bg-[#0F172A] text-white relative overflow-hidden border-t border-slate-800">
+    <!-- Ambient glow orbs for depth -->
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-blue-600/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-[#FACC15]/5 blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-5">
-          <span class="inline-block text-xs font-black uppercase tracking-widest text-white bg-white/15 border border-white/30 px-3.5 py-1.5 rounded-full mb-3 shadow-xs backdrop-blur-xs">
-            Centre of Excellence
+          <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#FACC15] bg-white/10 border border-white/20 px-3.5 py-1.5 rounded-full mb-3 shadow-xs backdrop-blur-xs">
+            <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-pulse"></span>
+            <span>Centre of Excellence</span>
           </span>
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-            Why Hundreds of Students in Ottapalam Choose G-TEC
+            Why Hundreds of Students in Ottapalam <span class="text-[#FACC15]">Choose G-TEC</span>
           </h2>
-          <p class="text-blue-100 mt-4 leading-relaxed font-medium">
+          <p class="text-slate-300 mt-4 leading-relaxed font-medium">
             Located conveniently at JRJ Complex, 2nd floor, Bus Stand Shopping Complex in Ottapalam, we provide world-class technical education tailored for students, job aspirants, and working professionals.
           </p>
 
           <div class="mt-8 space-y-4">
-            <div class="flex items-start gap-4 p-5 rounded-2xl bg-white text-[#142B4D] border border-white/80 shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all">
-              <div class="w-11 h-11 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#1E293B] text-white border border-slate-700/80 shadow-lg hover:shadow-xl hover:border-slate-600 hover:scale-[1.01] transition-all">
+              <div class="w-11 h-11 rounded-xl bg-[#1D4ED8]/25 text-[#93C5FD] border border-[#1D4ED8]/40 flex items-center justify-center shrink-0 shadow-xs">
                 <i data-lucide="monitor" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="font-bold text-[#142B4D] text-base">1:1 Individual Workstation Ratio</h4>
-                <p class="text-xs text-[#475569] mt-0.5 font-medium">Every student gets a dedicated, modern high-speed workstation with all licensed software.</p>
+                <h4 class="font-bold text-white text-base">1:1 Individual Workstation Ratio</h4>
+                <p class="text-xs text-slate-300 mt-0.5 font-medium">Every student gets a dedicated, modern high-speed workstation with all licensed software.</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-5 rounded-2xl bg-white text-[#142B4D] border border-white/80 shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all">
-              <div class="w-11 h-11 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#1E293B] text-white border border-slate-700/80 shadow-lg hover:shadow-xl hover:border-slate-600 hover:scale-[1.01] transition-all">
+              <div class="w-11 h-11 rounded-xl bg-[#1D4ED8]/25 text-[#93C5FD] border border-[#1D4ED8]/40 flex items-center justify-center shrink-0 shadow-xs">
                 <i data-lucide="qr-code" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="font-bold text-[#142B4D] text-base">QR-Verifiable Global Certifications</h4>
-                <p class="text-xs text-[#475569] mt-0.5 font-medium">Recognized worldwide across MNCs, GCC/Middle East companies, and government applications.</p>
+                <h4 class="font-bold text-white text-base">QR-Verifiable Global Certifications</h4>
+                <p class="text-xs text-slate-300 mt-0.5 font-medium">Recognized worldwide across MNCs, GCC/Middle East companies, and government applications.</p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 p-5 rounded-2xl bg-white text-[#142B4D] border border-white/80 shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all">
-              <div class="w-11 h-11 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#1E293B] text-white border border-slate-700/80 shadow-lg hover:shadow-xl hover:border-slate-600 hover:scale-[1.01] transition-all">
+              <div class="w-11 h-11 rounded-xl bg-[#1D4ED8]/25 text-[#93C5FD] border border-[#1D4ED8]/40 flex items-center justify-center shrink-0 shadow-xs">
                 <i data-lucide="clock" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="font-bold text-[#142B4D] text-base">Flexible Timings & Weekend Batches</h4>
-                <p class="text-xs text-[#475569] mt-0.5 font-medium">Morning, afternoon, evening, and exclusive Saturday/Sunday batches for college students and working professionals.</p>
+                <h4 class="font-bold text-white text-base">Flexible Timings &amp; Weekend Batches</h4>
+                <p class="text-xs text-slate-300 mt-0.5 font-medium">Morning, afternoon, evening, and exclusive Saturday/Sunday batches for college students and working professionals.</p>
               </div>
             </div>
           </div>
@@ -1272,20 +1276,20 @@
         <div class="lg:col-span-7">
           <div class="relative">
             <!-- Real Campus Training Lab Image -->
-            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/90 bg-white group">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-700 bg-slate-800 group">
               <img src="assets/real-photos/training-lab-wide.jpg" alt="G-TEC Ottapalam Modern Air-Conditioned Training Lab" class="w-full h-[440px] object-cover group-hover:scale-105 transition-transform duration-500">
             </div>
 
             <!-- Floating Highlight Badge -->
-            <div class="absolute -bottom-6 -left-6 bg-white text-[#142B4D] p-6 rounded-3xl shadow-2xl max-w-xs border-2 border-[#D5DFEC] hidden sm:block">
+            <div class="absolute -bottom-6 -left-6 bg-[#0F172A] text-white p-6 rounded-3xl shadow-2xl max-w-xs border-2 border-slate-700 hidden sm:block">
               <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-full bg-[#1D4ED8] text-white font-black flex items-center justify-center shadow-md">
+                <div class="w-10 h-10 rounded-full bg-[#FACC15] text-[#0F172A] font-black flex items-center justify-center shadow-md">
                   100%
                 </div>
-                <div class="font-bold text-sm text-[#142B4D]">Placement Assistance</div>
+                <div class="font-bold text-sm text-white">Placement Assistance</div>
               </div>
-              <p class="text-xs text-[#475569] leading-snug font-medium">
-                Mock technical interviews, CV building & direct campus recruitment drives in Ottapalam.
+              <p class="text-xs text-slate-300 leading-snug font-medium">
+                Mock technical interviews, CV building &amp; direct campus recruitment drives in Ottapalam.
               </p>
             </div>
           </div>
@@ -1449,12 +1453,12 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center gap-2 bg-white/10 text-amber-300 font-bold px-4 py-1.5 rounded-full text-xs mb-3 border border-white/20 shadow-sm">
-          <svg class="w-4 h-4 fill-current text-amber-400" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+        <div class="inline-flex items-center gap-2 bg-white/10 text-[#FACC15] font-bold px-4 py-1.5 rounded-full text-xs mb-3 border border-white/20 shadow-xs backdrop-blur-xs">
+          <svg class="w-4 h-4 fill-current text-[#FACC15]" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
           <span>Verified Google Maps Reviews</span>
         </div>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
-          Rated 4.9 Stars by 662+ Learners in Ottapalam
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+          Rated <span class="text-[#FACC15]">4.9 Stars</span> by 662+ Learners in Ottapalam
         </h2>
         <p class="mt-4 text-blue-100 text-base md:text-lg">
           Here is what our students have to say about their hands-on training, expert trainers, and career transformations at G-TEC Ottapalam.
@@ -1465,63 +1469,63 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Review 1 -->
-        <div class="bg-white p-7 rounded-3xl flex flex-col justify-between border border-[#D5DFEC] shadow-sm">
+        <div class="bg-white p-7 rounded-3xl flex flex-col justify-between border border-[#E2E8F0] shadow-sm">
           <div>
-            <div class="flex text-amber-500 mb-3 text-lg">
+            <div class="flex text-[#FACC15] mb-3 text-lg">
               ★★★★★
             </div>
             <p class="text-[#475569] text-sm leading-relaxed mb-4 italic font-medium">
               "I completed the Tally Prime with GST and GCC VAT course at G-TEC Ottapalam. The faculty gave personal attention to every student and explained every accounting entry with real invoices. Today I am working as an accountant in Dubai thanks to this training!"
             </p>
           </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-[#D5DFEC]">
-            <div class="w-10 h-10 rounded-full bg-[#EEF3FB] text-[#1D4ED8] font-bold flex items-center justify-center text-sm shadow-sm">
+          <div class="flex items-center gap-3 pt-4 border-t border-[#E2E8F0]">
+            <div class="w-10 h-10 rounded-full bg-[#EFF6FF] text-[#1D4ED8] font-bold flex items-center justify-center text-sm shadow-xs border border-[#BFDBFE]">
               AK
             </div>
             <div>
-              <h4 class="font-bold text-[#142B4D] text-sm">Akhil Kumar</h4>
+              <h4 class="font-bold text-[#0F172A] text-sm">Akhil Kumar</h4>
               <span class="text-xs text-[#64748B]">Tally Prime & Gulf VAT Graduate</span>
             </div>
           </div>
         </div>
 
         <!-- Review 2 -->
-        <div class="bg-white p-7 rounded-3xl flex flex-col justify-between border border-[#D5DFEC] shadow-sm">
+        <div class="bg-white p-7 rounded-3xl flex flex-col justify-between border border-[#E2E8F0] shadow-sm">
           <div>
-            <div class="flex text-amber-500 mb-3 text-lg">
+            <div class="flex text-[#FACC15] mb-3 text-lg">
               ★★★★★
             </div>
             <p class="text-[#475569] text-sm leading-relaxed mb-4 italic font-medium">
               "Best computer institute in Ottapalam without any doubt! Lab facilities are top notch, and they allowed me extra practice hours whenever I needed to build my Full-Stack Web Development projects. Very supportive management and trainers."
             </p>
           </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-[#D5DFEC]">
-            <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-800 font-bold flex items-center justify-center text-sm shadow-sm">
+          <div class="flex items-center gap-3 pt-4 border-t border-[#E2E8F0]">
+            <div class="w-10 h-10 rounded-full bg-[#EFF6FF] text-[#1D4ED8] font-bold flex items-center justify-center text-sm shadow-xs border border-[#BFDBFE]">
               SN
             </div>
             <div>
-              <h4 class="font-bold text-[#142B4D] text-sm">Sneha Nambiar</h4>
+              <h4 class="font-bold text-[#0F172A] text-sm">Sneha Nambiar</h4>
               <span class="text-xs text-[#64748B]">Python & Web Development</span>
             </div>
           </div>
         </div>
 
         <!-- Review 3 -->
-        <div class="bg-white p-7 rounded-3xl flex flex-col justify-between border border-[#D5DFEC] shadow-sm">
+        <div class="bg-white p-7 rounded-3xl flex flex-col justify-between border border-[#E2E8F0] shadow-sm">
           <div>
-            <div class="flex text-amber-500 mb-3 text-lg">
+            <div class="flex text-[#FACC15] mb-3 text-lg">
               ★★★★★
             </div>
             <p class="text-[#475569] text-sm leading-relaxed mb-4 italic font-medium">
               "Studied Graphic Design and Video Editing here. They teach industry software like Premiere Pro, After Effects, and Photoshop from scratch with live client assignments. Got placed in an advertising agency in Kochi right after completing the course."
             </p>
           </div>
-          <div class="flex items-center gap-3 pt-4 border-t border-[#D5DFEC]">
-            <div class="w-10 h-10 rounded-full bg-[#EEF3FB] text-[#1D4ED8] font-bold flex items-center justify-center text-sm shadow-sm">
+          <div class="flex items-center gap-3 pt-4 border-t border-[#E2E8F0]">
+            <div class="w-10 h-10 rounded-full bg-[#EFF6FF] text-[#1D4ED8] font-bold flex items-center justify-center text-sm shadow-xs border border-[#BFDBFE]">
               RM
             </div>
             <div>
-              <h4 class="font-bold text-[#142B4D] text-sm">Rahul Mohan</h4>
+              <h4 class="font-bold text-[#0F172A] text-sm">Rahul Mohan</h4>
               <span class="text-xs text-[#64748B]">Multimedia & VFX Specialist</span>
             </div>
           </div>
@@ -1535,7 +1539,7 @@
           href="https://maps.app.goo.gl/cWvg8tW95qHaxgqW8" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="bg-white hover:bg-slate-50 text-[#1D4ED8] text-sm font-black px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl inline-flex items-center gap-2.5 transition-all"
+          class="btn-accent-yellow text-[#0F172A] text-sm font-black px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl inline-flex items-center gap-2.5 transition-all"
         >
           <img src="https://www.google.com/favicon.ico" alt="Google" class="w-4 h-4 bg-white rounded-full p-0.5">
           <span>Read All 662+ Reviews on Google Maps ↗</span>
@@ -1548,11 +1552,11 @@
   <!-- ==========================================================================
        SECTION 8: CERTIFICATE VALIDATION PORTAL WIDGET
        ========================================================================== -->
-  <section class="py-14 bg-[#F8FAFC] border-y border-[#D5DFEC]">
+  <section class="py-14 bg-[#F8FAFC] border-y border-[#E2E8F0]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="bg-gradient-to-r from-[#1D4ED8] via-[#2563EB] to-[#1E40AF] text-white rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col lg:flex-row items-center justify-between gap-8">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-amber-300">Authenticity Guaranteed</span>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#FACC15]">Authenticity Guaranteed</span>
           <h3 class="text-2xl md:text-3xl font-black mt-1 text-white">Verify Your G-TEC Certificate Online</h3>
           <p class="text-blue-100 text-sm mt-1 max-w-xl">
             Employers & students can instantly verify the authenticity of G-TEC certificates through the central GEMs Student Application validation network.
@@ -1564,7 +1568,7 @@
             href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" 
             target="_blank" 
             rel="noopener noreferrer"
-            class="bg-white hover:bg-slate-50 text-[#1D4ED8] text-sm font-bold px-6 py-3.5 rounded-full shadow-md transition-all"
+            class="btn-accent-yellow text-[#0F172A] text-sm font-black px-6 py-3.5 rounded-full shadow-md transition-all"
           >
             <span>Verify (Enrollments 2026 onwards) ↗</span>
           </a>
@@ -1610,12 +1614,12 @@
           <!-- Contact details cards -->
           <div class="space-y-4">
             <!-- Address -->
-            <div class="bg-white text-[#142B4D] p-5 rounded-2xl flex items-start gap-4 border border-white/80 shadow-xl hover:shadow-2xl transition-all">
-              <div class="w-11 h-11 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
+            <div class="bg-white text-[#0F172A] p-5 rounded-2xl flex items-start gap-4 border border-[#E2E8F0] shadow-xl hover:shadow-2xl transition-all">
+              <div class="w-11 h-11 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
                 <i data-lucide="map-pin" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="font-bold text-[#142B4D] text-sm">Campus Address</h4>
+                <h4 class="font-bold text-[#0F172A] text-sm">Campus Address</h4>
                 <p class="text-sm text-[#475569] mt-0.5 font-medium">
                   JRJ Complex, 2nd floor, Bus Stand Shopping Complex, Ottapalam, Kerala, India - 679101
                 </p>
@@ -1627,12 +1631,12 @@
             </div>
 
             <!-- Phone -->
-            <div class="bg-white text-[#142B4D] p-5 rounded-2xl flex items-start gap-4 border border-white/80 shadow-xl hover:shadow-2xl transition-all">
-              <div class="w-11 h-11 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
+            <div class="bg-white text-[#0F172A] p-5 rounded-2xl flex items-start gap-4 border border-[#E2E8F0] shadow-xl hover:shadow-2xl transition-all">
+              <div class="w-11 h-11 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
                 <i data-lucide="phone-call" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="font-bold text-[#142B4D] text-sm">Direct Phone Numbers</h4>
+                <h4 class="font-bold text-[#0F172A] text-sm">Direct Phone Numbers</h4>
                 <div class="flex flex-wrap items-center gap-4 mt-1">
                   <a href="tel:09995955501" class="text-base font-black text-[#1D4ED8] hover:text-[#1E40AF] transition-colors">
                     099959 55501
@@ -1647,12 +1651,12 @@
             </div>
 
             <!-- Email -->
-            <div class="bg-white text-[#142B4D] p-5 rounded-2xl flex items-start gap-4 border border-white/80 shadow-xl hover:shadow-2xl transition-all">
-              <div class="w-11 h-11 rounded-xl bg-[#EEF3FB] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
+            <div class="bg-white text-[#0F172A] p-5 rounded-2xl flex items-start gap-4 border border-[#E2E8F0] shadow-xl hover:shadow-2xl transition-all">
+              <div class="w-11 h-11 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-xs">
                 <i data-lucide="mail" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="font-bold text-[#142B4D] text-sm">Official Email</h4>
+                <h4 class="font-bold text-[#0F172A] text-sm">Official Email</h4>
                 <a href="mailto:ottappalam.pkd@gteceducation.com" class="text-sm font-bold text-[#1D4ED8] hover:text-[#1E40AF] transition-colors">
                   ottappalam.pkd@gteceducation.com
                 </a>
@@ -1677,13 +1681,13 @@
 
         <!-- Quick Admission & Course Enquiry Form -->
         <div class="lg:col-span-6">
-          <div class="bg-white text-[#142B4D] p-6 sm:p-7 md:p-8 rounded-3xl border border-[#D5DFEC] shadow-2xl relative">
+          <div class="bg-white text-[#0F172A] p-6 sm:p-7 md:p-8 rounded-3xl border border-[#E2E8F0] shadow-2xl relative">
             
             <div class="mb-4">
-              <span class="inline-block text-[11px] font-black text-[#1D4ED8] bg-blue-50 border border-blue-200 px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+              <span class="inline-block text-[11px] font-black text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-3 py-1 rounded-full uppercase tracking-wider mb-2">
                 Fast-Track Response
               </span>
-              <h3 class="text-xl sm:text-2xl font-black text-[#142B4D] tracking-tight">
+              <h3 class="text-xl sm:text-2xl font-black text-[#0F172A] tracking-tight">
                 Request Admission / Fee Details
               </h3>
               <p class="text-xs text-[#475569] mt-1 font-medium leading-relaxed">
@@ -1693,7 +1697,7 @@
 
             <form id="enquiry-form" class="space-y-3.5">
               <div>
-                <label for="enquiry-name" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                <label for="enquiry-name" class="block text-[11px] font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                   Your Full Name <span class="text-[#1D4ED8]">*</span>
                 </label>
                 <input 
@@ -1707,7 +1711,7 @@
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label for="enquiry-phone" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                  <label for="enquiry-phone" class="block text-[11px] font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                     WhatsApp / Phone No <span class="text-[#1D4ED8]">*</span>
                   </label>
                   <input 
@@ -1719,7 +1723,7 @@
                   >
                 </div>
                 <div>
-                  <label for="enquiry-email" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                  <label for="enquiry-email" class="block text-[11px] font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                     Email Address
                   </label>
                   <input 
@@ -1732,7 +1736,7 @@
               </div>
 
               <div>
-                <label for="enquiry-course-select" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                <label for="enquiry-course-select" class="block text-[11px] font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                   Interested Course / Program <span class="text-[#1D4ED8]">*</span>
                 </label>
                 <select 
@@ -1745,7 +1749,7 @@
               </div>
 
               <div>
-                <label for="enquiry-batch" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                <label for="enquiry-batch" class="block text-[11px] font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                   Preferred Batch Timing
                 </label>
                 <select 
@@ -1761,7 +1765,7 @@
               </div>
 
               <div>
-                <label for="enquiry-message" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                <label for="enquiry-message" class="block text-[11px] font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                   Questions or Career Goals
                 </label>
                 <textarea 
@@ -1775,10 +1779,10 @@
               <button 
                 type="submit" 
                 id="enquiry-submit-btn"
-                class="w-full bg-[#1D4ED8] hover:bg-[#1E40AF] active:scale-[0.99] text-white font-black text-sm sm:text-base py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg hover:shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer mt-1"
+                class="w-full btn-accent-yellow active:scale-[0.99] text-[#0F172A] font-black text-sm sm:text-base py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer mt-1"
               >
                 <span>Submit &amp; Connect on WhatsApp</span>
-                <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 text-[#0F172A] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
               </button>
@@ -1803,7 +1807,7 @@
   <!-- ==========================================================================
        FOOTER
        ========================================================================== -->
-  <footer class="bg-[#0B1528] text-slate-300 text-sm border-t border-slate-800 pt-16 pb-12">
+  <footer class="bg-[#0B1120] text-slate-300 text-sm border-t border-slate-800 pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
@@ -1823,7 +1827,7 @@
             G-TEC COMPUTER EDUCATION Ottapalam is the leading technical and professional training academy in Palakkad district. Empowering students with job-ready skills, international certifications, and dedicated placement assistance since 1999.
           </p>
           <div class="flex items-center gap-2 pt-2">
-            <span class="inline-flex items-center gap-1 bg-white/10 text-amber-300 text-xs font-bold px-3 py-1 rounded-full border border-white/15">
+            <span class="inline-flex items-center gap-1 bg-white/10 text-[#FACC15] text-xs font-bold px-3 py-1 rounded-full border border-white/15">
               ★ 4.9 Rating (662 Reviews)
             </span>
             <span class="text-xs text-slate-400 font-medium">ISO 9001:2015</span>
@@ -1834,12 +1838,12 @@
         <div>
           <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
           <ul class="space-y-2.5 text-xs font-medium">
-            <li><a href="#hero" class="text-slate-300 hover:text-white transition-colors">Home Page</a></li>
-            <li><a href="#courses-section" class="text-slate-300 hover:text-white transition-colors">All Courses (24)</a></li>
-            <li><a href="#categories-section" class="text-slate-300 hover:text-white transition-colors">Career Tracks (4)</a></li>
-            <li><a href="#why-gtec" class="text-slate-300 hover:text-white transition-colors">Why G-TEC Ottapalam</a></li>
-            <li><a href="#reviews-section" class="text-slate-300 hover:text-white transition-colors">Student Testimonials</a></li>
-            <li><a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" class="text-[#60A5FA] font-bold hover:text-blue-300 hover:underline">Verify Certificate ↗</a></li>
+            <li><a href="#hero" class="text-slate-300 hover:text-[#FACC15] transition-colors">Home Page</a></li>
+            <li><a href="#courses-section" class="text-slate-300 hover:text-[#FACC15] transition-colors">All Courses (24)</a></li>
+            <li><a href="#categories-section" class="text-slate-300 hover:text-[#FACC15] transition-colors">Career Tracks (4)</a></li>
+            <li><a href="#why-gtec" class="text-slate-300 hover:text-[#FACC15] transition-colors">Why G-TEC Ottapalam</a></li>
+            <li><a href="#reviews-section" class="text-slate-300 hover:text-[#FACC15] transition-colors">Student Testimonials</a></li>
+            <li><a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" class="text-[#60A5FA] font-bold hover:text-[#FACC15] hover:underline">Verify Certificate ↗</a></li>
           </ul>
         </div>
 
@@ -1847,10 +1851,10 @@
         <div>
           <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Core Domains</h4>
           <ul class="space-y-2.5 text-xs font-medium">
-            <li><a href="#courses-section" class="text-slate-300 hover:text-white transition-colors">Software & IT (7 Courses)</a></li>
-            <li><a href="#courses-section" class="text-slate-300 hover:text-white transition-colors">Corporate Accounting & SAP (5)</a></li>
-            <li><a href="#courses-section" class="text-slate-300 hover:text-white transition-colors">Multimedia & Visual Arts (6)</a></li>
-            <li><a href="#courses-section" class="text-slate-300 hover:text-white transition-colors">CAD & Engineering Design (6)</a></li>
+            <li><a href="#courses-section" class="text-slate-300 hover:text-[#FACC15] transition-colors">Software & IT (7 Courses)</a></li>
+            <li><a href="#courses-section" class="text-slate-300 hover:text-[#FACC15] transition-colors">Corporate Accounting & SAP (5)</a></li>
+            <li><a href="#courses-section" class="text-slate-300 hover:text-[#FACC15] transition-colors">Multimedia & Visual Arts (6)</a></li>
+            <li><a href="#courses-section" class="text-slate-300 hover:text-[#FACC15] transition-colors">CAD & Engineering Design (6)</a></li>
           </ul>
         </div>
 
@@ -1861,8 +1865,8 @@
             JRJ Complex, 2nd floor, Bus Stand Shopping Complex, Ottapalam, Kerala, 679101
           </p>
           <div class="mt-3 space-y-1.5 text-xs">
-            <p><strong class="text-white">Call:</strong> <a href="tel:09995955501" class="text-[#60A5FA] font-bold hover:text-blue-300">099959 55501</a></p>
-            <p><strong class="text-white">Email:</strong> <a href="mailto:ottappalam.pkd@gteceducation.com" class="text-[#60A5FA] hover:text-blue-300">ottappalam.pkd@gteceducation.com</a></p>
+            <p><strong class="text-white">Call:</strong> <a href="tel:09995955501" class="text-[#60A5FA] font-bold hover:text-[#FACC15]">099959 55501</a></p>
+            <p><strong class="text-white">Email:</strong> <a href="mailto:ottappalam.pkd@gteceducation.com" class="text-[#60A5FA] hover:text-[#FACC15]">ottappalam.pkd@gteceducation.com</a></p>
             <p class="text-slate-400"><strong class="text-white">Hours:</strong> Mon - Sat: 9 AM - 6 PM</p>
           </div>
         </div>
@@ -1913,7 +1917,7 @@
 
       <div class="mb-6">
         <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-wider">Fast-Track Registration</span>
-        <h3 id="modal-enquiry-title" class="text-2xl font-black text-[#142B4D] mt-1">G-TEC Ottapalam Course Admission</h3>
+        <h3 id="modal-enquiry-title" class="text-2xl font-black text-[#0F172A] mt-1">G-TEC Ottapalam Course Admission</h3>
         <p class="text-xs text-[#64748B] mt-1">
           Receive syllabus outline, scholarship eligibility, and next batch schedule directly on WhatsApp.
         </p>
@@ -1921,7 +1925,7 @@
 
       <!-- Same form functionality routed to WhatsApp -->
       <form onsubmit="event.preventDefault(); document.getElementById('enquiry-form').dispatchEvent(new Event('submit'));" class="space-y-4">
-        <p class="text-xs text-[#142B4D] bg-[#EEF3FB] p-3.5 rounded-xl border border-[#D5DFEC]">
+        <p class="text-xs text-[#0F172A] bg-[#EFF6FF] p-3.5 rounded-xl border border-[#BFDBFE]">
           📍 You can also call us directly at <strong>099959 55501</strong> or visit our centre at JRJ Complex, 2nd floor, Bus Stand Shopping Complex, Ottapalam.
         </p>
         <div class="pt-2">
@@ -1929,9 +1933,9 @@
             href="https://wa.me/919995955501?text=Hi%20G-TEC%20Ottapalam,%20I%20would%20like%20to%20know%20more%20about%20your%20courses%20and%20admission%20details."
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md"
+            class="w-full flex items-center justify-center gap-2 btn-accent-yellow text-[#0F172A] font-black py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg"
           >
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <i data-lucide="message-circle" class="w-5 h-5 text-[#0F172A]"></i>
             <span>Chat Directly on WhatsApp</span>
           </a>
         </div>

@@ -8,60 +8,83 @@
 
 :root {
   /* ==========================================================================
-     HERO BLUE DESIGN REFERENCE TOKENS
-     Extracted directly from the actual Homepage Hero Canvas gradient:
-     linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%)
+     CORE 4-COLOUR BRAND SYSTEM SPECIFICATION
+     1. Primary Blue: Vibrant Hero Blue (#1D4ED8)
+     2. Accent Yellow: Energetic Supporting Accent (#FACC15)
+     3. White: Clean Content Surfaces, Cards, High Contrast (#FFFFFF)
+     4. Deep Navy: Headings, Feature Sections, Footer, Text on Yellow (#0F172A)
+     5. Cool Light Grey: Subtle Section Separation & Borders (#F8FAFC, #E2E8F0)
      ========================================================================== */
-  --hero-blue: #1D4ED8;
-  --hero-blue-hover: #1E40AF;
-  --hero-blue-mid: #2563EB;
-  --hero-blue-light: #3B82F6;
-  --hero-blue-gradient: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
-  --hero-blue-subtle: #EEF3FB;
-  --hero-blue-tint: #EAF2FF;
 
-  /* Official High Contrast & Accessibility Token System */
-  --page-bg: #F1F5FA;
-  --surface: #FFFFFF;
-  --heading: #142B4D;
-  --body-text: #475569;
-  --muted-text: #64748B;
-  --primary: var(--hero-blue);
-  --primary-hover: var(--hero-blue-hover);
-  --border: #D5DFEC;
-  --panel-bg: #EEF3FB;
-  --selected-bg: var(--hero-blue);
+  /* 1. Primary Blue (Vibrant Hero Blue) */
+  --brand-blue: #1D4ED8;
+  --brand-blue-hover: #1E40AF;
+  --brand-blue-mid: #2563EB;
+  --brand-blue-light: #3B82F6;
+  --brand-blue-subtle: #EFF6FF;
+  --brand-blue-border: #BFDBFE;
+  --brand-blue-gradient: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+  --brand-blue-glow: rgba(29, 78, 216, 0.28);
+
+  /* 2. Accent Yellow (Bright Energetic Yellow #FACC15) */
+  --brand-yellow: #FACC15;
+  --brand-yellow-hover: #EAB308;
+  --brand-yellow-subtle: #FEF9C3;
+  --brand-yellow-border: #FDE047;
+  --brand-yellow-glow: rgba(250, 204, 21, 0.35);
+  --brand-yellow-text: #0F172A; /* Mandatory deep navy text on yellow backgrounds for maximum readability */
+
+  /* 3. Deep Navy (Headings, Dark Feature Sections, Footer) */
+  --brand-navy: #0F172A;
+  --brand-navy-surface: #142B4D;
+  --brand-navy-card: #1E293B;
+  --brand-navy-border: #334155;
+  --brand-navy-dark: #0B1120;
+
+  /* 4. White (Clean Content Surfaces, Cards, High Contrast) */
+  --brand-white: #FFFFFF;
+
+  /* 5. Cool Light Grey (Subtle Section Separation & Borders) */
+  --brand-grey-bg: #F8FAFC;
+  --brand-grey-panel: #F1F5F9;
+  --brand-grey-border: #E2E8F0;
+  --brand-text-body: #475569;
+  --brand-text-muted: #64748B;
+
+  /* Semantic Compatibility Tokens */
+  --hero-blue: var(--brand-blue);
+  --hero-blue-hover: var(--brand-blue-hover);
+  --hero-blue-mid: var(--brand-blue-mid);
+  --hero-blue-light: var(--brand-blue-light);
+  --hero-blue-gradient: var(--brand-blue-gradient);
+  --hero-blue-subtle: var(--brand-blue-subtle);
+  --color-pop-yellow: var(--brand-yellow);
+  --color-pop-yellow-hover: var(--brand-yellow-hover);
+  --surface: var(--brand-white);
+  --heading: var(--brand-navy);
+  --body-text: var(--brand-text-body);
+  --muted-text: var(--brand-text-muted);
+  --border: var(--brand-grey-border);
+  --panel-bg: var(--brand-grey-panel);
+  --page-bg: var(--brand-grey-bg);
+  --primary: var(--brand-blue);
+  --primary-hover: var(--brand-blue-hover);
+  --selected-bg: var(--brand-blue);
   --selected-text: #FFFFFF;
 
-  /* Semantic Aliases */
-  --bg-primary: var(--surface);
-  --bg-alt: var(--page-bg);
-  --bg-card: var(--surface);
-  --color-accent: var(--primary);
-  --color-accent-hover: var(--primary-hover);
-  --color-text: var(--heading);
-  --color-text-muted: var(--muted-text);
-  --color-border: var(--border);
-  --color-highlight: #FFC83D;
-  --color-highlight-hover: #F59E0B;
-
-  --color-dark: var(--heading);
-  --color-dark-surface: var(--panel-bg);
-  --color-text-main: var(--heading);
-  
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 32px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --radius-full: 9999px;
-  
-  /* Crisp Edge-Defining Shadows */
-  --shadow-sm: 0 1px 3px rgba(20, 43, 77, 0.05), 0 1px 2px rgba(20, 43, 77, 0.03);
-  --shadow-md: 0 4px 14px -2px rgba(20, 43, 77, 0.08), 0 2px 4px -1px rgba(20, 43, 77, 0.04);
-  --shadow-lg: 0 12px 28px -6px rgba(20, 43, 77, 0.12), 0 4px 8px -2px rgba(20, 43, 77, 0.05);
-  --shadow-card-hover: 0 14px 32px -6px rgba(29, 78, 216, 0.16), 0 2px 6px rgba(20, 43, 77, 0.04);
+
+  /* Cohesive Elevation Shadows */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.08), 0 2px 4px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 28px -6px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 18px 36px -8px rgba(15, 23, 42, 0.1), 0 6px 14px -3px rgba(29, 78, 216, 0.08);
   --shadow-blue-glow: 0 10px 25px -4px rgba(29, 78, 216, 0.35);
-  --shadow-amber-glow: 0 8px 24px -4px rgba(245, 158, 11, 0.3);
+  --shadow-yellow-glow: 0 8px 24px -4px rgba(250, 204, 21, 0.35);
 }
 
 html {
@@ -480,10 +503,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Pop Buttons & Badges */
+/* ==========================================================================
+   4-Colour Brand System Button & Badge Classes
+   ========================================================================== */
 .btn-primary-blue {
-  background: var(--hero-blue);
-  color: #FFFFFF;
+  background: var(--brand-blue);
+  color: #FFFFFF !important;
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 10px 24px;
@@ -492,52 +517,94 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .btn-primary-blue:hover {
-  background: var(--hero-blue-hover);
+  background: var(--brand-blue-hover);
+  color: #FFFFFF !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(29, 78, 216, 0.38);
 }
 
+.btn-accent-yellow,
 .btn-pop-yellow {
-  background: var(--color-pop-yellow);
-  color: var(--heading, #142B4D);
-  font-weight: 700;
+  background: var(--brand-yellow);
+  color: var(--brand-navy) !important;
+  font-weight: 800;
   border-radius: var(--radius-full);
   padding: 10px 24px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(255, 200, 61, 0.35);
+  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  border: 1px solid var(--brand-yellow-border);
+  text-decoration: none;
+  cursor: pointer;
 }
 
+.btn-accent-yellow:hover,
 .btn-pop-yellow:hover {
-  background: #F59E0B;
+  background: var(--brand-yellow-hover);
+  color: var(--brand-navy) !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.45);
+  box-shadow: 0 8px 22px rgba(234, 179, 8, 0.45);
 }
 
 .btn-white-pill {
   background: #FFFFFF;
-  color: var(--hero-blue);
+  color: var(--brand-blue);
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 9px 22px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(20, 43, 77, 0.08);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--brand-grey-border);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .btn-white-pill:hover {
-  background: var(--panel-bg);
-  color: var(--hero-blue-hover);
+  background: var(--brand-blue-subtle);
+  color: var(--brand-blue-hover);
+  border-color: var(--brand-blue-border);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(29, 78, 216, 0.16);
+  box-shadow: 0 8px 18px rgba(29, 78, 216, 0.14);
+}
+
+/* Selective Yellow Highlight Word (Restrained & High Contrast) */
+.highlight-yellow {
+  color: var(--brand-yellow);
+}
+
+.highlight-yellow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--brand-yellow);
+  color: var(--brand-navy);
+  font-weight: 800;
+  padding: 2.5px 11px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--brand-yellow-border);
+}
+
+.badge-yellow-tag {
+  background: var(--brand-yellow-subtle);
+  color: #854D0E;
+  border: 1px solid var(--brand-yellow-border);
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* ==========================================================================
@@ -1509,10 +1576,10 @@ html.intro-skip #cinematic-intro-stage,
 .notch-led {
   width: 3px;
   height: 3px;
-  background: #10B981;
+  background: #60A5FA;
   border-radius: 50%;
   opacity: 0;
-  box-shadow: 0 0 4px #10B981;
+  box-shadow: 0 0 4px #60A5FA;
   transition: opacity 0.3s ease;
 }
 

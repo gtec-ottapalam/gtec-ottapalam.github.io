@@ -351,21 +351,21 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     courseModalBody.innerHTML = `
-      <div class="p-6 md:p-8 text-[#142B4D]">
+      <div class="p-6 md:p-8 text-[#0F172A]">
         <div class="flex items-start justify-between gap-4 mb-4">
           <div>
             <div class="flex items-center gap-2 mb-2 flex-wrap">
-              <span class="text-xs font-bold px-3 py-1 bg-[#EEF3FB] text-[#142B4D] border border-[#D5DFEC] rounded-full">
+              <span class="text-xs font-bold px-3 py-1 bg-[#EFF6FF] text-[#0F172A] border border-[#BFDBFE] rounded-full">
                 ${course.categoryName}
               </span>
-              <span class="text-xs font-bold px-3 py-1 bg-[#FEF3C7] text-[#78350F] border border-[#FDE68A] rounded-full">
+              <span class="text-xs font-bold px-3 py-1 bg-[#FEF9C3] text-[#0F172A] border border-[#FDE047] rounded-full">
                 ${course.levelDisplay || course.level}
               </span>
-              <span class="text-xs font-bold px-3 py-1 bg-[#EEF3FB] text-[#1D4ED8] border border-[#D5DFEC] rounded-full">
+              <span class="text-xs font-bold px-3 py-1 bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] rounded-full">
                 Duration: ${course.duration}
               </span>
             </div>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#142B4D] leading-tight">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F172A] leading-tight">
               ${course.title}
             </h2>
             <p class="text-sm text-[#475569] mt-1 font-semibold">
@@ -375,30 +375,30 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Tools & Software Covered (High Contrast Defined Box) -->
-        <div class="my-5 p-4 rounded-2xl bg-[#EEF3FB] border border-[#D5DFEC]">
+        <div class="my-5 p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE]">
           <div class="flex items-center gap-2 text-[#1D4ED8] font-bold text-xs uppercase tracking-wider mb-2">
             <svg class="w-4 h-4 text-[#1D4ED8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             <span>Official Tools & Software Covered</span>
           </div>
-          <p class="text-[#142B4D] font-bold text-base leading-snug">${course.tools}</p>
+          <p class="text-[#0F172A] font-bold text-base leading-snug">${course.tools}</p>
           <div class="flex flex-wrap gap-1.5 mt-2.5">
-            ${(course.toolsList || []).map(t => `<span class="text-xs bg-white text-[#142B4D] border border-[#D5DFEC] px-2.5 py-0.5 rounded-lg font-semibold shadow-xs">${t}</span>`).join('')}
+            ${(course.toolsList || []).map(t => `<span class="text-xs bg-white text-[#0F172A] border border-[#BFDBFE] px-2.5 py-0.5 rounded-lg font-semibold shadow-xs">${t}</span>`).join('')}
           </div>
         </div>
 
         <!-- Course Quick Stats Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4 p-4 bg-[#EEF3FB] rounded-2xl border border-[#D5DFEC]">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 my-4 p-4 bg-[#EFF6FF] rounded-2xl border border-[#BFDBFE]">
           <div>
             <span class="text-xs text-[#475569] font-medium block">Duration</span>
-            <span class="text-sm font-bold text-[#142B4D]">${course.duration}</span>
+            <span class="text-sm font-bold text-[#0F172A]">${course.duration}</span>
           </div>
           <div>
             <span class="text-xs text-[#475569] font-medium block">Training Mode</span>
-            <span class="text-sm font-bold text-[#142B4D]">${course.mode}</span>
+            <span class="text-sm font-bold text-[#0F172A]">${course.mode}</span>
           </div>
           <div>
             <span class="text-xs text-[#475569] font-medium block">Certification</span>
-            <span class="text-sm font-bold text-[#142B4D]">${course.certified}</span>
+            <span class="text-sm font-bold text-[#0F172A]">${course.certified}</span>
           </div>
         </div>
 
@@ -409,19 +409,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <!-- Highlights & What You Will Learn -->
         <div class="space-y-3 text-[#475569] text-sm leading-relaxed mb-6">
-          <h4 class="font-bold text-[#142B4D] text-base">Key Program Highlights:</h4>
+          <h4 class="font-bold text-[#0F172A] text-base">Key Program Highlights:</h4>
           <ul class="space-y-2">
             ${highlightsList.map(h => `
               <li class="flex items-start gap-2.5">
                 <svg class="w-5 h-5 text-[#1D4ED8] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                <span class="text-[#142B4D] font-medium">${h}</span>
+                <span class="text-[#0F172A] font-medium">${h}</span>
               </li>
             `).join('')}
           </ul>
         </div>
 
         <!-- Action Buttons in Modal -->
-        <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#D5DFEC]">
+        <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#E2E8F0]">
           <button 
             type="button" 
             class="modal-enquire-btn flex-1 btn-primary-blue text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md text-center justify-center"
@@ -433,9 +433,9 @@ document.addEventListener('DOMContentLoaded', () => {
             href="https://wa.me/919995955501?text=${encodeURIComponent(`Hi G-TEC Ottapalam, I am interested in the "${course.title}" course (${course.tools}). Please share fee structure and next batch timings.`)}"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md text-center"
+            class="flex items-center justify-center gap-2 btn-accent-yellow text-[#0F172A] font-black py-3.5 px-6 rounded-xl transition-all shadow-md text-center"
           >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+            <svg class="w-5 h-5 text-[#0F172A]" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
             <span>Ask via WhatsApp</span>
           </a>
         </div>
