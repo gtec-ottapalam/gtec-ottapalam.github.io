@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Laptop / Device Screen Mockup Wrapper (Directly from Reference Image 1)
+   Elevated Cinema-Grade Laptop Device Stage & Mockup
    ========================================================================== */
 .laptop-stage-wrapper {
   position: relative;
@@ -162,6 +162,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  perspective: 1200px;
 }
 
 @media (min-width: 1440px) {
@@ -170,78 +171,116 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Precision Anodized Aluminum Display Frame */
 .laptop-frame {
   position: relative;
   width: 100%;
-  background: #0F172A;
-  border: 7px solid #1E293B;
-  border-top-width: 9px;
-  border-radius: 18px 18px 6px 6px;
+  background: #0B1120;
+  border: 8px solid #1E293B;
+  border-top-width: 10px;
+  border-bottom-width: 12px;
+  border-radius: 20px 20px 4px 4px;
   box-shadow: 
-    0 24px 55px -12px rgba(15, 23, 42, 0.35),
-    0 10px 24px -6px rgba(29, 78, 216, 0.22),
-    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 0 0 2px rgba(0, 0, 0, 0.85),
+    0 24px 60px -12px rgba(15, 23, 42, 0.42),
+    0 10px 25px -6px rgba(29, 78, 216, 0.25);
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Diagonal Specular Display Glare Film (Realistic Screen Sheen) */
+.screen-glass-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 24%, transparent 48%);
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* Integrated Webcam Notch & Optical Sensor */
 .laptop-notch {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 84px;
-  height: 13px;
+  width: 90px;
+  height: 12px;
   background: #1E293B;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .camera-lens {
   width: 4.5px;
   height: 4.5px;
-  background: #030712;
+  background: radial-gradient(circle, #1E3A8A 0%, #020617 100%);
   border-radius: 50%;
-  box-shadow: 0 0 2px rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 3px rgba(96, 165, 250, 0.7);
 }
 
 .camera-indicator {
-  width: 3px;
-  height: 3px;
-  background: #10B981;
+  width: 2.5px;
+  height: 2.5px;
+  background: #3B82F6;
   border-radius: 50%;
-  opacity: 0.6;
+  opacity: 0.75;
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.8);
 }
 
+/* CNC Machined Aluminum Hinge Base & Ergonomic Notch */
 .laptop-base {
-  height: 13px;
-  background: linear-gradient(180deg, #334155 0%, #1E293B 100%);
-  border-radius: 0 0 22px 22px;
+  height: 15px;
+  background: linear-gradient(180deg, #64748B 0%, #334155 35%, #1E293B 100%);
+  border-radius: 0 0 24px 24px;
   margin: 0 auto;
-  width: 103%;
+  width: 104%;
   position: relative;
-  left: -1.5%;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+  left: -2%;
+  box-shadow: 
+    0 14px 30px -4px rgba(15, 23, 42, 0.38),
+    0 4px 10px rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
 }
 
-.laptop-lip {
-  width: 110px;
-  height: 3.5px;
+.laptop-thumb-notch {
+  width: 120px;
+  height: 4.5px;
   background: #0F172A;
-  border-radius: 0 0 5px 5px;
-  margin: 0 auto;
+  border-radius: 0 0 6px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: none;
+}
+
+/* Physical Contact Shadow & Stage Backlight */
+.laptop-ground-shadow {
+  position: absolute;
+  bottom: -22px;
+  left: 5%;
+  width: 90%;
+  height: 24px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(15, 23, 42, 0.38) 0%, rgba(29, 78, 216, 0.2) 40%, transparent 75%);
+  pointer-events: none;
+  z-index: 5;
 }
 
 /* ==========================================================================
-   Vibrant Blue Hero Canvas
+   Vibrant Hero Canvas (Rich Multi-Layered Royal & Electric Blue Depth)
    ========================================================================== */
 .hero-vibrant-canvas {
-  background: linear-gradient(145deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+  background: 
+    radial-gradient(100% 70% at 50% 0%, rgba(59, 130, 246, 0.32) 0%, transparent 70%),
+    radial-gradient(80% 60% at 85% 90%, rgba(30, 64, 175, 0.45) 0%, transparent 65%),
+    radial-gradient(80% 60% at 15% 90%, rgba(30, 64, 175, 0.45) 0%, transparent 65%),
+    linear-gradient(155deg, #1D4ED8 0%, #1E40AF 45%, #173FB5 75%, #0F256E 100%);
   position: relative;
   overflow: hidden;
   color: #FFFFFF;
@@ -274,8 +313,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 767px) {
   .hero-vibrant-canvas {
-    min-height: 500px;
-    padding: 12px 12px 14px 12px;
+    min-height: 520px;
+    padding: 12px 12px 16px 12px;
   }
 }
 
@@ -285,8 +324,8 @@ h1, h2, h3, h4, h5, h6 {
   bottom: -35px;
   left: 50%;
   transform: translateX(-50%);
-  width: 380px;
-  height: 380px;
+  width: 420px;
+  height: 420px;
   pointer-events: none;
   z-index: 1;
 }
@@ -297,79 +336,63 @@ h1, h2, h3, h4, h5, h6 {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.12);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  animation: ring-breathe 6s ease-in-out infinite alternate;
 }
 
-.wave-ring-1 { width: 200px; height: 200px; }
-.wave-ring-2 { width: 290px; height: 290px; border-color: rgba(255, 255, 255, 0.08); }
-.wave-ring-3 { width: 380px; height: 380px; border-color: rgba(255, 255, 255, 0.05); }
+.wave-ring-1 { width: 220px; height: 220px; animation-delay: 0s; }
+.wave-ring-2 { width: 320px; height: 320px; border-color: rgba(255, 255, 255, 0.09); animation-delay: 1.5s; }
+.wave-ring-3 { width: 420px; height: 420px; border-color: rgba(255, 255, 255, 0.05); animation-delay: 3s; }
 
-/* Ambient Blue Glow Orbs */
+@keyframes ring-breathe {
+  0% { transform: translate(-50%, -50%) scale(0.97); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.03); opacity: 1; }
+}
+
+/* Ambient Radial Glow Overlays */
 .glow-orb-top-left {
   position: absolute;
-  top: -100px;
-  left: -80px;
-  width: 380px;
-  height: 380px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.28) 0%, transparent 70%);
+  top: -120px;
+  left: -90px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.3) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .glow-orb-bottom-right {
   position: absolute;
-  bottom: -80px;
-  right: -80px;
-  width: 420px;
-  height: 420px;
+  bottom: -90px;
+  right: -90px;
+  width: 440px;
+  height: 440px;
   background: radial-gradient(circle, rgba(147, 197, 253, 0.22) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
-/* ==========================================================================
-   Hand-Drawn Contrasting Doodles (Yellow / Amber)
-   ========================================================================== */
-.doodle-sun {
+/* Refined Floating Micro-Particles / Light Points */
+.hero-light-point {
   position: absolute;
-  width: 42px;
-  height: 42px;
-  top: 40px;
-  left: 20px;
-  animation: rotate-doodle 24s linear infinite;
-  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.55));
+  width: 4px;
+  height: 4px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  pointer-events: none;
   z-index: 10;
-  pointer-events: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(147, 197, 253, 0.8);
+  animation: pulse-light 4s ease-in-out infinite;
 }
 
-.doodle-star {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  top: 44px;
-  right: 24px;
-  animation: pulse-star 3.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.65));
-  z-index: 10;
-  pointer-events: none;
-}
+.hero-particle-1 { top: 18%; left: 8%; animation-delay: 0s; }
+.hero-particle-2 { top: 28%; right: 10%; animation-delay: 1.5s; }
+.hero-particle-3 { bottom: 35%; left: 14%; animation-delay: 2.8s; }
 
-.doodle-squiggle {
-  position: absolute;
-  width: 80px;
-  height: 32px;
-  pointer-events: none;
-}
-
-@keyframes rotate-doodle {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes pulse-star {
-  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
-  50% { transform: scale(1.15) rotate(12deg); opacity: 1; }
+@keyframes pulse-light {
+  0%, 100% { transform: scale(0.85); opacity: 0.4; }
+  50% { transform: scale(1.25); opacity: 0.95; }
 }
 
 @keyframes float-gentle {
@@ -391,45 +414,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Floating Glassmorphic Hero Cards (Matches Reference Image 1)
+   Floating Trust Proof Cards (Crisp Solid White with Deep Soft Shadows)
    ========================================================================== */
 .hero-glass-card {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 18px;
   box-shadow: 
-    0 16px 32px -8px rgba(15, 23, 42, 0.16),
-    0 6px 12px -4px rgba(37, 99, 235, 0.12);
-  color: var(--color-dark);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    0 20px 40px -8px rgba(15, 23, 42, 0.18),
+    0 8px 16px -4px rgba(29, 78, 216, 0.12);
+  color: var(--heading);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .hero-glass-card:hover {
-  transform: translateY(-3px) scale(1.01);
+  transform: translateY(-4px) scale(1.015);
   box-shadow: 
-    0 20px 38px -8px rgba(15, 23, 42, 0.2),
-    0 8px 16px -4px rgba(37, 99, 235, 0.18);
+    0 26px 48px -10px rgba(15, 23, 42, 0.24),
+    0 12px 20px -4px rgba(29, 78, 216, 0.18);
 }
 
 /* ==========================================================================
-   Hero Interactive Course Search Pill
+   Hero Interactive Course Search Pill (High-Contrast White with Blue Focus)
    ========================================================================== */
 .hero-search-pill {
   background: #FFFFFF;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
-  padding: 4px 6px 4px 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.16);
+  padding: 4px 6px 4px 18px;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   border: 2px solid transparent;
 }
 
 .hero-search-pill:focus-within {
-  border-color: var(--color-pop-yellow);
-  box-shadow: 0 12px 28px rgba(251, 191, 36, 0.32);
+  border-color: #1D4ED8;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.25), 0 14px 32px rgba(15, 23, 42, 0.18);
 }
 
 .hero-search-input {
@@ -437,13 +458,26 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
   background: transparent;
   font-size: 0.95rem;
-  color: var(--color-dark);
+  color: #0F172A;
   width: 100%;
   font-family: inherit;
+  font-weight: 500;
 }
 
 .hero-search-input::placeholder {
-  color: #94A3B8;
+  color: #64748B;
+  font-weight: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-card-left,
+  .floating-card-right,
+  .wave-ring,
+  .laptop-frame,
+  .hero-light-point {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Pop Buttons & Badges */
@@ -586,25 +620,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
 }
 
-/* Course Card - High Contrast White Surface with Signature Blue Top Accent */
+/* Course Card - Rich Vibrant Hero Blue Card */
 .course-card {
-  background: #FFFFFF;
-  border: 1.5px solid #CBD5E1;
-  border-top: 4px solid var(--primary);
-  border-radius: 22px;
+  background: linear-gradient(150deg, #1D4ED8 0%, #1E40AF 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px -2px rgba(20, 43, 77, 0.07), 0 2px 6px -1px rgba(29, 78, 216, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 25px -4px rgba(29, 78, 216, 0.25), 0 4px 12px -2px rgba(15, 23, 42, 0.1);
   position: relative;
-  color: var(--heading);
+  color: #FFFFFF;
 }
 
 .course-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
-  box-shadow: 0 16px 32px -4px rgba(29, 78, 216, 0.18), 0 6px 12px -2px rgba(20, 43, 77, 0.08);
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 20px 42px -6px rgba(29, 78, 216, 0.45), 0 10px 20px -4px rgba(15, 23, 42, 0.18);
 }
 
 .course-card .badge-level {
@@ -616,10 +649,10 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.05em;
 }
 
-.badge-level-certificate { background: var(--panel-bg); color: var(--primary); border: 1px solid var(--border); }
-.badge-level-diploma { background: #FEF3C7; color: #78350F; border: 1px solid #FDE68A; }
-.badge-level-master { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
-.badge-level-sap { background: #EEF2FF; color: #312E81; border: 1px solid #C7D2FE; }
+.badge-level-certificate { background: #FFFFFF; color: #1D4ED8; border: 1px solid #FFFFFF; font-weight: 800; }
+.badge-level-diploma { background: #FEF3C7; color: #78350F; border: 1px solid #FDE68A; font-weight: 800; }
+.badge-level-master { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; font-weight: 800; }
+.badge-level-sap { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; font-weight: 800; }
 
 /* ==========================================================================
    Stats Highlights Section - Clean Light Card
