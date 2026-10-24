@@ -515,30 +515,30 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 1024px) {
   .hero-vibrant-canvas {
-    height: clamp(610px, calc(100vh - 120px), 770px);
-    padding: 18px 32px 16px 32px;
+    height: clamp(630px, calc(100vh - 110px), 790px);
+    padding: 22px 34px 18px 34px;
   }
 }
 
 @media (min-width: 1440px) {
   .hero-vibrant-canvas {
-    height: clamp(670px, calc(100vh - 110px), 830px);
-    padding: 22px 36px 18px 36px;
+    height: clamp(680px, calc(100vh - 100px), 840px);
+    padding: 24px 38px 20px 38px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-vibrant-canvas {
-    height: clamp(540px, calc(100vh - 140px), 660px);
-    padding: 16px 24px 12px 24px;
+    height: clamp(550px, calc(100vh - 130px), 670px);
+    padding: 18px 24px 14px 24px;
   }
 }
 
 @media (max-width: 767px) {
   .hero-vibrant-canvas {
-    min-height: 580px;
+    min-height: 590px;
     height: auto;
-    padding: 16px 16px 20px 16px;
+    padding: 18px 16px 22px 16px;
   }
 }
 
