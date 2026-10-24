@@ -563,14 +563,14 @@ h1, h2, h3, h4, h5, h6 {
    Course Catalog Cards & Filters (Clean High-Contrast System)
    ========================================================================== */
 .category-tab-btn {
-  padding: 10px 22px;
+  padding: 9px 20px;
   border-radius: var(--radius-full);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--heading);
+  color: #1E293B;
   background: #FFFFFF;
   border: 1.5px solid #CBD5E1;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   display: inline-flex;
@@ -580,79 +580,144 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .category-tab-btn:hover {
-  background: var(--panel-bg);
-  color: var(--primary);
-  border-color: var(--primary);
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border-color: #93C5FD;
   transform: translateY(-1px);
 }
 
+.category-tab-btn:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
 .category-tab-btn.active {
-  background: var(--selected-bg);
-  color: var(--selected-text);
-  border-color: var(--selected-bg);
-  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35);
+  background: #1D4ED8;
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
   font-weight: 800;
 }
 
-.level-chip-btn {
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--heading);
-  background: #FFFFFF;
-  border: 1.5px solid #CBD5E1;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.level-chip-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--panel-bg);
-}
-
-.level-chip-btn.active {
-  background: var(--selected-bg);
-  color: var(--selected-text);
-  border-color: var(--selected-bg);
-  font-weight: 800;
-}
-
-/* Course Card - Rich Vibrant Hero Blue Card */
-.course-card {
-  background: linear-gradient(150deg, #1D4ED8 0%, #1E40AF 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
-  border-radius: 24px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 25px -4px rgba(29, 78, 216, 0.25), 0 4px 12px -2px rgba(15, 23, 42, 0.1);
-  position: relative;
+.category-tab-btn.active:hover {
+  background: #1E40AF;
+  border-color: #1E40AF;
   color: #FFFFFF;
 }
 
+.level-chip-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.level-chip-btn:hover {
+  border-color: #93C5FD;
+  color: #1D4ED8;
+  background: #EFF6FF;
+}
+
+.level-chip-btn:focus-visible {
+  outline: 2px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
+.level-chip-btn.active {
+  background: #1D4ED8;
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
+  font-weight: 800;
+}
+
+.level-chip-btn.active:hover {
+  background: #1E40AF;
+  border-color: #1E40AF;
+  color: #FFFFFF;
+}
+
+/* Course Card - Clean White Surface with Restrained Blue Accent */
+.course-card {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-top: 3.5px solid #1D4ED8;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+  position: relative;
+  color: #0F172A;
+}
+
 .course-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 20px 42px -6px rgba(29, 78, 216, 0.45), 0 10px 20px -4px rgba(15, 23, 42, 0.18);
+  transform: translateY(-5px);
+  border-color: #BFDBFE;
+  border-top-color: #1D4ED8;
+  box-shadow: 0 18px 36px -8px rgba(15, 23, 42, 0.09), 0 6px 14px -3px rgba(29, 78, 216, 0.08);
+}
+
+.course-card .card-thumb-container {
+  position: relative;
+  height: 165px;
+  overflow: hidden;
+  background: #0F172A;
+}
+
+.course-card .card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.course-card:hover .card-thumb-img {
+  transform: scale(1.05);
+}
+
+.course-card .card-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.1) 40%, rgba(15, 23, 42, 0.75) 100%);
+  pointer-events: none;
 }
 
 .course-card .badge-level {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  padding: 4px 10px;
+  padding: 3.5px 9px;
   border-radius: var(--radius-full);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
 }
 
-.badge-level-certificate { background: #FFFFFF; color: #1D4ED8; border: 1px solid #FFFFFF; font-weight: 800; }
-.badge-level-diploma { background: #FEF3C7; color: #78350F; border: 1px solid #FDE68A; font-weight: 800; }
-.badge-level-master { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; font-weight: 800; }
-.badge-level-sap { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; font-weight: 800; }
+.badge-level-certificate { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; font-weight: 800; }
+.badge-level-diploma { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; font-weight: 800; }
+.badge-level-master { background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; font-weight: 800; }
+.badge-level-sap { background: #FFFBEB; color: #B45309; border: 1px solid #FCD34D; font-weight: 800; }
+
+@media (prefers-reduced-motion: reduce) {
+  .course-card,
+  .course-card:hover,
+  .course-card .card-thumb-img,
+  .category-tab-btn,
+  .level-chip-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}
 
 /* ==========================================================================
    Stats Highlights Section - Clean Light Card

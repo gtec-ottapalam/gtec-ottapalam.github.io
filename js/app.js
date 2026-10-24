@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const coursesGrid = document.getElementById('courses-grid');
   const courseCountBadge = document.getElementById('course-count-badge');
   const emptyState = document.getElementById('empty-state');
+  const emptyResetBtn = document.getElementById('empty-reset-btn');
+  const resetFiltersBtn = document.getElementById('reset-filters-btn');
   const loadMoreBtn = document.getElementById('load-more-btn');
   const searchInput = document.getElementById('course-search-input');
   const clearSearchBtn = document.getElementById('clear-search-btn');
@@ -25,6 +27,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSearchBtn = document.getElementById('hero-search-btn');
   const categoryTabs = document.querySelectorAll('.category-tab-btn');
   const levelChips = document.querySelectorAll('.level-chip-btn');
+
+  // Course Thumbnails & Category Assets
+  const COURSE_THUMBNAILS = {
+    // CAD & Engineering Design
+    'cad-revit-architecture': 'assets/cat-cad.webp',
+    'cad-solidworks': 'assets/real-photos/student-workstation.jpg',
+    'cad-autocad-electrical': 'assets/cat-cad.webp',
+    'cad-catia': 'assets/real-photos/training-lab-perspective.jpg',
+    'cad-staad-pro': 'assets/cat-cad.webp',
+    'cad-g-draughtsman': 'assets/real-photos/student-workstation.jpg',
+    // Software & IT
+    'dev-fullstack-python': 'assets/cat-software.webp',
+    'dev-fullstack-flutter': 'assets/real-photos/students-coding-lab.jpg',
+    'dev-fullstack-mern': 'assets/cat-software.webp',
+    'dev-master-ai-datascience': 'assets/real-photos/students-coding-lab.jpg',
+    'dev-ui-ux-designing': 'assets/cat-software.webp',
+    'dev-generative-ai': 'assets/real-photos/training-lab-wide.jpg',
+    'dev-office-automation': 'assets/real-photos/students-learning.jpg',
+    // Multimedia & Visual Arts
+    'media-graphic-designing': 'assets/cat-multimedia.webp',
+    'media-video-editing': 'assets/real-photos/student-workstation.jpg',
+    'media-motion-graphics': 'assets/cat-multimedia.webp',
+    'media-digital-marketing': 'assets/real-photos/students-learning.jpg',
+    'media-3ds-max': 'assets/cat-multimedia.webp',
+    'media-blender': 'assets/real-photos/training-lab-perspective.jpg',
+    // Corporate Accounting & SAP
+    'acc-tally-comprehensive': 'assets/cat-finance.webp',
+    'acc-sap-fico': 'assets/real-photos/students-learning.jpg',
+    'acc-sap-mm': 'assets/cat-finance.webp',
+    'acc-sap-hcm': 'assets/real-photos/reception-lounge.jpg',
+    'acc-sap-abap': 'assets/cat-finance.webp',
+  };
+
+  const CATEGORY_DEFAULT_IMAGES = {
+    'cad': 'assets/cat-cad.webp',
+    'software': 'assets/cat-software.webp',
+    'multimedia': 'assets/cat-multimedia.webp',
+    'accounting': 'assets/cat-finance.webp'
+  };
+
+  const CATEGORY_ICONS = {
+    'cad': 'ruler',
+    'software': 'code-2',
+    'multimedia': 'palette',
+    'accounting': 'calculator'
+  };
 
   // Modals
   const courseModal = document.getElementById('course-detail-modal');
@@ -43,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Prepopulate Course Select in Enquiry Modal
   function populateEnquiryOptions() {
-    if (!enquiryCourseSelect || typeof GTEC_COURSES === 'undefined') return;
+    if (!enquiryCourseSelect || typeof GTEC_COURSES === 'undefined' || !Array.isArray(GTEC_COURSES)) return;
     
     // Group courses by category
     const categoriesMap = {};
@@ -68,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Filter & Search Logic
   function getFilteredCourses() {
-    if (typeof GTEC_COURSES === 'undefined') return [];
+    if (typeof GTEC_COURSES === 'undefined' || !Array.isArray(GTEC_COURSES)) return [];
 
     return GTEC_COURSES.filter(course => {
       // Category match
@@ -81,14 +129,21 @@ document.addEventListener('DOMContentLoaded', () => {
         (state.selectedLevel === 'Master' && course.level === 'Master') ||
         (state.selectedLevel === 'SAP Global' && course.level === 'SAP Global');
 
-      // Search match (title, category, tools, tags)
-      const query = state.searchQuery.trim().toLowerCase();
-      const matchSearch = !query || 
-        course.title.toLowerCase().includes(query) ||
-        course.categoryName.toLowerCase().includes(query) ||
-        (course.subCategory && course.subCategory.toLowerCase().includes(query)) ||
-        (course.tools && course.tools.toLowerCase().includes(query)) ||
-        (course.tags && course.tags.some(t => t.toLowerCase().includes(query)));
+      // Search match (title, category, subcategory, tools, toolsList, tags, description)
+      const q = state.searchQuery.trim().toLowerCase();
+      if (!q) {
+        return matchCat && matchLevel;
+      }
+
+      const matchTitle = (course.title || '').toLowerCase().includes(q);
+      const matchCategory = (course.categoryName || '').toLowerCase().includes(q);
+      const matchSubCat = (course.subCategory || '').toLowerCase().includes(q);
+      const matchTools = (course.tools || '').toLowerCase().includes(q);
+      const matchDesc = (course.description || '').toLowerCase().includes(q);
+      const matchTags = Array.isArray(course.tags) && course.tags.some(t => t.toLowerCase().includes(q));
+      const matchToolsList = Array.isArray(course.toolsList) && course.toolsList.some(t => t.toLowerCase().includes(q));
+
+      const matchSearch = matchTitle || matchCategory || matchSubCat || matchTools || matchDesc || matchTags || matchToolsList;
 
       return matchCat && matchLevel && matchSearch;
     });
@@ -99,10 +154,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const filtered = getFilteredCourses();
     const toShow = filtered.slice(0, state.visibleCount);
 
+    const hasActiveFilters = state.selectedCategory !== 'all' || state.selectedLevel !== 'all' || state.searchQuery.trim().length > 0;
+
+    // Update Result Count Badge
     if (courseCountBadge) {
-      courseCountBadge.textContent = `Showing ${toShow.length} of ${filtered.length} Courses`;
+      if (!hasActiveFilters) {
+        courseCountBadge.textContent = 'Showing all 24 courses';
+      } else {
+        courseCountBadge.textContent = `Showing ${filtered.length} of 24 courses`;
+      }
     }
 
+    // Toggle Clear All Filters button
+    if (resetFiltersBtn) {
+      if (hasActiveFilters) {
+        resetFiltersBtn.classList.remove('hidden');
+      } else {
+        resetFiltersBtn.classList.add('hidden');
+      }
+    }
+
+    // Empty state handling
     if (filtered.length === 0) {
       coursesGrid.innerHTML = '';
       emptyState.classList.remove('hidden');
@@ -112,87 +184,119 @@ document.addEventListener('DOMContentLoaded', () => {
 
     emptyState.classList.add('hidden');
 
-    const html = toShow.map((c, index) => {
-      // Category badge color styling (crisp translucent white pill on blue card)
-      let catBadgeClass = 'bg-white/20 text-white border border-white/30 backdrop-blur-xs font-bold';
+    const html = toShow.map(c => {
+      const thumb = COURSE_THUMBNAILS[c.id] || CATEGORY_DEFAULT_IMAGES[c.categoryKey] || 'assets/cat-software.webp';
+      const catIcon = CATEGORY_ICONS[c.categoryKey] || 'layers';
 
       let levelBadgeClass = 'badge-level-certificate';
       if (c.level === 'Diploma') levelBadgeClass = 'badge-level-diploma';
       if (c.level === 'Master') levelBadgeClass = 'badge-level-master';
       if (c.level === 'SAP Global') levelBadgeClass = 'badge-level-sap';
 
+      const displayedTools = (c.toolsList || []).slice(0, 3);
+      const remainingCount = (c.toolsList || []).length - displayedTools.length;
+
       return `
-        <div class="course-card group p-6 flex flex-col justify-between" data-course-id="${c.id}">
-          <div>
-            <!-- Top Badges -->
-            <div class="flex items-center justify-between gap-2 mb-3.5">
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full ${catBadgeClass}">
-                ${c.badge}
+        <article class="course-card group" data-course-id="${c.id}">
+          <!-- Thumbnail Visual Banner -->
+          <div class="card-thumb-container">
+            <img 
+              src="${thumb}" 
+              alt="${c.title}" 
+              class="card-thumb-img" 
+              loading="lazy"
+            >
+            <div class="card-thumb-overlay"></div>
+
+            <!-- Top Left: Category Tag -->
+            <div class="absolute top-3 left-3 z-10">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-white text-[#1D4ED8] shadow-xs border border-white/80">
+                <i data-lucide="${catIcon}" class="w-3 h-3 text-[#1D4ED8]"></i>
+                <span>${c.badge}</span>
               </span>
-              <span class="badge-level ${levelBadgeClass}">
+            </div>
+
+            <!-- Top Right: Level Pill -->
+            <div class="absolute top-3 right-3 z-10">
+              <span class="badge-level ${levelBadgeClass} shadow-xs">
                 ${c.levelDisplay || c.level}
               </span>
             </div>
 
-            <!-- Course Title -->
-            <h3 class="text-xl font-black text-white group-hover:text-blue-100 transition-colors line-clamp-2 mb-1.5 leading-snug">
-              ${c.title}
-            </h3>
-
-            <!-- Sub Category / Specialization -->
-            <p class="text-xs text-blue-100 mb-3.5 font-medium">
-              ${c.subCategory}
-            </p>
-
-            <!-- Tools & Software Covered (High Contrast Light Inset Panel) -->
-            <div class="mb-4 p-3.5 rounded-xl bg-white border border-white/90 shadow-sm text-xs text-left">
-              <div class="flex items-center gap-1.5 text-[#1D4ED8] font-black mb-1">
-                <svg class="w-3.5 h-3.5 text-[#1D4ED8] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span>Tools &amp; Software Covered:</span>
-              </div>
-              <p class="text-[#0F172A] font-bold leading-relaxed">${c.tools}</p>
+            <!-- Bottom Left: Duration Pill -->
+            <div class="absolute bottom-2.5 left-3 z-10 flex items-center gap-1.5 text-[11px] font-bold text-white bg-slate-900/75 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20">
+              <i data-lucide="clock" class="w-3 h-3 text-[#93C5FD]"></i>
+              <span>${c.duration}</span>
             </div>
 
-            <!-- Duration & Mode -->
-            <div class="grid grid-cols-2 gap-2 text-xs text-blue-100 mb-4 pt-2 border-t border-white/20">
-              <div class="flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-blue-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span>Duration: <strong class="text-white font-bold">${c.duration}</strong></span>
-              </div>
-              <div class="flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-blue-200 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span class="truncate font-bold text-white">100% Practical Lab</span>
-              </div>
-            </div>
-
-            <!-- Software Tags -->
-            <div class="flex flex-wrap gap-1.5 mb-5">
-              ${(c.toolsList || []).map(t => `
-                <span class="text-[11px] font-bold bg-white/15 text-white px-2.5 py-1 rounded-md border border-white/25">#${t}</span>
-              `).join('')}
+            <!-- Bottom Right: Lab Mode Pill -->
+            <div class="absolute bottom-2.5 right-3 z-10 flex items-center gap-1 text-[11px] font-bold text-white/95 bg-slate-900/75 backdrop-blur-xs px-2 py-1 rounded-md border border-white/20">
+              <i data-lucide="check-circle-2" class="w-3 h-3 text-[#60A5FA]"></i>
+              <span>1:1 Lab Practice</span>
             </div>
           </div>
 
-          <!-- Bottom Actions -->
-          <div class="pt-4 border-t border-white/20 flex items-center justify-between gap-2">
-            <button 
-              type="button" 
-              class="view-details-btn text-sm font-bold text-white hover:text-blue-200 transition-colors flex items-center gap-1.5"
-              data-id="${c.id}"
-            >
-              <span>View Syllabus</span>
-              <svg class="w-4 h-4 text-white transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
+          <!-- Card Content Body -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <!-- Course Title -->
+              <h3 class="text-base sm:text-lg font-black text-[#0F172A] group-hover:text-[#1D4ED8] transition-colors leading-snug mb-1 line-clamp-2">
+                ${c.title}
+              </h3>
 
-            <button 
-              type="button" 
-              class="quick-apply-btn bg-white hover:bg-blue-50 text-[#1D4ED8] hover:text-[#1E40AF] text-xs font-black px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all"
-              data-title="${c.title}"
-            >
-              Enquire ↗
-            </button>
+              <!-- Sub Category -->
+              <p class="text-xs font-semibold text-[#64748B] mb-2.5">
+                ${c.subCategory}
+              </p>
+
+              <!-- Description -->
+              <p class="text-xs text-[#475569] leading-relaxed line-clamp-2 mb-3.5">
+                ${c.description}
+              </p>
+
+              <!-- Tools & Software Covered -->
+              <div class="mb-2">
+                <div class="text-[10.5px] font-bold text-[#1D4ED8] uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                  <i data-lucide="wrench" class="w-3 h-3 text-[#1D4ED8]"></i>
+                  <span>Tools &amp; Software Covered:</span>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  ${displayedTools.map(t => `
+                    <span class="text-[11px] font-bold bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] px-2 py-0.5 rounded-md">
+                      ${t}
+                    </span>
+                  `).join('')}
+                  ${remainingCount > 0 ? `
+                    <span class="text-[11px] font-bold bg-slate-100 text-[#475569] border border-slate-200 px-1.5 py-0.5 rounded-md">
+                      +${remainingCount} more
+                    </span>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="pt-4 mt-3 border-t border-[#E2E8F0] flex items-center justify-between gap-2">
+              <button 
+                type="button" 
+                class="view-details-btn text-xs font-bold text-[#1D4ED8] hover:text-[#1E40AF] transition-colors flex items-center gap-1 py-1.5 px-1"
+                data-id="${c.id}"
+              >
+                <span>View Syllabus</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+              </button>
+
+              <button 
+                type="button" 
+                class="quick-apply-btn btn-primary-blue text-xs font-black px-4 py-2 rounded-xl shadow-xs hover:shadow-md transition-all flex items-center gap-1.5"
+                data-title="${c.title}"
+              >
+                <span>Enquire</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
           </div>
-        </div>
+        </article>
       `;
     }).join('');
 
@@ -447,6 +551,49 @@ document.addEventListener('DOMContentLoaded', () => {
       renderCourses();
     });
   });
+
+  // Reset All Filters Handler
+  function resetAllFilters() {
+    state.selectedCategory = 'all';
+    state.selectedLevel = 'all';
+    state.searchQuery = '';
+    state.visibleCount = 24;
+
+    if (searchInput) {
+      searchInput.value = '';
+    }
+    if (clearSearchBtn) {
+      clearSearchBtn.classList.add('hidden');
+    }
+    if (heroSearchInput) {
+      heroSearchInput.value = '';
+    }
+
+    categoryTabs.forEach(tab => {
+      if (tab.getAttribute('data-category') === 'all') {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+
+    levelChips.forEach(chip => {
+      if (chip.getAttribute('data-level') === 'all') {
+        chip.classList.add('active');
+      } else {
+        chip.classList.remove('active');
+      }
+    });
+
+    renderCourses();
+  }
+
+  if (resetFiltersBtn) {
+    resetFiltersBtn.addEventListener('click', resetAllFilters);
+  }
+  if (emptyResetBtn) {
+    emptyResetBtn.addEventListener('click', resetAllFilters);
+  }
 
   // Search Input Handlers
   if (searchInput) {
@@ -1312,9 +1459,29 @@ document.addEventListener('DOMContentLoaded', () => {
     buildAndPlayIntro();
   }
 
+  // Robust Course Catalog Initializer (handles any async script load race conditions)
+  function initCourseCatalog() {
+    if (typeof GTEC_COURSES !== 'undefined' && Array.isArray(GTEC_COURSES) && GTEC_COURSES.length > 0) {
+      populateEnquiryOptions();
+      renderCourses();
+    } else {
+      let attempts = 0;
+      const timer = setInterval(() => {
+        attempts++;
+        if (typeof GTEC_COURSES !== 'undefined' && Array.isArray(GTEC_COURSES) && GTEC_COURSES.length > 0) {
+          clearInterval(timer);
+          populateEnquiryOptions();
+          renderCourses();
+        } else if (attempts > 50) {
+          clearInterval(timer);
+          console.warn('Courses data not available after retries.');
+        }
+      }, 50);
+    }
+  }
+
   // Initialize all controllers
-  populateEnquiryOptions();
-  renderCourses();
+  initCourseCatalog();
   initScrollytelling();
   initCinematicLaptopIntro();
 });
