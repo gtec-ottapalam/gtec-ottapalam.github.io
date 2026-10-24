@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedCategory: 'all',
     selectedLevel: 'all',
     searchQuery: '',
-    visibleCount: 24,
-    pageSize: 24,
+    visibleCount: 6,
+    pageSize: 6,
     activeCourse: null
   };
 
@@ -165,9 +165,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Result Count Badge
     if (courseCountBadge) {
       if (!hasActiveFilters) {
-        courseCountBadge.textContent = 'Showing all 24 courses';
+        if (toShow.length < filtered.length) {
+          courseCountBadge.textContent = `Showing ${toShow.length} of ${filtered.length} courses (2 Rows)`;
+        } else {
+          courseCountBadge.textContent = `Showing all ${filtered.length} courses`;
+        }
       } else {
-        courseCountBadge.textContent = `Showing ${filtered.length} of 24 courses`;
+        if (toShow.length < filtered.length) {
+          courseCountBadge.textContent = `Showing ${toShow.length} of ${filtered.length} matching courses`;
+        } else {
+          courseCountBadge.textContent = `Showing all ${filtered.length} matching courses`;
+        }
       }
     }
 
@@ -313,10 +321,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load More Visibility
     if (loadMoreBtn) {
-      if (toShow.length >= filtered.length) {
+      if (filtered.length <= 6) {
         loadMoreBtn.classList.add('hidden');
       } else {
         loadMoreBtn.classList.remove('hidden');
+        if (toShow.length < filtered.length) {
+          const remaining = filtered.length - toShow.length;
+          loadMoreBtn.innerHTML = `
+            <span>View All Courses (${remaining} More)</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          `;
+        } else {
+          loadMoreBtn.innerHTML = `
+            <span>Show Less (Collapse to 2 Rows)</span>
+            <i data-lucide="chevron-up" class="w-4 h-4"></i>
+          `;
+        }
+        if (window.lucide) {
+          lucide.createIcons();
+        }
       }
     }
 
@@ -543,7 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       state.selectedCategory = tab.getAttribute('data-category');
-      state.visibleCount = 24;
+      state.visibleCount = 6;
       renderCourses();
     });
   });
@@ -553,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
       levelChips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       state.selectedLevel = chip.getAttribute('data-level');
-      state.visibleCount = 24;
+      state.visibleCount = 6;
       renderCourses();
     });
   });
@@ -563,7 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     state.selectedCategory = 'all';
     state.selectedLevel = 'all';
     state.searchQuery = '';
-    state.visibleCount = 24;
+    state.visibleCount = 6;
 
     if (searchInput) {
       searchInput.value = '';
@@ -608,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
         state.searchQuery = e.target.value;
-        state.visibleCount = 24;
+        state.visibleCount = 6;
         renderCourses();
 
         if (clearSearchBtn) {
@@ -671,11 +694,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Load More Button
+  // Load More Button / Toggle View All
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener('click', () => {
-      state.visibleCount += state.pageSize;
+      const filtered = getFilteredCourses();
+      if (state.visibleCount < filtered.length) {
+        state.visibleCount = filtered.length;
+      } else {
+        state.visibleCount = 6;
+      }
       renderCourses();
+      if (state.visibleCount === 6) {
+        const coursesSec = document.getElementById('courses-section');
+        if (coursesSec) {
+          coursesSec.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     });
   }
 
