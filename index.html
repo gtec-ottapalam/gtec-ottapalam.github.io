@@ -1649,19 +1649,25 @@
 
         <!-- Quick Admission & Course Enquiry Form -->
         <div class="lg:col-span-6">
-          <div class="bg-white text-[#142B4D] p-8 md:p-10 rounded-3xl border-4 border-white/80 shadow-2xl relative">
+          <div class="bg-white text-[#142B4D] p-6 sm:p-7 md:p-8 rounded-3xl border border-[#D5DFEC] shadow-2xl relative">
             
-            <div class="mb-6">
-              <span class="text-xs font-black text-[#1D4ED8] uppercase tracking-wider">Fast-Track Response</span>
-              <h3 class="text-2xl font-black text-[#142B4D] mt-1">Request Admission / Fee Details</h3>
-              <p class="text-xs text-[#64748B] mt-1 font-medium">
-                Fill the details below to receive instant syllabus, fee discounts & batch timings on your WhatsApp.
+            <div class="mb-4">
+              <span class="inline-block text-[11px] font-black text-[#1D4ED8] bg-blue-50 border border-blue-200 px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                Fast-Track Response
+              </span>
+              <h3 class="text-xl sm:text-2xl font-black text-[#142B4D] tracking-tight">
+                Request Admission / Fee Details
+              </h3>
+              <p class="text-xs text-[#475569] mt-1 font-medium leading-relaxed">
+                Fill the details below to receive instant syllabus, fee discounts &amp; batch timings on your WhatsApp.
               </p>
             </div>
 
-            <form id="enquiry-form" class="space-y-4">
+            <form id="enquiry-form" class="space-y-3.5">
               <div>
-                <label for="enquiry-name" class="block text-xs font-bold text-[#142B4D] uppercase mb-1">Your Full Name *</label>
+                <label for="enquiry-name" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                  Your Full Name <span class="text-[#1D4ED8]">*</span>
+                </label>
                 <input 
                   type="text" 
                   id="enquiry-name" 
@@ -1671,9 +1677,11 @@
                 >
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label for="enquiry-phone" class="block text-xs font-bold text-[#142B4D] uppercase mb-1">WhatsApp / Phone No *</label>
+                  <label for="enquiry-phone" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                    WhatsApp / Phone No <span class="text-[#1D4ED8]">*</span>
+                  </label>
                   <input 
                     type="tel" 
                     id="enquiry-phone" 
@@ -1683,7 +1691,9 @@
                   >
                 </div>
                 <div>
-                  <label for="enquiry-email" class="block text-xs font-bold text-[#142B4D] uppercase mb-1">Email Address</label>
+                  <label for="enquiry-email" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                    Email Address
+                  </label>
                   <input 
                     type="email" 
                     id="enquiry-email" 
@@ -1694,7 +1704,9 @@
               </div>
 
               <div>
-                <label for="enquiry-course-select" class="block text-xs font-bold text-[#142B4D] uppercase mb-1">Interested Course / Program *</label>
+                <label for="enquiry-course-select" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                  Interested Course / Program <span class="text-[#1D4ED8]">*</span>
+                </label>
                 <select 
                   id="enquiry-course-select" 
                   required
@@ -1705,7 +1717,9 @@
               </div>
 
               <div>
-                <label for="enquiry-batch" class="block text-xs font-bold text-[#142B4D] uppercase mb-1">Preferred Batch Timing</label>
+                <label for="enquiry-batch" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                  Preferred Batch Timing
+                </label>
                 <select 
                   id="enquiry-batch" 
                   class="form-glass-input"
@@ -1719,10 +1733,12 @@
               </div>
 
               <div>
-                <label for="enquiry-message" class="block text-xs font-bold text-[#142B4D] uppercase mb-1">Questions or Career Goals</label>
+                <label for="enquiry-message" class="block text-[11px] font-bold text-[#142B4D] uppercase tracking-wider mb-1">
+                  Questions or Career Goals
+                </label>
                 <textarea 
                   id="enquiry-message" 
-                  rows="3" 
+                  rows="2" 
                   placeholder="Tell us your educational background or questions..." 
                   class="form-glass-input"
                 ></textarea>
@@ -1730,15 +1746,21 @@
 
               <button 
                 type="submit" 
-                class="btn-primary-blue w-full py-4 text-base font-bold justify-center shadow-lg hover:shadow-xl"
+                id="enquiry-submit-btn"
+                class="w-full bg-[#1D4ED8] hover:bg-[#1E40AF] active:scale-[0.99] text-white font-black text-sm sm:text-base py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg hover:shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer mt-1"
               >
-                <span>Submit & Connect on WhatsApp</span>
-                <i data-lucide="send" class="w-4 h-4 text-white"></i>
+                <span>Submit &amp; Connect on WhatsApp</span>
+                <svg class="w-4 h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
               </button>
 
-              <p class="text-[11px] text-center text-[#64748B] mt-2 font-medium">
-                🔒 Your contact details are kept strictly confidential for admission counselling only.
-              </p>
+              <div class="flex items-center justify-center gap-1.5 text-[11px] text-[#64748B] font-medium pt-1 text-center">
+                <svg class="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                <span>Your contact details are kept strictly confidential for admission counselling only.</span>
+              </div>
             </form>
 
           </div>
