@@ -4,6 +4,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+
   // Application State
   const state = {
     selectedCategory: 'all',
@@ -84,9 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const enquiryForm = document.getElementById('enquiry-form');
   const enquiryCourseSelect = document.getElementById('enquiry-course-select');
 
-  // Mobile Menu
+  // Header & Mobile Menu
+  const mainHeader = document.getElementById('main-header');
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+  const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
   const mobileMenuClose = document.getElementById('mobile-menu-close');
 
   // Prepopulate Course Select in Enquiry Modal
@@ -702,18 +708,124 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mobile Menu Drawer Handlers
-  if (mobileMenuToggle && mobileMenuDrawer) {
-    mobileMenuToggle.addEventListener('click', () => {
-      mobileMenuDrawer.classList.toggle('translate-x-full');
+  // Header Scroll Handler (Compact Transition)
+  function handleHeaderScroll() {
+    if (!mainHeader) return;
+    if (window.scrollY > 40) {
+      mainHeader.classList.add('header-scrolled');
+    } else {
+      mainHeader.classList.remove('header-scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+  handleHeaderScroll();
+
+  // Active Navigation Spy
+  const trackedSections = [
+    'hero',
+    'courses-section',
+    'categories-section',
+    'why-gtec',
+    'reviews-section',
+    'contact-section'
+  ];
+  const navLinkElements = document.querySelectorAll('.nav-link-item');
+  const mobileLinkElements = document.querySelectorAll('.mobile-nav-link');
+
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 140;
+    let currentSection = 'hero';
+
+    for (let i = trackedSections.length - 1; i >= 0; i--) {
+      const sec = document.getElementById(trackedSections[i]);
+      if (sec && sec.offsetTop <= scrollPos) {
+        currentSection = trackedSections[i];
+        break;
+      }
+    }
+
+    navLinkElements.forEach(link => {
+      if (link.getAttribute('data-section') === currentSection) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    mobileLinkElements.forEach(link => {
+      if (link.getAttribute('data-section') === currentSection) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     });
   }
 
-  if (mobileMenuClose && mobileMenuDrawer) {
-    mobileMenuClose.addEventListener('click', () => {
-      mobileMenuDrawer.classList.add('translate-x-full');
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+
+  // Mobile Menu Drawer Handlers (With Backdrop & Scroll Lock)
+  function openMobileMenu() {
+    if (!mobileMenuDrawer) return;
+    mobileMenuDrawer.classList.remove('translate-x-full');
+    if (mobileMenuBackdrop) {
+      mobileMenuBackdrop.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        mobileMenuBackdrop.classList.add('opacity-100');
+        mobileMenuBackdrop.classList.remove('opacity-0');
+      });
+    }
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    if (!mobileMenuDrawer) return;
+    mobileMenuDrawer.classList.add('translate-x-full');
+    if (mobileMenuBackdrop) {
+      mobileMenuBackdrop.classList.remove('opacity-100');
+      mobileMenuBackdrop.classList.add('opacity-0');
+      setTimeout(() => {
+        mobileMenuBackdrop.classList.add('hidden');
+      }, 300);
+    }
+    document.body.style.overflow = '';
+  }
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenuDrawer.classList.contains('translate-x-full');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
   }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+  }
+
+  if (mobileMenuBackdrop) {
+    mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+  }
+
+  // Close mobile drawer when clicking any link inside it
+  if (mobileMenuDrawer) {
+    mobileMenuDrawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenuDrawer && !mobileMenuDrawer.classList.contains('translate-x-full')) {
+      closeMobileMenu();
+    }
+  });
 
   // Animated Numbers Counter on Scroll
   const statNumbers = document.querySelectorAll('.counter-number');
@@ -1172,6 +1284,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function buildAndPlayIntro() {
+      // Respect user's prefers-reduced-motion setting
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        finishIntro();
+        return;
+      }
+
       isIntroPlaying = true;
       window.addEventListener('scroll', enforceHeroLock, { passive: true });
 

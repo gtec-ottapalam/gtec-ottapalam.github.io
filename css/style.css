@@ -32,21 +32,21 @@
   --brand-yellow-subtle: #FEF9C3;
   --brand-yellow-border: #FDE047;
   --brand-yellow-glow: rgba(250, 204, 21, 0.35);
-  --brand-yellow-text: #0F172A; /* Mandatory deep navy text on yellow backgrounds for maximum readability */
+  --brand-yellow-text: #0B1220; /* Deep navy text on yellow backgrounds for maximum readability */
 
   /* 3. Deep Navy (Headings, Dark Feature Sections, Footer) */
-  --brand-navy: #0F172A;
+  --brand-navy: #0B1220;
   --brand-navy-surface: #142B4D;
   --brand-navy-card: #1E293B;
   --brand-navy-border: #334155;
-  --brand-navy-dark: #0B1120;
+  --brand-navy-dark: #050B14;
 
   /* 4. White (Clean Content Surfaces, Cards, High Contrast) */
   --brand-white: #FFFFFF;
 
   /* 5. Cool Light Grey (Subtle Section Separation & Borders) */
-  --brand-grey-bg: #F8FAFC;
-  --brand-grey-panel: #F1F5F9;
+  --brand-grey-bg: #F1F5F9;
+  --brand-grey-panel: #F8FAFC;
   --brand-grey-border: #E2E8F0;
   --brand-text-body: #475569;
   --brand-text-muted: #64748B;
@@ -146,6 +146,159 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
   z-index: 0;
   line-height: 1;
+}
+
+/* ==========================================================================
+   PREMIUM NAVIGATION HEADER & SCROLL BEHAVIOR
+   ========================================================================== */
+#main-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(11, 18, 32, 0.03);
+}
+
+#main-header .header-inner {
+  height: 70px;
+  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#main-header.header-scrolled {
+  background-color: rgba(255, 255, 255, 0.97);
+  border-bottom-color: rgba(203, 213, 225, 0.95);
+  box-shadow: 0 10px 30px -10px rgba(11, 18, 32, 0.08), 0 1px 4px rgba(11, 18, 32, 0.04);
+}
+
+#main-header.header-scrolled .header-inner {
+  height: 60px;
+}
+
+/* Nav Links with Animated Underline and Hover Indicator */
+.nav-link-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #475569;
+  text-decoration: none;
+  padding: 8px 4px;
+  transition: color 0.25s ease;
+}
+
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: var(--brand-blue);
+  border-radius: 4px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-item:hover {
+  color: var(--brand-blue);
+}
+
+.nav-link-item:hover::after,
+.nav-link-item.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link-item.active {
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+/* Keyboard focus state */
+.nav-link-item:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Polished Nav CTA Button */
+.btn-nav-cta {
+  background: var(--brand-yellow);
+  color: #0B1220 !important;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  border: 1px solid rgba(250, 204, 21, 0.9);
+  box-shadow: 0 2px 8px -1px rgba(250, 204, 21, 0.45), 0 1px 2px rgba(11, 18, 32, 0.05);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-nav-cta:hover {
+  background: #EAB308;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px -2px rgba(250, 204, 21, 0.6), 0 2px 4px rgba(11, 18, 32, 0.08);
+}
+
+.btn-nav-cta:active {
+  transform: translateY(0);
+}
+
+.btn-nav-cta svg {
+  transition: transform 0.25s ease;
+}
+
+.btn-nav-cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* Mobile Drawer Menu Enhancement */
+#mobile-menu-backdrop {
+  transition: opacity 0.3s ease;
+}
+
+#mobile-menu-backdrop.active {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+#mobile-menu-drawer {
+  box-shadow: -12px 0 40px rgba(11, 18, 32, 0.22);
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1E293B;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: #EFF6FF;
+  color: var(--brand-blue);
+  font-weight: 700;
+  padding-left: 18px;
 }
 
 /* ==========================================================================
@@ -909,23 +1062,23 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: scale(1.2); opacity: 0; }
 }
 
-/* Responsive utilities */
+/* Responsive utilities for Laptop Silhouette */
 @media (max-width: 768px) {
-  .hero-vibrant-canvas {
-    min-height: auto;
-    padding-bottom: 3rem;
-  }
   .laptop-frame {
     border-width: 6px;
-    border-radius: 18px;
+    border-top-width: 8px;
+    border-bottom-width: 10px;
+    border-radius: 18px 18px 4px 4px;
   }
   .laptop-base {
-    display: none;
+    height: 12px;
+    width: 103%;
+    left: -1.5%;
+    border-radius: 0 0 16px 16px;
   }
-  .floating-card-left, .floating-card-right {
-    position: static !important;
-    margin: 1rem auto;
-    width: 100% !important;
+  .laptop-thumb-notch {
+    width: 80px;
+    height: 3.5px;
   }
 }
 
@@ -942,10 +1095,10 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 0%;
   height: 3.5px;
-  background: linear-gradient(90deg, #2563EB, #FBBF24, #FF6B4A);
+  background: linear-gradient(90deg, #1D4ED8 0%, #2563EB 60%, #FACC15 100%);
   z-index: 9999;
   transition: width 0.08s ease-out;
-  box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
   pointer-events: none;
 }
 

@@ -318,10 +318,10 @@
   <!-- ==========================================================================
        MAIN NAVIGATION HEADER
        ========================================================================== -->
-  <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#D5DFEC] shadow-xs text-[#142B4D] transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <header id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-inner flex items-center justify-between">
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3 group">
+      <a href="#hero" class="flex items-center gap-3 group" aria-label="G-TEC Education Ottapalam Home">
         <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Education Ottapalam" class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]">
         <div class="hidden sm:block border-l-2 border-[#D5DFEC] pl-3">
           <span class="block text-xs font-black tracking-widest text-[#1D4ED8] uppercase">Ottapalam</span>
@@ -329,31 +329,31 @@
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-8 font-semibold text-[#475569] text-sm">
-        <a href="#hero" class="text-[#1D4ED8] font-bold hover:text-[#1E40AF] transition-colors">Home</a>
-        <a href="#courses-section" class="hover:text-[#1D4ED8] transition-colors">All Courses</a>
-        <a href="#categories-section" class="hover:text-[#1D4ED8] transition-colors">Domains</a>
-        <a href="#why-gtec" class="hover:text-[#1D4ED8] transition-colors">Why G-TEC</a>
-        <a href="#reviews-section" class="hover:text-[#1D4ED8] transition-colors">Reviews & Ratings</a>
-        <a href="#contact-section" class="hover:text-[#1D4ED8] transition-colors">Campus Location</a>
+      <!-- Desktop Navigation Links with animated active indicator -->
+      <nav class="hidden lg:flex items-center gap-7 font-semibold text-[#475569] text-sm" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link-item active" data-section="hero">Home</a>
+        <a href="#courses-section" class="nav-link-item" data-section="courses-section">All Courses</a>
+        <a href="#categories-section" class="nav-link-item" data-section="categories-section">Domains</a>
+        <a href="#why-gtec" class="nav-link-item" data-section="why-gtec">Why G-TEC</a>
+        <a href="#reviews-section" class="nav-link-item" data-section="reviews-section">Reviews &amp; Ratings</a>
+        <a href="#contact-section" class="nav-link-item" data-section="contact-section">Campus Location</a>
       </nav>
 
       <!-- Right Action CTA -->
       <div class="flex items-center gap-3">
         <button 
           type="button" 
-          class="trigger-enquiry-modal hidden sm:inline-flex items-center gap-2 btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs"
+          class="trigger-enquiry-modal hidden sm:inline-flex btn-nav-cta"
         >
           <span>Enquire Now</span>
-          <svg class="w-4 h-4 text-[#0F172A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          <svg class="w-4 h-4 text-[#0B1220]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </button>
 
         <!-- Mobile Menu Toggle Button -->
         <button 
           type="button" 
           id="mobile-menu-toggle"
-          class="lg:hidden p-2 text-[#142B4D] hover:text-[#1D4ED8] focus:outline-none"
+          class="lg:hidden p-2 rounded-xl text-[#0B1220] hover:text-[#1D4ED8] hover:bg-slate-100 focus:outline-none transition-colors"
           aria-label="Toggle Navigation Menu"
         >
           <i data-lucide="menu" class="w-6 h-6"></i>
@@ -362,33 +362,63 @@
     </div>
   </header>
 
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-[#0B1220]/60 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300" aria-hidden="true"></div>
+
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu-drawer" class="fixed inset-y-0 right-0 w-80 bg-white border-l border-[#D5DFEC] text-[#142B4D] z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+  <div id="mobile-menu-drawer" class="fixed inset-y-0 right-0 w-80 bg-white border-l border-[#D5DFEC] text-[#0B1220] z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
     <div>
       <div class="flex items-center justify-between pb-6 border-b border-[#D5DFEC]">
-        <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Logo" class="h-10 w-auto object-contain">
-        <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-[#142B4D]">
+        <div class="flex items-center gap-2.5">
+          <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Logo" class="h-9 w-auto object-contain">
+          <span class="text-xs font-black text-[#1D4ED8] uppercase tracking-wider">Ottapalam</span>
+        </div>
+        <button id="mobile-menu-close" class="p-2 text-slate-400 hover:text-[#0B1220] hover:bg-slate-100 rounded-lg transition-colors" aria-label="Close Mobile Navigation">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <nav class="mt-6 flex flex-col space-y-4 text-base font-semibold text-[#142B4D]">
-        <a href="#hero" class="text-[#1D4ED8] font-bold py-1">Home</a>
-        <a href="#courses-section" class="hover:text-[#1D4ED8] py-1">Courses Catalog (24)</a>
-        <a href="#categories-section" class="hover:text-[#1D4ED8] py-1">Course Categories</a>
-        <a href="#campus-gallery" class="hover:text-[#1D4ED8] py-1">Campus &amp; Labs</a>
-        <a href="#why-gtec" class="hover:text-[#1D4ED8] py-1">Why G-TEC Ottapalam</a>
-        <a href="#reviews-section" class="hover:text-[#1D4ED8] py-1">Google Reviews (4.9 ★)</a>
-        <a href="#contact-section" class="hover:text-[#1D4ED8] py-1">Contact &amp; Map</a>
-        <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" class="text-[#1D4ED8] font-bold py-1">Verify Certificate ↗</a>
+      <nav class="mt-6 flex flex-col space-y-1.5" aria-label="Mobile Links">
+        <a href="#hero" class="mobile-nav-link active" data-section="hero">
+          <span>Home</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="#courses-section" class="mobile-nav-link" data-section="courses-section">
+          <span>Courses Catalog (24)</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="#categories-section" class="mobile-nav-link" data-section="categories-section">
+          <span>Course Categories</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="#campus-gallery" class="mobile-nav-link" data-section="campus-gallery">
+          <span>Campus &amp; Labs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="#why-gtec" class="mobile-nav-link" data-section="why-gtec">
+          <span>Why G-TEC Ottapalam</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="#reviews-section" class="mobile-nav-link" data-section="reviews-section">
+          <span>Google Reviews (4.9 ★)</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="#contact-section" class="mobile-nav-link" data-section="contact-section">
+          <span>Contact &amp; Map</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="mobile-nav-link text-[#1D4ED8] font-bold">
+          <span>Verify Certificate ↗</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
       </nav>
     </div>
 
     <div class="pt-6 border-t border-[#D5DFEC] space-y-3">
-      <button class="trigger-enquiry-modal w-full btn-accent-yellow text-sm font-black py-3.5 rounded-xl shadow-xs justify-center">
+      <button class="trigger-enquiry-modal w-full btn-accent-yellow text-sm font-black py-3.5 rounded-xl shadow-xs justify-center cursor-pointer">
         Enquire for Admission
       </button>
-      <a href="tel:09995955501" class="w-full flex items-center justify-center gap-2 bg-[#EEF3FB] hover:bg-[#EAF2FF] text-[#142B4D] font-bold py-3 rounded-xl border border-[#D5DFEC]">
+      <a href="tel:09995955501" class="w-full flex items-center justify-center gap-2 bg-[#EEF3FB] hover:bg-[#EAF2FF] text-[#0B1220] font-bold py-3 rounded-xl border border-[#D5DFEC] transition-colors">
         <i data-lucide="phone" class="w-4 h-4 text-[#1D4ED8]"></i>
         <span>Call: 099959 55501</span>
       </a>
