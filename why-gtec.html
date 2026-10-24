@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why G-TEC Ottapalam | The Campus &amp; Student Experience</title>
+  
+  <meta name="description" content="Discover why students choose G-TEC Ottapalam: 1:1 dedicated air-conditioned workstations, certified faculty mentors, production software stacks, and placement support in Palakkad.">
+  <meta name="keywords" content="Why GTEC Ottapalam, best computer institute Ottapalam, GTEC labs, 1:1 workstation training, computer centre JRJ complex Ottapalam">
+  
+  <link rel="icon" href="assets/gtec-official-logo.webp" type="image/webp">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+            pop: {
+              yellow: '#FACC15',
+              yellowHover: '#EAB308',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css?v=light-2.0">
+  <link rel="stylesheet" href="style.css?v=light-2.0">
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased overflow-x-hidden">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar-premium" aria-label="Campus Announcement">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#FACC15] animate-pulse"></span>
+        <span class="font-bold text-white tracking-wide">ADMISSIONS OPEN FOR NEW BATCHES (MORNING &bull; EVENING &bull; WEEKEND)</span>
+      </div>
+      <div class="hidden md:flex items-center gap-5 text-white/90">
+        <a href="contact.html" class="hover:text-[#FACC15] transition-colors font-medium">JRJ Complex, Bus Stand, Ottapalam</a>
+        <span class="text-white/40">|</span>
+        <a href="tel:09995955501" class="hover:text-[#FACC15] transition-colors font-bold">Call: 099959 55501</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Global Header Navigation -->
+  <header id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-inner flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="G-TEC Education Ottapalam Home">
+        <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Education Ottapalam" class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]">
+        <div class="hidden sm:block border-l-2 border-[#D5DFEC] pl-3">
+          <span class="block text-xs font-black tracking-widest text-[#1D4ED8] uppercase">Ottapalam</span>
+          <span class="block text-[10px] font-semibold text-[#64748B] uppercase tracking-tight">Centre of Excellence</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 font-semibold text-[#475569] text-sm" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link-item">Home</a>
+        <a href="programs.html" class="nav-link-item">Programs</a>
+        <a href="courses.html" class="nav-link-item">Courses</a>
+        <a href="why-gtec.html" class="nav-link-item active">Why G-TEC</a>
+        <a href="reviews.html" class="nav-link-item">Reviews &amp; Ratings</a>
+        <a href="contact.html" class="nav-link-item">Campus Location</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="flex items-center gap-3">
+        <button 
+          type="button" 
+          class="trigger-enquiry-modal hidden sm:inline-flex btn-nav-cta"
+        >
+          <span>Enquire Now</span>
+          <svg class="w-4 h-4 text-[#0B1220]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          type="button" 
+          id="mobile-menu-toggle"
+          class="lg:hidden p-2 rounded-xl text-[#0B1220] hover:text-[#1D4ED8] hover:bg-slate-100 focus:outline-none transition-colors"
+          aria-label="Toggle Navigation Menu"
+        >
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-[#0B1220]/60 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="fixed inset-y-0 right-0 w-80 bg-white border-l border-[#D5DFEC] text-[#0B1220] z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-[#D5DFEC]">
+        <div class="flex items-center gap-2">
+          <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Logo" class="h-8 w-auto">
+          <span class="text-xs font-black uppercase text-[#1D4ED8] tracking-widest pl-2 border-l border-slate-300">Ottapalam</span>
+        </div>
+        <button id="mobile-menu-close" class="p-2 text-slate-500 hover:text-slate-900 rounded-lg" aria-label="Close Mobile Menu">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <nav class="mt-6 flex flex-col space-y-1.5" aria-label="Mobile Links">
+        <a href="index.html" class="mobile-nav-link">
+          <span>Home</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="programs.html" class="mobile-nav-link">
+          <span>Programs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="courses.html" class="mobile-nav-link">
+          <span>Courses Catalog (24)</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="why-gtec.html" class="mobile-nav-link active">
+          <span>Why G-TEC Ottapalam</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="reviews.html" class="mobile-nav-link">
+          <span>Google Reviews (4.9 ★)</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="contact.html" class="mobile-nav-link">
+          <span>Campus Location &amp; Contact</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="mobile-nav-link text-[#1D4ED8] font-bold">
+          <span>Verify Certificate ↗</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-[#D5DFEC] space-y-3">
+      <button class="trigger-enquiry-modal w-full btn-accent-yellow text-sm font-black py-3.5 rounded-xl shadow-xs justify-center cursor-pointer">
+        Enquire for Admission
+      </button>
+      <a href="tel:09995955501" class="w-full flex items-center justify-center gap-2 bg-[#EEF3FB] hover:bg-[#EAF2FF] text-[#0B1220] font-bold py-3 rounded-xl border border-[#D5DFEC] transition-colors">
+        <i data-lucide="phone" class="w-4 h-4 text-[#1D4ED8]"></i>
+        <span>Call: 099959 55501</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         SUBSECTION 1: CINEMATIC INTRODUCTION (HERO BLUE BACKGROUND)
+         ========================================================================== -->
+    <section class="relative min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center overflow-hidden bg-[#1D4ED8]">
+      <!-- Background Panoramic Photo with Cinematic Depth & Zoom -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="assets/real-photos/training-lab-wide.jpg" 
+          alt="G-TEC Ottapalam Modern Air-Conditioned Training Lab" 
+          class="w-full h-full object-cover object-center filter brightness-90 scale-105"
+        >
+        <!-- Vibrant Hero Blue Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1D4ED8]/92 via-[#1E40AF]/88 to-[#0E2A78]/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#1D4ED8]/90 via-transparent to-[#1D4ED8]/90"></div>
+        <!-- Ambient Color Lighting Glows -->
+        <div class="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-blue-300/25 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-[#FACC15]/15 blur-3xl pointer-events-none"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 relative z-10 text-center flex flex-col items-center">
+        <!-- Eyebrow Pill Badge -->
+        <div class="campus-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[#FACC15] text-xs font-black uppercase tracking-widest mb-6 shadow-md">
+          <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-ping"></span>
+          <span>The G-TEC Ottapalam Experience &bull; JRJ Complex</span>
+        </div>
+
+        <!-- Headline: More Than a Classroom. A Place to Build Your Future. -->
+        <h1 class="campus-reveal text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] max-w-5xl">
+          More Than a Classroom. <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FACC15] via-amber-300 to-[#FACC15]">
+            A Place to Build Your Future.
+          </span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="campus-reveal text-blue-100 text-sm sm:text-lg md:text-xl max-w-3xl mt-6 leading-relaxed font-normal">
+          Step inside Palakkad’s benchmark technical training academy. Purpose-built air-conditioned labs, 1:1 dedicated workstations, certified faculty mentors, and personalized placement pathways designed around your ambition.
+        </p>
+
+        <!-- Quick Credential Ribbons -->
+        <div class="campus-reveal flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F172A]/70 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-md">
+            <i data-lucide="monitor" class="w-4 h-4 text-[#FACC15]"></i>
+            <span>1:1 Dedicated Workstations</span>
+          </div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F172A]/70 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-md">
+            <i data-lucide="shield-check" class="w-4 h-4 text-[#FACC15]"></i>
+            <span>QR-Verifiable Credentials</span>
+          </div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F172A]/70 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-md">
+            <i data-lucide="award" class="w-4 h-4 text-[#FACC15]"></i>
+            <span>ISO 9001:2015 Accredited</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SUBSECTION 2: PRACTICAL LAB MASTERY (CLEAN WHITE BACKGROUND)
+         ========================================================================== -->
+    <section id="campus-practical" class="py-20 md:py-28 bg-white text-[#0F172A] border-t border-[#E2E8F0] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <!-- Left / Single Dominant Large Imagery Composition -->
+          <div class="lg:col-span-7 relative">
+            <!-- Dominant Primary Photo: Practical Computer & Software Lab -->
+            <div class="campus-editorial-frame rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl border-4 border-slate-100 bg-slate-900 group">
+              <img 
+                src="assets/real-photos/students-coding-lab.jpg" 
+                alt="Active Software and Coding Lab at G-TEC Ottapalam" 
+                class="w-full h-[360px] sm:h-[460px] object-cover"
+                loading="lazy"
+              >
+              <!-- Ambient Vignette with Single Clear Heading -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0B1220]/85 via-[#0B1220]/20 to-transparent flex items-end p-6 sm:p-8">
+                <h4 class="text-white font-black text-xl sm:text-2xl drop-shadow-md">
+                  Practical Computer &amp; Software Training Lab
+                </h4>
+              </div>
+            </div>
+
+            <!-- High-Contrast 100% Placement Floating Badge -->
+            <div class="absolute -top-6 -left-4 sm:-left-6 bg-[#0B1220] text-white p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-white/20 z-30 max-w-[280px]">
+              <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-full bg-[#FACC15] text-[#0B1220] flex items-center justify-center shrink-0 shadow-lg border-2 border-white">
+                  <span class="text-base font-black tracking-tight leading-none">100%</span>
+                </div>
+                <div>
+                  <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-white/10 text-[#FACC15] border border-white/15">
+                    Assured
+                  </span>
+                  <div class="font-black text-sm text-white mt-0.5 leading-tight">Placement Support</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right / Editorial Text Content -->
+          <div class="lg:col-span-5 flex flex-col justify-center pt-8 sm:pt-0">
+            <span class="text-xs font-black uppercase tracking-widest text-[#1D4ED8] flex items-center gap-2 mb-3">
+              <span class="w-2 h-2 rounded-full bg-[#1D4ED8]"></span>
+              <span>01 / Practical Lab Mastery</span>
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] leading-[1.12] tracking-tight">
+              No Theory Without Action. Every Desk is a Working Lab.
+            </h2>
+            <p class="text-[#475569] text-base sm:text-lg mt-4 leading-relaxed font-medium">
+              We believe true technical capability is forged through hands-on creation. At G-TEC Ottapalam, every student receives an individual, dedicated workstation with 1:1 access throughout their course—no sharing screens, no time limits.
+            </p>
+
+            <!-- Specification Pillars -->
+            <div class="mt-8 space-y-4">
+              <div class="flex items-start gap-4 p-4.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#1D4ED8] transition-colors">
+                <div class="w-11 h-11 rounded-xl bg-blue-100 text-[#1D4ED8] flex items-center justify-center shrink-0 shadow-xs font-bold">
+                  <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-[#0F172A] text-base">Production-Grade Software Stacks</h3>
+                  <p class="text-xs sm:text-sm text-[#475569] mt-0.5 font-medium leading-relaxed">
+                    Equipped with licensed Autodesk Revit, SolidWorks, SAP S/4 HANA GUI, TallyPrime with GST, and Adobe Creative Cloud.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#1D4ED8] transition-colors">
+                <div class="w-11 h-11 rounded-xl bg-blue-100 text-[#1D4ED8] flex items-center justify-center shrink-0 shadow-xs font-bold">
+                  <i data-lucide="zap" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-[#0F172A] text-base">High-Speed Fiber &amp; Power Backup</h3>
+                  <p class="text-xs sm:text-sm text-[#475569] mt-0.5 font-medium leading-relaxed">
+                    Fully air-conditioned environment with dedicated high-speed fiber internet and uninterrupted UPS backup for continuous learning.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#1D4ED8] transition-colors">
+                <div class="w-11 h-11 rounded-xl bg-blue-100 text-[#1D4ED8] flex items-center justify-center shrink-0 shadow-xs font-bold">
+                  <i data-lucide="layers" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-[#0F172A] text-base">Live Portfolio Creation</h3>
+                  <p class="text-xs sm:text-sm text-[#475569] mt-0.5 font-medium leading-relaxed">
+                    Graduate with working code repositories, architectural drawings, and audited financial statements that prove your capability to employers.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SUBSECTION 3: EXPERT MENTORING (VIBRANT HERO BLUE CANVAS)
+         ========================================================================== -->
+    <section id="campus-mentoring" class="py-20 md:py-28 bg-gradient-to-br from-[#1D4ED8] via-[#1E40AF] to-[#173FB5] text-white relative overflow-hidden border-y border-blue-400/30">
+      <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-blue-300/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#FACC15]/10 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <!-- Left / Text Narrative -->
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <span class="text-xs font-black uppercase tracking-widest text-[#FACC15] flex items-center gap-2 mb-3">
+              <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-pulse"></span>
+              <span>02 / Certified Faculty Mentorship</span>
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.12] tracking-tight">
+              Real Mentors Beside You, Not Just Lecturing From a Podium.
+            </h2>
+            <p class="text-blue-100 text-base sm:text-lg mt-4 leading-relaxed font-normal">
+              Our certified instructors don't simply deliver slides—they sit with you at your workstation to debug code, review architectural BIM drawings, balance complex Tally ledgers, and refine motion graphics frame-by-frame.
+            </p>
+
+            <!-- Mentorship Badges -->
+            <div class="mt-8 space-y-3.5">
+              <div class="p-4 rounded-2xl bg-[#0B1220]/75 backdrop-blur-md border border-white/15 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-white/10 text-[#FACC15] border border-white/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="user-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm sm:text-base">Daily 1-on-1 Doubt Clearing</h4>
+                  <p class="text-xs text-blue-100/80 mt-0.5">Solve roadblocks immediately at your desk without waiting for class end.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[#0B1220]/75 backdrop-blur-md border border-white/15 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-white/10 text-[#FACC15] border border-white/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="briefcase" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm sm:text-base">Real Industry Client Scenarios</h4>
+                  <p class="text-xs text-blue-100/80 mt-0.5">Learn with live business filings, structural models, and production APIs.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-[#0B1220]/75 backdrop-blur-md border border-white/15 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-white/10 text-[#FACC15] border border-white/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="clock" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm sm:text-base">Flexible Batches &amp; Timings</h4>
+                  <p class="text-xs text-blue-100/80 mt-0.5">Morning, afternoon, evening, and exclusive Saturday/Sunday weekend batches.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right / Staggered Photo Composition -->
+          <div class="lg:col-span-7 order-1 lg:order-2 relative">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
+              <div class="sm:col-span-7 campus-editorial-frame rounded-[28px] overflow-hidden shadow-2xl border-4 border-white/20 bg-slate-900 group">
+                <img 
+                  src="assets/real-photos/students-learning.jpg" 
+                  alt="Interactive Classroom Mentoring at G-TEC Ottapalam" 
+                  class="w-full h-80 sm:h-96 object-cover"
+                  loading="lazy"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1220]/80 via-transparent to-transparent flex items-end p-5">
+                  <span class="text-xs font-bold text-white bg-black/60 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
+                    👨‍🏫 Certified Faculty Mentoring
+                  </span>
+                </div>
+              </div>
+
+              <div class="sm:col-span-5 flex flex-col gap-5 sm:translate-y-8">
+                <div class="campus-editorial-frame rounded-2xl overflow-hidden shadow-xl border-4 border-white/20 bg-slate-900 group">
+                  <img 
+                    src="assets/real-photos/training-lab-perspective.jpg" 
+                    alt="Modern Training Lab Overview" 
+                    class="w-full h-48 sm:h-56 object-cover"
+                    loading="lazy"
+                  >
+                </div>
+                <div class="p-5 rounded-2xl bg-[#0B1220]/90 backdrop-blur-xl border border-white/20 shadow-xl">
+                  <p class="text-xs sm:text-sm text-blue-100 italic leading-relaxed">
+                    &ldquo;Our faculty don&rsquo;t lecture from a distance. They sit right next to you at your screen until every concept clicks.&rdquo;
+                  </p>
+                  <span class="block text-[11px] font-black text-[#FACC15] uppercase tracking-wider mt-2.5">
+                    — G-TEC Ottapalam Academic Team
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SUBSECTION 4: STUDENT SUPPORT & RECEPTION (CLEAN WHITE BACKGROUND)
+         ========================================================================== -->
+    <section id="campus-support" class="py-20 md:py-28 bg-white text-[#0F172A] border-b border-[#E2E8F0] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-black uppercase tracking-widest text-[#1D4ED8] flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 rounded-full bg-[#1D4ED8]"></span>
+            <span>03 / Student Support &amp; Advisory</span>
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] leading-[1.12] tracking-tight">
+            Personalized Guidance From Your First Visit to Final Placement.
+          </h2>
+          <p class="text-[#475569] text-base sm:text-lg mt-4 leading-relaxed font-medium">
+            Education doesn't stop at software commands. From your initial career consultation to mock interviews and certificate dispatch, our student support team ensures your learning journey is smooth, supportive, and rewarding.
+          </p>
+        </div>
+
+        <!-- Wide Panoramic Photographic Editorial Frame -->
+        <div class="relative campus-editorial-frame rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl border-4 border-slate-100 bg-slate-900 group mb-12">
+          <img 
+            src="assets/real-photos/reception-lounge.jpg" 
+            alt="Reception and Career Counselling Lounge at G-TEC Ottapalam" 
+            class="w-full h-80 sm:h-[420px] md:h-[480px] object-cover"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0B1220]/90 via-[#0B1220]/30 to-transparent flex flex-col justify-end p-6 sm:p-10">
+            <div class="max-w-2xl">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-[#1D4ED8] text-white shadow-md mb-2">
+                📍 Reception &amp; Counselling Lounge &bull; JRJ Complex
+              </span>
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">
+                A Welcoming Space for Consultations, Progress Reviews, and Placement Drives.
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Horizontal Support Pillars (Interactive with Functional Links) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#1D4ED8] transition-colors flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#1D4ED8] flex items-center justify-center font-bold mb-4">
+                <i data-lucide="compass" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-[#0F172A] text-lg">1:1 Career Counselling</h4>
+              <p class="text-xs sm:text-sm text-[#475569] mt-2 leading-relaxed font-medium">
+                Unbiased guidance assessing your educational background, interests, and matching you with high-demand job roles.
+              </p>
+            </div>
+            <button type="button" class="trigger-enquiry-modal mt-4 pt-4 border-t border-[#E2E8F0] text-xs font-bold text-[#1D4ED8] hover:text-[#1E40AF] hover:underline inline-flex items-center gap-1.5 cursor-pointer text-left w-full group transition-colors">
+              <span>Book Free Career Assessment</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </button>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#1D4ED8] transition-colors flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#1D4ED8] flex items-center justify-center font-bold mb-4">
+                <i data-lucide="qr-code" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-[#0F172A] text-lg">QR-Verifiable Global Certs</h4>
+              <p class="text-xs sm:text-sm text-[#475569] mt-2 leading-relaxed font-medium">
+                Internationally recognized credentials with instant online validation via G-TEC GEMs portal for employers across India.
+              </p>
+            </div>
+            <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="mt-4 pt-4 border-t border-[#E2E8F0] text-xs font-bold text-[#1D4ED8] hover:text-[#1E40AF] hover:underline inline-flex items-center gap-1.5 group transition-colors">
+              <span>Verify Online on GEMs Portal</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </a>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#1D4ED8] transition-colors flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#1D4ED8] flex items-center justify-center font-bold mb-4">
+                <i data-lucide="file-check" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-bold text-[#0F172A] text-lg">Interview &amp; Resume Bootcamps</h4>
+              <p class="text-xs sm:text-sm text-[#475569] mt-2 leading-relaxed font-medium">
+                Mock technical interviews, CV restructuring, and LinkedIn portfolio curation before attending corporate hiring drives.
+              </p>
+            </div>
+            <a href="contact.html" class="mt-4 pt-4 border-t border-[#E2E8F0] text-xs font-bold text-[#1D4ED8] hover:text-[#1E40AF] hover:underline inline-flex items-center gap-1.5 group transition-colors">
+              <span>Connect with Placement Cell</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SUBSECTION 5: CAMPUS LOCATION FINALE & ACTION CTA (DEEP NAVY)
+         ========================================================================== -->
+    <section id="campus-location-finale" class="py-20 md:py-28 bg-[#0B1220] text-white relative overflow-hidden">
+      <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#1D4ED8]/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-[#FACC15]/10 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Left / Location Details & CTA -->
+          <div class="lg:col-span-6">
+            <span class="text-xs font-black uppercase tracking-widest text-[#FACC15] flex items-center gap-2 mb-3">
+              <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-ping"></span>
+              <span>04 / Strategic Campus Location</span>
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.12] tracking-tight">
+              Conveniently Located at the Heart of Ottapalam.
+            </h2>
+            <p class="text-blue-100 text-base sm:text-lg mt-4 leading-relaxed font-normal">
+              Located at JRJ Complex, 2nd Floor, Bus Stand Shopping Complex, Ottapalam. Just a 2-minute walk from the Ottapalam Central Bus Stand and 5 minutes from the Railway Station, providing frictionless daily access for students across Palakkad district.
+            </p>
+
+            <div class="mt-8 space-y-4">
+              <div class="flex items-center gap-3.5 text-sm font-semibold text-white">
+                <div class="w-8 h-8 rounded-lg bg-[#1D4ED8] text-white flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <span>JRJ Complex, 2nd Floor, Municipal Bus Stand Complex, Ottapalam - 679101</span>
+              </div>
+              <div class="flex items-center gap-3.5 text-sm font-semibold text-white">
+                <div class="w-8 h-8 rounded-lg bg-[#1D4ED8] text-white flex items-center justify-center shrink-0">
+                  <i data-lucide="navigation" class="w-4 h-4"></i>
+                </div>
+                <span>Direct transit links connecting Shoranur, Cherpulassery, and Palakkad</span>
+              </div>
+            </div>
+
+            <div class="mt-10 flex flex-wrap items-center gap-4">
+              <a href="contact.html" class="btn-accent-yellow text-xs font-black px-7 py-3.5 rounded-xl shadow-lg inline-flex items-center gap-2">
+                <span>View Full Map &amp; Directions</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <button type="button" class="trigger-enquiry-modal bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-6 py-3.5 rounded-xl border border-white/20 transition-colors">
+                Book a Campus Tour
+              </button>
+            </div>
+          </div>
+
+          <!-- Right / Visual Location Card -->
+          <div class="lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden border-4 border-white/15 shadow-2xl bg-slate-900 group">
+              <img 
+                src="assets/real-photos/training-lab-perspective.jpg" 
+                alt="G-TEC Ottapalam Modern Campus Facility" 
+                class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+              >
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="bg-white text-[#475569] text-sm border-t border-[#E2E8F0] pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#E2E8F0]">
+        
+        <!-- Brand Summary -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="bg-[#F8FAFC] border border-[#E2E8F0] px-3 py-1.5 rounded-xl shadow-xs inline-flex items-center">
+              <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Logo" class="h-9 w-auto object-contain">
+            </div>
+            <div class="border-l-2 border-[#CBD5E1] pl-3">
+              <span class="block text-xs font-black tracking-widest text-[#1D4ED8] uppercase leading-tight">Ottapalam</span>
+              <span class="block text-[10px] font-bold text-[#64748B] uppercase tracking-tight leading-tight">Centre of Excellence</span>
+            </div>
+          </div>
+          <p class="text-xs text-[#475569] leading-relaxed max-w-sm font-medium">
+            G-TEC COMPUTER EDUCATION Ottapalam is the leading technical and professional training academy in Palakkad district. Empowering students with job-ready skills, international certifications, and dedicated placement assistance since 1999.
+          </p>
+          <div class="flex items-center gap-2 pt-2">
+            <span class="inline-flex items-center gap-1.5 bg-[#FEF9C3] text-[#854D0E] text-xs font-bold px-3 py-1 rounded-full border border-[#FDE047]">
+              <span class="text-[#D97706]">★</span> 4.9 Rating (662 Reviews)
+            </span>
+            <span class="text-xs text-[#64748B] font-semibold bg-[#F1F5F9] px-2.5 py-1 rounded-full border border-[#E2E8F0]">ISO 9001:2015</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-[#0F172A] font-black text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="index.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Home Page</a></li>
+            <li><a href="programs.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Programs (4 Tracks)</a></li>
+            <li><a href="courses.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">All Courses (24)</a></li>
+            <li><a href="why-gtec.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Why G-TEC Ottapalam</a></li>
+            <li><a href="reviews.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Student Reviews (4.9 ★)</a></li>
+            <li><a href="contact.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Campus Location &amp; Contact</a></li>
+            <li><a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" class="text-[#1D4ED8] font-bold hover:text-[#1E40AF] hover:underline">Verify Certificate ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Top Courses -->
+        <div>
+          <h4 class="text-[#0F172A] font-black text-sm uppercase tracking-wider mb-4">Core Domains</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="courses.html?category=software" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Software &amp; IT (7 Courses)</a></li>
+            <li><a href="courses.html?category=accounting" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Corporate Accounting &amp; SAP (5)</a></li>
+            <li><a href="courses.html?category=multimedia" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Multimedia &amp; Visual Arts (6)</a></li>
+            <li><a href="courses.html?category=cad" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">CAD &amp; Engineering Design (6)</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Box -->
+        <div>
+          <h4 class="text-[#0F172A] font-black text-sm uppercase tracking-wider mb-4">Ottapalam Branch</h4>
+          <p class="text-xs leading-relaxed text-[#475569] font-medium">
+            JRJ Complex, 2nd floor, Bus Stand Shopping Complex, Ottapalam, Kerala, 679101
+          </p>
+          <div class="mt-3 space-y-1.5 text-xs">
+            <p><strong class="text-[#0F172A]">Call:</strong> <a href="tel:09995955501" class="text-[#1D4ED8] font-bold hover:text-[#1E40AF]">099959 55501</a></p>
+            <p><strong class="text-[#0F172A]">Email:</strong> <a href="mailto:ottappalam.pkd@gteceducation.com" class="text-[#1D4ED8] font-semibold hover:text-[#1E40AF]">ottappalam.pkd@gteceducation.com</a></p>
+            <p class="text-[#64748B]"><strong class="text-[#0F172A]">Hours:</strong> Mon - Sat: 9 AM - 6 PM</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
+        <p>© 2026 G-TEC COMPUTER EDUCATION Ottapalam. All Rights Reserved.</p>
+        <p>Affiliated with G-TEC Education Global Training Network.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Course Detail Modal -->
+  <div id="course-detail-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-course-title">
+    <div class="modal-content-box relative">
+      <button 
+        type="button" 
+        id="course-modal-close" 
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors"
+        aria-label="Close Course Details"
+      >
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="course-modal-body" class="p-6 sm:p-8"></div>
+    </div>
+  </div>
+
+  <!-- Admission Enquiry Modal -->
+  <div id="enquiry-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-enquiry-title">
+    <div class="modal-content-box max-w-lg p-6 sm:p-8 relative">
+      <button 
+        type="button" 
+        id="enquiry-modal-close" 
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors"
+        aria-label="Close Enquiry Dialog"
+      >
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-6">
+        <span class="inline-block text-[11px] font-black text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+          Fast-Track Admission Enquiry
+        </span>
+        <h3 id="modal-enquiry-title" class="text-2xl font-black text-[#0F172A] tracking-tight">
+          Join G-TEC Ottapalam
+        </h3>
+        <p class="text-xs text-[#475569] mt-1 font-medium">
+          Fill your details below to receive syllabus, fee discounts &amp; batch timings directly on your WhatsApp.
+        </p>
+      </div>
+
+      <form id="enquiry-form" class="space-y-4">
+        <div>
+          <label for="enquiry-name" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+            Full Name <span class="text-[#1D4ED8]">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="enquiry-name" 
+            name="name" 
+            required
+            placeholder="e.g. Rahul Menon" 
+            class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+          >
+        </div>
+
+        <div>
+          <label for="enquiry-phone" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+            WhatsApp Mobile Number <span class="text-[#1D4ED8]">*</span>
+          </label>
+          <input 
+            type="tel" 
+            id="enquiry-phone" 
+            name="phone" 
+            required
+            placeholder="e.g. 99959 55501" 
+            class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+          >
+        </div>
+
+        <div>
+          <label for="enquiry-course-select" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+            Interested Program / Course
+          </label>
+          <select 
+            id="enquiry-course-select" 
+            name="course" 
+            class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+          >
+            <option value="">-- Choose a Course / Domain --</option>
+          </select>
+        </div>
+
+        <div class="pt-2">
+          <button 
+            type="submit" 
+            class="w-full btn-accent-yellow text-sm font-black py-3.5 rounded-xl shadow-md hover:shadow-lg justify-center cursor-pointer"
+          >
+            <span>Submit Enquiry via WhatsApp</span>
+            <i data-lucide="send" class="w-4 h-4 text-[#0B1220]"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp CTA -->
+  <div class="floating-actions-bar">
+    <a 
+      href="https://wa.me/919995955501?text=Hi%20G-TEC%20Ottapalam,%20I%20would%20like%20to%20know%20more%20about%20your%20campus%20facilities%20and%20lab%20timings." 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="floating-whatsapp-btn"
+      aria-label="Direct WhatsApp Chat with G-TEC Ottapalam"
+    >
+      <div class="pulse-ring"></div>
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/courses-data.js?v=light-2.0" onerror="this.onerror=null; var s=document.createElement('script'); s.src='courses-data.js?v=light-2.0'; document.body.appendChild(s);"></script>
+  <script src="js/app.js?v=light-2.0" onerror="this.onerror=null; var s=document.createElement('script'); s.src='app.js?v=light-2.0'; document.body.appendChild(s);"></script>
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

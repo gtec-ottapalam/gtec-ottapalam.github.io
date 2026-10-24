@@ -95,9 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
   const mobileMenuClose = document.getElementById('mobile-menu-close');
 
-  // Prepopulate Course Select in Enquiry Modal
+  // Prepopulate Course Selects in all Enquiry Forms / Modals
   function populateEnquiryOptions() {
-    if (!enquiryCourseSelect || typeof GTEC_COURSES === 'undefined' || !Array.isArray(GTEC_COURSES)) return;
+    if (typeof GTEC_COURSES === 'undefined' || !Array.isArray(GTEC_COURSES)) return;
     
     // Group courses by category
     const categoriesMap = {};
@@ -117,7 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
       html += `</optgroup>`;
     }
     html += '<option value="Other / General Career Counselling">Other / Career Counselling Guidance</option>';
-    enquiryCourseSelect.innerHTML = html;
+    
+    document.querySelectorAll('#enquiry-course-select, #modal-enquiry-course-select, select[name="course"]').forEach(el => {
+      el.innerHTML = html;
+    });
   }
 
   // Filter & Search Logic
@@ -157,6 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Course Cards
   function renderCourses() {
+    if (!coursesGrid) return;
+
     const filtered = getFilteredCourses();
     const toShow = filtered.slice(0, state.visibleCount);
 
@@ -492,42 +497,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Enquiry Modal
   function openEnquiryModal(preselectedCourse = '') {
-    if (enquiryCourseSelect && preselectedCourse) {
-      // Find if course exists in options or add it temporarily
-      let found = false;
-      for (let i = 0; i < enquiryCourseSelect.options.length; i++) {
-        if (enquiryCourseSelect.options[i].value.toLowerCase().includes(preselectedCourse.toLowerCase())) {
-          enquiryCourseSelect.selectedIndex = i;
-          found = true;
-          break;
+    if (preselectedCourse) {
+      document.querySelectorAll('#enquiry-course-select, #modal-enquiry-course-select, select[name="course"]').forEach(sel => {
+        let found = false;
+        for (let i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value.toLowerCase().includes(preselectedCourse.toLowerCase())) {
+            sel.selectedIndex = i;
+            found = true;
+            break;
+          }
         }
-      }
-      if (!found) {
-        const opt = new Option(preselectedCourse, preselectedCourse, true, true);
-        enquiryCourseSelect.add(opt);
-      }
+        if (!found) {
+          const opt = new Option(preselectedCourse, preselectedCourse, true, true);
+          sel.add(opt);
+        }
+      });
     }
 
-    enquiryModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    if (enquiryModal) {
+      enquiryModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   function closeEnquiryModal() {
-    enquiryModal.classList.remove('active');
-    document.body.style.overflow = '';
+    if (enquiryModal) {
+      enquiryModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 
-  // Enquiry Form Submit (WhatsApp + Notification)
-  if (enquiryForm) {
-    enquiryForm.addEventListener('submit', (e) => {
+  // Enquiry Forms Submit (WhatsApp + Notification) for both inline and modal forms
+  document.querySelectorAll('#enquiry-form, #modal-enquiry-form, form.enquiry-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const name = document.getElementById('enquiry-name').value.trim();
-      const phone = document.getElementById('enquiry-phone').value.trim();
-      const email = document.getElementById('enquiry-email').value.trim();
-      const course = enquiryCourseSelect.value || 'General Enquiry';
-      const batch = document.getElementById('enquiry-batch').value;
-      const message = document.getElementById('enquiry-message').value.trim();
+      const nameInput = form.querySelector('[name="name"], #enquiry-name, #modal-enquiry-name');
+      const phoneInput = form.querySelector('[name="phone"], #enquiry-phone, #modal-enquiry-phone');
+      const emailInput = form.querySelector('[name="email"], #enquiry-email, #modal-enquiry-email');
+      const courseSelect = form.querySelector('[name="course"], #enquiry-course-select, #modal-enquiry-course-select');
+      const batchSelect = form.querySelector('[name="batch"], #enquiry-batch, #modal-enquiry-batch');
+      const messageInput = form.querySelector('[name="message"], #enquiry-message, #modal-enquiry-message');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const course = (courseSelect && courseSelect.value) ? courseSelect.value : 'General Enquiry';
+      const batch = (batchSelect && batchSelect.value) ? batchSelect.value : 'Regular Morning';
+      const message = messageInput ? messageInput.value.trim() : '';
 
       // Format WhatsApp Message
       const waText = `*🎓 G-TEC Ottapalam Admission Enquiry*\n\n` +
@@ -555,10 +572,10 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         window.open(waUrl, '_blank');
         closeEnquiryModal();
-        enquiryForm.reset();
-      }, 500);
+        form.reset();
+      }, 400);
     });
-  }
+  });
 
   // Event Listeners for Filters
   categoryTabs.forEach(tab => {
@@ -660,15 +677,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleHeroSearch = () => {
       const q = heroSearchInput.value.trim();
       if (q) {
-        state.searchQuery = q;
-        if (searchInput) searchInput.value = q;
-        if (clearSearchBtn) clearSearchBtn.classList.remove('hidden');
-        renderCourses();
-
-        // Smooth scroll to courses section
         const coursesSec = document.getElementById('courses-section');
         if (coursesSec) {
+          state.searchQuery = q;
+          if (searchInput) searchInput.value = q;
+          if (clearSearchBtn) clearSearchBtn.classList.remove('hidden');
+          renderCourses();
           coursesSec.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.href = `courses.html?search=${encodeURIComponent(q)}`;
         }
       }
     };
@@ -683,13 +700,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.hero-quick-tag').forEach(tag => {
     tag.addEventListener('click', (e) => {
       const val = e.currentTarget.getAttribute('data-query');
-      if (heroSearchInput) heroSearchInput.value = val;
-      if (searchInput) searchInput.value = val;
-      state.searchQuery = val;
-      renderCourses();
       const coursesSec = document.getElementById('courses-section');
       if (coursesSec) {
+        if (heroSearchInput) heroSearchInput.value = val;
+        if (searchInput) searchInput.value = val;
+        state.searchQuery = val;
+        renderCourses();
         coursesSec.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = `courses.html?search=${encodeURIComponent(val)}`;
       }
     });
   });
@@ -766,7 +785,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinkElements = document.querySelectorAll('.nav-link-item');
   const mobileLinkElements = document.querySelectorAll('.mobile-nav-link');
 
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const isDedicatedPage = currentPath.endsWith('.html') && currentPath !== 'index.html';
+
   function updateActiveNav() {
+    if (isDedicatedPage) {
+      navLinkElements.forEach(link => {
+        const href = (link.getAttribute('href') || '').split('#')[0];
+        if (href === currentPath) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      mobileLinkElements.forEach(link => {
+        const href = (link.getAttribute('href') || '').split('#')[0];
+        if (href === currentPath) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      return;
+    }
+
     const scrollPos = window.scrollY + 140;
     let currentSection = 'hero';
 
@@ -1636,6 +1678,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Robust Course Catalog Initializer (handles any async script load race conditions)
   function initCourseCatalog() {
+    // Read URL query params
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('category');
+      const searchParam = urlParams.get('search');
+      if (catParam) {
+        state.selectedCategory = catParam;
+        categoryTabs.forEach(t => {
+          if (t.getAttribute('data-category') === catParam) {
+            t.classList.add('active');
+          } else {
+            t.classList.remove('active');
+          }
+        });
+      }
+      if (searchParam) {
+        state.searchQuery = searchParam;
+        if (searchInput) searchInput.value = searchParam;
+        if (clearSearchBtn) clearSearchBtn.classList.remove('hidden');
+      }
+    } catch (e) {}
+
     if (typeof GTEC_COURSES !== 'undefined' && Array.isArray(GTEC_COURSES) && GTEC_COURSES.length > 0) {
       populateEnquiryOptions();
       renderCourses();

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Courses &amp; Certifications (24) | G-TEC Ottapalam</title>
+  
+  <meta name="description" content="Browse all 24 verified certification and diploma courses at G-TEC Ottapalam across Software, Accounting, SAP, Multimedia, and CAD. 100% practical lab training.">
+  <meta name="keywords" content="GTEC Ottapalam courses, Python course Ottapalam, Tally Prime course, SAP FICO, CAD Revit Ottapalam, Graphic design course, Flutter development">
+  
+  <link rel="icon" href="assets/gtec-official-logo.webp" type="image/webp">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+            pop: {
+              yellow: '#FACC15',
+              yellowHover: '#EAB308',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css?v=light-2.0">
+  <link rel="stylesheet" href="style.css?v=light-2.0">
+</head>
+<body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased overflow-x-hidden">
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar-premium" aria-label="Campus Announcement">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#FACC15] animate-pulse"></span>
+        <span class="font-bold text-white tracking-wide">ADMISSIONS OPEN FOR NEW BATCHES (MORNING &bull; EVENING &bull; WEEKEND)</span>
+      </div>
+      <div class="hidden md:flex items-center gap-5 text-white/90">
+        <a href="contact.html" class="hover:text-[#FACC15] transition-colors font-medium">JRJ Complex, Bus Stand, Ottapalam</a>
+        <span class="text-white/40">|</span>
+        <a href="tel:09995955501" class="hover:text-[#FACC15] transition-colors font-bold">Call: 099959 55501</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Global Header Navigation -->
+  <header id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header-inner flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="G-TEC Education Ottapalam Home">
+        <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Education Ottapalam" class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]">
+        <div class="hidden sm:block border-l-2 border-[#D5DFEC] pl-3">
+          <span class="block text-xs font-black tracking-widest text-[#1D4ED8] uppercase">Ottapalam</span>
+          <span class="block text-[10px] font-semibold text-[#64748B] uppercase tracking-tight">Centre of Excellence</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 font-semibold text-[#475569] text-sm" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link-item">Home</a>
+        <a href="programs.html" class="nav-link-item">Programs</a>
+        <a href="courses.html" class="nav-link-item active">Courses</a>
+        <a href="why-gtec.html" class="nav-link-item">Why G-TEC</a>
+        <a href="reviews.html" class="nav-link-item">Reviews &amp; Ratings</a>
+        <a href="contact.html" class="nav-link-item">Campus Location</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="flex items-center gap-3">
+        <button 
+          type="button" 
+          class="trigger-enquiry-modal hidden sm:inline-flex btn-nav-cta"
+        >
+          <span>Enquire Now</span>
+          <svg class="w-4 h-4 text-[#0B1220]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          type="button" 
+          id="mobile-menu-toggle"
+          class="lg:hidden p-2 rounded-xl text-[#0B1220] hover:text-[#1D4ED8] hover:bg-slate-100 focus:outline-none transition-colors"
+          aria-label="Toggle Navigation Menu"
+        >
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-[#0B1220]/60 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300" aria-hidden="true"></div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="fixed inset-y-0 right-0 w-80 bg-white border-l border-[#D5DFEC] text-[#0B1220] z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-[#D5DFEC]">
+        <div class="flex items-center gap-2">
+          <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Logo" class="h-8 w-auto">
+          <span class="text-xs font-black uppercase text-[#1D4ED8] tracking-widest pl-2 border-l border-slate-300">Ottapalam</span>
+        </div>
+        <button id="mobile-menu-close" class="p-2 text-slate-500 hover:text-slate-900 rounded-lg" aria-label="Close Mobile Menu">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <nav class="mt-6 flex flex-col space-y-1.5" aria-label="Mobile Links">
+        <a href="index.html" class="mobile-nav-link">
+          <span>Home</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="programs.html" class="mobile-nav-link">
+          <span>Programs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="courses.html" class="mobile-nav-link active">
+          <span>Courses Catalog (24)</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="why-gtec.html" class="mobile-nav-link">
+          <span>Why G-TEC Ottapalam</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="reviews.html" class="mobile-nav-link">
+          <span>Google Reviews (4.9 ★)</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="contact.html" class="mobile-nav-link">
+          <span>Campus Location &amp; Contact</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i>
+        </a>
+        <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="mobile-nav-link text-[#1D4ED8] font-bold">
+          <span>Verify Certificate ↗</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-[#D5DFEC] space-y-3">
+      <button class="trigger-enquiry-modal w-full btn-accent-yellow text-sm font-black py-3.5 rounded-xl shadow-xs justify-center cursor-pointer">
+        Enquire for Admission
+      </button>
+      <a href="tel:09995955501" class="w-full flex items-center justify-center gap-2 bg-[#EEF3FB] hover:bg-[#EAF2FF] text-[#0B1220] font-bold py-3 rounded-xl border border-[#D5DFEC] transition-colors">
+        <i data-lucide="phone" class="w-4 h-4 text-[#1D4ED8]"></i>
+        <span>Call: 099959 55501</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         PAGE HERO BANNER: COURSES DIRECTORY
+         ========================================================================== -->
+    <section class="py-16 sm:py-20 bg-gradient-to-br from-[#1D4ED8] via-[#1E40AF] to-[#0E2A78] text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1D4ED8]/90 via-transparent to-[#1D4ED8]/90"></div>
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-300/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-[#FACC15]/15 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[#FACC15] text-xs font-black uppercase tracking-widest mb-5 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-ping"></span>
+          <span>Official Course Directory &bull; 24 Verified Programs</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl">
+          Find Your Ideal Course &amp; <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FACC15] via-amber-300 to-[#FACC15]">
+            Build Job-Ready Competence.
+          </span>
+        </h1>
+        <p class="text-blue-100 text-sm sm:text-lg max-w-2xl mt-5 font-normal leading-relaxed">
+          Filter by discipline or certification level to discover our complete catalog of 24 practical courses. Workstation training with 1:1 faculty mentoring at JRJ Complex Ottapalam.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE COURSE EXPLORER & CATALOG
+         ========================================================================== -->
+    <section id="courses-section" class="py-16 md:py-24 bg-[#F8FAFC] text-[#0F172A] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Filter Controls Container -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-[#D5DFEC] shadow-sm mb-12">
+          
+          <!-- Category Tabs -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-4 no-scrollbar border-b border-[#D5DFEC]">
+            <button type="button" class="category-tab-btn active" data-category="all">
+              <i data-lucide="layout-grid" class="w-4 h-4"></i>
+              <span>All Disciplines (24)</span>
+            </button>
+            <button type="button" class="category-tab-btn" data-category="cad">
+              <i data-lucide="ruler" class="w-4 h-4"></i>
+              <span>CAD &amp; BIM (6)</span>
+            </button>
+            <button type="button" class="category-tab-btn" data-category="software">
+              <i data-lucide="code-2" class="w-4 h-4"></i>
+              <span>Software &amp; IT (7)</span>
+            </button>
+            <button type="button" class="category-tab-btn" data-category="multimedia">
+              <i data-lucide="palette" class="w-4 h-4"></i>
+              <span>Multimedia &amp; VFX (6)</span>
+            </button>
+            <button type="button" class="category-tab-btn" data-category="accounting">
+              <i data-lucide="calculator" class="w-4 h-4"></i>
+              <span>Corporate Accounting &amp; SAP (5)</span>
+            </button>
+          </div>
+
+          <!-- Secondary Filter Bar (Level Chips + Search Input) -->
+          <div class="mt-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            
+            <!-- Qualification Level Chips -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
+              <span class="text-xs font-bold text-[#64748B] uppercase tracking-wider mr-1">Level:</span>
+              <button type="button" class="level-chip-btn active" data-level="all">All Levels</button>
+              <button type="button" class="level-chip-btn" data-level="Certificate">Certificate (12)</button>
+              <button type="button" class="level-chip-btn" data-level="Diploma">Diploma (6)</button>
+              <button type="button" class="level-chip-btn" data-level="Master">Master (2)</button>
+              <button type="button" class="level-chip-btn" data-level="SAP Global">SAP Global (4)</button>
+            </div>
+
+            <!-- Search Input -->
+            <div class="relative w-full md:w-80">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              <input 
+                type="text" 
+                id="course-search-input"
+                placeholder="Search by course name, tool or tag..." 
+                class="w-full pl-10 pr-10 py-2.5 text-xs sm:text-sm bg-[#F8FAFC] border border-[#D5DFEC] rounded-xl focus:outline-none focus:border-[#1D4ED8] focus:bg-white transition-all text-[#0F172A]"
+              >
+              <button 
+                type="button" 
+                id="clear-search-btn" 
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 hidden"
+                aria-label="Clear Search Input"
+              >
+                <i data-lucide="x" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Active Filter Badge & Reset Action -->
+          <div class="mt-4 pt-4 border-t border-[#EEF3FB] flex items-center justify-between text-xs text-[#64748B]">
+            <div id="course-count-badge" class="font-bold text-[#0F172A]">
+              Showing 6 of 24 courses (2 Rows)
+            </div>
+            <button 
+              type="button" 
+              id="reset-filters-btn" 
+              class="text-[#1D4ED8] hover:text-[#1E40AF] font-bold inline-flex items-center gap-1 hidden cursor-pointer"
+            >
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Reset All Filters</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Course Cards Grid (2 rows initially, expand with View All) -->
+        <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Dynamically populated by js/app.js -->
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="empty-state" class="hidden text-center py-16 px-4 bg-white rounded-3xl border border-[#D5DFEC] max-w-xl mx-auto shadow-sm">
+          <div class="w-16 h-16 rounded-2xl bg-blue-50 text-[#1D4ED8] mx-auto flex items-center justify-center mb-4">
+            <i data-lucide="file-question" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-black text-[#0F172A] tracking-tight">No Courses Match Your Criteria</h3>
+          <p class="text-xs sm:text-sm text-[#475569] mt-2 mb-6">
+            We couldn't find any courses matching your specific search or filter selection. Try adjusting your search query or reset all filters.
+          </p>
+          <button 
+            type="button" 
+            id="empty-reset-btn" 
+            class="btn-primary-blue text-xs font-extrabold px-6 py-2.5 rounded-xl shadow-xs hover:shadow-md inline-flex items-center gap-2"
+          >
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            <span>Reset All Filters &amp; Show 24 Courses</span>
+          </button>
+        </div>
+
+        <!-- Load More / View All Button -->
+        <div class="text-center mt-12">
+          <button 
+            type="button" 
+            id="load-more-btn"
+            class="inline-flex items-center gap-2 bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-sm font-bold px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer hidden"
+          >
+            <span>View All Courses (18 More)</span>
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="bg-white text-[#475569] text-sm border-t border-[#E2E8F0] pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#E2E8F0]">
+        
+        <!-- Brand Summary -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="bg-[#F8FAFC] border border-[#E2E8F0] px-3 py-1.5 rounded-xl shadow-xs inline-flex items-center">
+              <img src="assets/official-logo/gtec-logo.png" alt="G-TEC Logo" class="h-9 w-auto object-contain">
+            </div>
+            <div class="border-l-2 border-[#CBD5E1] pl-3">
+              <span class="block text-xs font-black tracking-widest text-[#1D4ED8] uppercase leading-tight">Ottapalam</span>
+              <span class="block text-[10px] font-bold text-[#64748B] uppercase tracking-tight leading-tight">Centre of Excellence</span>
+            </div>
+          </div>
+          <p class="text-xs text-[#475569] leading-relaxed max-w-sm font-medium">
+            G-TEC COMPUTER EDUCATION Ottapalam is the leading technical and professional training academy in Palakkad district. Empowering students with job-ready skills, international certifications, and dedicated placement assistance since 1999.
+          </p>
+          <div class="flex items-center gap-2 pt-2">
+            <span class="inline-flex items-center gap-1.5 bg-[#FEF9C3] text-[#854D0E] text-xs font-bold px-3 py-1 rounded-full border border-[#FDE047]">
+              <span class="text-[#D97706]">★</span> 4.9 Rating (662 Reviews)
+            </span>
+            <span class="text-xs text-[#64748B] font-semibold bg-[#F1F5F9] px-2.5 py-1 rounded-full border border-[#E2E8F0]">ISO 9001:2015</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-[#0F172A] font-black text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="index.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Home Page</a></li>
+            <li><a href="programs.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Programs (4 Tracks)</a></li>
+            <li><a href="courses.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">All Courses (24)</a></li>
+            <li><a href="why-gtec.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Why G-TEC Ottapalam</a></li>
+            <li><a href="reviews.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Student Reviews (4.9 ★)</a></li>
+            <li><a href="contact.html" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Campus Location &amp; Contact</a></li>
+            <li><a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" class="text-[#1D4ED8] font-bold hover:text-[#1E40AF] hover:underline">Verify Certificate ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Top Courses -->
+        <div>
+          <h4 class="text-[#0F172A] font-black text-sm uppercase tracking-wider mb-4">Core Domains</h4>
+          <ul class="space-y-2.5 text-xs font-medium">
+            <li><a href="courses.html?category=software" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Software &amp; IT (7 Courses)</a></li>
+            <li><a href="courses.html?category=accounting" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Corporate Accounting &amp; SAP (5)</a></li>
+            <li><a href="courses.html?category=multimedia" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">Multimedia &amp; Visual Arts (6)</a></li>
+            <li><a href="courses.html?category=cad" class="text-[#475569] hover:text-[#1D4ED8] transition-colors">CAD &amp; Engineering Design (6)</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Box -->
+        <div>
+          <h4 class="text-[#0F172A] font-black text-sm uppercase tracking-wider mb-4">Ottapalam Branch</h4>
+          <p class="text-xs leading-relaxed text-[#475569] font-medium">
+            JRJ Complex, 2nd floor, Bus Stand Shopping Complex, Ottapalam, Kerala, 679101
+          </p>
+          <div class="mt-3 space-y-1.5 text-xs">
+            <p><strong class="text-[#0F172A]">Call:</strong> <a href="tel:09995955501" class="text-[#1D4ED8] font-bold hover:text-[#1E40AF]">099959 55501</a></p>
+            <p><strong class="text-[#0F172A]">Email:</strong> <a href="mailto:ottappalam.pkd@gteceducation.com" class="text-[#1D4ED8] font-semibold hover:text-[#1E40AF]">ottappalam.pkd@gteceducation.com</a></p>
+            <p class="text-[#64748B]"><strong class="text-[#0F172A]">Hours:</strong> Mon - Sat: 9 AM - 6 PM</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
+        <p>© 2026 G-TEC COMPUTER EDUCATION Ottapalam. All Rights Reserved.</p>
+        <p>Affiliated with G-TEC Education Global Training Network.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Course Detail Modal -->
+  <div id="course-detail-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-course-title">
+    <div class="modal-content-box relative">
+      <button 
+        type="button" 
+        id="course-modal-close" 
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors"
+        aria-label="Close Course Details"
+      >
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="course-modal-body" class="p-6 sm:p-8"></div>
+    </div>
+  </div>
+
+  <!-- Admission Enquiry Modal -->
+  <div id="enquiry-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-enquiry-title">
+    <div class="modal-content-box max-w-lg p-6 sm:p-8 relative">
+      <button 
+        type="button" 
+        id="enquiry-modal-close" 
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors"
+        aria-label="Close Enquiry Dialog"
+      >
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-6">
+        <span class="inline-block text-[11px] font-black text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+          Fast-Track Admission Enquiry
+        </span>
+        <h3 id="modal-enquiry-title" class="text-2xl font-black text-[#0F172A] tracking-tight">
+          Join G-TEC Ottapalam
+        </h3>
+        <p class="text-xs text-[#475569] mt-1 font-medium">
+          Fill your details below to receive syllabus, fee discounts &amp; batch timings directly on your WhatsApp.
+        </p>
+      </div>
+
+      <form id="enquiry-form" class="space-y-4">
+        <div>
+          <label for="enquiry-name" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+            Full Name <span class="text-[#1D4ED8]">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="enquiry-name" 
+            name="name" 
+            required
+            placeholder="e.g. Rahul Menon" 
+            class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+          >
+        </div>
+
+        <div>
+          <label for="enquiry-phone" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+            WhatsApp Mobile Number <span class="text-[#1D4ED8]">*</span>
+          </label>
+          <input 
+            type="tel" 
+            id="enquiry-phone" 
+            name="phone" 
+            required
+            placeholder="e.g. 99959 55501" 
+            class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+          >
+        </div>
+
+        <div>
+          <label for="enquiry-course-select" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+            Interested Program / Course
+          </label>
+          <select 
+            id="enquiry-course-select" 
+            name="course" 
+            class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+          >
+            <option value="">-- Choose a Course / Domain --</option>
+          </select>
+        </div>
+
+        <div class="pt-2">
+          <button 
+            type="submit" 
+            class="w-full btn-accent-yellow text-sm font-black py-3.5 rounded-xl shadow-md hover:shadow-lg justify-center cursor-pointer"
+          >
+            <span>Submit Enquiry via WhatsApp</span>
+            <i data-lucide="send" class="w-4 h-4 text-[#0B1220]"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp CTA -->
+  <div class="floating-actions-bar">
+    <a 
+      href="https://wa.me/919995955501?text=Hi%20G-TEC%20Ottapalam,%20I%20would%20like%20to%20know%20more%20about%20your%20courses%20and%20curriculums." 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="floating-whatsapp-btn"
+      aria-label="Direct WhatsApp Chat with G-TEC Ottapalam"
+    >
+      <div class="pulse-ring"></div>
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/courses-data.js?v=light-2.0" onerror="this.onerror=null; var s=document.createElement('script'); s.src='courses-data.js?v=light-2.0'; document.body.appendChild(s);"></script>
+  <script src="js/app.js?v=light-2.0" onerror="this.onerror=null; var s=document.createElement('script'); s.src='app.js?v=light-2.0'; document.body.appendChild(s);"></script>
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
