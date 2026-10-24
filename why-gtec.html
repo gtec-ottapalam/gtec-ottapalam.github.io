@@ -173,31 +173,32 @@
     <!-- ==========================================================================
          SUBSECTION 1: CINEMATIC INTRODUCTION (HERO BLUE BACKGROUND)
          ========================================================================== -->
-    <section class="relative min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center overflow-hidden bg-[#1D4ED8]">
-      <!-- Background Panoramic Photo with Cinematic Depth & Zoom -->
-      <div class="absolute inset-0 z-0">
+    <section class="relative min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 45%, #0E2A78 100%);">
+      <!-- Background Panoramic Photo Blended into Hero Blue -->
+      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img 
           src="assets/real-photos/training-lab-wide.jpg" 
           alt="G-TEC Ottapalam Modern Air-Conditioned Training Lab" 
-          class="w-full h-full object-cover object-center filter brightness-90 scale-105"
+          class="w-full h-full object-cover object-center scale-105"
+          style="opacity: 0.42; mix-blend-mode: luminosity; filter: contrast(1.22) brightness(1.18);"
         >
-        <!-- Vibrant Hero Blue Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#1D4ED8]/92 via-[#1E40AF]/88 to-[#0E2A78]/95"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#1D4ED8]/90 via-transparent to-[#1D4ED8]/90"></div>
-        <!-- Ambient Color Lighting Glows -->
-        <div class="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-blue-300/25 blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-[#FACC15]/15 blur-3xl pointer-events-none"></div>
+        <!-- Seamless Hero Blue Tint Overlays -->
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(29, 78, 216, 0.65) 0%, rgba(30, 64, 175, 0.40) 40%, rgba(14, 42, 120, 0.85) 100%);"></div>
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(29, 78, 216, 0.15) 0%, rgba(14, 42, 120, 0.75) 100%);"></div>
+        <!-- Ambient Lighting Glows -->
+        <div class="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-blue-300/25 blur-3xl"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-[#FACC15]/15 blur-3xl"></div>
       </div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 relative z-10 text-center flex flex-col items-center">
         <!-- Eyebrow Pill Badge -->
-        <div class="campus-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[#FACC15] text-xs font-black uppercase tracking-widest mb-6 shadow-md">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[#FACC15] text-xs font-black uppercase tracking-widest mb-6 shadow-md">
           <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-ping"></span>
           <span>The G-TEC Ottapalam Experience &bull; JRJ Complex</span>
         </div>
 
         <!-- Headline: More Than a Classroom. A Place to Build Your Future. -->
-        <h1 class="campus-reveal text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] max-w-5xl">
+        <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] max-w-5xl drop-shadow-md">
           More Than a Classroom. <br>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FACC15] via-amber-300 to-[#FACC15]">
             A Place to Build Your Future.
@@ -205,12 +206,12 @@
         </h1>
 
         <!-- Subtitle -->
-        <p class="campus-reveal text-blue-100 text-sm sm:text-lg md:text-xl max-w-3xl mt-6 leading-relaxed font-normal">
+        <p class="text-blue-100 text-sm sm:text-lg md:text-xl max-w-3xl mt-6 leading-relaxed font-normal drop-shadow-sm">
           Step inside Palakkad’s benchmark technical training academy. Purpose-built air-conditioned labs, 1:1 dedicated workstations, certified faculty mentors, and personalized placement pathways designed around your ambition.
         </p>
 
         <!-- Quick Credential Ribbons -->
-        <div class="campus-reveal flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8">
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8">
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F172A]/70 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-md">
             <i data-lucide="monitor" class="w-4 h-4 text-[#FACC15]"></i>
             <span>1:1 Dedicated Workstations</span>
