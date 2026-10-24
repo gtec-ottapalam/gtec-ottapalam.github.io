@@ -1302,12 +1302,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // SCENE 4 — TRANSFORM INTO THE REAL HERO (2.85s - 4.0s)
       // 1. Camera moves into display: scale expands screen to fill viewport
+      const targetScale = window.innerWidth < 768 ? 4.8 : 4.2;
+      const targetZ = window.innerWidth < 768 ? 260 : 340;
       introTL.to(laptopRig, {
-        scale: 5.4,
+        scale: targetScale,
         rotateX: 0,
         rotateY: 0,
-        y: 70,
-        z: 400,
+        y: 45,
+        z: targetZ,
         duration: 1.15,
         ease: 'expo.inOut'
       });
