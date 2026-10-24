@@ -1181,6 +1181,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     }
+
+    // 5. Campus Scrollytelling Scroll-Triggered Reveals
+    const campusReveals = document.querySelectorAll('.campus-reveal');
+    if (campusReveals.length > 0) {
+      if ('IntersectionObserver' in window) {
+        const campusObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              campusObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+        campusReveals.forEach(el => campusObserver.observe(el));
+      } else {
+        campusReveals.forEach(el => el.classList.add('is-revealed'));
+      }
+    }
   }
 
   // ==========================================================================
