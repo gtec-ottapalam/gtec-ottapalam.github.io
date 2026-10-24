@@ -941,10 +941,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. Act 1: Hero Device Scale on Scroll
-    const laptopFrame = document.querySelector('.laptop-frame');
+    const laptopStage = document.querySelector('.laptop-stage-wrapper') || document.querySelector('.laptop-frame');
     const heroBackdrop = document.querySelector('.hero-backdrop-typography');
     
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && laptopFrame) {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && laptopStage) {
       gsap.timeline({
         scrollTrigger: {
           trigger: '#hero',
@@ -953,9 +953,9 @@ document.addEventListener('DOMContentLoaded', () => {
           scrub: 1.2
         }
       })
-      .to(laptopFrame, {
-        scale: 1.05,
-        y: 40,
+      .to(laptopStage, {
+        scale: 1.03,
+        y: 35,
         ease: 'none'
       })
       .to(heroBackdrop, {
@@ -1349,8 +1349,8 @@ document.addEventListener('DOMContentLoaded', () => {
         rotateX: 18, 
         rotateY: -3, 
         rotateZ: 0, 
-        scale: 0.92,
-        y: 15,
+        scale: 0.98,
+        y: 12,
         z: 0,
         opacity: 1
       });
@@ -1373,7 +1373,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // SCENE 1 — CAMERA APPROACH (0.0s - 0.7s)
       introTL.to(laptopRig, {
         scale: 1.0,
-        y: 10,
+        y: 8,
         duration: 0.7,
         ease: 'power1.out'
       });
@@ -1441,13 +1441,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // SCENE 4 — TRANSFORM INTO THE REAL HERO (2.85s - 4.0s)
       // 1. Camera moves into display: scale expands screen to fill viewport
-      const targetScale = window.innerWidth < 768 ? 4.8 : 4.2;
-      const targetZ = window.innerWidth < 768 ? 260 : 340;
+      const targetScale = window.innerWidth < 768 ? 4.6 : (window.innerWidth < 1440 ? 3.3 : 3.1);
+      const targetZ = window.innerWidth < 768 ? 240 : 300;
       introTL.to(laptopRig, {
         scale: targetScale,
         rotateX: 0,
         rotateY: 0,
-        y: 45,
+        y: 40,
         z: targetZ,
         duration: 1.15,
         ease: 'expo.inOut'

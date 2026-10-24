@@ -442,6 +442,9 @@
       
       <!-- LAPTOP / MODERN DEVICE STAGE MOCKUP -->
       <div class="laptop-stage-wrapper">
+        <!-- Ambient Cinematic Backlight (Soft studio illumination behind display) -->
+        <div class="laptop-stage-backlight" aria-hidden="true"></div>
+
         <div class="laptop-frame">
           <!-- Web Camera Notch -->
           <div class="laptop-notch">
@@ -470,6 +473,18 @@
             <div class="hero-light-point hero-particle-1" aria-hidden="true"></div>
             <div class="hero-light-point hero-particle-2" aria-hidden="true"></div>
             <div class="hero-light-point hero-particle-3" aria-hidden="true"></div>
+
+            <!-- Ambient Yellow Graphic Accents (Inspired by Behance Design) -->
+            <div class="hero-accent-star-left" aria-hidden="true">
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-[#FACC15] opacity-75" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14 9L23 7L17 14L22 22L13 18L10 24L7 16L0 17L5 11L1 4L9 6L12 0Z"/>
+              </svg>
+            </div>
+            <div class="hero-accent-star-right" aria-hidden="true">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#FACC15] opacity-80" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+              </svg>
+            </div>
 
             <!-- Inside Screen Top Nav Bar (Secondary Navigation) -->
             <div class="relative z-20 flex items-center justify-between pb-2 sm:pb-2.5 border-b border-white/15">
@@ -557,10 +572,10 @@
             </div>
 
             <!-- Central Student Character & Floating Glassmorphic Cards (Positioned gracefully across bottom) -->
-            <div class="relative z-20 mt-2 sm:mt-3 w-full flex items-end justify-center min-h-[140px] sm:min-h-[165px] md:min-h-[185px] lg:min-h-[210px]">
+            <div class="relative z-20 mt-2 sm:mt-3 w-full flex items-end justify-center min-h-[145px] sm:min-h-[170px] md:min-h-[195px] lg:min-h-[220px]">
               
               <!-- Floating Card Left: 4.9 ★ (662 reviews) Verified Google Rating for Ottapalam -->
-              <div id="hero-card-left" class="floating-card-left hero-glass-card p-2.5 sm:p-3 md:p-3.5 w-52 sm:w-60 md:w-68 lg:w-76 absolute left-2 sm:left-4 md:left-6 lg:left-8 bottom-1 sm:bottom-2 z-30 hidden sm:block">
+              <div id="hero-card-left" class="floating-card-left hero-glass-card p-2.5 sm:p-3 md:p-3.5 w-54 sm:w-62 md:w-70 lg:w-78 absolute left-2 sm:left-4 md:left-6 lg:left-8 xl:left-12 bottom-1 sm:bottom-2 z-30 hidden sm:block">
                 <div class="flex items-center justify-between gap-1.5 mb-1">
                   <div class="flex items-center gap-1.5">
                     <span class="text-lg sm:text-xl md:text-2xl font-black text-[#0F172A] leading-none">4.9</span>
@@ -585,7 +600,7 @@
               <!-- Center Graphic: Real G-TEC Ottapalam Students Learning -->
               <div id="hero-student-photo" class="relative z-10 flex items-end justify-center">
                 <!-- Circular student highlight ring with real campus photo -->
-                <div class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-60 xl:h-60 rounded-full overflow-hidden border-3 sm:border-4 border-white/85 shadow-2xl relative z-10 bg-gradient-to-t from-blue-900/60 to-transparent">
+                <div class="w-34 h-34 sm:w-42 sm:h-42 md:w-50 md:h-50 lg:w-58 lg:h-58 xl:w-64 xl:h-64 rounded-full overflow-hidden border-3 sm:border-4 border-white/90 shadow-2xl relative z-10 bg-gradient-to-t from-blue-900/60 to-transparent">
                   <img 
                     src="assets/real-photos/students-learning.jpg" 
                     alt="G-TEC Ottapalam Real Students in Training" 
@@ -595,7 +610,7 @@
               </div>
 
               <!-- Floating Card Right: 1,000+ Learners & Avatars -->
-              <div id="hero-card-right" class="floating-card-right hero-glass-card p-2.5 sm:p-3 md:p-3.5 w-52 sm:w-60 md:w-68 lg:w-76 absolute right-2 sm:right-4 md:right-6 lg:right-8 bottom-1 sm:bottom-2 z-30 hidden sm:block">
+              <div id="hero-card-right" class="floating-card-right hero-glass-card p-2.5 sm:p-3 md:p-3.5 w-54 sm:w-62 md:w-70 lg:w-78 absolute right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 bottom-1 sm:bottom-2 z-30 hidden sm:block">
                 <!-- Avatar Stack -->
                 <div class="flex items-center justify-between mb-1">
                   <div class="flex items-center -space-x-1.5">
@@ -650,6 +665,7 @@
 
         <!-- Laptop Bottom Metal Base with Realistic 3D Chamfer & Trackpad Notch -->
         <div class="laptop-base">
+          <div class="laptop-hinge-slot"></div>
           <div class="laptop-deck-seam"></div>
           <div class="laptop-thumb-notch"></div>
         </div>
