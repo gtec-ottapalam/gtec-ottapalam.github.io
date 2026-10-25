@@ -277,6 +277,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #mobile-menu-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  width: 320px;
+  max-width: 85vw;
+  z-index: 950;
   box-shadow: -12px 0 40px rgba(11, 18, 32, 0.22);
 }
 
