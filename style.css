@@ -85,6 +85,15 @@
   --shadow-card-hover: 0 18px 36px -8px rgba(15, 23, 42, 0.1), 0 6px 14px -3px rgba(29, 78, 216, 0.08);
   --shadow-blue-glow: 0 10px 25px -4px rgba(29, 78, 216, 0.35);
   --shadow-yellow-glow: 0 8px 24px -4px rgba(250, 204, 21, 0.35);
+
+  /* Motion Design Tokens (Cinematic System) */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-instant: 150ms;
+  --dur-quick: 240ms;
+  --dur-normal: 350ms;
+  --dur-cinematic: 650ms;
 }
 
 html {
@@ -1648,13 +1657,14 @@ select.form-glass-input {
   inset: 0;
   z-index: 99999;
   background: radial-gradient(circle at 50% 45%, #F4F8FD 0%, #E5EFFC 60%, #D4E3F7 100%);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   perspective: 1400px;
   perspective-origin: 50% 48%;
-  opacity: 1;
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.5s ease-out;
 }
 
@@ -2207,5 +2217,329 @@ html.intro-skip #cinematic-intro-stage,
 .campus-editorial-frame:hover img {
   transform: scale(1.04);
 }
+
+/* ==========================================================================
+   CINEMATIC ANIMATION SYSTEM (ARMOR-BD INSPIRED MOTION ARCHITECTURE)
+   Cohesive, 60fps GPU-Accelerated Motion Language
+   ========================================================================== */
+
+/* 1. VIEWPORT SCROLL REVEALS */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity var(--dur-cinematic) var(--ease-cinematic), 
+              transform var(--dur-cinematic) var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 75ms; }
+.reveal-delay-2 { transition-delay: 150ms; }
+.reveal-delay-3 { transition-delay: 225ms; }
+.reveal-delay-4 { transition-delay: 300ms; }
+
+/* 2. SIGNATURE PINNED CAREER JOURNEY SCROLLYTELLING */
+#career-journey-scrolly {
+  background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 45%, #0E2A78 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-ambient-glow-1 {
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.journey-ambient-glow-2 {
+  position: absolute;
+  bottom: -120px;
+  right: -120px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.journey-pinned-stage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 0;
+  box-sizing: border-box;
+}
+
+@media (min-height: 850px) {
+  .journey-pinned-stage {
+    min-height: 85vh;
+  }
+}
+
+.journey-milestone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.25s var(--ease-cinematic);
+}
+
+.journey-milestone-pill:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.journey-milestone-pill.active {
+  color: #0B1220;
+  background: #FACC15;
+  border-color: #FDE047;
+  box-shadow: 0 4px 14px -2px rgba(250, 204, 21, 0.45);
+}
+
+.journey-milestone-pill .milestone-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.journey-progress-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.journey-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #FACC15 0%, #FDE047 50%, #FACC15 100%);
+  border-radius: 9999px;
+  transition: width 0.12s linear;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.55);
+}
+
+.journey-deck-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+}
+
+@media (min-width: 1024px) {
+  .journey-deck-wrapper {
+    min-height: 500px;
+  }
+}
+
+.journey-deck-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  padding: 2.25rem;
+  box-sizing: border-box;
+  color: #0F172A;
+  transition: transform 0.4s var(--ease-cinematic), opacity 0.4s var(--ease-cinematic);
+  will-change: transform, opacity;
+}
+
+@media (min-width: 1024px) {
+  .journey-deck-card {
+    padding: 3rem;
+  }
+}
+
+.journey-media-frame {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px -6px rgba(15, 23, 42, 0.22);
+}
+
+@media (min-width: 640px) {
+  .journey-media-frame {
+    height: 360px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .journey-media-frame {
+    height: 400px;
+  }
+}
+
+.journey-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+.journey-deck-card:hover .journey-media-frame img {
+  transform: scale(1.03);
+}
+
+/* 3. REFINED MICRO-INTERACTIONS */
+/* Buttons */
+.btn-accent-yellow {
+  transition: transform 0.2s var(--ease-cinematic), 
+              background-color 0.2s ease, 
+              box-shadow 0.2s var(--ease-cinematic);
+}
+
+.btn-accent-yellow:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 20px -3px rgba(250, 204, 21, 0.4);
+}
+
+.btn-accent-yellow:active {
+  transform: scale(0.98);
+}
+
+.btn-accent-yellow svg,
+.btn-accent-yellow i {
+  transition: transform 0.25s var(--ease-cinematic);
+}
+
+.btn-accent-yellow:hover svg,
+.btn-accent-yellow:hover i {
+  transform: translateX(3px);
+}
+
+/* Form Inputs */
+input:focus, select:focus, textarea:focus {
+  border-color: #1D4ED8 !important;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* Course Card Dynamic Entrance & Refined Hover */
+@keyframes cardRevealEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.course-card {
+  animation: cardRevealEnter 0.35s var(--ease-cinematic) forwards;
+  transition: transform 0.28s var(--ease-cinematic), 
+              box-shadow 0.28s var(--ease-cinematic), 
+              border-color 0.25s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  border-color: #BFDBFE;
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(29, 78, 216, 0.05);
+}
+
+/* Program Cards Hover */
+.program-preview-card {
+  transition: transform 0.28s var(--ease-cinematic), 
+              box-shadow 0.28s var(--ease-cinematic), 
+              border-color 0.25s ease;
+}
+
+.program-preview-card:hover {
+  transform: translateY(-4px);
+  border-color: #BFDBFE;
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(29, 78, 216, 0.05);
+}
+
+/* Floating WhatsApp Button Restrained Micro-Interaction */
+#floating-whatsapp-btn {
+  transition: transform 0.25s var(--ease-cinematic), box-shadow 0.25s var(--ease-cinematic);
+}
+
+#floating-whatsapp-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 28px -4px rgba(22, 163, 74, 0.45);
+}
+
+#floating-whatsapp-btn:active {
+  transform: scale(0.96);
+}
+
+/* 4. ACCESSIBILITY & PREFERS-REDUCED-MOTION OVERRIDES */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .journey-pinned-stage {
+    min-height: auto !important;
+    padding: 3rem 0 !important;
+  }
+
+  .journey-deck-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    min-height: auto !important;
+  }
+
+  .journey-deck-card {
+    position: relative !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  .course-card, 
+  .course-card:hover, 
+  .course-card .card-thumb-img,
+  .program-preview-card,
+  .program-preview-card:hover {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 
 

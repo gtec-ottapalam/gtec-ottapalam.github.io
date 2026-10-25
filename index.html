@@ -675,7 +675,7 @@
       <div class="grid grid-cols-1 min-[440px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         
         <!-- Stat 1: 25+ Years of Excellence -->
-        <div class="stat-box group">
+        <div class="stat-box group reveal-on-scroll reveal-delay-1">
           <div class="stat-box-content">
             <div class="stat-card-header">
               <div class="stat-icon-wrap">
@@ -693,7 +693,7 @@
         </div>
 
         <!-- Stat 2: 4.9 Google Rating -->
-        <div class="stat-box group">
+        <div class="stat-box group reveal-on-scroll reveal-delay-2">
           <div class="stat-box-content">
             <div class="stat-card-header">
               <div class="stat-icon-wrap">
@@ -713,7 +713,7 @@
         </div>
 
         <!-- Stat 3: 24+ Specialized Courses -->
-        <div class="stat-box group">
+        <div class="stat-box group reveal-on-scroll reveal-delay-3">
           <div class="stat-box-content">
             <div class="stat-card-header">
               <div class="stat-icon-wrap">
@@ -731,7 +731,7 @@
         </div>
 
         <!-- Stat 4: 100% Placement Support -->
-        <div class="stat-box group">
+        <div class="stat-box group reveal-on-scroll reveal-delay-4">
           <div class="stat-box-content">
             <div class="stat-card-header">
               <div class="stat-icon-wrap">
@@ -746,6 +746,285 @@
             <h4 class="stat-title">Placement Support</h4>
           </div>
           <p class="stat-desc">Dedicated career cell &amp; interview mockups</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SIGNATURE PINNED CAREER JOURNEY SCROLLYTELLING
+       Signature Experience Inspired by armor-bd.com (Phase 4)
+       ========================================================================== -->
+  <section id="career-journey-scrolly" class="relative text-white overflow-hidden" style="background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 45%, #0E2A78 100%);">
+    
+    <!-- Ambient Depth Lighting Glows -->
+    <div class="journey-ambient-glow-1" aria-hidden="true"></div>
+    <div class="journey-ambient-glow-2" aria-hidden="true"></div>
+
+    <!-- Pinned Content Wrapper -->
+    <div class="journey-pinned-stage">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+
+        <!-- Top Header & Scrubbed Timeline Progress -->
+        <div class="mb-8 lg:mb-10">
+          <div class="flex items-center justify-between gap-4 mb-3.5">
+            <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#FACC15] bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-ping"></span>
+              <span>Interactive Career Journey</span>
+            </span>
+
+            <!-- Step Indicator -->
+            <div class="flex items-center gap-2 text-xs font-mono font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full shadow-xs">
+              <span class="text-blue-200">Phase</span>
+              <span id="journey-active-counter" class="text-[#FACC15] text-base font-black">01</span>
+              <span class="text-white/40">/</span>
+              <span>03</span>
+            </div>
+          </div>
+
+          <!-- Headline and Milestone Selector -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12]">
+                Your Transformation at G-TEC Ottapalam
+              </h2>
+              <p class="text-blue-100 text-xs sm:text-sm md:text-base mt-2 font-normal max-w-2xl leading-relaxed">
+                Scroll to discover each milestone from your initial assessment to validated credentials and local career placement.
+              </p>
+            </div>
+
+            <!-- Milestone Tabs (Desktop Jump Buttons) -->
+            <div class="hidden md:flex items-center gap-2" id="journey-milestone-pills" role="tablist" aria-label="Career Journey Milestones">
+              <button type="button" class="journey-milestone-pill active" data-phase-index="0" role="tab" aria-selected="true" aria-label="Phase 01: Orientation">
+                <span class="milestone-dot"></span>
+                <span>01. Orientation</span>
+              </button>
+              <button type="button" class="journey-milestone-pill" data-phase-index="1" role="tab" aria-selected="false" aria-label="Phase 02: Lab Mastery">
+                <span class="milestone-dot"></span>
+                <span>02. Lab Mastery</span>
+              </button>
+              <button type="button" class="journey-milestone-pill" data-phase-index="2" role="tab" aria-selected="false" aria-label="Phase 03: Placement">
+                <span class="milestone-dot"></span>
+                <span>03. Placement</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Connecting Timeline Track (Fills smoothly with scroll scrub) -->
+          <div class="journey-progress-track mt-6" aria-hidden="true">
+            <div id="journey-progress-bar" class="journey-progress-fill" style="width: 33.33%;"></div>
+          </div>
+        </div>
+
+        <!-- DESKTOP PINNED DECK (Stacked Phase Cards for Smooth Cross-Fading) -->
+        <div class="journey-deck-wrapper hidden md:block">
+          
+          <!-- Card 1: Phase 01 -->
+          <div id="journey-card-1" class="journey-deck-card" style="opacity: 1; transform: translateY(0px) scale(1); pointer-events: auto;">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div class="lg:col-span-6 flex flex-col justify-center">
+                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
+                  Phase 01 &bull; Personal Roadmap &amp; Orientation
+                </span>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
+                  Zero Tech Experience? We Build You From the Ground Up.
+                </h3>
+                <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
+                  Walk into our JRJ Complex Ottapalam centre for free 1:1 career guidance. Our senior mentors map out the exact curriculum and personalized learning roadmap tailored to your educational background and career goals.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Individual Assessment</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Flexible Timings</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Zero-Prerequisite Friendly</span>
+                </div>
+                <div>
+                  <button type="button" class="trigger-enquiry-modal btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs cursor-pointer flex items-center gap-2">
+                    <span>Book Free Counselling Session</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-[#0F172A]"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="lg:col-span-6">
+                <div class="journey-media-frame">
+                  <img src="assets/real-photos/reception-lounge.jpg" alt="Reception and Career Counselling Lounge at G-TEC Ottapalam" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-6">
+                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                      📍 Reception &amp; Career Counselling Lounge, JRJ Complex
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Phase 02 -->
+          <div id="journey-card-2" class="journey-deck-card" style="opacity: 0; transform: translateY(24px) scale(0.98); pointer-events: none;">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div class="lg:col-span-6 flex flex-col justify-center">
+                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
+                  Phase 02 &bull; 100% Practical Lab Mastery
+                </span>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
+                  No Boring Theory. You Learn By Actually Building.
+                </h3>
+                <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
+                  Work on dedicated, high-speed workstations with real-world scenarios: file live GST returns, manage real SAP ERP ledgers, code interactive web applications, and model 3D CAD blueprints with certified faculty assisting you at every desk.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">1:1 Workstation Ratio</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Daily Doubt Clearing</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Industry Software Stacks</span>
+                </div>
+                <div>
+                  <a href="courses.html" class="btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs inline-flex items-center gap-2">
+                    <span>Explore 24 Specialized Courses</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 text-[#0F172A]"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-6">
+                <div class="journey-media-frame">
+                  <img src="assets/real-photos/students-coding-lab.jpg" alt="Active Software Lab at G-TEC Ottapalam" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-6">
+                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                      💻 1:1 Hands-On Software &amp; Coding Lab in Action
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Phase 03 -->
+          <div id="journey-card-3" class="journey-deck-card" style="opacity: 0; transform: translateY(24px) scale(0.98); pointer-events: none;">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div class="lg:col-span-6 flex flex-col justify-center">
+                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
+                  Phase 03 &bull; Recognized Certification &amp; Local Placement
+                </span>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
+                  Graduate with Recognized Credentials &amp; Job Placement in Palakkad District.
+                </h3>
+                <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
+                  Receive government and recognized certificates verifiable online via QR codes and GEMs portal. Our dedicated placement wing conducts resume reviews, mock interviews, and provides placement assistance connecting you to reputed firms and local businesses across Palakkad district.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">NSDC / ISO 9001:2015</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Mock Technical Rounds</span>
+                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Palakkad District Placement Support</span>
+                </div>
+                <div>
+                  <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs inline-flex items-center gap-2">
+                    <span>Verify G-TEC Certificate Online ↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="lg:col-span-6">
+                <div class="journey-media-frame">
+                  <img src="assets/real-photos/training-lab-wide.jpg" alt="Training Lab and Placement at G-TEC Ottapalam" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-6">
+                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                      🏆 Air-Conditioned Training Lab &amp; Placement Wing
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MOBILE ACCESSIBLE TOUCH SWIPE CAROUSEL (Visible on < 768px, No Scroll-Jacking) -->
+        <div class="journey-mobile-wrapper md:hidden">
+          <div id="journey-mobile-track" class="journey-carousel-track">
+            
+            <!-- Mobile Slide 1 -->
+            <div class="journey-slide-card p-6">
+              <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#1D4ED8] animate-ping"></span>
+                Phase 01 &bull; Personal Roadmap
+              </span>
+              <h3 class="text-xl font-black text-[#0F172A] leading-snug mb-3">
+                Zero Tech Experience? We Build You From the Ground Up.
+              </h3>
+              <p class="text-xs text-[#475569] leading-relaxed mb-4">
+                Free 1:1 career guidance at JRJ Complex Ottapalam mapping out a personalized training roadmap.
+              </p>
+              <div class="journey-media-frame mb-4" style="height: 220px;">
+                <img src="assets/real-photos/reception-lounge.jpg" alt="Reception & Counselling Lounge" loading="lazy">
+              </div>
+              <button type="button" class="trigger-enquiry-modal btn-accent-yellow w-full text-xs font-black py-2.5 shadow-xs justify-center flex items-center gap-2 cursor-pointer">
+                <span>Book Free Counselling Session</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#0F172A]"></i>
+              </button>
+            </div>
+
+            <!-- Mobile Slide 2 -->
+            <div class="journey-slide-card p-6">
+              <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#1D4ED8] animate-ping"></span>
+                Phase 02 &bull; 100% Lab Mastery
+              </span>
+              <h3 class="text-xl font-black text-[#0F172A] leading-snug mb-3">
+                No Boring Theory. You Learn By Actually Building.
+              </h3>
+              <p class="text-xs text-[#475569] leading-relaxed mb-4">
+                Dedicated workstations with live GST filing, SAP ERP ledgers, interactive web coding, and 3D CAD modeling.
+              </p>
+              <div class="journey-media-frame mb-4" style="height: 220px;">
+                <img src="assets/real-photos/students-coding-lab.jpg" alt="1:1 Hands-On Software Lab" loading="lazy">
+              </div>
+              <a href="courses.html" class="btn-accent-yellow w-full text-xs font-black py-2.5 shadow-xs justify-center flex items-center gap-2">
+                <span>Explore 24 Courses</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#0F172A]"></i>
+              </a>
+            </div>
+
+            <!-- Mobile Slide 3 -->
+            <div class="journey-slide-card p-6">
+              <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#1D4ED8] animate-ping"></span>
+                Phase 03 &bull; Placement Support
+              </span>
+              <h3 class="text-xl font-black text-[#0F172A] leading-snug mb-3">
+                Recognized Credentials &amp; Palakkad District Placement.
+              </h3>
+              <p class="text-xs text-[#475569] leading-relaxed mb-4">
+                Verifiable online certificates with mock interviews, resume polishing, and placement connections in Palakkad district.
+              </p>
+              <div class="journey-media-frame mb-4" style="height: 220px;">
+                <img src="assets/real-photos/training-lab-wide.jpg" alt="Training Lab and Placement Wing" loading="lazy">
+              </div>
+              <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="btn-accent-yellow w-full text-xs font-black py-2.5 shadow-xs justify-center flex items-center gap-2">
+                <span>Verify Certificate Online ↗</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Mobile Controls: Progress Dots & Arrows -->
+          <div class="flex items-center justify-between mt-4">
+            <div class="flex items-center gap-2" id="journey-mobile-dots">
+              <button type="button" class="w-7 h-2 rounded-full bg-[#FACC15] transition-all" aria-label="Go to phase 1"></button>
+              <button type="button" class="w-2 h-2 rounded-full bg-white/40 transition-all" aria-label="Go to phase 2"></button>
+              <button type="button" class="w-2 h-2 rounded-full bg-white/40 transition-all" aria-label="Go to phase 3"></button>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" id="journey-mobile-prev" class="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white border border-white/25 flex items-center justify-center transition-all cursor-pointer disabled:opacity-30 disabled:pointer-events-none" aria-label="Previous Slide">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button type="button" id="journey-mobile-next" class="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 text-white border border-white/25 flex items-center justify-center transition-all cursor-pointer disabled:opacity-30 disabled:pointer-events-none" aria-label="Next Slide">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -777,7 +1056,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10">
         
         <!-- Pillar 1 -->
-        <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 sm:p-7 hover:border-[#BFDBFE] hover:shadow-md transition-all">
+        <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 sm:p-7 hover:border-[#BFDBFE] hover:shadow-md transition-all reveal-on-scroll reveal-delay-1">
           <div class="w-12 h-12 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center mb-5">
             <i data-lucide="laptop" class="w-6 h-6"></i>
           </div>
@@ -788,7 +1067,7 @@
         </div>
 
         <!-- Pillar 2 -->
-        <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 sm:p-7 hover:border-[#BFDBFE] hover:shadow-md transition-all">
+        <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 sm:p-7 hover:border-[#BFDBFE] hover:shadow-md transition-all reveal-on-scroll reveal-delay-2">
           <div class="w-12 h-12 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center mb-5">
             <i data-lucide="award" class="w-6 h-6"></i>
           </div>
@@ -799,7 +1078,7 @@
         </div>
 
         <!-- Pillar 3 -->
-        <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 sm:p-7 hover:border-[#BFDBFE] hover:shadow-md transition-all">
+        <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 sm:p-7 hover:border-[#BFDBFE] hover:shadow-md transition-all reveal-on-scroll reveal-delay-3">
           <div class="w-12 h-12 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] flex items-center justify-center mb-5">
             <i data-lucide="briefcase" class="w-6 h-6"></i>
           </div>
@@ -861,7 +1140,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         
         <!-- Track 1: Software & AI -->
-        <div class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group">
+        <div class="program-preview-card bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group reveal-on-scroll reveal-delay-1">
           <div>
             <div class="relative h-44 overflow-hidden bg-slate-100">
               <img src="assets/cat-software.webp" alt="Software Development &amp; AI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -892,7 +1171,7 @@
         </div>
 
         <!-- Track 2: Corporate Accounting & SAP -->
-        <div class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group">
+        <div class="program-preview-card bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group reveal-on-scroll reveal-delay-2">
           <div>
             <div class="relative h-44 overflow-hidden bg-slate-100">
               <img src="assets/cat-finance.webp" alt="Corporate Accounting &amp; SAP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -923,7 +1202,7 @@
         </div>
 
         <!-- Track 3: Multimedia & Visual Arts -->
-        <div class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group">
+        <div class="program-preview-card bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group reveal-on-scroll reveal-delay-3">
           <div>
             <div class="relative h-44 overflow-hidden bg-slate-100">
               <img src="assets/cat-multimedia.webp" alt="Multimedia &amp; Visual Arts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
@@ -954,7 +1233,7 @@
         </div>
 
         <!-- Track 4: CAD & Engineering Design -->
-        <div class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group">
+        <div class="program-preview-card bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-lg transition-all flex flex-col justify-between group reveal-on-scroll reveal-delay-4">
           <div>
             <div class="relative h-44 overflow-hidden bg-slate-100">
               <img src="assets/cat-cad.webp" alt="CAD &amp; Engineering Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">

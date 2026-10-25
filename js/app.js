@@ -903,46 +903,269 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Animated Numbers Counter on Scroll
-  const statNumbers = document.querySelectorAll('.counter-number');
-  let animatedStats = false;
+  // ==========================================================================
+  // PHASE 5: AUTHENTIC STATISTICS NUMERICAL COUNT-UP ENGINE
+  // ==========================================================================
+  function initAnimatedCounters() {
+    const statNumbers = document.querySelectorAll('.counter-number');
+    if (statNumbers.length === 0) return;
 
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !animatedStats) {
-        animatedStats = true;
-        statNumbers.forEach(counter => {
-          const target = parseFloat(counter.getAttribute('data-target'));
-          const isDecimal = target % 1 !== 0;
-          const duration = 2000;
-          const start = 0;
-          const startTime = performance.now();
+    const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-          const updateNumber = (now) => {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const easeOut = 1 - Math.pow(1 - progress, 3);
-            const current = start + (target - start) * easeOut;
+    // Respect user's preference for reduced motion: render targets instantly
+    if (isReduced) {
+      statNumbers.forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const isDecimal = target % 1 !== 0;
+        counter.textContent = isDecimal ? target.toFixed(1) : target;
+      });
+      return;
+    }
 
-            counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+    let animatedStats = false;
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animatedStats) {
+          animatedStats = true;
+          statNumbers.forEach((counter, idx) => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const isDecimal = target % 1 !== 0;
+            const duration = 1250;
+            const start = 0;
+            const startTime = performance.now();
 
-            if (progress < 1) {
+            const updateNumber = (now) => {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease Out Expo: snappy initial count, athletic deceleration
+              const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+              const current = start + (target - start) * easeOut;
+
+              counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+
+              if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+              } else {
+                counter.textContent = isDecimal ? target.toFixed(1) : target;
+              }
+            };
+
+            setTimeout(() => {
               requestAnimationFrame(updateNumber);
-            } else {
-              counter.textContent = target;
-            }
-          };
+            }, idx * 70);
+          });
+          countObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
 
-          requestAnimationFrame(updateNumber);
+    const statsSection = document.getElementById('stats-section');
+    if (statsSection) {
+      countObserver.observe(statsSection);
+    } else {
+      statNumbers.forEach(el => countObserver.observe(el));
+    }
+  }
+
+  // ==========================================================================
+  // PHASE 3: HERO SECTION CINEMATIC ENTRANCE SEQUENCE
+  // ==========================================================================
+  function initHeroEntranceSequence() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    const headline = document.getElementById('hero-headline');
+    const subtitle = document.getElementById('hero-subtitle');
+    const searchPill = document.getElementById('hero-search-pill');
+    const studentPhoto = document.getElementById('hero-student-photo');
+    const cardLeft = document.getElementById('hero-card-left');
+    const cardRight = document.getElementById('hero-card-right');
+    const laptopStage = document.querySelector('.laptop-stage-wrapper') || document.querySelector('.laptop-frame');
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    if (typeof gsap !== 'undefined') {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      if (laptopStage) {
+        tl.fromTo(laptopStage, { scale: 0.98, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.75 });
+      }
+      if (headline) {
+        tl.fromTo(headline, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65 }, '-=0.5');
+      }
+      if (subtitle) {
+        tl.fromTo(subtitle, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 }, '-=0.45');
+      }
+      if (searchPill) {
+        tl.fromTo(searchPill, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 }, '-=0.4');
+      }
+      if (studentPhoto) {
+        tl.fromTo(studentPhoto, { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.65, ease: 'back.out(1.2)' }, '-=0.35');
+      }
+      if (cardLeft && cardRight) {
+        tl.fromTo(cardLeft, { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6 }, '-=0.4')
+          .fromTo(cardRight, { x: 24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6 }, '-=0.5');
+      }
+    }
+  }
+
+  // ==========================================================================
+  // PHASE 4: SIGNATURE PINNED CAREER JOURNEY SCROLLYTELLING
+  // Inspired by armor-bd.com pinned scrubbed timeline
+  // ==========================================================================
+  function initCareerJourneyScrolly() {
+    const section = document.getElementById('career-journey-scrolly');
+    if (!section) return;
+
+    const cards = [
+      document.getElementById('journey-card-1'),
+      document.getElementById('journey-card-2'),
+      document.getElementById('journey-card-3')
+    ];
+    const progressBar = document.getElementById('journey-progress-bar');
+    const counter = document.getElementById('journey-active-counter');
+    const pills = document.querySelectorAll('.journey-milestone-pill');
+
+    const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
+
+    // Mobile Accessible Touch Carousel (< 768px, No Scroll-Jacking)
+    const mobileTrack = document.getElementById('journey-mobile-track');
+    const mobilePrev = document.getElementById('journey-mobile-prev');
+    const mobileNext = document.getElementById('journey-mobile-next');
+    const mobileDots = document.querySelectorAll('#journey-mobile-dots button');
+
+    if (mobileTrack) {
+      const updateMobileUI = (idx) => {
+        mobileDots.forEach((d, i) => {
+          d.className = i === idx ? 'w-7 h-2 rounded-full bg-[#FACC15] transition-all' : 'w-2 h-2 rounded-full bg-white/40 transition-all';
+        });
+        if (mobilePrev) mobilePrev.disabled = idx === 0;
+        if (mobileNext) mobileNext.disabled = idx === 2;
+      };
+
+      const getMobileIdx = () => {
+        const sw = mobileTrack.clientWidth;
+        if (!sw) return 0;
+        return Math.min(2, Math.max(0, Math.round(mobileTrack.scrollLeft / sw)));
+      };
+
+      if (mobilePrev) {
+        mobilePrev.addEventListener('click', () => {
+          const cur = getMobileIdx();
+          if (cur > 0) mobileTrack.scrollTo({ left: (cur - 1) * mobileTrack.clientWidth, behavior: 'smooth' });
         });
       }
-    });
-  }, { threshold: 0.3 });
+      if (mobileNext) {
+        mobileNext.addEventListener('click', () => {
+          const cur = getMobileIdx();
+          if (cur < 2) mobileTrack.scrollTo({ left: (cur + 1) * mobileTrack.clientWidth, behavior: 'smooth' });
+        });
+      }
+      mobileDots.forEach((d, idx) => {
+        d.addEventListener('click', () => {
+          mobileTrack.scrollTo({ left: idx * mobileTrack.clientWidth, behavior: 'smooth' });
+        });
+      });
+      let mobileScrollTimer;
+      mobileTrack.addEventListener('scroll', () => {
+        clearTimeout(mobileScrollTimer);
+        mobileScrollTimer = setTimeout(() => {
+          updateMobileUI(getMobileIdx());
+        }, 30);
+      }, { passive: true });
+      updateMobileUI(0);
+    }
 
-  const statsSection = document.getElementById('stats-section');
-  if (statsSection) {
-    countObserver.observe(statsSection);
+    // Desktop Pinned Scrollytelling (>= 768px) with GSAP ScrollTrigger
+    if (!isMobile && !isReduced && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && cards[0] && cards[1] && cards[2]) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Clean initial states
+      gsap.set(cards[0], { opacity: 1, y: 0, scale: 1, pointerEvents: 'auto' });
+      gsap.set(cards[1], { opacity: 0, y: 24, scale: 0.98, pointerEvents: 'none' });
+      gsap.set(cards[2], { opacity: 0, y: 24, scale: 0.98, pointerEvents: 'none' });
+
+      // Scrubbed timeline pinned to section
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=1500',
+          pin: true,
+          scrub: 0.5,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const p = self.progress;
+            if (progressBar) {
+              progressBar.style.width = Math.max(15, Math.min(100, Math.round(p * 100))) + '%';
+            }
+            let activeIndex = 0;
+            if (p >= 0.65) activeIndex = 2;
+            else if (p >= 0.32) activeIndex = 1;
+
+            if (counter) counter.textContent = '0' + (activeIndex + 1);
+            pills.forEach((pill, idx) => {
+              pill.classList.toggle('active', idx === activeIndex);
+              pill.setAttribute('aria-selected', idx === activeIndex ? 'true' : 'false');
+            });
+          }
+        }
+      });
+
+      // Stage 1 -> Stage 2
+      tl.to(cards[0], { opacity: 0, y: -20, scale: 0.98, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'none' }, 0.5)
+        .to(cards[1], { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'auto' }, 0.7)
+      // Stage 2 -> Stage 3
+        .to(cards[1], { opacity: 0, y: -20, scale: 0.98, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'none' }, 1.7)
+        .to(cards[2], { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'auto' }, 1.9)
+        .to({}, { duration: 0.4 }); // Gentle hold before release
+
+      // Milestone tabs click jump
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const targetPhase = parseInt(pill.getAttribute('data-phase-index'), 10);
+          const st = tl.scrollTrigger;
+          if (!st) return;
+          const targetProgress = targetPhase === 0 ? 0.05 : (targetPhase === 1 ? 0.45 : 0.85);
+          const targetScroll = st.start + targetProgress * (st.end - st.start);
+          window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+        });
+      });
+    }
+  }
+
+  // ==========================================================================
+  // PHASE 7: UNIFIED SCROLL REVEALS ENGINE
+  // ==========================================================================
+  function initScrollReveals() {
+    const reveals = document.querySelectorAll('.reveal-on-scroll, .campus-reveal');
+    if (reveals.length === 0) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      reveals.forEach(el => el.classList.add('is-revealed'));
+      return;
+    }
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('is-revealed'));
+    }
   }
 
   // ==========================================================================
@@ -956,7 +1179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof Lenis !== 'undefined') {
       try {
         lenis = new Lenis({
-          duration: 1.2,
+          duration: 1.1,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           orientation: 'vertical',
           smoothWheel: true,
@@ -979,7 +1202,7 @@ document.addEventListener('DOMContentLoaded', () => {
           requestAnimationFrame(raf);
         }
       } catch (err) {
-        console.warn('Lenis initialization notice:', err);
+        console.warn('Lenis notice:', err);
       }
     }
 
@@ -1016,7 +1239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animateCursor);
     }
 
-    // 4. Act 1: Hero Device Scale on Scroll
+    // 4. Act 1: Hero Device Subtle Scale on Scroll
     const laptopStage = document.querySelector('.laptop-stage-wrapper') || document.querySelector('.laptop-frame');
     const heroBackdrop = document.querySelector('.hero-backdrop-typography');
     
@@ -1030,174 +1253,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })
       .to(laptopStage, {
-        scale: 1.03,
-        y: 35,
+        scale: 1.02,
+        y: 25,
         ease: 'none'
       })
       .to(heroBackdrop, {
         letterSpacing: '0.22em',
         opacity: 0,
-        y: -60,
+        y: -50,
         ease: 'none'
       }, '<');
     }
 
-    // 5. Act 2: Direct Sideways Scroll Student Transformation Carousel
-    const journeyTrack = document.getElementById('journey-scroll-track');
-    const journeyPrevBtn = document.getElementById('journey-prev-btn');
-    const journeyNextBtn = document.getElementById('journey-next-btn');
-    const stepIndicator = document.getElementById('story-step-indicator');
-    const dots = [
-      document.getElementById('dot-1'),
-      document.getElementById('dot-2'),
-      document.getElementById('dot-3')
-    ];
-
-    if (journeyTrack) {
-      function getActiveSlideIndex() {
-        const scrollLeft = journeyTrack.scrollLeft;
-        const slideWidth = journeyTrack.clientWidth;
-        if (!slideWidth) return 0;
-        return Math.min(2, Math.max(0, Math.round(scrollLeft / slideWidth)));
-      }
-
-      function updateJourneyUI(index) {
-        if (stepIndicator) {
-          stepIndicator.textContent = `0${index + 1}`;
-        }
-
-        dots.forEach((dot, idx) => {
-          if (dot) {
-            if (idx === index) {
-              dot.className = 'w-8 h-2.5 rounded-full bg-amber-300 shadow-md transition-all duration-300 cursor-pointer';
-            } else {
-              dot.className = 'w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300 cursor-pointer';
-            }
-          }
-        });
-
-        if (journeyPrevBtn) {
-          journeyPrevBtn.disabled = index === 0;
-          journeyPrevBtn.style.opacity = index === 0 ? '0.35' : '1';
-        }
-        if (journeyNextBtn) {
-          journeyNextBtn.disabled = index === 2;
-          journeyNextBtn.style.opacity = index === 2 ? '0.35' : '1';
-        }
-      }
-
-      function scrollToSlide(index) {
-        const slideWidth = journeyTrack.clientWidth;
-        journeyTrack.scrollTo({
-          left: index * slideWidth,
-          behavior: 'smooth'
-        });
-      }
-
-      // Prev & Next Buttons
-      if (journeyPrevBtn) {
-        journeyPrevBtn.addEventListener('click', () => {
-          const current = getActiveSlideIndex();
-          if (current > 0) scrollToSlide(current - 1);
-        });
-      }
-
-      if (journeyNextBtn) {
-        journeyNextBtn.addEventListener('click', () => {
-          const current = getActiveSlideIndex();
-          if (current < 2) scrollToSlide(current + 1);
-        });
-      }
-
-      // Dot Click Handlers
-      dots.forEach((dot, idx) => {
-        if (dot) {
-          dot.addEventListener('click', () => {
-            scrollToSlide(idx);
-          });
-        }
-      });
-
-      // Track Scroll Listener
-      let journeyScrollTimer;
-      journeyTrack.addEventListener('scroll', () => {
-        clearTimeout(journeyScrollTimer);
-        journeyScrollTimer = setTimeout(() => {
-          const activeIndex = getActiveSlideIndex();
-          updateJourneyUI(activeIndex);
-        }, 40);
-      }, { passive: true });
-
-      // Mouse drag-to-scroll interaction
-      let isJourneyDown = false;
-      let journeyStartX = 0;
-      let journeyScrollLeft = 0;
-
-      journeyTrack.addEventListener('mousedown', (e) => {
-        isJourneyDown = true;
-        journeyTrack.classList.add('grabbing');
-        journeyStartX = e.pageX - journeyTrack.offsetLeft;
-        journeyScrollLeft = journeyTrack.scrollLeft;
-      });
-
-      journeyTrack.addEventListener('mouseleave', () => {
-        isJourneyDown = false;
-        journeyTrack.classList.remove('grabbing');
-      });
-
-      journeyTrack.addEventListener('mouseup', () => {
-        isJourneyDown = false;
-        journeyTrack.classList.remove('grabbing');
-      });
-
-      journeyTrack.addEventListener('mousemove', (e) => {
-        if (!isJourneyDown) return;
-        e.preventDefault();
-        const x = e.pageX - journeyTrack.offsetLeft;
-        const walk = (x - journeyStartX) * 1.5;
-        journeyTrack.scrollLeft = journeyScrollLeft - walk;
-      });
-
-      // Wheel support: smoothly glide slides when mouse wheeling, but allow vertical escape at ends
-      let isJourneyWheeling = false;
-      journeyTrack.addEventListener('wheel', (e) => {
-        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; // Native horizontal scroll
-        
-        const isAtStart = journeyTrack.scrollLeft <= 10;
-        const isAtEnd = journeyTrack.scrollLeft + journeyTrack.clientWidth >= journeyTrack.scrollWidth - 10;
-        
-        // Let user scroll vertically past section if at boundaries
-        if ((e.deltaY < 0 && isAtStart) || (e.deltaY > 0 && isAtEnd)) {
-          return;
-        }
-
-        e.preventDefault();
-        if (isJourneyWheeling) return;
-        isJourneyWheeling = true;
-
-        const current = getActiveSlideIndex();
-        if (e.deltaY > 0 && current < 2) {
-          scrollToSlide(current + 1);
-        } else if (e.deltaY < 0 && current > 0) {
-          scrollToSlide(current - 1);
-        }
-
-        setTimeout(() => {
-          isJourneyWheeling = false;
-        }, 500);
-      }, { passive: false });
-
-      // Initialize UI state
-      updateJourneyUI(0);
-    }
-
-    // 6. Act 3: Direct Sideways Scroll Stream Carousel (Arrow Controls + Drag-to-Scroll)
+    // 5. Act 3: Direct Sideways Scroll Stream Carousel (Arrow Controls + Drag-to-Scroll)
     const streamTrack = document.getElementById('stream-carousel-track');
     const scrollLeftBtn = document.getElementById('stream-scroll-left');
     const scrollRightBtn = document.getElementById('stream-scroll-right');
 
     if (streamTrack) {
-      // Arrow button click handlers
       if (scrollLeftBtn) {
         scrollLeftBtn.addEventListener('click', () => {
           streamTrack.scrollBy({ left: -390, behavior: 'smooth' });
@@ -1209,7 +1282,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Mouse drag-to-scroll interaction
       let isDown = false;
       let startX;
       let scrollLeft;
@@ -1235,11 +1307,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - streamTrack.offsetLeft;
-        const walk = (x - startX) * 1.5; // Drag scroll multiplier
+        const walk = (x - startX) * 1.5;
         streamTrack.scrollLeft = scrollLeft - walk;
       });
 
-      // Hook up "Explore Stream ↗" buttons on cards to auto-filter and smooth-scroll
       document.querySelectorAll('.explore-stream-trigger').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
@@ -1258,26 +1329,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // 5. Campus Scrollytelling Scroll-Triggered Reveals
-    const campusReveals = document.querySelectorAll('.campus-reveal');
-    if (campusReveals.length > 0) {
-      if ('IntersectionObserver' in window) {
-        const campusObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-revealed');
-              campusObserver.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -40px 0px'
-        });
-        campusReveals.forEach(el => campusObserver.observe(el));
-      } else {
-        campusReveals.forEach(el => el.classList.add('is-revealed'));
-      }
-    }
+    // Initialize Subsystems
+    initAnimatedCounters();
+    initHeroEntranceSequence();
+    initCareerJourneyScrolly();
+    initScrollReveals();
   }
 
   // ==========================================================================
@@ -1325,35 +1381,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Check if intro was already played in this browser session
-    let introAlreadyPlayed = false;
-    try {
-      introAlreadyPlayed = sessionStorage.getItem('gtec_intro_played') === 'true';
-    } catch (e) {}
+    // PHASE 3 & PHASE 9 COMPLIANCE:
+    // Ensure instant page usability without blocking full-screen splash screens or viewport hijacking.
+    // The hero section enters directly with its choreographed 1.2s sequence.
+    // The 3D intro remains available on-demand via the Replay button.
+    introStage.classList.add('intro-hidden');
+    introStage.style.display = 'none';
+    document.body.classList.remove('overflow-hidden');
+    ensureHeroVisible();
 
-    // IF ALREADY PLAYED: Skip loading animation on refresh, show hero immediately
-    if (introAlreadyPlayed) {
-      introStage.classList.add('intro-hidden');
-      introStage.style.display = 'none';
-      document.body.classList.remove('overflow-hidden');
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      document.documentElement.scrollTop = 0;
-      if (document.body) document.body.scrollTop = 0;
-      ensureHeroVisible();
-
-      // Setup Replay button handler so user can still manually watch whenever they want
-      if (replayBtn) {
-        replayBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-          document.documentElement.scrollTop = 0;
-          if (document.body) document.body.scrollTop = 0;
-          document.documentElement.classList.remove('intro-skip');
-          buildAndPlayIntro();
-        });
-      }
-      return;
+    // Setup Replay button handler so user can still manually watch on demand
+    if (replayBtn) {
+      replayBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+        document.documentElement.classList.remove('intro-skip');
+        buildAndPlayIntro();
+      });
     }
+    return;
 
     // DOM Elements inside the 3D Laptop Rig
     const laptopRig = document.getElementById('laptop-3d-rig');
