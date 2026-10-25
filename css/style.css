@@ -2518,7 +2518,19 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 16px 32px -8px rgba(29, 78, 216, 0.12);
 }
 
-/* Home CTA Snapshot Blue Boxes Micro-Interaction */
+/* Home CTA Banner Box */
+.cta-banner-box {
+  background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 45%, #0E2A78 100%);
+  box-shadow: 0 20px 50px -12px rgba(29, 78, 216, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transition: transform 0.35s var(--ease-cinematic), box-shadow 0.35s var(--ease-cinematic);
+}
+
+.cta-banner-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 60px -12px rgba(29, 78, 216, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Home CTA Snapshot Cards Micro-Interaction */
 #home-cta .grid > div {
   transition: transform 0.28s var(--ease-cinematic), 
               box-shadow 0.28s var(--ease-cinematic), 
@@ -2527,7 +2539,8 @@ input:focus, select:focus, textarea:focus {
 
 #home-cta .grid > div:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 28px -6px rgba(29, 78, 216, 0.25);
+  border-color: #1D4ED8;
+  box-shadow: 0 14px 28px -6px rgba(15, 23, 42, 0.08);
 }
 
 /* Floating WhatsApp Button Restrained Micro-Interaction */

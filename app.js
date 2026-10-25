@@ -1364,7 +1364,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. SECTION 8: ADMISSIONS CTA & CAMPUS SNAPSHOT
     const ctaSection = document.getElementById('home-cta');
     if (ctaSection) {
-      const ctaContent = ctaSection.querySelector('.max-w-3xl');
+      const ctaBanner = ctaSection.querySelector('.cta-banner-box') || ctaSection.querySelector('.max-w-5xl') || ctaSection.querySelector('.max-w-3xl');
       const infoBoxes = ctaSection.querySelectorAll('.grid > div');
 
       const tl = gsap.timeline({
@@ -1375,16 +1375,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      if (ctaContent) {
-        tl.fromTo(ctaContent.children, 
-          { y: 25, opacity: 0 }, 
-          { y: 0, opacity: 1, duration: 0.65, stagger: 0.1, ease: 'power2.out' }
+      if (ctaBanner) {
+        tl.fromTo(ctaBanner, 
+          { y: 35, opacity: 0, scale: 0.97 }, 
+          { y: 0, opacity: 1, scale: 1, duration: 0.75, ease: 'power2.out' }
         );
       }
       if (infoBoxes.length > 0) {
         tl.fromTo(infoBoxes, 
-          { y: 30, opacity: 0, scale: 0.97 }, 
-          { y: 0, opacity: 1, scale: 1, duration: 0.65, stagger: 0.12, ease: 'power2.out' }, 
+          { y: 25, opacity: 0, scale: 0.98 }, 
+          { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, 
           '-=0.35'
         );
       }
