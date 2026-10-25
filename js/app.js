@@ -164,8 +164,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const filtered = getFilteredCourses();
     const toShow = filtered.slice(0, state.visibleCount);
-
     const hasActiveFilters = state.selectedCategory !== 'all' || state.selectedLevel !== 'all' || state.searchQuery.trim().length > 0;
+
+    // Toggle Clear All Filters button
+    if (resetFiltersBtn) {
+      if (hasActiveFilters) {
+        resetFiltersBtn.classList.remove('hidden');
+      } else {
+        resetFiltersBtn.classList.add('hidden');
+      }
+    }
+
+    // Empty state handling
+    if (filtered.length === 0) {
+      coursesGrid.innerHTML = '';
+      if (emptyState) emptyState.classList.remove('hidden');
+      if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+      if (courseCountBadge) {
+        courseCountBadge.textContent = 'No matching courses found (0 of 24)';
+      }
+      return;
+    }
+
+    if (emptyState) emptyState.classList.add('hidden');
 
     // Update Result Count Badge
     if (courseCountBadge) {
@@ -183,25 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-
-    // Toggle Clear All Filters button
-    if (resetFiltersBtn) {
-      if (hasActiveFilters) {
-        resetFiltersBtn.classList.remove('hidden');
-      } else {
-        resetFiltersBtn.classList.add('hidden');
-      }
-    }
-
-    // Empty state handling
-    if (filtered.length === 0) {
-      coursesGrid.innerHTML = '';
-      emptyState.classList.remove('hidden');
-      if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
-      return;
-    }
-
-    emptyState.classList.add('hidden');
 
     const html = toShow.map(c => {
       const thumb = COURSE_THUMBNAILS[c.id] || CATEGORY_DEFAULT_IMAGES[c.categoryKey] || 'assets/cat-software.webp';
@@ -916,6 +918,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isReduced) {
       statNumbers.forEach(counter => {
         const target = parseFloat(counter.getAttribute('data-target'));
+        if (isNaN(target)) return;
         const isDecimal = target % 1 !== 0;
         counter.textContent = isDecimal ? target.toFixed(1) : target;
       });
@@ -923,47 +926,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let animatedStats = false;
-    const countObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animatedStats) {
-          animatedStats = true;
-          statNumbers.forEach((counter, idx) => {
-            const target = parseFloat(counter.getAttribute('data-target'));
-            const isDecimal = target % 1 !== 0;
-            const duration = 1250;
-            const start = 0;
-            const startTime = performance.now();
+    const triggerCountAnimation = () => {
+      if (animatedStats) return;
+      animatedStats = true;
 
-            const updateNumber = (now) => {
-              const elapsed = now - startTime;
-              const progress = Math.min(elapsed / duration, 1);
-              // Ease Out Expo: snappy initial count, athletic deceleration
-              const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-              const current = start + (target - start) * easeOut;
+      statNumbers.forEach((counter, idx) => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        if (isNaN(target)) return;
+        const isDecimal = target % 1 !== 0;
+        const duration = 1250;
+        const start = 0;
+        const startTime = performance.now();
 
-              counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+        const updateNumber = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease Out Expo: snappy initial count, athletic deceleration
+          const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const current = start + (target - start) * easeOut;
 
-              if (progress < 1) {
-                requestAnimationFrame(updateNumber);
-              } else {
-                counter.textContent = isDecimal ? target.toFixed(1) : target;
-              }
-            };
+          counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
 
-            setTimeout(() => {
-              requestAnimationFrame(updateNumber);
-            }, idx * 70);
-          });
-          countObserver.disconnect();
-        }
+          if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+          } else {
+            counter.textContent = isDecimal ? target.toFixed(1) : target;
+          }
+        };
+
+        setTimeout(() => {
+          counter.textContent = isDecimal ? '0.0' : '0';
+          requestAnimationFrame(updateNumber);
+        }, idx * 70);
       });
-    }, { threshold: 0.25 });
+    };
 
-    const statsSection = document.getElementById('stats-section');
-    if (statsSection) {
-      countObserver.observe(statsSection);
+    if ('IntersectionObserver' in window) {
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            triggerCountAnimation();
+            countObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px 50px 0px' });
+
+      const statsSection = document.getElementById('stats-section');
+      if (statsSection) {
+        countObserver.observe(statsSection);
+      } else {
+        statNumbers.forEach(el => countObserver.observe(el));
+      }
     } else {
-      statNumbers.forEach(el => countObserver.observe(el));
+      triggerCountAnimation();
     }
   }
 
