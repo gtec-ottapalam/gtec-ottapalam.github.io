@@ -383,140 +383,156 @@
 
 
           <!-- RIGHT COLUMN: Direct Fast-Track Admission Enquiry Form & Roadmap -->
-          <div class="lg:col-span-5 space-y-6">
+          <div class="lg:col-span-5 space-y-6 lg:pr-12 xl:pr-6">
             
             <!-- Admission Enquiry Form Card -->
-            <div class="bg-white text-[#0F172A] p-6 sm:p-8 rounded-3xl border border-[#D5DFEC] shadow-xl relative sticky top-28">
+            <div class="bg-white text-[#0F172A] p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl border border-[#CBD5E1] shadow-lg shadow-slate-200/50 relative sticky top-24 sm:top-28 w-full max-w-[480px] mx-auto lg:max-w-none">
               
-              <div class="mb-5 pb-5 border-b border-[#E2E8F0]">
-                <div class="flex items-center justify-between">
-                  <span class="inline-block text-[11px] font-black text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-3 py-1 rounded-full uppercase tracking-wider">
+              <div class="mb-4 pb-4 border-b border-[#E2E8F0]">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                  <span class="inline-flex items-center text-[10px] sm:text-[11px] font-black text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-2.5 sm:px-3 py-1 rounded-full uppercase tracking-wider">
                     Direct Admissions Desk
                   </span>
-                  <span class="text-xs font-bold text-[#64748B] flex items-center gap-1">
+                  <span class="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-[#64748B] shrink-0">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     Online Active
                   </span>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-black text-[#0F172A] tracking-tight mt-2">
+                <h3 class="text-lg sm:text-xl md:text-[22px] font-black text-[#0F172A] tracking-tight mt-2.5 leading-snug">
                   Book Free Career Counselling
                 </h3>
-                <p class="text-xs text-[#475569] mt-1 font-medium leading-relaxed">
+                <p class="text-xs sm:text-[13px] text-[#475569] mt-1 font-medium leading-relaxed">
                   Fill your details below to receive syllabus PDFs, fee concession details &amp; available batch timings directly on your WhatsApp.
                 </p>
               </div>
 
-              <form id="enquiry-form" class="space-y-4">
+              <form id="enquiry-form" class="space-y-3.5">
                 <div>
-                  <label for="enquiry-name" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
-                    Your Full Name <span class="text-[#1D4ED8]">*</span>
+                  <label for="enquiry-name" class="block text-[11px] sm:text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+                    Your Full Name <span class="text-[#1D4ED8] font-bold" aria-hidden="true">*</span>
                   </label>
                   <input 
                     type="text" 
                     id="enquiry-name" 
+                    name="name"
                     required 
                     placeholder="e.g. Rahul Menon" 
-                    class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+                    class="w-full bg-[#F8FAFC] border border-[#CBD5E1] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] placeholder:text-[#94A3B8] px-3.5 sm:px-4 h-[54px] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 transition-all"
                   >
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label for="enquiry-phone" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
-                      WhatsApp Mobile <span class="text-[#1D4ED8]">*</span>
+                    <label for="enquiry-phone" class="block text-[11px] sm:text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+                      WhatsApp Mobile <span class="text-[#1D4ED8] font-bold" aria-hidden="true">*</span>
                     </label>
                     <input 
                       type="tel" 
                       id="enquiry-phone" 
+                      name="phone"
                       required 
                       placeholder="e.g. 9995955501" 
-                      class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+                      class="w-full bg-[#F8FAFC] border border-[#CBD5E1] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] placeholder:text-[#94A3B8] px-3.5 sm:px-4 h-[54px] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 transition-all"
                     >
                   </div>
                   <div>
-                    <label for="enquiry-email" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+                    <label for="enquiry-email" class="block text-[11px] sm:text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
                       Email Address
                     </label>
                     <input 
                       type="email" 
                       id="enquiry-email" 
+                      name="email"
                       placeholder="name@email.com" 
-                      class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+                      class="w-full bg-[#F8FAFC] border border-[#CBD5E1] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] placeholder:text-[#94A3B8] px-3.5 sm:px-4 h-[54px] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 transition-all"
                     >
                   </div>
                 </div>
 
                 <div>
-                  <label for="enquiry-course-select" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
-                    Interested Program / Course <span class="text-[#1D4ED8]">*</span>
+                  <label for="enquiry-course-select" class="block text-[11px] sm:text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+                    Interested Program / Course <span class="text-[#1D4ED8] font-bold" aria-hidden="true">*</span>
                   </label>
-                  <select 
-                    id="enquiry-course-select" 
-                    required
-                    class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
-                  >
-                    <!-- Populated dynamically by js/app.js -->
-                    <option value="">-- Choose a Course / Program --</option>
-                  </select>
+                  <div class="relative">
+                    <select 
+                      id="enquiry-course-select" 
+                      name="course"
+                      required
+                      class="w-full bg-[#F8FAFC] border border-[#CBD5E1] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] pl-3.5 sm:pl-4 pr-10 h-[54px] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 transition-all appearance-none cursor-pointer"
+                    >
+                      <!-- Populated dynamically by js/app.js -->
+                      <option value="">-- Choose a Course / Program --</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-[#64748B]">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
-                  <label for="enquiry-batch" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+                  <label for="enquiry-batch" class="block text-[11px] sm:text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
                     Preferred Batch Timing
                   </label>
-                  <select 
-                    id="enquiry-batch" 
-                    class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
-                  >
-                    <option value="Regular Morning (9 AM - 1 PM)">Regular Morning (9:00 AM - 1:00 PM)</option>
-                    <option value="Regular Afternoon (1:30 PM - 5:30 PM)">Regular Afternoon (1:30 PM - 5:30 PM)</option>
-                    <option value="Evening Batch (5:00 PM - 7:30 PM)">Evening Batch (5:00 PM - 7:30 PM)</option>
-                    <option value="Weekend Special (Sat &amp; Sun)">Weekend Special (Saturday / Sunday)</option>
-                    <option value="Flexible Lab Practice Hours">Flexible Lab Practice Hours</option>
-                  </select>
+                  <div class="relative">
+                    <select 
+                      id="enquiry-batch" 
+                      name="batch"
+                      class="w-full bg-[#F8FAFC] border border-[#CBD5E1] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] pl-3.5 sm:pl-4 pr-10 h-[54px] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="Regular Morning (9 AM - 1 PM)">Regular Morning (9:00 AM - 1:00 PM)</option>
+                      <option value="Regular Afternoon (1:30 PM - 5:30 PM)">Regular Afternoon (1:30 PM - 5:30 PM)</option>
+                      <option value="Evening Batch (5:00 PM - 7:30 PM)">Evening Batch (5:00 PM - 7:30 PM)</option>
+                      <option value="Weekend Special (Sat &amp; Sun)">Weekend Special (Saturday / Sunday)</option>
+                      <option value="Flexible Lab Practice Hours">Flexible Lab Practice Hours</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-[#64748B]">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
-                  <label for="enquiry-message" class="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
+                  <label for="enquiry-message" class="block text-[11px] sm:text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-1.5">
                     Educational Background or Questions
                   </label>
                   <textarea 
                     id="enquiry-message" 
+                    name="message"
                     rows="3" 
                     placeholder="Tell us about your qualification or what you want to achieve..." 
-                    class="w-full bg-[#F8FAFC] border border-[#D5DFEC] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] px-4 py-3 rounded-xl focus:outline-none transition-colors"
+                    class="w-full bg-[#F8FAFC] border border-[#CBD5E1] focus:border-[#1D4ED8] focus:bg-white text-sm text-[#0F172A] placeholder:text-[#94A3B8] px-3.5 sm:px-4 py-3 min-h-[110px] max-h-[130px] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D4ED8]/15 transition-all resize-y"
                   ></textarea>
                 </div>
 
                 <button 
                   type="submit" 
                   id="enquiry-submit-btn"
-                  class="w-full btn-accent-yellow active:scale-[0.99] text-[#0F172A] font-black text-sm py-4 px-6 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                  class="w-full bg-[#FACC15] hover:bg-[#EAB308] active:scale-[0.99] text-[#0B1220] font-black text-xs sm:text-sm md:text-base h-[58px] sm:h-[62px] px-4 sm:px-6 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer border border-[#FDE047]/80 whitespace-nowrap"
                 >
                   <span>Submit &amp; Connect on WhatsApp</span>
-                  <svg class="w-4 h-4 text-[#0F172A] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-4 h-4 text-[#0B1220] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                   </svg>
                 </button>
               </form>
 
               <!-- What happens next? -->
-              <div class="mt-6 pt-6 border-t border-[#E2E8F0]">
-                <h4 class="text-xs font-black uppercase tracking-wider text-[#0F172A] mb-3">
+              <div class="mt-4 pt-4 border-t border-[#E2E8F0]">
+                <h4 class="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#0F172A] mb-2.5">
                   What Happens After You Submit:
                 </h4>
-                <div class="space-y-2.5 text-xs text-[#475569] font-medium">
+                <div class="space-y-2 text-xs text-[#475569] font-medium">
                   <div class="flex items-start gap-2.5">
-                    <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1D4ED8] font-black flex items-center justify-center shrink-0 text-[10px]">1</span>
-                    <span>Instant WhatsApp notification with full curriculum PDF and current batch openings.</span>
+                    <span class="w-4 h-4 rounded-full bg-blue-100 text-[#1D4ED8] font-black flex items-center justify-center shrink-0 text-[10px]">1</span>
+                    <span class="leading-relaxed">Instant WhatsApp notification with full curriculum PDF and current batch openings.</span>
                   </div>
                   <div class="flex items-start gap-2.5">
-                    <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1D4ED8] font-black flex items-center justify-center shrink-0 text-[10px]">2</span>
-                    <span>1-on-1 telephone or in-person consultation with senior academic mentors.</span>
+                    <span class="w-4 h-4 rounded-full bg-blue-100 text-[#1D4ED8] font-black flex items-center justify-center shrink-0 text-[10px]">2</span>
+                    <span class="leading-relaxed">1-on-1 telephone or in-person consultation with senior academic mentors.</span>
                   </div>
                   <div class="flex items-start gap-2.5">
-                    <span class="w-5 h-5 rounded-full bg-blue-100 text-[#1D4ED8] font-black flex items-center justify-center shrink-0 text-[10px]">3</span>
-                    <span>Free campus visit &amp; hands-on trial session in our software and CAD laboratories.</span>
+                    <span class="w-4 h-4 rounded-full bg-blue-100 text-[#1D4ED8] font-black flex items-center justify-center shrink-0 text-[10px]">3</span>
+                    <span class="leading-relaxed">Free campus visit &amp; hands-on trial session in our software and CAD laboratories.</span>
                   </div>
                 </div>
               </div>

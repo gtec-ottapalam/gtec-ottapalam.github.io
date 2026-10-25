@@ -1703,6 +1703,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof GTEC_COURSES !== 'undefined' && Array.isArray(GTEC_COURSES) && GTEC_COURSES.length > 0) {
       populateEnquiryOptions();
       renderCourses();
+      attachCardListeners();
     } else {
       let attempts = 0;
       const timer = setInterval(() => {
@@ -1711,6 +1712,7 @@ document.addEventListener('DOMContentLoaded', () => {
           clearInterval(timer);
           populateEnquiryOptions();
           renderCourses();
+          attachCardListeners();
         } else if (attempts > 50) {
           clearInterval(timer);
           console.warn('Courses data not available after retries.');
@@ -1719,9 +1721,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Floating Action Button Clearance with Enquiry Submit Button on Mobile
+  function initFloatingActionClearance() {
+    const enquirySubmit = document.getElementById('enquiry-submit-btn');
+    const floatingBar = document.querySelector('.floating-actions-bar');
+    if (!enquirySubmit || !floatingBar || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && window.innerWidth <= 640) {
+          floatingBar.classList.add('floating-bar-mobile-docked');
+        } else {
+          floatingBar.classList.remove('floating-bar-mobile-docked');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(enquirySubmit);
+  }
+
   // Initialize all controllers
   initCourseCatalog();
   initScrollytelling();
   initCinematicLaptopIntro();
+  initFloatingActionClearance();
 });
+
 
