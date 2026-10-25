@@ -1157,32 +1157,42 @@ document.addEventListener('DOMContentLoaded', () => {
       updateMobileUI(0);
     }
 
-    // Desktop Pinned Scrollytelling (>= 768px) with GSAP ScrollTrigger
-    if (!isMobile && !isReduced && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && cards[0] && cards[1] && cards[2]) {
+    // Pinned Scrollytelling Engine for Desktop & Tablet (>= 768px)
+    if (!isReduced && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && cards[0] && cards[1] && cards[2]) {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Clean initial states
-      gsap.set(cards[0], { opacity: 1, y: 0, scale: 1, pointerEvents: 'auto' });
-      gsap.set(cards[1], { opacity: 0, y: 30, scale: 0.98, pointerEvents: 'none' });
-      gsap.set(cards[2], { opacity: 0, y: 30, scale: 0.98, pointerEvents: 'none' });
+      // Clean, deterministic initial states (autoAlpha manages visibility + opacity)
+      gsap.set(cards[0], { autoAlpha: 1, y: 0, scale: 1, pointerEvents: 'auto', zIndex: 10 });
+      gsap.set(cards[1], { autoAlpha: 0, y: 35, scale: 0.96, pointerEvents: 'none', zIndex: 9 });
+      gsap.set(cards[2], { autoAlpha: 0, y: 35, scale: 0.96, pointerEvents: 'none', zIndex: 8 });
 
-      // Scrubbed timeline pinned to section
+      // Target images for cinematic zoom/depth
+      const img1 = cards[0].querySelector('img');
+      const img2 = cards[1].querySelector('img');
+      const img3 = cards[2].querySelector('img');
+      if (img1) gsap.set(img1, { scale: 1.05 });
+      if (img2) gsap.set(img2, { scale: 1.05 });
+      if (img3) gsap.set(img3, { scale: 1.05 });
+
+      // Master Pinned Scrollytelling Timeline (Total virtual duration: 6.0 units for maximum precision)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=1800',
+          end: '+=2400',
           pin: true,
-          scrub: 0.8,
+          pinSpacing: true,
+          scrub: 0.35,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
           onUpdate: (self) => {
             const p = self.progress;
             if (progressBar) {
-              progressBar.style.width = Math.max(15, Math.min(100, Math.round(p * 100))) + '%';
+              progressBar.style.width = Math.max(10, Math.min(100, Math.round(p * 100))) + '%';
             }
             let activeIndex = 0;
-            if (p >= 0.70) activeIndex = 2;
-            else if (p >= 0.36) activeIndex = 1;
+            if (p >= 0.65) activeIndex = 2;
+            else if (p >= 0.32) activeIndex = 1;
 
             if (counter) counter.textContent = '0' + (activeIndex + 1);
             pills.forEach((pill, idx) => {
@@ -1193,37 +1203,77 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Background ambient glows subtle movement across full section
-      tl.to('.journey-ambient-glow-1', { x: 60, y: 35, duration: 3.0, ease: 'none' }, 0)
-        .to('.journey-ambient-glow-2', { x: -60, y: -35, duration: 3.0, ease: 'none' }, 0);
+      // Background ambient glows subtle organic movement
+      tl.to('.journey-ambient-glow-1', { x: 70, y: 40, duration: 6.0, ease: 'none' }, 0)
+        .to('.journey-ambient-glow-2', { x: -70, y: -40, duration: 6.0, ease: 'none' }, 0);
 
-      // Phase 1 -> Phase 2 Transition (0.4 to 0.9)
-      tl.to(cards[0], { opacity: 0, y: -25, scale: 0.97, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'none' }, 0.4)
-        .fromTo(cards[1], 
-          { opacity: 0, y: 25, scale: 0.97, pointerEvents: 'none' }, 
-          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'auto' }, 
-          0.4
-        )
-      // Phase 2 -> Phase 3 Transition (1.5 to 2.0)
-        .to(cards[1], { opacity: 0, y: -25, scale: 0.97, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'none' }, 1.5)
-        .fromTo(cards[2], 
-          { opacity: 0, y: 25, scale: 0.97, pointerEvents: 'none' }, 
-          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'auto' }, 
-          1.5
-        )
-        // Dedicated comfortable hold for Phase 3 before releasing pin (2.0 to 3.0)
-        .to({}, { duration: 1.0 });
+      // Card 1 image gentle settling during Phase 1 hold (0.0 to 1.8)
+      if (img1) tl.to(img1, { scale: 1.0, duration: 1.8, ease: 'none' }, 0);
 
-      // Milestone tabs click jump (smooth scroll via Lenis when available)
+      // ======================================================================
+      // TRANSITION 1 -> 2: Occurs at 1.8 to 2.4 (centered at ~33% of the scroll)
+      // ======================================================================
+      tl.to(cards[0], { 
+        autoAlpha: 0, 
+        y: -30, 
+        scale: 0.95, 
+        duration: 0.6, 
+        ease: 'power2.inOut', 
+        pointerEvents: 'none',
+        zIndex: 8
+      }, 1.8)
+      .to(cards[1], { 
+        autoAlpha: 1, 
+        y: 0, 
+        scale: 1, 
+        duration: 0.6, 
+        ease: 'power2.inOut', 
+        pointerEvents: 'auto',
+        zIndex: 10
+      }, 1.8);
+
+      // Card 2 image gentle settling during Phase 2 hold (2.4 to 3.8)
+      if (img2) tl.to(img2, { scale: 1.0, duration: 1.8, ease: 'none' }, 2.0);
+
+      // ======================================================================
+      // TRANSITION 2 -> 3: Occurs at 3.8 to 4.4 (centered at ~66% of the scroll)
+      // ======================================================================
+      tl.to(cards[1], { 
+        autoAlpha: 0, 
+        y: -30, 
+        scale: 0.95, 
+        duration: 0.6, 
+        ease: 'power2.inOut', 
+        pointerEvents: 'none',
+        zIndex: 8
+      }, 3.8)
+      .to(cards[2], { 
+        autoAlpha: 1, 
+        y: 0, 
+        scale: 1, 
+        duration: 0.6, 
+        ease: 'power2.inOut', 
+        pointerEvents: 'auto',
+        zIndex: 10
+      }, 3.8);
+
+      // Card 3 image gentle settling during Phase 3 hold (4.4 to 6.0)
+      if (img3) tl.to(img3, { scale: 1.0, duration: 1.6, ease: 'none' }, 4.0);
+
+      // Comfortable hold for Phase 3 before releasing pin
+      tl.to({}, { duration: 0.4 }, 5.6);
+
+      // Milestone tabs click jump (smooth scroll to exact center of that phase)
       pills.forEach((pill) => {
         pill.addEventListener('click', () => {
           const targetPhase = parseInt(pill.getAttribute('data-phase-index'), 10);
           const st = tl.scrollTrigger;
           if (!st) return;
-          const targetProgress = targetPhase === 0 ? 0.10 : (targetPhase === 1 ? 0.52 : 0.85);
+          // Target progress centers: Phase 0 = 12%, Phase 1 = 48%, Phase 2 = 85%
+          const targetProgress = targetPhase === 0 ? 0.12 : (targetPhase === 1 ? 0.48 : 0.85);
           const targetScroll = st.start + targetProgress * (st.end - st.start);
           if (window.lenis) {
-            window.lenis.scrollTo(targetScroll, { duration: 1.1 });
+            window.lenis.scrollTo(targetScroll, { duration: 1.0 });
           } else {
             window.scrollTo({ top: targetScroll, behavior: 'smooth' });
           }

@@ -55,8 +55,8 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
   <!-- Custom Styles (Supports both subfolder and flat root GitHub Pages deployment) -->
-  <link rel="stylesheet" href="css/style.css?v=20261025-v3">
-  <link rel="stylesheet" href="style.css?v=20261025-v3">
+  <link rel="stylesheet" href="css/style.css?v=20261025-v4">
+  <link rel="stylesheet" href="style.css?v=20261025-v4">
 
   <!-- Force browser to start at hero (disable scroll restoration & skip replay on refresh) -->
   <script>
@@ -767,15 +767,15 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
 
         <!-- Top Header & Scrubbed Timeline Progress -->
-        <div class="mb-8 lg:mb-10">
-          <div class="flex items-center justify-between gap-4 mb-3.5">
-            <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#FACC15] bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full shadow-xs">
+        <div class="mb-5 lg:mb-6">
+          <div class="flex items-center justify-between gap-4 mb-2.5">
+            <span class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#FACC15] bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1 rounded-full shadow-xs">
               <span class="w-2 h-2 rounded-full bg-[#FACC15] animate-ping"></span>
               <span>Interactive Career Journey</span>
             </span>
 
             <!-- Step Indicator -->
-            <div class="flex items-center gap-2 text-xs font-mono font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full shadow-xs">
+            <div class="flex items-center gap-2 text-xs font-mono font-bold text-white bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1 rounded-full shadow-xs">
               <span class="text-blue-200">Phase</span>
               <span id="journey-active-counter" class="text-[#FACC15] text-base font-black">01</span>
               <span class="text-white/40">/</span>
@@ -786,10 +786,10 @@
           <!-- Headline and Milestone Selector -->
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12]">
+              <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-black text-white tracking-tight leading-[1.15]">
                 Your Transformation at G-TEC Ottapalam
               </h2>
-              <p class="text-blue-100 text-xs sm:text-sm md:text-base mt-2 font-normal max-w-2xl leading-relaxed">
+              <p class="text-blue-100/90 text-xs sm:text-sm mt-1 font-normal max-w-2xl leading-relaxed">
                 Scroll to discover each milestone from your initial assessment to validated credentials and local career placement.
               </p>
             </div>
@@ -812,7 +812,7 @@
           </div>
 
           <!-- Connecting Timeline Track (Fills smoothly with scroll scrub) -->
-          <div class="journey-progress-track mt-6" aria-hidden="true">
+          <div class="journey-progress-track mt-4" aria-hidden="true">
             <div id="journey-progress-bar" class="journey-progress-fill" style="width: 33.33%;"></div>
           </div>
         </div>
@@ -822,25 +822,25 @@
           
           <!-- Card 1: Phase 01 -->
           <div id="journey-card-1" class="journey-deck-card" style="opacity: 1; transform: translateY(0px) scale(1); pointer-events: auto;">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
               <div class="lg:col-span-6 flex flex-col justify-center">
-                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-2 flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
                   Phase 01 &bull; Personal Roadmap &amp; Orientation
                 </span>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
+                <h3 class="text-xl sm:text-2xl lg:text-[26px] font-black text-[#0F172A] leading-snug mb-2.5">
                   Zero Tech Experience? We Build You From the Ground Up.
                 </h3>
-                <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
+                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed mb-4 font-normal">
                   Walk into our JRJ Complex Ottapalam centre for free 1:1 career guidance. Our senior mentors map out the exact curriculum and personalized learning roadmap tailored to your educational background and career goals.
                 </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Individual Assessment</span>
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Flexible Timings</span>
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Zero-Prerequisite Friendly</span>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">Individual Assessment</span>
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">Flexible Timings</span>
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">Zero-Prerequisite Friendly</span>
                 </div>
                 <div>
-                  <button type="button" class="trigger-enquiry-modal btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs cursor-pointer flex items-center gap-2">
+                  <button type="button" class="trigger-enquiry-modal btn-accent-yellow text-xs font-black px-4.5 py-2 shadow-xs cursor-pointer flex items-center gap-2">
                     <span>Book Free Counselling Session</span>
                     <i data-lucide="arrow-right" class="w-4 h-4 text-[#0F172A]"></i>
                   </button>
@@ -850,8 +850,8 @@
               <div class="lg:col-span-6">
                 <div class="journey-media-frame">
                   <img src="assets/real-photos/reception-lounge.jpg" alt="Reception and Career Counselling Lounge at G-TEC Ottapalam" loading="lazy">
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-6">
-                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-4">
+                    <span class="text-[11px] sm:text-xs font-bold text-white bg-[#0F172A]/85 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">
                       📍 Reception &amp; Career Counselling Lounge, JRJ Complex
                     </span>
                   </div>
@@ -862,25 +862,25 @@
 
           <!-- Card 2: Phase 02 -->
           <div id="journey-card-2" class="journey-deck-card" style="opacity: 0; transform: translateY(24px) scale(0.98); pointer-events: none;">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
               <div class="lg:col-span-6 flex flex-col justify-center">
-                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-2 flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
                   Phase 02 &bull; 100% Practical Lab Mastery
                 </span>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
+                <h3 class="text-xl sm:text-2xl lg:text-[26px] font-black text-[#0F172A] leading-snug mb-2.5">
                   No Boring Theory. You Learn By Actually Building.
                 </h3>
-                <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
+                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed mb-4 font-normal">
                   Work on dedicated, high-speed workstations with real-world scenarios: file live GST returns, manage real SAP ERP ledgers, code interactive web applications, and model 3D CAD blueprints with certified faculty assisting you at every desk.
                 </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">1:1 Workstation Ratio</span>
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Daily Doubt Clearing</span>
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Industry Software Stacks</span>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">1:1 Workstation Ratio</span>
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">Daily Doubt Clearing</span>
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">Industry Software Stacks</span>
                 </div>
                 <div>
-                  <a href="courses.html" class="btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs inline-flex items-center gap-2">
+                  <a href="courses.html" class="btn-accent-yellow text-xs font-black px-4.5 py-2 shadow-xs inline-flex items-center gap-2">
                     <span>Explore 24 Specialized Courses</span>
                     <i data-lucide="arrow-right" class="w-4 h-4 text-[#0F172A]"></i>
                   </a>
@@ -890,8 +890,8 @@
               <div class="lg:col-span-6">
                 <div class="journey-media-frame">
                   <img src="assets/real-photos/students-coding-lab.jpg" alt="Active Software Lab at G-TEC Ottapalam" loading="lazy">
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-6">
-                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-4">
+                    <span class="text-[11px] sm:text-xs font-bold text-white bg-[#0F172A]/85 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">
                       💻 1:1 Hands-On Software &amp; Coding Lab in Action
                     </span>
                   </div>
@@ -902,25 +902,25 @@
 
           <!-- Card 3: Phase 03 -->
           <div id="journey-card-3" class="journey-deck-card" style="opacity: 0; transform: translateY(24px) scale(0.98); pointer-events: none;">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
               <div class="lg:col-span-6 flex flex-col justify-center">
-                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-3 flex items-center gap-2">
+                <span class="text-xs font-bold text-[#1D4ED8] uppercase tracking-widest mb-2 flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-[#1D4ED8] animate-ping"></span>
                   Phase 03 &bull; Recognized Certification &amp; Local Placement
                 </span>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4">
+                <h3 class="text-xl sm:text-2xl lg:text-[26px] font-black text-[#0F172A] leading-snug mb-2.5">
                   Graduate with Recognized Credentials &amp; Job Placement in Palakkad District.
                 </h3>
-                <p class="text-sm sm:text-base text-[#475569] leading-relaxed mb-6 font-medium">
+                <p class="text-xs sm:text-sm text-[#475569] leading-relaxed mb-4 font-normal">
                   Receive government and recognized certificates verifiable online via QR codes and GEMs portal. Our dedicated placement wing conducts resume reviews, mock interviews, and provides placement assistance connecting you to reputed firms and local businesses across Palakkad district.
                 </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">NSDC / ISO 9001:2015</span>
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Mock Technical Rounds</span>
-                  <span class="text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-3 py-1.5 rounded-lg border border-[#BFDBFE]">Palakkad District Placement Support</span>
+                <div class="flex flex-wrap gap-1.5 mb-4">
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">NSDC / ISO 9001:2015</span>
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">Mock Technical Rounds</span>
+                  <span class="text-[11px] sm:text-xs bg-[#EFF6FF] text-[#1D4ED8] font-bold px-2.5 py-1 rounded-lg border border-[#BFDBFE]">Palakkad District Placement Support</span>
                 </div>
                 <div>
-                  <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="btn-accent-yellow text-xs font-black px-5 py-2.5 shadow-xs inline-flex items-center gap-2">
+                  <a href="https://gems.gtec.education/StudentApplicationForm/certificate_validation" target="_blank" rel="noopener noreferrer" class="btn-accent-yellow text-xs font-black px-4.5 py-2 shadow-xs inline-flex items-center gap-2">
                     <span>Verify G-TEC Certificate Online ↗</span>
                   </a>
                 </div>
@@ -929,8 +929,8 @@
               <div class="lg:col-span-6">
                 <div class="journey-media-frame">
                   <img src="assets/real-photos/training-lab-wide.jpg" alt="Training Lab and Placement at G-TEC Ottapalam" loading="lazy">
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-6">
-                    <span class="text-xs font-bold text-white bg-[#0F172A]/85 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/85 via-[#0F172A]/20 to-transparent flex items-end p-4">
+                    <span class="text-[11px] sm:text-xs font-bold text-white bg-[#0F172A]/85 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">
                       🏆 Air-Conditioned Training Lab &amp; Placement Wing
                     </span>
                   </div>
@@ -1647,8 +1647,8 @@
   </div>
 
   <!-- Scripts (Auto-loads from js/ or root if deployed flat on GitHub Pages) -->
-  <script src="js/courses-data.js?v=20261025-v3" onerror="this.onerror=null; var s=document.createElement('script'); s.src='courses-data.js?v=20261025-v3'; document.body.appendChild(s);"></script>
-  <script src="js/app.js?v=20261025-v3" onerror="this.onerror=null; var s=document.createElement('script'); s.src='app.js?v=20261025-v3'; document.body.appendChild(s);"></script>
+  <script src="js/courses-data.js?v=20261025-v4" onerror="this.onerror=null; var s=document.createElement('script'); s.src='courses-data.js?v=20261025-v4'; document.body.appendChild(s);"></script>
+  <script src="js/app.js?v=20261025-v4" onerror="this.onerror=null; var s=document.createElement('script'); s.src='app.js?v=20261025-v4'; document.body.appendChild(s);"></script>
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
