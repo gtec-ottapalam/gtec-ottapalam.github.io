@@ -326,6 +326,14 @@ document.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
     }
 
+    // Micro-interaction: Subtle card reveal stagger on render
+    if (typeof gsap !== 'undefined' && coursesGrid.children.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.fromTo(coursesGrid.children, 
+        { opacity: 0, y: 16, scale: 0.985 }, 
+        { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.04, ease: 'power2.out', overwrite: 'auto' }
+      );
+    }
+
     // Load More Visibility
     if (loadMoreBtn) {
       if (filtered.length <= 6) {
@@ -1415,6 +1423,139 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
+  // SUBPAGE SCROLL TRIGGER ANIMATIONS (Agency Quality Micro-Interactions)
+  // ==========================================================================
+  function initSubpageScrollTriggers() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // 1. Subpage Hero Banners Entrance (Skip on homepage which has cinematic intro)
+    if (!document.getElementById('hero') && !document.getElementById('cinematic-intro-stage')) {
+      const pageHero = document.querySelector('main > section:first-of-type') || document.querySelector('header.relative');
+      if (pageHero) {
+        const badge = pageHero.querySelector('.inline-flex');
+        const h1 = pageHero.querySelector('h1');
+        const p = pageHero.querySelector('p');
+
+        const heroTL = gsap.timeline({ defaults: { ease: 'power2.out' } });
+        if (badge) heroTL.fromTo(badge, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 });
+        if (h1) heroTL.fromTo(h1, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, '-=0.35');
+        if (p) heroTL.fromTo(p, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.35');
+      }
+    }
+
+    // 2. Programs page: Track blocks reveal
+    const trackIds = ['#track-software', '#track-accounting', '#track-multimedia', '#track-cad'];
+    trackIds.forEach((trackId) => {
+      const track = document.querySelector(trackId);
+      if (track) {
+        const imgFrame = track.querySelector('.campus-editorial-frame') || track.querySelector('img');
+        const textCol = track.querySelector('.lg\\:col-span-6:not(:has(img))') || track.querySelector('.space-y-4');
+        
+        const trackTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: track,
+            start: 'top 82%',
+            once: true
+          }
+        });
+
+        if (imgFrame) {
+          trackTL.fromTo(imgFrame, 
+            { y: 35, opacity: 0, scale: 0.97 }, 
+            { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' }
+          );
+        }
+        if (textCol) {
+          trackTL.fromTo(textCol, 
+            { y: 30, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' }, 
+            '-=0.45'
+          );
+        }
+      }
+    });
+
+    // 3. Why G-TEC page: Campus practical, mentoring, support sections
+    const whySections = ['#campus-practical', '#campus-mentoring', '#campus-support', '#campus-location-finale'];
+    whySections.forEach(secId => {
+      const sec = document.querySelector(secId);
+      if (sec) {
+        const cards = sec.querySelectorAll('.grid > div');
+        const header = sec.querySelector('.max-w-3xl') || sec.querySelector('h2');
+
+        const secTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top 82%',
+            once: true
+          }
+        });
+
+        if (header) {
+          secTL.fromTo(header, { y: 25, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' });
+        }
+        if (cards.length > 0) {
+          secTL.fromTo(cards, 
+            { y: 32, opacity: 0, scale: 0.98 }, 
+            { y: 0, opacity: 1, scale: 1, duration: 0.65, stagger: 0.12, ease: 'power2.out' }, 
+            '-=0.3'
+          );
+        }
+      }
+    });
+
+    // 4. Reviews page: Testimonials cards reveal
+    if (window.location.pathname.includes('reviews.html')) {
+      const reviewsContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3');
+      if (reviewsContainer) {
+        const reviewCards = reviewsContainer.querySelectorAll(':scope > div');
+        if (reviewCards.length > 0) {
+          gsap.fromTo(reviewCards, 
+            { y: 35, opacity: 0, scale: 0.98 }, 
+            { 
+              y: 0, 
+              opacity: 1, 
+              scale: 1, 
+              duration: 0.65, 
+              stagger: 0.08, 
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: reviewsContainer,
+                start: 'top 85%',
+                once: true
+              }
+            }
+          );
+        }
+      }
+    }
+
+    // 5. Contact page: Contact cards & interactive map embed reveal
+    if (window.location.pathname.includes('contact.html')) {
+      const contactCards = document.querySelectorAll('section:nth-of-type(2) .grid > div');
+      if (contactCards.length > 0) {
+        gsap.fromTo(contactCards, 
+          { y: 30, opacity: 0, scale: 0.98 }, 
+          { 
+            y: 0, 
+            opacity: 1, 
+            scale: 1, 
+            duration: 0.6, 
+            stagger: 0.1, 
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: contactCards[0],
+              start: 'top 85%',
+              once: true
+            }
+          }
+        );
+      }
+    }
+  }
+
+  // ==========================================================================
   // SCROLLYTELLING ENGINE (Inspired by armor-bd.com)
   // Lenis Smooth Scroll + GSAP ScrollTrigger Pinned Scrubbing + Cursor Follower
   // ==========================================================================
@@ -1598,6 +1739,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroEntranceSequence();
     initCareerJourneyScrolly();
     initHomepageSectionScrollAnimations();
+    initSubpageScrollTriggers();
   }
 
   // ==========================================================================
