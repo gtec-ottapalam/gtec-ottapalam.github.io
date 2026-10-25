@@ -334,6 +334,11 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
 
+    // Re-bind 3D tilt micro-interaction to rendered course cards
+    if (typeof initCard3DTilt === 'function') {
+      initCard3DTilt();
+    }
+
     // Load More Visibility
     if (loadMoreBtn) {
       if (filtered.length <= 6) {
@@ -1556,6 +1561,128 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
+  // CINEMATIC 3D CARD PERSPECTIVE TILT (Armor-bd / Apple Product Depth)
+  // ==========================================================================
+  function initCard3DTilt() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const cards = document.querySelectorAll(`
+      .course-card, 
+      .stat-card, 
+      #stats-section .stat-box, 
+      #programs-preview .group, 
+      #about-gtec .grid > div, 
+      .review-card, 
+      .tilt-card-3d,
+      #home-cta .grid > div
+    `);
+
+    cards.forEach(card => {
+      if (card.dataset.tiltInitialized) return;
+      card.dataset.tiltInitialized = 'true';
+
+      let isHovered = false;
+      let rafId = null;
+
+      card.addEventListener('mouseenter', () => {
+        isHovered = true;
+        card.style.transition = 'transform 0.12s ease-out, box-shadow 0.25s ease';
+      });
+
+      card.addEventListener('mousemove', (e) => {
+        if (!isHovered) return;
+        if (rafId) cancelAnimationFrame(rafId);
+
+        rafId = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const x = (e.clientX - centerX) / (rect.width / 2); // -1 to 1
+          const y = (e.clientY - centerY) / (rect.height / 2); // -1 to 1
+
+          const tiltX = -y * 6.5; // refined 6.5deg max tilt
+          const tiltY = x * 6.5;
+
+          card.style.transform = `perspective(900px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-5px) scale3d(1.018, 1.018, 1.018)`;
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        isHovered = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        card.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease';
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px) scale3d(1, 1, 1)';
+      });
+    });
+  }
+
+  // ==========================================================================
+  // CINEMATIC IMAGE PARALLAX ON SCROLL
+  // ==========================================================================
+  function initCinematicImageParallax() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const frames = document.querySelectorAll('.campus-editorial-frame, .parallax-img-container, #about-gtec .rounded-3xl');
+
+    frames.forEach(frame => {
+      const img = frame.querySelector('img');
+      if (!img) return;
+
+      frame.style.overflow = 'hidden';
+
+      gsap.fromTo(img, 
+        { yPercent: -7, scale: 1.08 },
+        {
+          yPercent: 7,
+          scale: 1.02,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: frame,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        }
+      );
+    });
+  }
+
+  // ==========================================================================
+  // MAGNETIC CTA BUTTONS (Agency Hover Micro-Interaction)
+  // ==========================================================================
+  function initMagneticButtons() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const magneticBtns = document.querySelectorAll('.btn-accent-yellow, .btn-magnetic, #replay-intro-btn, .floating-whatsapp-btn');
+
+    magneticBtns.forEach(btn => {
+      let raf = null;
+
+      btn.addEventListener('mousemove', (e) => {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const rect = btn.getBoundingClientRect();
+          const x = (e.clientX - (rect.left + rect.width / 2)) * 0.22;
+          const y = (e.clientY - (rect.top + rect.height / 2)) * 0.22;
+          btn.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+        });
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (raf) cancelAnimationFrame(raf);
+        btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        btn.style.transform = 'translate3d(0, 0, 0)';
+        setTimeout(() => {
+          btn.style.transition = '';
+        }, 400);
+      });
+    });
+  }
+
+  // ==========================================================================
   // SCROLLYTELLING ENGINE (Inspired by armor-bd.com)
   // Lenis Smooth Scroll + GSAP ScrollTrigger Pinned Scrubbing + Cursor Follower
   // ==========================================================================
@@ -1740,6 +1867,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCareerJourneyScrolly();
     initHomepageSectionScrollAnimations();
     initSubpageScrollTriggers();
+    initCard3DTilt();
+    initCinematicImageParallax();
+    initMagneticButtons();
   }
 
   // ==========================================================================

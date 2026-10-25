@@ -2557,6 +2557,38 @@ input:focus, select:focus, textarea:focus {
   transform: scale(0.96);
 }
 
+/* ==========================================================================
+   CINEMATIC 3D PERSPECTIVE TILT, IMAGE PARALLAX & MAGNETIC HOVER STYLES
+   ========================================================================== */
+
+/* 3D Perspective Card Container */
+.card-3d-tilt,
+.course-card,
+#programs-preview .group,
+#about-gtec .grid > div {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Parallax Image Containers */
+.campus-editorial-frame,
+.parallax-img-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.campus-editorial-frame img,
+.parallax-img-container img {
+  will-change: transform;
+}
+
+/* Magnetic Buttons */
+.btn-magnetic,
+.btn-accent-yellow {
+  will-change: transform;
+  display: inline-flex;
+}
+
 /* 4. ACCESSIBILITY & PREFERS-REDUCED-MOTION OVERRIDES */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
