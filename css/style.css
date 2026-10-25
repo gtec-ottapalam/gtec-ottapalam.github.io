@@ -1007,70 +1007,99 @@ h1, h2, h3, h4, h5, h6 {
   .course-card:hover,
   .course-card .card-thumb-img,
   .category-tab-btn,
-  .level-chip-btn {
+  .level-chip-btn,
+  .stat-box,
+  .stat-box:hover,
+  .stat-icon-wrap {
     transition: none !important;
     transform: none !important;
   }
 }
 
 /* ==========================================================================
-   Stats Highlights Section - Clean Light Card (Refined & Symmetrical)
+   Stats Highlights Section - Sophisticated Editorial Cards
    ========================================================================== */
 .stat-box {
   background: #FFFFFF;
-  border-radius: 20px;
+  border-radius: 14px;
   border: 1px solid #E2E8F0;
-  padding: 24px 20px;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 24px 22px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), 0 2px 6px rgba(15, 23, 42, 0.01);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between;
   height: 100%;
+  text-align: left;
 }
 
 .stat-box:hover {
   transform: translateY(-2px);
-  border-color: #BFDBFE;
-  box-shadow: 0 10px 24px -4px rgba(29, 78, 216, 0.08);
+  border-color: #93C5FD;
+  box-shadow: 0 12px 28px -4px rgba(29, 78, 216, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.02);
+}
+
+.stat-box-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  width: 100%;
 }
 
 .stat-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   background-color: #EFF6FF;
   color: #1D4ED8;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #DBEAFE;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
   flex-shrink: 0;
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .stat-box:hover .stat-icon-wrap {
   background-color: #DBEAFE;
-  border-color: #93C5FD;
+  border-color: #BFDBFE;
+}
+
+.stat-tag {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748B;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 2.5px 8px;
+  border-radius: 6px;
+  line-height: 1.4;
 }
 
 .stat-number-wrap {
   display: inline-flex;
   align-items: baseline;
-  justify-content: center;
-  gap: 3px;
-  height: 44px;
+  gap: 2px;
   line-height: 1;
+  margin-bottom: 6px;
 }
 
 .stat-number-val {
-  font-size: 2.25rem;
+  font-size: 2.125rem;
   font-weight: 900;
   color: #1D4ED8;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   line-height: 1;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
@@ -1078,12 +1107,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 640px) {
   .stat-number-val {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 }
 
 .stat-number-symbol {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #1D4ED8;
   line-height: 1;
@@ -1091,23 +1120,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-star-svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   color: #FACC15;
   fill: currentColor;
   flex-shrink: 0;
   align-self: center;
   transform: translateY(-2px);
-  filter: drop-shadow(0 1px 2px rgba(234, 179, 8, 0.25));
-}
-
-.stat-divider {
-  width: 28px;
-  height: 3px;
-  background-color: #FACC15;
-  border-radius: 9999px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-left: 3px;
+  filter: drop-shadow(0 1px 2px rgba(250, 204, 21, 0.35));
 }
 
 .stat-title {
@@ -1115,17 +1136,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: #0F172A;
   letter-spacing: -0.015em;
-  line-height: 1.25;
-  white-space: nowrap;
+  line-height: 1.3;
+  margin-bottom: 0;
 }
 
 .stat-desc {
   font-size: 0.75rem;
   color: #64748B;
-  font-weight: 500;
-  line-height: 1.45;
-  margin-top: 5px;
-  max-width: 210px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 10px;
 }
 
 /* ==========================================================================
