@@ -961,6 +961,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
+    // Use GSAP ScrollTrigger for coordinated section reveal and count-up
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      const statsSection = document.getElementById('stats-section');
+      if (statsSection) {
+        ScrollTrigger.create({
+          trigger: statsSection,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => {
+            gsap.fromTo('#stats-section .stat-box', 
+              { y: 32, opacity: 0, scale: 0.96 }, 
+              { y: 0, opacity: 1, scale: 1, duration: 0.7, stagger: 0.12, ease: 'power2.out' }
+            );
+            triggerCountAnimation();
+          }
+        });
+        return;
+      }
+    }
+
     if ('IntersectionObserver' in window) {
       const countObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -983,45 +1003,70 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // PHASE 3: HERO SECTION CINEMATIC ENTRANCE SEQUENCE
+  // PHASE 3: HERO & NAVIGATION CINEMATIC ENTRANCE SEQUENCE
   // ==========================================================================
   function initHeroEntranceSequence() {
     const hero = document.getElementById('hero');
     if (!hero) return;
 
-    const headline = document.getElementById('hero-headline');
-    const subtitle = document.getElementById('hero-subtitle');
-    const searchPill = document.getElementById('hero-search-pill');
-    const studentPhoto = document.getElementById('hero-student-photo');
-    const cardLeft = document.getElementById('hero-card-left');
-    const cardRight = document.getElementById('hero-card-right');
-    const laptopStage = document.querySelector('.laptop-stage-wrapper') || document.querySelector('.laptop-frame');
-
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
+    const announcement = document.getElementById('announcement-bar');
+    const header = document.getElementById('main-header');
+    const headline = document.getElementById('hero-headline');
+    const subtitle = document.getElementById('hero-subtitle');
+    const searchPill = document.getElementById('hero-search-pill');
+    const quickTags = document.querySelectorAll('.hero-quick-tag');
+    const studentPhoto = document.getElementById('hero-student-photo');
+    const cardLeft = document.getElementById('hero-card-left');
+    const cardRight = document.getElementById('hero-card-right');
+    const laptopStage = document.querySelector('.laptop-stage-wrapper') || document.querySelector('.laptop-frame');
+    const stars = document.querySelectorAll('.hero-accent-star-left, .hero-accent-star-right');
+
     if (typeof gsap !== 'undefined') {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
+      if (announcement) {
+        tl.fromTo(announcement, { y: -15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' }, 0);
+      }
+      if (header) {
+        tl.fromTo(header, { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, ease: 'power3.out' }, 0.05);
+        const navLinks = header.querySelectorAll('.nav-link-item');
+        if (navLinks.length > 0) {
+          tl.fromTo(navLinks, { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.05, ease: 'power2.out' }, 0.2);
+        }
+        const navBtn = header.querySelector('.btn-nav-cta');
+        if (navBtn) {
+          tl.fromTo(navBtn, { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.4)' }, 0.3);
+        }
+      }
+
       if (laptopStage) {
-        tl.fromTo(laptopStage, { scale: 0.98, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.75 });
+        tl.fromTo(laptopStage, { scale: 0.96, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.85, ease: 'power3.out' }, 0.1);
       }
       if (headline) {
-        tl.fromTo(headline, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65 }, '-=0.5');
+        tl.fromTo(headline, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, 0.25);
       }
       if (subtitle) {
-        tl.fromTo(subtitle, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 }, '-=0.45');
+        tl.fromTo(subtitle, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.4);
       }
       if (searchPill) {
-        tl.fromTo(searchPill, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 }, '-=0.4');
+        tl.fromTo(searchPill, { y: 18, opacity: 0, scale: 0.97 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' }, 0.5);
+      }
+      if (quickTags.length > 0) {
+        tl.fromTo(quickTags, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, stagger: 0.04, ease: 'power2.out' }, 0.6);
       }
       if (studentPhoto) {
-        tl.fromTo(studentPhoto, { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.65, ease: 'back.out(1.2)' }, '-=0.35');
+        tl.fromTo(studentPhoto, { scale: 0.88, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.75, ease: 'back.out(1.25)' }, 0.55);
       }
       if (cardLeft && cardRight) {
-        tl.fromTo(cardLeft, { x: -24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6 }, '-=0.4')
-          .fromTo(cardRight, { x: 24, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6 }, '-=0.5');
+        tl.fromTo(cardLeft, { x: -30, opacity: 0, scale: 0.92 }, { x: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' }, 0.65)
+          .fromTo(cardRight, { x: 30, opacity: 0, scale: 0.92 }, { x: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' }, 0.72);
+      }
+      if (stars.length > 0) {
+        tl.fromTo(stars, { scale: 0, opacity: 0, rotate: -20 }, { scale: 1, opacity: 0.8, rotate: 0, duration: 0.8, stagger: 0.1, ease: 'back.out(1.4)' }, 0.6);
       }
     }
   }
@@ -1100,17 +1145,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Clean initial states
       gsap.set(cards[0], { opacity: 1, y: 0, scale: 1, pointerEvents: 'auto' });
-      gsap.set(cards[1], { opacity: 0, y: 24, scale: 0.98, pointerEvents: 'none' });
-      gsap.set(cards[2], { opacity: 0, y: 24, scale: 0.98, pointerEvents: 'none' });
+      gsap.set(cards[1], { opacity: 0, y: 30, scale: 0.98, pointerEvents: 'none' });
+      gsap.set(cards[2], { opacity: 0, y: 30, scale: 0.98, pointerEvents: 'none' });
 
       // Scrubbed timeline pinned to section
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=1500',
+          end: '+=1800',
           pin: true,
-          scrub: 0.5,
+          scrub: 0.8,
           anticipatePin: 1,
           onUpdate: (self) => {
             const p = self.progress;
@@ -1118,8 +1163,8 @@ document.addEventListener('DOMContentLoaded', () => {
               progressBar.style.width = Math.max(15, Math.min(100, Math.round(p * 100))) + '%';
             }
             let activeIndex = 0;
-            if (p >= 0.65) activeIndex = 2;
-            else if (p >= 0.32) activeIndex = 1;
+            if (p >= 0.70) activeIndex = 2;
+            else if (p >= 0.36) activeIndex = 1;
 
             if (counter) counter.textContent = '0' + (activeIndex + 1);
             pills.forEach((pill, idx) => {
@@ -1130,56 +1175,242 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Stage 1 -> Stage 2
-      tl.to(cards[0], { opacity: 0, y: -20, scale: 0.98, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'none' }, 0.5)
-        .to(cards[1], { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'auto' }, 0.7)
-      // Stage 2 -> Stage 3
-        .to(cards[1], { opacity: 0, y: -20, scale: 0.98, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'none' }, 1.7)
-        .to(cards[2], { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power2.inOut', pointerEvents: 'auto' }, 1.9)
-        .to({}, { duration: 0.4 }); // Gentle hold before release
+      // Background ambient glows subtle movement across full section
+      tl.to('.journey-ambient-glow-1', { x: 60, y: 35, duration: 3.0, ease: 'none' }, 0)
+        .to('.journey-ambient-glow-2', { x: -60, y: -35, duration: 3.0, ease: 'none' }, 0);
 
-      // Milestone tabs click jump
+      // Phase 1 -> Phase 2 Transition (0.4 to 0.9)
+      tl.to(cards[0], { opacity: 0, y: -25, scale: 0.97, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'none' }, 0.4)
+        .fromTo(cards[1], 
+          { opacity: 0, y: 25, scale: 0.97, pointerEvents: 'none' }, 
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'auto' }, 
+          0.4
+        )
+      // Phase 2 -> Phase 3 Transition (1.5 to 2.0)
+        .to(cards[1], { opacity: 0, y: -25, scale: 0.97, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'none' }, 1.5)
+        .fromTo(cards[2], 
+          { opacity: 0, y: 25, scale: 0.97, pointerEvents: 'none' }, 
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.inOut', pointerEvents: 'auto' }, 
+          1.5
+        )
+        // Dedicated comfortable hold for Phase 3 before releasing pin (2.0 to 3.0)
+        .to({}, { duration: 1.0 });
+
+      // Milestone tabs click jump (smooth scroll via Lenis when available)
       pills.forEach((pill) => {
         pill.addEventListener('click', () => {
           const targetPhase = parseInt(pill.getAttribute('data-phase-index'), 10);
           const st = tl.scrollTrigger;
           if (!st) return;
-          const targetProgress = targetPhase === 0 ? 0.05 : (targetPhase === 1 ? 0.45 : 0.85);
+          const targetProgress = targetPhase === 0 ? 0.10 : (targetPhase === 1 ? 0.52 : 0.85);
           const targetScroll = st.start + targetProgress * (st.end - st.start);
-          window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+          if (window.lenis) {
+            window.lenis.scrollTo(targetScroll, { duration: 1.1 });
+          } else {
+            window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+          }
         });
       });
     }
   }
 
   // ==========================================================================
-  // PHASE 7: UNIFIED SCROLL REVEALS ENGINE
+  // PHASE 7: HOMEPAGE SECTIONS SCROLL REVEALS ENGINE (GSAP SCROLLTRIGGER)
   // ==========================================================================
-  function initScrollReveals() {
-    const reveals = document.querySelectorAll('.reveal-on-scroll, .campus-reveal');
-    if (reveals.length === 0) return;
-
+  function initHomepageSectionScrollAnimations() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      reveals.forEach(el => el.classList.add('is-revealed'));
+      document.querySelectorAll('.reveal-on-scroll, .campus-reveal').forEach(el => {
+        el.classList.add('is-revealed');
+      });
       return;
     }
 
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -30px 0px'
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      const reveals = document.querySelectorAll('.reveal-on-scroll, .campus-reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add('is-revealed'));
+      }
+      return;
+    }
+
+    // 1. SECTION 4: ABOUT G-TEC
+    const aboutSection = document.getElementById('about-gtec');
+    if (aboutSection) {
+      const header = aboutSection.querySelector('.max-w-3xl');
+      const cards = aboutSection.querySelectorAll('.grid > div');
+      const cta = aboutSection.querySelector('.text-center:last-child');
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutSection,
+          start: 'top 82%',
+          once: true
+        }
       });
 
-      reveals.forEach(el => observer.observe(el));
-    } else {
-      reveals.forEach(el => el.classList.add('is-revealed'));
+      if (header) {
+        tl.fromTo(header.children, 
+          { y: 25, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.65, stagger: 0.1, ease: 'power2.out' }
+        );
+      }
+      if (cards.length > 0) {
+        tl.fromTo(cards, 
+          { y: 35, opacity: 0, scale: 0.97 }, 
+          { y: 0, opacity: 1, scale: 1, duration: 0.7, stagger: 0.14, ease: 'power2.out' }, 
+          '-=0.35'
+        );
+      }
+      if (cta) {
+        tl.fromTo(cta, 
+          { y: 20, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 
+          '-=0.3'
+        );
+      }
+    }
+
+    // 2. SECTION 5: FOUR SPECIALIZED CAREER TRACKS
+    const progSection = document.getElementById('programs-preview');
+    if (progSection) {
+      const progHeader = progSection.querySelector('.flex-col');
+      const progCards = progSection.querySelectorAll('.program-preview-card');
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: progSection,
+          start: 'top 80%',
+          once: true
+        }
+      });
+
+      if (progHeader) {
+        tl.fromTo(progHeader, 
+          { y: 30, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.7, ease: 'power2.out' }
+        );
+      }
+      if (progCards.length > 0) {
+        tl.fromTo(progCards, 
+          { y: 40, opacity: 0, scale: 0.96 }, 
+          { y: 0, opacity: 1, scale: 1, duration: 0.75, stagger: 0.12, ease: 'power2.out' }, 
+          '-=0.4'
+        );
+      }
+
+      // Parallax background glow orbs
+      const glowOrbs = progSection.querySelectorAll('.blur-3xl');
+      if (glowOrbs.length > 0) {
+        gsap.to(glowOrbs, {
+          y: 40,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: progSection,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5
+          }
+        });
+      }
+    }
+
+    // 3. SECTION 7: STUDENT REVIEWS & GOOGLE TRUST
+    const reviewsSection = document.getElementById('reviews-preview');
+    if (reviewsSection) {
+      const revHeader = reviewsSection.querySelector('.text-center:first-child');
+      const revCards = reviewsSection.querySelectorAll('.grid > div');
+      const revLinks = reviewsSection.querySelector('.text-center:last-child');
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: reviewsSection,
+          start: 'top 82%',
+          once: true
+        }
+      });
+
+      if (revHeader) {
+        tl.fromTo(revHeader.children, 
+          { y: 25, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.65, stagger: 0.1, ease: 'power2.out' }
+        );
+      }
+      if (revCards.length > 0) {
+        tl.fromTo(revCards, 
+          { y: 35, opacity: 0, scale: 0.97 }, 
+          { y: 0, opacity: 1, scale: 1, duration: 0.7, stagger: 0.15, ease: 'power2.out' }, 
+          '-=0.35'
+        );
+      }
+      if (revLinks) {
+        tl.fromTo(revLinks, 
+          { y: 20, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out' }, 
+          '-=0.3'
+        );
+      }
+    }
+
+    // 4. SECTION 8: ADMISSIONS CTA & CAMPUS SNAPSHOT
+    const ctaSection = document.getElementById('home-cta');
+    if (ctaSection) {
+      const ctaContent = ctaSection.querySelector('.max-w-3xl');
+      const infoBoxes = ctaSection.querySelectorAll('.grid > div');
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ctaSection,
+          start: 'top 82%',
+          once: true
+        }
+      });
+
+      if (ctaContent) {
+        tl.fromTo(ctaContent.children, 
+          { y: 25, opacity: 0 }, 
+          { y: 0, opacity: 1, duration: 0.65, stagger: 0.1, ease: 'power2.out' }
+        );
+      }
+      if (infoBoxes.length > 0) {
+        tl.fromTo(infoBoxes, 
+          { y: 30, opacity: 0, scale: 0.97 }, 
+          { y: 0, opacity: 1, scale: 1, duration: 0.65, stagger: 0.12, ease: 'power2.out' }, 
+          '-=0.35'
+        );
+      }
+    }
+
+    // 5. GLOBAL FOOTER REVEAL
+    const footer = document.querySelector('footer');
+    if (footer) {
+      const cols = footer.querySelectorAll('.grid > div');
+      if (cols.length > 0) {
+        gsap.fromTo(cols, 
+          { y: 30, opacity: 0 }, 
+          { 
+            y: 0, 
+            opacity: 1, 
+            duration: 0.75, 
+            stagger: 0.12, 
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: footer,
+              start: 'top 90%',
+              once: true
+            }
+          }
+        );
+      }
     }
   }
 
@@ -1254,30 +1485,48 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animateCursor);
     }
 
-    // 4. Act 1: Hero Device Subtle Scale on Scroll
+    // 4. Act 1: Hero Device Subtle Scale & Multi-Plane Parallax on Scroll
     const laptopStage = document.querySelector('.laptop-stage-wrapper') || document.querySelector('.laptop-frame');
     const heroBackdrop = document.querySelector('.hero-backdrop-typography');
+    const cardLeft = document.getElementById('hero-card-left');
+    const cardRight = document.getElementById('hero-card-right');
+    const studentPhoto = document.getElementById('hero-student-photo');
     
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && laptopStage) {
-      gsap.timeline({
+      const heroExitTL = gsap.timeline({
         scrollTrigger: {
           trigger: '#hero',
           start: 'top top',
           end: 'bottom top',
           scrub: 1.2
         }
-      })
-      .to(laptopStage, {
-        scale: 1.02,
-        y: 25,
+      });
+
+      heroExitTL.to(laptopStage, {
+        scale: 0.98,
+        y: 35,
+        opacity: 0.95,
         ease: 'none'
-      })
-      .to(heroBackdrop, {
-        letterSpacing: '0.22em',
-        opacity: 0,
-        y: -50,
-        ease: 'none'
-      }, '<');
+      }, 0);
+
+      if (heroBackdrop) {
+        heroExitTL.to(heroBackdrop, {
+          letterSpacing: '0.22em',
+          opacity: 0.15,
+          y: -70,
+          ease: 'none'
+        }, 0);
+      }
+
+      if (cardLeft) {
+        heroExitTL.to(cardLeft, { y: -30, opacity: 0.75, ease: 'none' }, 0);
+      }
+      if (cardRight) {
+        heroExitTL.to(cardRight, { y: -45, opacity: 0.75, ease: 'none' }, 0);
+      }
+      if (studentPhoto) {
+        heroExitTL.to(studentPhoto, { y: 20, ease: 'none' }, 0);
+      }
     }
 
     // 5. Act 3: Direct Sideways Scroll Stream Carousel (Arrow Controls + Drag-to-Scroll)
@@ -1348,7 +1597,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnimatedCounters();
     initHeroEntranceSequence();
     initCareerJourneyScrolly();
-    initScrollReveals();
+    initHomepageSectionScrollAnimations();
   }
 
   // ==========================================================================

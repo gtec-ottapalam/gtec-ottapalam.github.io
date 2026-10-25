@@ -2223,18 +2223,20 @@ html.intro-skip #cinematic-intro-stage,
    Cohesive, 60fps GPU-Accelerated Motion Language
    ========================================================================== */
 
-/* 1. VIEWPORT SCROLL REVEALS */
+/* 1. VIEWPORT SCROLL REVEALS (Resilient Default - Never Hidden Without JS) */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(22px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity var(--dur-cinematic) var(--ease-cinematic), 
               transform var(--dur-cinematic) var(--ease-cinematic);
   will-change: opacity, transform;
 }
 
-.reveal-on-scroll.is-revealed {
+.campus-reveal {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity var(--dur-cinematic) var(--ease-cinematic), 
+              transform var(--dur-cinematic) var(--ease-cinematic);
 }
 
 .reveal-delay-1 { transition-delay: 75ms; }
@@ -2480,6 +2482,52 @@ input:focus, select:focus, textarea:focus {
   transform: translateY(-4px);
   border-color: #BFDBFE;
   box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(29, 78, 216, 0.05);
+}
+
+/* About Section Value Cards Micro-Interaction */
+#about-gtec .grid > div {
+  transition: transform 0.28s var(--ease-cinematic), 
+              box-shadow 0.28s var(--ease-cinematic), 
+              border-color 0.25s ease;
+}
+
+#about-gtec .grid > div:hover {
+  transform: translateY(-4px);
+  border-color: #BFDBFE;
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08);
+}
+
+#about-gtec .grid > div i {
+  transition: transform 0.25s var(--ease-cinematic);
+}
+
+#about-gtec .grid > div:hover i {
+  transform: scale(1.1);
+}
+
+/* Reviews Preview Cards Micro-Interaction */
+#reviews-preview .grid > div {
+  transition: transform 0.28s var(--ease-cinematic), 
+              box-shadow 0.28s var(--ease-cinematic), 
+              border-color 0.25s ease;
+}
+
+#reviews-preview .grid > div:hover {
+  transform: translateY(-4px);
+  border-color: #1D4ED8;
+  box-shadow: 0 16px 32px -8px rgba(29, 78, 216, 0.12);
+}
+
+/* Home CTA Snapshot Blue Boxes Micro-Interaction */
+#home-cta .grid > div {
+  transition: transform 0.28s var(--ease-cinematic), 
+              box-shadow 0.28s var(--ease-cinematic), 
+              border-color 0.25s ease;
+}
+
+#home-cta .grid > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -6px rgba(29, 78, 216, 0.25);
 }
 
 /* Floating WhatsApp Button Restrained Micro-Interaction */
