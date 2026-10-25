@@ -339,6 +339,11 @@ document.addEventListener('DOMContentLoaded', () => {
       initCard3DTilt();
     }
 
+    // Refresh ScrollTrigger calculations after dynamic course card layout changes
+    if (typeof ScrollTrigger !== 'undefined') {
+      setTimeout(() => ScrollTrigger.refresh(), 80);
+    }
+
     // Load More Visibility
     if (loadMoreBtn) {
       if (filtered.length <= 6) {
@@ -1688,6 +1693,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
 
   function initScrollytelling() {
+    // Unconditionally register GSAP plugins and set up layout lifecycle refreshes
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Re-calculate all trigger start/end positions once remote fonts and images finish loading
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          ScrollTrigger.refresh();
+        });
+      }
+
+      // Safeguard timed refreshes for late CSS and asset settlements
+      setTimeout(() => ScrollTrigger.refresh(), 300);
+      setTimeout(() => ScrollTrigger.refresh(), 1000);
+    }
+
     // 1. Lenis Smooth Scroll Setup
     let lenis = null;
     if (typeof Lenis !== 'undefined') {
@@ -1702,7 +1727,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.lenis = lenis;
 
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-          gsap.registerPlugin(ScrollTrigger);
           lenis.on('scroll', ScrollTrigger.update);
           gsap.ticker.add((time) => {
             lenis.raf(time * 1000);
@@ -1924,7 +1948,7 @@ document.addEventListener('DOMContentLoaded', () => {
     introStage.classList.add('intro-hidden');
     introStage.style.display = 'none';
     document.body.classList.remove('overflow-hidden');
-    ensureHeroVisible();
+    // Note: ensureHeroVisible() is only called inside finishIntro() to prevent aborting the initial entrance sequence.
 
     // Setup Replay button handler so user can still manually watch on demand
     if (replayBtn) {
