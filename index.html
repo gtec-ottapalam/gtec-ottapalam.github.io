@@ -1418,23 +1418,19 @@
   <!-- ==========================================================================
        SECTION 8: CLEAR CALL TO ACTION LINKING TO DEDICATED PAGES
        ========================================================================== -->
-  <section id="home-cta" class="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#1D4ED8] via-[#1E40AF] to-[#1D4ED8] text-white relative overflow-hidden">
-    <!-- Ambient Blue Glow Orbs -->
-    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-blue-400/20 blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-blue-300/15 blur-3xl pointer-events-none"></div>
-
+  <section id="home-cta" class="py-16 sm:py-20 md:py-24 bg-white text-[#0F172A] border-b border-[#E2E8F0] relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Center Banner Content -->
       <div class="max-w-3xl mx-auto text-center mb-12">
-        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#FACC15] bg-white/10 border border-white/20 px-4 py-1.5 rounded-full shadow-xs mb-4">
-          <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-[#FACC15]"></i>
+        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1D4ED8] bg-[#EFF6FF] border border-[#BFDBFE] px-4 py-1.5 rounded-full shadow-xs mb-4">
+          <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-[#1D4ED8]"></i>
           <span>Admissions Open for New Batches</span>
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-          Start Your Professional Career Journey Today
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0F172A] tracking-tight leading-tight mb-4">
+          Start Your Professional <span class="text-[#1D4ED8]">Career Journey</span> Today
         </h2>
-        <p class="text-blue-100 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+        <p class="text-[#475569] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
           Connect with our academic counsellors in Ottapalam. Receive syllabus outlines, fee structures, scholarship options, and upcoming batch schedules directly on WhatsApp.
         </p>
 
@@ -1442,7 +1438,7 @@
         <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <button 
             type="button" 
-            class="trigger-enquiry-modal w-full sm:w-auto btn-accent-yellow font-black text-xs sm:text-sm py-3.5 px-8 rounded-xl shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all"
+            class="trigger-enquiry-modal w-full sm:w-auto btn-accent-yellow font-black text-xs sm:text-sm py-3.5 px-8 rounded-xl shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all text-[#0F172A]"
           >
             <i data-lucide="message-circle" class="w-4 h-4 text-[#0F172A]"></i>
             <span>Enquire for Admission</span>
@@ -1450,15 +1446,15 @@
           
           <a 
             href="contact.html" 
-            class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-xs sm:text-sm py-3.5 px-7 rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all"
+            class="w-full sm:w-auto bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#1D4ED8] border border-[#BFDBFE] font-bold text-xs sm:text-sm py-3.5 px-7 rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all"
           >
-            <i data-lucide="map-pin" class="w-4 h-4 text-[#FACC15]"></i>
+            <i data-lucide="map-pin" class="w-4 h-4 text-[#1D4ED8]"></i>
             <span>Campus Location &amp; Map</span>
           </a>
 
           <a 
             href="courses.html" 
-            class="w-full sm:w-auto text-blue-100 hover:text-white font-semibold text-xs sm:text-sm py-3 px-4 transition-colors flex items-center justify-center gap-1.5"
+            class="w-full sm:w-auto text-[#1D4ED8] hover:text-[#1E40AF] font-bold text-xs sm:text-sm py-3 px-4 transition-colors flex items-center justify-center gap-1.5"
           >
             <span>Browse All 24 Courses</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -1466,32 +1462,37 @@
         </div>
       </div>
 
-      <!-- Campus Quick Snapshot Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10 border-t border-white/20 text-white/90">
-        <div class="flex items-start gap-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-xs">
+      <!-- Campus Quick Snapshot Cards (Blue Text Boxes on White Section) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-10 border-t border-[#E2E8F0]">
+        
+        <!-- Box 1: Campus Address -->
+        <div class="flex items-start gap-3.5 bg-gradient-to-br from-[#1D4ED8] to-[#1E40AF] p-5 rounded-2xl shadow-md border border-[#BFDBFE]/30 text-white transition-all hover:shadow-lg">
           <i data-lucide="map-pin" class="w-5 h-5 text-[#FACC15] shrink-0 mt-0.5"></i>
           <div class="text-xs">
-            <strong class="block text-white font-bold mb-0.5">Campus Address</strong>
-            <span>JRJ Complex, 2nd Floor, Bus Stand Shopping Complex, Ottapalam</span>
+            <strong class="block text-white font-bold mb-1 text-sm">Campus Address</strong>
+            <span class="text-blue-100 leading-relaxed block">JRJ Complex, 2nd Floor, Bus Stand Shopping Complex, Ottapalam</span>
           </div>
         </div>
 
-        <div class="flex items-start gap-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-xs">
+        <!-- Box 2: Admission Helpline -->
+        <div class="flex items-start gap-3.5 bg-gradient-to-br from-[#1D4ED8] to-[#1E40AF] p-5 rounded-2xl shadow-md border border-[#BFDBFE]/30 text-white transition-all hover:shadow-lg">
           <i data-lucide="phone-call" class="w-5 h-5 text-[#FACC15] shrink-0 mt-0.5"></i>
           <div class="text-xs">
-            <strong class="block text-white font-bold mb-0.5">Admission Helpline</strong>
-            <a href="tel:09995955501" class="hover:underline font-bold text-white">099959 55501</a>
-            <span class="block text-blue-200 text-[11px]">Mon – Sat: 9:00 AM – 6:00 PM</span>
+            <strong class="block text-white font-bold mb-1 text-sm">Admission Helpline</strong>
+            <a href="tel:09995955501" class="hover:underline font-extrabold text-white text-sm block">099959 55501</a>
+            <span class="block text-blue-200 text-[11px] mt-0.5">Mon – Sat: 9:00 AM – 6:00 PM</span>
           </div>
         </div>
 
-        <div class="flex items-start gap-3 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-xs">
+        <!-- Box 3: Batch Timings -->
+        <div class="flex items-start gap-3.5 bg-gradient-to-br from-[#1D4ED8] to-[#1E40AF] p-5 rounded-2xl shadow-md border border-[#BFDBFE]/30 text-white transition-all hover:shadow-lg">
           <i data-lucide="calendar" class="w-5 h-5 text-[#FACC15] shrink-0 mt-0.5"></i>
           <div class="text-xs">
-            <strong class="block text-white font-bold mb-0.5">Batch Timings</strong>
-            <span>Flexible Morning, Afternoon, Evening &amp; Weekend batches</span>
+            <strong class="block text-white font-bold mb-1 text-sm">Batch Timings</strong>
+            <span class="text-blue-100 leading-relaxed block">Flexible Morning, Afternoon, Evening &amp; Weekend batches</span>
           </div>
         </div>
+
       </div>
 
     </div>
